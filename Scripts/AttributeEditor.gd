@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+var uiOpen = false
+
 func get_variables():
 	var properties = []
 
@@ -79,6 +81,7 @@ func create_boolean_editor(selected, container, prop):
 		container.add_child(buttonPlus)
 
 func create_ui():
+	uiOpen = true
 	for child in get_children():
 		remove_child(child)
 
@@ -109,6 +112,7 @@ func create_ui():
 			
 func _on_close_button_pressed():
 		SelectedManager.set_selected(null)
+		uiOpen = false
 
 func _on_button_pressed(prop_name, change, value_label):
 		var selected = SelectedManager.selected
@@ -138,3 +142,8 @@ func _on_toggle_button_pressed(prop_name, value_label):
 func _ready() -> void:
 	create_ui()
 	SelectedManager.selected_changed.connect(create_ui)
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_text_clear_carets_and_selection"):
+		if uiOpen:
+			_on_close_button_pressed()

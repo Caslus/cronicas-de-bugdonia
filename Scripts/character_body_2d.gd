@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var VAR_JUMP_VELOCITY: float = 14.5
 @export var VAR_INT: int = 13
 @export var VAR_USE_GRAVITY: bool = true
+@export var RUN_MULTIPLIER: float = 1.5
 
 
 func _ready():
@@ -18,6 +19,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else:
 		velocity -= get_gravity() * delta * 2
+	
+	velocity.y = clamp(velocity.y, -1000.0, 1000.0)
 
 	var canMove = SelectedManager.selected == null
 	# Handle jump.
@@ -28,7 +31,10 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction and canMove:
-		velocity.x = direction * VAR_SPEED * 30
+		if Input.is_key_pressed((KEY_SHIFT)):
+			velocity.x = direction * VAR_SPEED * 30 * RUN_MULTIPLIER
+		else:
+			velocity.x = direction * VAR_SPEED * 30
 	else:
 		velocity.x = move_toward(velocity.x, 0, VAR_SPEED * 30)
 

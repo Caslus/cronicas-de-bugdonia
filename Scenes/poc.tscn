@@ -1,6 +1,7 @@
-[gd_scene load_steps=48 format=4 uid="uid://bhs0tcq33s1sc"]
+[gd_scene load_steps=47 format=3 uid="uid://bhs0tcq33s1sc"]
 
 [ext_resource type="Texture2D" uid="uid://c08s16xa2r7wh" path="res://Assets/icon.svg" id="1_0qo5a"]
+[ext_resource type="Texture2D" uid="uid://diughd3j6e4b8" path="res://Assets/teste.png" id="1_m1u6v"]
 [ext_resource type="Script" uid="uid://dauwgdi6g0ryd" path="res://Scripts/character_body_2d.gd" id="2_ux0tg"]
 [ext_resource type="Shader" uid="uid://d4f40oblnyfg0" path="res://Shaders/shiny.gdshader" id="4_35a4y"]
 [ext_resource type="Script" uid="uid://dy12jc5lwfsjh" path="res://Scripts/Selectable.gd" id="5_gv2ab"]
@@ -14,14 +15,15 @@
 [ext_resource type="Script" uid="uid://bdd460m5b8pte" path="res://Scripts/selected_manager.gd" id="9_kt8cb"]
 [ext_resource type="Texture2D" uid="uid://1u4ie3crxr7l" path="res://Assets/Character/Cutout/r_arm.png" id="10_7wpht"]
 [ext_resource type="Script" uid="uid://bu0efinbvylq0" path="res://Scripts/PlayerAnimation.gd" id="10_pxbtr"]
-[ext_resource type="Texture2D" uid="uid://coekt2m4m80nb" path="res://Assets/Tilesets/Grass.png" id="10_ux0tg"]
-[ext_resource type="Texture2D" uid="uid://cr6xfgiibjhga" path="res://Assets/Tilesets/Decoration/Decals.png" id="11_3x2lm"]
+[ext_resource type="Texture2D" uid="uid://b213hn5v7a8s0" path="res://Assets/cloud1.png" id="16_kt8cb"]
+[ext_resource type="Script" uid="uid://dyprl6i7cqri1" path="res://Scripts/Cloud.gd" id="17_pddq8"]
+[ext_resource type="Texture2D" uid="uid://d01147as4na42" path="res://Assets/cloud2.png" id="18_pddq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujg4g"]
-size = Vector2(128, 457)
+size = Vector2(2424, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iqnk"]
-size = Vector2(11.9943, 23.3706)
+size = Vector2(6.57736, 21.0853)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1iqnk"]
 shader = ExtResource("4_35a4y")
@@ -728,506 +730,45 @@ height = 2
 [sub_resource type="Gradient" id="Gradient_35a4y"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3x2lm"]
-texture = ExtResource("10_ux0tg")
-texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:0/0 = 0
-5:1/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-9:2/0 = 0
-8:2/0 = 0
-8:1/0 = 0
-7:1/0 = 0
-6:1/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-9:1/0 = 0
-10:2/0 = 0
-10:3/0 = 0
-8:4/0 = 0
-7:4/0 = 0
-6:4/0 = 0
-5:4/0 = 0
-4:4/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-3:3/0 = 0
-2:3/0 = 0
-1:3/0 = 0
-0:3/0 = 0
-4:2/0 = 0
-3:2/0 = 0
-2:2/0 = 0
-1:2/0 = 0
-0:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_35a4y"]
-texture = ExtResource("11_3x2lm")
-texture_region_size = Vector2i(8, 8)
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-2:5/0 = 0
-5:5/0 = 0
-8:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-15:5/0 = 0
-16:5/0 = 0
-17:5/0 = 0
-18:5/0 = 0
-19:5/0 = 0
-20:5/0 = 0
-21:5/0 = 0
-22:5/0 = 0
-23:5/0 = 0
-24:5/0 = 0
-25:5/0 = 0
-26:5/0 = 0
-27:5/0 = 0
-28:5/0 = 0
-29:5/0 = 0
-30:5/0 = 0
-37:5/0 = 0
-38:5/0 = 0
-2:6/0 = 0
-5:6/0 = 0
-8:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-15:6/0 = 0
-16:6/0 = 0
-17:6/0 = 0
-18:6/0 = 0
-19:6/0 = 0
-20:6/0 = 0
-21:6/0 = 0
-22:6/0 = 0
-23:6/0 = 0
-24:6/0 = 0
-25:6/0 = 0
-26:6/0 = 0
-27:6/0 = 0
-28:6/0 = 0
-29:6/0 = 0
-30:6/0 = 0
-31:6/0 = 0
-32:6/0 = 0
-33:6/0 = 0
-37:6/0 = 0
-38:6/0 = 0
-40:6/0 = 0
-2:7/0 = 0
-5:7/0 = 0
-8:7/0 = 0
-10:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-15:7/0 = 0
-16:7/0 = 0
-17:7/0 = 0
-18:7/0 = 0
-19:7/0 = 0
-20:7/0 = 0
-21:7/0 = 0
-22:7/0 = 0
-23:7/0 = 0
-24:7/0 = 0
-25:7/0 = 0
-26:7/0 = 0
-27:7/0 = 0
-28:7/0 = 0
-29:7/0 = 0
-37:7/0 = 0
-38:7/0 = 0
-39:7/0 = 0
-40:7/0 = 0
-2:8/0 = 0
-5:8/0 = 0
-8:8/0 = 0
-10:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-15:8/0 = 0
-16:8/0 = 0
-19:8/0 = 0
-20:8/0 = 0
-23:8/0 = 0
-24:8/0 = 0
-26:8/0 = 0
-27:8/0 = 0
-28:8/0 = 0
-29:8/0 = 0
-30:8/0 = 0
-31:8/0 = 0
-32:8/0 = 0
-33:8/0 = 0
-34:8/0 = 0
-37:8/0 = 0
-38:8/0 = 0
-39:8/0 = 0
-40:8/0 = 0
-47:8/0 = 0
-2:9/0 = 0
-5:9/0 = 0
-8:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-15:9/0 = 0
-16:9/0 = 0
-19:9/0 = 0
-20:9/0 = 0
-23:9/0 = 0
-24:9/0 = 0
-26:9/0 = 0
-27:9/0 = 0
-29:9/0 = 0
-30:9/0 = 0
-31:9/0 = 0
-32:9/0 = 0
-33:9/0 = 0
-34:9/0 = 0
-37:9/0 = 0
-38:9/0 = 0
-39:9/0 = 0
-40:9/0 = 0
-43:9/0 = 0
-44:9/0 = 0
-46:9/0 = 0
-47:9/0 = 0
-48:9/0 = 0
-2:10/0 = 0
-5:10/0 = 0
-8:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-13:10/0 = 0
-15:10/0 = 0
-16:10/0 = 0
-19:10/0 = 0
-20:10/0 = 0
-23:10/0 = 0
-24:10/0 = 0
-26:10/0 = 0
-27:10/0 = 0
-29:10/0 = 0
-30:10/0 = 0
-31:10/0 = 0
-32:10/0 = 0
-33:10/0 = 0
-34:10/0 = 0
-37:10/0 = 0
-38:10/0 = 0
-39:10/0 = 0
-40:10/0 = 0
-41:10/0 = 0
-42:10/0 = 0
-43:10/0 = 0
-44:10/0 = 0
-45:10/0 = 0
-46:10/0 = 0
-47:10/0 = 0
-48:10/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-5:12/0 = 0
-6:12/0 = 0
-8:12/0 = 0
-9:12/0 = 0
-12:12/0 = 0
-13:12/0 = 0
-14:12/0 = 0
-15:12/0 = 0
-16:12/0 = 0
-17:12/0 = 0
-18:12/0 = 0
-35:12/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-4:13/0 = 0
-5:13/0 = 0
-6:13/0 = 0
-8:13/0 = 0
-9:13/0 = 0
-10:13/0 = 0
-11:13/0 = 0
-12:13/0 = 0
-13:13/0 = 0
-14:13/0 = 0
-15:13/0 = 0
-16:13/0 = 0
-17:13/0 = 0
-18:13/0 = 0
-23:13/0 = 0
-32:13/0 = 0
-33:13/0 = 0
-34:13/0 = 0
-35:13/0 = 0
-36:13/0 = 0
-37:13/0 = 0
-38:13/0 = 0
-39:13/0 = 0
-40:13/0 = 0
-41:13/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
-4:14/0 = 0
-5:14/0 = 0
-6:14/0 = 0
-8:14/0 = 0
-9:14/0 = 0
-12:14/0 = 0
-13:14/0 = 0
-14:14/0 = 0
-15:14/0 = 0
-18:14/0 = 0
-19:14/0 = 0
-21:14/0 = 0
-22:14/0 = 0
-23:14/0 = 0
-24:14/0 = 0
-25:14/0 = 0
-26:14/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
-4:15/0 = 0
-5:15/0 = 0
-6:15/0 = 0
-8:15/0 = 0
-9:15/0 = 0
-10:15/0 = 0
-11:15/0 = 0
-12:15/0 = 0
-13:15/0 = 0
-14:15/0 = 0
-15:15/0 = 0
-16:15/0 = 0
-17:15/0 = 0
-18:15/0 = 0
-21:15/0 = 0
-23:15/0 = 0
-24:15/0 = 0
-25:15/0 = 0
-26:15/0 = 0
-27:15/0 = 0
-28:15/0 = 0
-1:16/0 = 0
-2:16/0 = 0
-3:16/0 = 0
-4:16/0 = 0
-5:16/0 = 0
-6:16/0 = 0
-21:16/0 = 0
-22:16/0 = 0
-23:16/0 = 0
-24:16/0 = 0
-25:16/0 = 0
-26:16/0 = 0
-27:16/0 = 0
-28:16/0 = 0
-3:17/0 = 0
-6:17/0 = 0
-21:17/0 = 0
-22:17/0 = 0
-25:17/0 = 0
-26:17/0 = 0
-5:19/0 = 0
-6:19/0 = 0
-7:19/0 = 0
-8:19/0 = 0
-15:19/0 = 0
-16:19/0 = 0
-17:19/0 = 0
-18:19/0 = 0
-5:20/0 = 0
-6:20/0 = 0
-7:20/0 = 0
-8:20/0 = 0
-15:20/0 = 0
-16:20/0 = 0
-17:20/0 = 0
-18:20/0 = 0
-1:21/0 = 0
-2:21/0 = 0
-3:21/0 = 0
-4:21/0 = 0
-5:21/0 = 0
-6:21/0 = 0
-7:21/0 = 0
-8:21/0 = 0
-9:21/0 = 0
-10:21/0 = 0
-11:21/0 = 0
-12:21/0 = 0
-13:21/0 = 0
-14:21/0 = 0
-15:21/0 = 0
-16:21/0 = 0
-17:21/0 = 0
-18:21/0 = 0
-19:21/0 = 0
-20:21/0 = 0
-1:22/0 = 0
-2:22/0 = 0
-3:22/0 = 0
-4:22/0 = 0
-5:22/0 = 0
-6:22/0 = 0
-7:22/0 = 0
-8:22/0 = 0
-9:22/0 = 0
-10:22/0 = 0
-11:22/0 = 0
-12:22/0 = 0
-13:22/0 = 0
-14:22/0 = 0
-15:22/0 = 0
-16:22/0 = 0
-17:22/0 = 0
-18:22/0 = 0
-19:22/0 = 0
-20:22/0 = 0
-1:23/0 = 0
-2:23/0 = 0
-3:23/0 = 0
-4:23/0 = 0
-5:23/0 = 0
-6:23/0 = 0
-7:23/0 = 0
-8:23/0 = 0
-9:23/0 = 0
-10:23/0 = 0
-11:23/0 = 0
-12:23/0 = 0
-13:23/0 = 0
-14:23/0 = 0
-15:23/0 = 0
-16:23/0 = 0
-17:23/0 = 0
-18:23/0 = 0
-19:23/0 = 0
-20:23/0 = 0
-1:24/0 = 0
-2:24/0 = 0
-3:24/0 = 0
-4:24/0 = 0
-5:24/0 = 0
-6:24/0 = 0
-7:24/0 = 0
-8:24/0 = 0
-9:24/0 = 0
-10:24/0 = 0
-11:24/0 = 0
-12:24/0 = 0
-13:24/0 = 0
-14:24/0 = 0
-15:24/0 = 0
-16:24/0 = 0
-17:24/0 = 0
-18:24/0 = 0
-19:24/0 = 0
-20:24/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_35a4y"]
-tile_size = Vector2i(8, 8)
-sources/0 = SubResource("TileSetAtlasSource_3x2lm")
-sources/1 = SubResource("TileSetAtlasSource_35a4y")
-
 [node name="POC" type="Node2D"]
+position = Vector2(0, -981)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 z_index = -10
-position = Vector2(474, 592)
-scale = Vector2(10.4, 1)
+position = Vector2(624, 961)
+scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("1_0qo5a")
+texture = ExtResource("1_m1u6v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 164.5)
+position = Vector2(-154, 148)
 shape = SubResource("RectangleShape2D_ujg4g")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(190, 223)
-scale = Vector2(10, 10)
+position = Vector2(960, 817)
 input_pickable = true
 script = ExtResource("2_ux0tg")
+RUN_MULTIPLIER = 2.375
 metadata/objectName = "Hero"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
 z_index = 5
-position = Vector2(0.113154, 6.87199)
+position = Vector2(0.113159, 57.4265)
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_1iqnk")
 
 [node name="Selectable" type="Sprite2D" parent="CharacterBody2D"]
 visible = false
 z_index = -1
 material = SubResource("ShaderMaterial_1iqnk")
-position = Vector2(0, 4.639)
-scale = Vector2(31.6754, 31.6754)
+position = Vector2(0, 40)
+scale = Vector2(321.419, 321.419)
 texture = SubResource("CanvasTexture_i8qhx")
 script = ExtResource("5_gv2ab")
 
 [node name="Sprite" type="Sprite2D" parent="CharacterBody2D"]
 z_index = 1
-scale = Vector2(0.113154, 0.113154)
 texture = ExtResource("6_pxbtr")
 offset = Vector2(0, 75)
 
@@ -1277,6 +818,10 @@ parameters/conditions/walk = false
 script = ExtResource("10_pxbtr")
 animation_tree = NodePath("../AnimationTree")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -67)
+scale = Vector2(0.666667, 0.666667)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
@@ -1320,6 +865,7 @@ offset_bottom = -71.0113
 text = "a"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Godrays" type="Sprite2D" parent="Square"]
 z_index = 100
@@ -1346,8 +892,21 @@ anim_speed_max = 109.0
 [node name="SelectedManager" type="Node" parent="."]
 script = ExtResource("9_kt8cb")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-z_index = -5
-scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAAAAAoAAAABAAMAAAABAAoAAAAAAAMAAAACAAoAAAADAAMAAAADAAoAAAABAAMAAAAEAAoAAAABAAMAAAAFAAoAAAACAAMAAAAGAAoAAAAAAAMAAAAHAAoAAAABAAMAAAAIAAoAAAAAAAMAAAAJAAoAAAACAAMAAAAKAAoAAAADAAMAAAALAAoAAAABAAMAAAAMAAoAAAAAAAMAAAANAAoAAAACAAMAAAAOAAoAAAABAAMAAAAPAAoAAAACAAMAAAAQAAoAAAAAAAMAAAARAAoAAAAAAAMAAAASAAoAAAACAAMAAAATAAoAAAABAAMAAAAUAAoAAAADAAMAAAAVAAoAAAADAAMAAAAWAAoAAAABAAMAAAAXAAoAAAACAAMAAAAYAAoAAAACAAMAAAAZAAoAAAABAAMAAAAaAAoAAAACAAMAAAAbAAoAAAACAAMAAAAcAAoAAAAAAAMAAAAdAAoAAAAAAAMAAAAAAAsAAAADAAEAAAABAAsAAAADAAEAAAACAAsAAAADAAEAAAADAAsAAAADAAEAAAAEAAsAAAADAAEAAAAFAAsAAAADAAEAAAAGAAsAAAADAAEAAAAHAAsAAAADAAEAAAAIAAsAAAADAAEAAAAJAAsAAAADAAEAAAAKAAsAAAADAAEAAAALAAsAAAADAAEAAAAMAAsAAAADAAEAAAANAAsAAAADAAEAAAAOAAsAAAADAAEAAAAPAAsAAAADAAEAAAAPAAwAAAADAAEAAAAQAAwAAAADAAEAAAAQAA0AAAADAAEAAAARAA0AAAADAAEAAAASAA0AAAADAAEAAAASAA4AAAADAAEAAAAAAAwAAAADAAEAAAAAAA0AAAADAAEAAAAAAA4AAAADAAEAAAAAAA8AAAADAAEAAAAAABAAAAADAAEAAAABAAwAAAADAAEAAAABAA0AAAADAAEAAAABAA4AAAADAAEAAAABAA8AAAAEAAQAAAABABAAAAADAAEAAAACAAwAAAADAAEAAAACAA0AAAADAAEAAAACAA4AAAADAAEAAAACAA8AAAADAAEAAAACABAAAAADAAEAAAADAAwAAAADAAEAAAADAA0AAAADAAEAAAADAA4AAAADAAEAAAADAA8AAAADAAEAAAADABAAAAADAAEAAAAEAAwAAAADAAEAAAAEAA0AAAADAAEAAAAEAA4AAAADAAEAAAAEAA8AAAADAAEAAAAEABAAAAADAAEAAAAFAAwAAAADAAEAAAAFAA0AAAADAAEAAAAFAA4AAAADAAEAAAAFAA8AAAADAAEAAAAFABAAAAADAAEAAAAGAAwAAAADAAEAAAAGAA0AAAADAAEAAAAGAA4AAAADAAEAAAAGAA8AAAADAAEAAAAGABAAAAADAAEAAAAHAAwAAAADAAEAAAAHAA0AAAADAAEAAAAHAA4AAAADAAEAAAAHAA8AAAADAAEAAAAHABAAAAADAAEAAAAIAAwAAAADAAEAAAAIAA0AAAADAAEAAAAIAA4AAAADAAEAAAAIAA8AAAADAAEAAAAIABAAAAADAAEAAAAJAAwAAAADAAEAAAAJAA0AAAADAAEAAAAJAA4AAAADAAEAAAAJAA8AAAADAAEAAAAJABAAAAADAAEAAAAKAAwAAAADAAEAAAAKAA0AAAADAAEAAAAKAA4AAAAIAAQAAAAKAA8AAAADAAEAAAAKABAAAAADAAEAAAALAAwAAAADAAEAAAALAA0AAAADAAEAAAALAA4AAAADAAEAAAALAA8AAAADAAEAAAALABAAAAADAAEAAAAMAAwAAAADAAEAAAAMAA0AAAADAAEAAAAMAA4AAAADAAEAAAAMAA8AAAADAAEAAAAMABAAAAADAAEAAAANAAwAAAADAAEAAAANAA0AAAADAAEAAAANAA4AAAADAAEAAAANAA8AAAADAAEAAAANABAAAAADAAEAAAAOAAwAAAADAAEAAAAOAA0AAAADAAEAAAAOAA4AAAADAAEAAAAOAA8AAAADAAEAAAAOABAAAAADAAEAAAAPAA0AAAADAAEAAAAPAA4AAAADAAEAAAAPAA8AAAADAAEAAAAPABAAAAADAAEAAAAQAAsAAAADAAEAAAAQAA4AAAADAAEAAAAQAA8AAAADAAEAAAAQABAAAAADAAEAAAARAAsAAAADAAEAAAARAAwAAAADAAEAAAARAA4AAAADAAEAAAARAA8AAAADAAEAAAARABAAAAADAAEAAAASAAsAAAADAAEAAAASAAwAAAADAAEAAAASAA8AAAADAAEAAAASABAAAAADAAEAAAATAAsAAAADAAEAAAATAAwAAAAIAAQAAAATAA0AAAAEAAQAAAATAA4AAAADAAEAAAATAA8AAAADAAEAAAATABAAAAADAAEAAAAUAAsAAAADAAEAAAAUAAwAAAADAAEAAAAUAA0AAAADAAEAAAAUAA4AAAADAAEAAAAUAA8AAAAIAAQAAAAUABAAAAADAAEAAAAVAAsAAAADAAEAAAAVAAwAAAADAAEAAAAVAA0AAAADAAEAAAAVAA4AAAADAAEAAAAVAA8AAAADAAEAAAAVABAAAAADAAEAAAAWAAsAAAADAAEAAAAWAAwAAAADAAEAAAAWAA0AAAADAAEAAAAWAA4AAAADAAEAAAAWAA8AAAADAAEAAAAWABAAAAADAAEAAAAXAAsAAAADAAEAAAAXAAwAAAADAAEAAAAXAA0AAAADAAEAAAAXAA4AAAADAAEAAAAXAA8AAAADAAEAAAAXABAAAAADAAEAAAAYAAsAAAADAAEAAAAYAAwAAAADAAEAAAAYAA0AAAADAAEAAAAYAA4AAAADAAEAAAAYAA8AAAADAAEAAAAYABAAAAADAAEAAAAZAAsAAAADAAEAAAAZAAwAAAADAAEAAAAZAA0AAAADAAEAAAAZAA4AAAADAAEAAAAZAA8AAAADAAEAAAAZABAAAAADAAEAAAAaAAsAAAADAAEAAAAaAAwAAAADAAEAAAAaAA0AAAADAAEAAAAaAA4AAAADAAEAAAAaAA8AAAADAAEAAAAaABAAAAADAAEAAAAbAAsAAAADAAEAAAAbAAwAAAADAAEAAAAbAA0AAAADAAEAAAAbAA4AAAAHAAQAAAAbAA8AAAADAAEAAAAbABAAAAADAAEAAAAcAAsAAAAIAAQAAAAcAAwAAAADAAEAAAAcAA0AAAADAAEAAAAcAA4AAAADAAEAAAAcAA8AAAADAAEAAAAcABAAAAADAAEAAAAdAAsAAAADAAEAAAAdAAwAAAADAAEAAAAdAA0AAAADAAEAAAAdAA4AAAADAAEAAAAdAA8AAAADAAEAAAAdABAAAAADAAEAAAAPAAAAAQABAAEAAAAPAAEAAQABAAIAAAAPAAIAAQABAAMAAAAPAAMAAQABAAQAAAAQAAAAAQACAAEAAAAQAAEAAQACAAIAAAAQAAIAAQACAAMAAAAQAAMAAQACAAQAAAAQAAQAAQACAAUAAAAQAAUAAQACAAYAAAAQAAYAAQACAAcAAAAQAAcAAQACAAgAAAAQAAgAAQACAAkAAAAQAAkAAQACAAoAAAARAAAAAQADAAEAAAARAAEAAQADAAIAAAARAAIAAQADAAMAAAARAAMAAQADAAQAAAAKAAYAAQAFABMAAAAKAAcAAQAFABQAAAAKAAgAAQATABcAAAAKAAkAAQATABgAAAALAAYAAQAGABMAAAALAAcAAQAGABQAAAALAAgAAQAUABcAAAALAAkAAQAUABgAAAA=")
-tile_set = SubResource("TileSet_35a4y")
+[node name="Cloud1" type="Sprite2D" parent="."]
+z_index = -20
+position = Vector2(1400, 612)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("16_kt8cb")
+script = ExtResource("17_pddq8")
+boundary = -600.0
+origin = 1400.0
+
+[node name="Cloud2" type="Sprite2D" parent="."]
+z_index = -11
+position = Vector2(1629, 1146)
+texture = ExtResource("18_pddq8")
+
+[node name="Cloud3" type="Sprite2D" parent="."]
+z_index = -11
+position = Vector2(290, 915)
+texture = ExtResource("18_pddq8")

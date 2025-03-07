@@ -11,9 +11,9 @@ func _physics_process(_delta: float) -> void:
 
 	# flip the sprite based on the direction
 	if player.velocity.x > 0:
-		player.get_node("Sprite").scale.x = -1 * 0.113
+		player.get_node("Sprite").scale.x = -1
 	elif player.velocity.x < 0:
-		player.get_node("Sprite").scale.x = 1 * 0.113
+		player.get_node("Sprite").scale.x = 1
 
 	
 	animation_tree.set("parameters/conditions/idle", idle)
