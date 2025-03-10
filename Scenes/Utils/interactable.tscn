@@ -1,0 +1,188 @@
+[gd_scene load_steps=10 format=3 uid="uid://cakt5wbo6p32p"]
+
+[ext_resource type="Script" uid="uid://bo4vamffar6p6" path="res://Scripts/Interactable.gd" id="1_ygnqw"]
+[ext_resource type="Texture2D" uid="uid://dk3rad88ysc88" path="res://Assets/UI/Exclamation.png" id="2_10esd"]
+[ext_resource type="Texture2D" uid="uid://0s2bs6ohh42v" path="res://Assets/UI/Key_E.png" id="3_10esd"]
+
+[sub_resource type="Animation" id="Animation_jsoyi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_fcsjv"]
+resource_name = "hover"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -120), Vector2(0, -130), Vector2(0, -120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n0dth"]
+resource_name = "popin"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.378929, 0.378929),
+"update": 0,
+"values": [Vector2(0, -120), Vector2(0, -120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.378929, 0.378929),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.378929, 0.378929),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_3k2vb"]
+resource_name = "popout"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.378929, 0.378929),
+"update": 0,
+"values": [Vector2(0, -120), Vector2(0, -120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.378929, 0.378929),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.378929, 0.378929),
+"update": 0,
+"values": [Vector2(0.6, 0.6), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cg4f0"]
+_data = {
+&"RESET": SubResource("Animation_jsoyi"),
+&"hover": SubResource("Animation_fcsjv"),
+&"popin": SubResource("Animation_n0dth"),
+&"popout": SubResource("Animation_3k2vb")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0dth"]
+size = Vector2(700, 250)
+
+[node name="Interactable" type="Node2D" groups=["interactable"]]
+script = ExtResource("1_ygnqw")
+
+[node name="Exclamation" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -120)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_10esd")
+
+[node name="KeyE" type="Sprite2D" parent="Exclamation"]
+position = Vector2(75, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_10esd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Exclamation"]
+libraries = {
+&"": SubResource("AnimationLibrary_cg4f0")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_n0dth")

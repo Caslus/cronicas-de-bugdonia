@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1u4ie3crxr7l"
-path="res://.godot/imported/r_arm.png-e1fe1fc721e59a4b95c307c7a2f42926.ctex"
+uid="uid://duouvr2jx74t3"
+path="res://.godot/imported/layer06_Rocks.png-ebf97a1f8e16a3ea2a88bd790992156f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/Cutout/r_arm.png"
-dest_files=["res://.godot/imported/r_arm.png-e1fe1fc721e59a4b95c307c7a2f42926.ctex"]
+source_file="res://Assets/test/layer06_Rocks.png"
+dest_files=["res://.godot/imported/layer06_Rocks.png-ebf97a1f8e16a3ea2a88bd790992156f.ctex"]
 
 [params]
 

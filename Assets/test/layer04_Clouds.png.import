@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gvvv874t4x51"
-path="res://.godot/imported/l_leg.png-20b5b95f7da39818246c22a0182e2018.ctex"
+uid="uid://b1a5s6wpjybfe"
+path="res://.godot/imported/layer04_Clouds.png-cf23535741928fa435eba622b76c314b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/Cutout/l_leg.png"
-dest_files=["res://.godot/imported/l_leg.png-20b5b95f7da39818246c22a0182e2018.ctex"]
+source_file="res://Assets/test/layer04_Clouds.png"
+dest_files=["res://.godot/imported/layer04_Clouds.png-cf23535741928fa435eba622b76c314b.ctex"]
 
 [params]
 

@@ -1,0 +1,27 @@
+[
+	{
+		"id": "1",
+		"text": "Hello, I am a test NPC.",
+		"options": [
+			{ "text": "That's really cool!", "next": "2" },
+			{ "text": "Why are you so ugly?", "next": "3" }
+		]
+	},
+	{
+		"id": "2",
+		"text": "Thank you! I try my best.",
+		"options": []
+	},
+	{
+		"id": "3",
+		"text": "That's not very nice.",
+		"options": [
+			{ "text": "I'm sorry, I didn't mean it.", "next": "4", "trigger": "ugly" }
+		]
+	},
+	{
+		"id": "4",
+		"text": "It's okay, I forgive you.",
+		"options": []
+	}
+]

@@ -1,20 +1,20 @@
 extends Node2D
 
 @export var animation_tree: AnimationTree
-@export var animation_player: AnimationPlayer
-@onready var player: CharacterBody2D = get_parent()
+@onready var character: CharacterBody2D = get_parent()
 
 func _physics_process(_delta: float) -> void:
-	var idle = !player.velocity.x and !player.velocity.y
-	var moving = player.velocity.x and !player.velocity.y
-	var jumping = player.velocity.y != 0
+	var idle = !character.velocity.x and !character.velocity.y
+	var moving = character.velocity.x and !character.velocity.y
+	var jumping = character.velocity.y != 0
 
 	# flip the sprite based on the direction
-	if player.velocity.x > 0:
-		player.get_node("Sprite").scale.x = -1
-	elif player.velocity.x < 0:
-		player.get_node("Sprite").scale.x = 1
+	if character.velocity.x > 0:
+		character.get_node("Sprite").scale.x = -1
+	elif character.velocity.x < 0:
+		character.get_node("Sprite").scale.x = 1
 
+	animation_tree.set("parameters/walk/TimeScale/scale", character.velocity.x / 300.0)
 	
 	animation_tree.set("parameters/conditions/idle", idle)
 	animation_tree.set("parameters/conditions/walk", moving)

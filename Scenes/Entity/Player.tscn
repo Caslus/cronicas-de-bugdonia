@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://cherfw86xm8pm"]
+
+[ext_resource type="PackedScene" uid="uid://cs6aypgbxb8vj" path="res://Scenes/Entity/BaseCharacter.tscn" id="1_fsx4v"]
+[ext_resource type="Script" uid="uid://cxka0ivly25ah" path="res://Scripts/Player.gd" id="2_8iqms"]
+[ext_resource type="Texture2D" uid="uid://rta4ycs5514u" path="res://Assets/Entity/Player/torso.png" id="2_ibit6"]
+[ext_resource type="Script" uid="uid://dauwgdi6g0ryd" path="res://Scripts/PlayerMovement.gd" id="2_ka4io"]
+[ext_resource type="Texture2D" uid="uid://sm8k3lnwi66j" path="res://Assets/Entity/Player/head.png" id="2_sasgv"]
+[ext_resource type="Shader" uid="uid://d4f40oblnyfg0" path="res://Shaders/shiny.gdshader" id="3_2846a"]
+[ext_resource type="Texture2D" uid="uid://1u4ie3crxr7l" path="res://Assets/Entity/Player/r_arm.png" id="4_8iqms"]
+[ext_resource type="Script" uid="uid://dy12jc5lwfsjh" path="res://Scripts/Selectable.gd" id="4_sasgv"]
+[ext_resource type="Texture2D" uid="uid://gvvv874t4x51" path="res://Assets/Entity/Player/l_leg.png" id="5_1bstl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_paosx"]
+shader = ExtResource("3_2846a")
+shader_parameter/shine_num = 8.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/light_magnitude = 2.0
+shader_parameter/filter_distence = 1.0
+shader_parameter/filter_magnitude = 1.0
+shader_parameter/filter_minv = 0.75
+shader_parameter/cut_inner_radius = 0.1
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/NOISE_speed = Vector2(0, 0)
+shader_parameter/NOISE_magnitude = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_untn5"]
+
+[node name="Player" instance=ExtResource("1_fsx4v")]
+input_pickable = true
+script = ExtResource("2_8iqms")
+metadata/objectName = "Player"
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_ibit6")
+
+[node name="head" parent="Sprite" index="0"]
+texture = ExtResource("2_sasgv")
+
+[node name="l_arm" parent="Sprite" index="1"]
+texture = ExtResource("4_8iqms")
+
+[node name="l_leg" parent="Sprite" index="2"]
+texture = ExtResource("5_1bstl")
+
+[node name="r_arm" parent="Sprite" index="3"]
+texture = ExtResource("4_8iqms")
+
+[node name="r_leg" parent="Sprite" index="4"]
+texture = ExtResource("5_1bstl")
+
+[node name="PlayerMovement" type="Node2D" parent="." index="5"]
+script = ExtResource("2_ka4io")
+
+[node name="Camera2D" type="Camera2D" parent="." index="6"]
+offset = Vector2(0, -177)
+
+[node name="Selectable" type="Sprite2D" parent="." index="7"]
+visible = false
+z_index = -2
+material = SubResource("ShaderMaterial_paosx")
+position = Vector2(0, 40)
+scale = Vector2(321.419, 321.419)
+texture = SubResource("CanvasTexture_untn5")
+script = ExtResource("4_sasgv")

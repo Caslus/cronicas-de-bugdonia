@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gc2u2nvluyfn"
-path="res://.godot/imported/l_arm.png-46975c8171c875520a515f8bc4928f96.ctex"
+uid="uid://dvdoyaljimoto"
+path="res://.godot/imported/l_leg.png-5f554ab211f3a91f4fe623117fd24921.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/Cutout/l_arm.png"
-dest_files=["res://.godot/imported/l_arm.png-46975c8171c875520a515f8bc4928f96.ctex"]
+source_file="res://Assets/Entity/Character/l_leg.png"
+dest_files=["res://.godot/imported/l_leg.png-5f554ab211f3a91f4fe623117fd24921.ctex"]
 
 [params]
 
