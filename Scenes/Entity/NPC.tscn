@@ -7,8 +7,16 @@
 [node name="NPC" instance=ExtResource("1_p8qbs")]
 script = ExtResource("2_n0dth")
 metadata/objectName = "NPC"
+metadata/InteractionType = "Dialog"
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
 
 [node name="Interactable" parent="." index="5" instance=ExtResource("2_v2mxl")]
+
+[node name="Dialog" type="VBoxContainer" parent="." index="6"]
+z_index = 100
+offset_left = 80.0
+offset_top = -35.0
+offset_right = 120.0
+offset_bottom = 5.0

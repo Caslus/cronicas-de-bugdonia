@@ -1,6 +1,7 @@
 extends Node
 
 @onready var player: CharacterBody2D = get_parent()
+@onready var dialogManager: Node = get_node("../DialogManager")
 @onready var camera: Camera2D = player.get_node("Camera2D")
 @onready var originalCameraZoom: Vector2 = camera.zoom
 @onready var originalCameraOffset: Vector2 = camera.offset
@@ -10,6 +11,8 @@ extends Node
 
 var interactable: Node2D = null
 var interacting: bool = false
+
+signal start_dialog(npc, dialog)
 
 func set_interactable(node: Node2D):
 	interactable = node
@@ -27,7 +30,6 @@ func cameraZoomIn():
 	var tweenOffset = create_tween()
 	tweenOffset.set_ease(Tween.EASE_IN_OUT)
 	tweenOffset.tween_property(camera, "offset", Vector2(0, 0), zoomSpeed)
-
 
 func cameraZoomOut():
 	var tweenZoom = create_tween()
@@ -53,7 +55,8 @@ func start_interaction():
 	interactable.get_node("Interactable").set("enableExclamation", false)
 	player.set("CAN_MOVE", false)
 	cameraZoomIn()
-	print(interactable.get("dialog")["1"]["text"])
+	if interactable.get_meta("InteractionType") == "Dialog":
+		emit_signal("start_dialog", interactable, interactable.get("dialog"))
 	pass
 
 func end_interaction():
@@ -72,6 +75,7 @@ func _on_interactable(node: Node2D):
 	set_interactable(node)
 
 func _ready():
+	dialogManager.connect("end_dialog", Callable(self, "end_interaction"))
 	connectToInteractables()
 	pass
 
@@ -79,6 +83,4 @@ func _process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		if interactable != null and not interacting:
 			start_interaction()
-		elif interacting:
-			end_interaction()
 	pass

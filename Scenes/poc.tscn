@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bhs0tcq33s1sc"]
+[gd_scene load_steps=29 format=3 uid="uid://bhs0tcq33s1sc"]
 
 [ext_resource type="Texture2D" uid="uid://c08s16xa2r7wh" path="res://Assets/icon.svg" id="1_0qo5a"]
 [ext_resource type="Texture2D" uid="uid://diughd3j6e4b8" path="res://Assets/teste.png" id="1_m1u6v"]
@@ -8,9 +8,11 @@
 [ext_resource type="Script" uid="uid://r5pp0sf067jp" path="res://Scripts/square.gd" id="7_m1u6v"]
 [ext_resource type="Shader" uid="uid://dg1ggw3ohp80e" path="res://Shaders/godray.gdshader" id="8_pxbtr"]
 [ext_resource type="Script" uid="uid://bdd460m5b8pte" path="res://Scripts/selected_manager.gd" id="9_kt8cb"]
+[ext_resource type="PackedScene" uid="uid://cakt5wbo6p32p" path="res://Scenes/Utils/interactable.tscn" id="12_kt8cb"]
 [ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="14_j81f7"]
 [ext_resource type="Script" uid="uid://cgj3geefma26i" path="res://Scripts/InteractionManager.gd" id="14_m1u6v"]
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="15_m1u6v"]
+[ext_resource type="Script" uid="uid://7hud6wwm12en" path="res://Scripts/DialogManager.gd" id="15_pxbtr"]
 [ext_resource type="Script" uid="uid://dyprl6i7cqri1" path="res://Scripts/Cloud.gd" id="17_pddq8"]
 [ext_resource type="Texture2D" uid="uid://b1a5s6wpjybfe" path="res://Assets/test/layer04_Clouds.png" id="20_7wpht"]
 [ext_resource type="Texture2D" uid="uid://5npcpxhyx184" path="res://Assets/test/layer05_Hills.png" id="20_t30v0"]
@@ -92,6 +94,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_offset = Vector2(-960, -540)
+scroll_ignore_camera_zoom = true
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = -2
@@ -139,8 +142,7 @@ position = Vector2(-92, 148)
 shape = SubResource("RectangleShape2D_ujg4g")
 
 [node name="Square" type="Area2D" parent="."]
-visible = false
-position = Vector2(-219.5, -519)
+position = Vector2(-669, -202)
 scale = Vector2(1.10625, 1.10625)
 script = ExtResource("7_m1u6v")
 
@@ -193,6 +195,8 @@ color = Color(0.953227, 0.795913, 0.686273, 0.501961)
 color_ramp = SubResource("Gradient_35a4y")
 anim_speed_max = 109.0
 
+[node name="Interactable" parent="Square" instance=ExtResource("12_kt8cb")]
+
 [node name="Player" parent="." instance=ExtResource("15_m1u6v")]
 z_index = 10
 position = Vector2(-247, -299)
@@ -202,6 +206,9 @@ script = ExtResource("9_kt8cb")
 
 [node name="InteractionManager" type="Node" parent="Player"]
 script = ExtResource("14_m1u6v")
+
+[node name="DialogManager" type="Node" parent="Player"]
+script = ExtResource("15_pxbtr")
 
 [node name="NPC" parent="." instance=ExtResource("14_j81f7")]
 position = Vector2(334, -35)
