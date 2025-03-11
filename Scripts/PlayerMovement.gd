@@ -2,12 +2,19 @@ extends Node2D
 
 @onready var player: CharacterBody2D = get_parent()
 
+@export var coyoteTime: float = 0.15
+
+var coyoteTimer: float = 0
+
 func _ready():
 	pass
 
 func _physics_process(delta: float) -> void:
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
+		coyoteTimer -= delta
+	else:
+		coyoteTimer = coyoteTime
 	
 	if player.get("VAR_USE_GRAVITY"):
 		player.velocity += player.get_gravity() * delta
@@ -17,12 +24,12 @@ func _physics_process(delta: float) -> void:
 	player.velocity.y = clamp(player.velocity.y, -1000.0, 1000.0)
 
 	var canMove = player.get("CAN_MOVE")
-	# Handle jump.
-	if Input.is_key_pressed(KEY_SPACE) and player.is_on_floor() and canMove:
-		player.velocity.y = player.get("JUMP_VELOCITY") * -60
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	
+	if Input.is_key_pressed(KEY_SPACE) and canMove:
+		if player.is_on_floor() or coyoteTimer > 0:
+			player.velocity.y = player.get("JUMP_VELOCITY") * -60
+			coyoteTimer = 0
+	
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction and canMove:
 		if Input.is_key_pressed((KEY_SHIFT)):
