@@ -1,54 +1,68 @@
 [
 	{
 		"id": "1",
-		"text": "It's such a shame...",
+		"text": "Ah, what a tragedy... a real tragedy...",
 		"options": [
-			{ "text": "What are you talking about?", "next": "2" },
-			{ "text": "I don't care.", "next": null }
+			{ "text": "What’s the drama this time?", "next": "2" },
+			{ "text": "I don't really care.", "next": null }
 		]
 	},
 	{
 		"id": "2",
-		"text": "The bridge... It's gone!",
-		"options": [{ "text": "Oh no!", "next": "3" }]
+		"text": "The bridge! It's gone! Just like my will to exercise.",
+		"options": [{ "text": "Oh no! ...Wait, what bridge?", "next": "3" }]
 	},
 	{
 		"id": "3",
-		"text": "Yeah, it's a real tragedy. I don't know how I'll get across now.",
-		"options": [{ "text": "...", "next": "4" }]
+		"text": "The one that was here! Super convenient, always in the right spot, just the right width... *sigh*",
+		"options": [{ "text": "Sounds like a skill issue.", "next": "4" }]
 	},
 	{
 		"id": "4",
-		"text": "It would be great if someone could help me out.",
+		"text": "Look, I'd fix it myself, but unfortunately, I have a rare condition called 'Too Lazy to Try.'",
 		"options": [
-			{ "text": "I'll help you.", "next": "5" },
-			{ "text": "I can't help you.", "next": null }
+			{ "text": "Fascinating. Go on.", "next": "5" },
+			{ "text": "I, too, suffer from that.", "next": null }
 		]
 	},
 	{
 		"id": "5",
-		"text": "Really? That would be amazing!",
+		"text": "So, yeah... would be *real nice* if someone just happened to help me, you know? Maybe someone with, say, *protagonist energy*?",
 		"options": [
-			{ "text": "...", "next": "6" },
-			{ "text": "I changed my mind.", "next": null }
+			{ "text": "Fine. I'll do it.", "next": "6" },
+			{ "text": "Sounds like a you problem.", "next": null }
 		]
 	},
 	{
 		"id": "6",
-		"text": "In that case, I heard that magicians can edit the world around them. Maybe you could find one to help me out.",
-		"options": [{ "text": "I am a magician!", "next": "7" }]
+		"text": "Seriously?! That’s incredible! Almost like the game *wants* you to help me! What are the odds?",
+		"options": [{ "text": "Let’s get this over with.", "next": "7" }]
 	},
 	{
 		"id": "7",
-		"text": "Oh, that's great! Can you try editing that floating platform over there?",
+		"text": "I heard magicians can literally rewrite reality. Maybe you could find one of those convenient world-editing types?",
 		"options": [
-			{ "text": "Sure!", "next": "8" },
-			{ "text": "I can't help you.", "next": null }
+			{
+				"text": "Oh yeah, that's me.",
+				"next": "8"
+			},
+			{ "text": "Sounds complicated. I'm out.", "next": null }
 		]
 	},
 	{
 		"id": "8",
-		"text": "Thank you so much! I can finally get across now.",
+		"text": "Oh, perfect! In that case, could you just *casually* edit that way-too-convenient floating platform over there? You know, the one that exists *only* for this exact moment?",
+		"options": [
+			{
+				"text": "Sure, very convenient.",
+				"next": null
+			},
+			{ "text": "Nah.", "next": null }
+		]
+	},
+	{
+		"id": "9",
+		"text": "You did it! Wow! How did you *ever* manage to solve this incredibly difficult puzzle? Truly, you are the *chosen one*.",
 		"options": []
 	}
 ]

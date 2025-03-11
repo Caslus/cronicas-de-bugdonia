@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bhs0tcq33s1sc"]
+[gd_scene load_steps=41 format=3 uid="uid://bhs0tcq33s1sc"]
 
 [ext_resource type="Texture2D" uid="uid://c08s16xa2r7wh" path="res://Assets/icon.svg" id="1_0qo5a"]
 [ext_resource type="Texture2D" uid="uid://bd4oj4a0ttgxf" path="res://Assets/Background/Clouds.png" id="3_i6grk"]
@@ -20,6 +20,10 @@
 [ext_resource type="Script" uid="uid://dyprl6i7cqri1" path="res://Scripts/Cloud.gd" id="17_pddq8"]
 [ext_resource type="Script" uid="uid://br3yjoye3jsd8" path="res://Scripts/Killzone.gd" id="19_i6grk"]
 [ext_resource type="Texture2D" uid="uid://by0ie0wjc3dna" path="res://Assets/Objects/FallenBridge.png" id="20_7wpht"]
+[ext_resource type="Texture2D" uid="uid://c5k1uluvqvrsf" path="res://Assets/Objects/Bush.png" id="21_t30v0"]
+[ext_resource type="Texture2D" uid="uid://c07j2oono3xkc" path="res://Assets/Objects/TownSign.png" id="22_qieib"]
+[ext_resource type="Script" uid="uid://v3c6bacceoas" path="res://Scripts/MovingPlatform.gd" id="23_2js3y"]
+[ext_resource type="Texture2D" uid="uid://dqp1um4bde6ys" path="res://Assets/Objects/FloatingPlatform.png" id="23_l7uws"]
 
 [sub_resource type="Theme" id="Theme_pddq8"]
 
@@ -85,6 +89,18 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pddq8"]
 size = Vector2(999999, 20)
+
+[sub_resource type="Gradient" id="Gradient_yod24"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t30v0"]
+gradient = SubResource("Gradient_yod24")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2js3y"]
+size = Vector2(581.16, 147)
 
 [node name="POC" type="Node2D"]
 
@@ -238,12 +254,94 @@ position = Vector2(0, 377)
 shape = SubResource("RectangleShape2D_pddq8")
 
 [node name="Objects" type="Node2D" parent="."]
+z_index = -2
 
 [node name="NoEntry" type="Sprite2D" parent="Objects"]
 position = Vector2(-1520, 16)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_pddq8")
 
+[node name="PointLight2D" type="PointLight2D" parent="Objects/NoEntry"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(0, 120.667)
+scale = Vector2(0.824374, 0.228094)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_t30v0")
+
 [node name="FallenBridge" type="Sprite2D" parent="Objects"]
 position = Vector2(682, 82)
 texture = ExtResource("20_7wpht")
+
+[node name="PointLight2D" type="PointLight2D" parent="Objects/FallenBridge"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-14, 41)
+scale = Vector2(0.824374, 0.228094)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_t30v0")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Objects/FallenBridge"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(86, -45)
+scale = Vector2(0.824374, 0.228094)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_t30v0")
+
+[node name="Bush" type="Sprite2D" parent="Objects"]
+position = Vector2(185, -140)
+texture = ExtResource("21_t30v0")
+
+[node name="PointLight2D" type="PointLight2D" parent="Objects/Bush"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_t30v0")
+
+[node name="TownSign" type="Sprite2D" parent="Objects"]
+position = Vector2(627, -197)
+texture = ExtResource("22_qieib")
+
+[node name="PointLight2D" type="PointLight2D" parent="Objects/TownSign"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-9.99997, 142)
+scale = Vector2(1.12313, 0.364047)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_t30v0")
+
+[node name="FloatingPlatform" type="AnimatableBody2D" parent="."]
+position = Vector2(1194.21, 163)
+input_pickable = true
+sync_to_physics = false
+script = ExtResource("23_2js3y")
+metadata/objectName = "Convenient Platform"
+
+[node name="Sprite" type="Sprite2D" parent="FloatingPlatform"]
+light_mask = 3
+texture = ExtResource("23_l7uws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloatingPlatform"]
+position = Vector2(0, 37.5)
+shape = SubResource("RectangleShape2D_2js3y")
+
+[node name="Selectable" type="Sprite2D" parent="FloatingPlatform"]
+visible = false
+z_index = -3
+material = SubResource("ShaderMaterial_1iqnk")
+scale = Vector2(600, 600)
+texture = SubResource("CanvasTexture_i8qhx")
+script = ExtResource("5_gv2ab")

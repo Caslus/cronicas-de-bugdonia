@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://cpngnlg3fyohq" path="res://Scripts/NPC.gd" id="2_n0dth"]
 [ext_resource type="PackedScene" uid="uid://cakt5wbo6p32p" path="res://Scenes/Utils/interactable.tscn" id="2_v2mxl"]
 
-[sub_resource type="Gradient" id="Gradient_yod24"]
+[sub_resource type="Gradient" id="Gradient_n0dth"]
 offsets = PackedFloat32Array(0.209459, 0.625)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_n0dth"]
-gradient = SubResource("Gradient_yod24")
+gradient = SubResource("Gradient_n0dth")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 

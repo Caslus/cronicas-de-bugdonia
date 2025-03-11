@@ -11,5 +11,6 @@ func set_shader_recursive(node: Node, newShader: Shader):
 		else:
 			node.material = ShaderMaterial.new()
 			node.material.shader = newShader
-	for child in node.get_children():
-		set_shader_recursive(child, newShader)
+	if node.get_child_count() > 0:
+		for child in node.get_children():
+			set_shader_recursive(child, newShader)
