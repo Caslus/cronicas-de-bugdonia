@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cherfw86xm8pm"]
+[gd_scene load_steps=15 format=3 uid="uid://cherfw86xm8pm"]
 
 [ext_resource type="PackedScene" uid="uid://cs6aypgbxb8vj" path="res://Scenes/Entity/BaseCharacter.tscn" id="1_fsx4v"]
 [ext_resource type="Script" uid="uid://cxka0ivly25ah" path="res://Scripts/Player.gd" id="2_8iqms"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://1u4ie3crxr7l" path="res://Assets/Entity/Player/r_arm.png" id="4_8iqms"]
 [ext_resource type="Script" uid="uid://dy12jc5lwfsjh" path="res://Scripts/Selectable.gd" id="4_sasgv"]
 [ext_resource type="Texture2D" uid="uid://gvvv874t4x51" path="res://Assets/Entity/Player/l_leg.png" id="5_1bstl"]
+[ext_resource type="Script" uid="uid://c145g3cjtvfq1" path="res://Scripts/cast_shadow.gd" id="10_1bstl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_paosx"]
 shader = ExtResource("3_2846a")
@@ -24,6 +25,15 @@ shader_parameter/NOISE_speed = Vector2(0, 0)
 shader_parameter/NOISE_magnitude = 0.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_untn5"]
+
+[sub_resource type="Gradient" id="Gradient_1bstl"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ttkxq"]
+gradient = SubResource("Gradient_1bstl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Player" instance=ExtResource("1_fsx4v")]
 input_pickable = true
@@ -62,3 +72,20 @@ position = Vector2(0, 40)
 scale = Vector2(321.419, 321.419)
 texture = SubResource("CanvasTexture_untn5")
 script = ExtResource("4_sasgv")
+
+[node name="CastShadow" type="Node2D" parent="." index="8"]
+show_behind_parent = true
+script = ExtResource("10_1bstl")
+
+[node name="RayCast2D" type="RayCast2D" parent="CastShadow" index="0"]
+position = Vector2(0, 150)
+target_position = Vector2(0, 300)
+
+[node name="PointLight2D" type="PointLight2D" parent="CastShadow" index="1"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-1, 163)
+scale = Vector2(2.56, 0.639999)
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_ttkxq")

@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcbc26gk3t6db"]
+[gd_scene load_steps=6 format=3 uid="uid://dcbc26gk3t6db"]
 
 [ext_resource type="PackedScene" uid="uid://cs6aypgbxb8vj" path="res://Scenes/Entity/BaseCharacter.tscn" id="1_p8qbs"]
 [ext_resource type="Script" uid="uid://cpngnlg3fyohq" path="res://Scripts/NPC.gd" id="2_n0dth"]
 [ext_resource type="PackedScene" uid="uid://cakt5wbo6p32p" path="res://Scenes/Utils/interactable.tscn" id="2_v2mxl"]
+
+[sub_resource type="Gradient" id="Gradient_yod24"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n0dth"]
+gradient = SubResource("Gradient_yod24")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="NPC" instance=ExtResource("1_p8qbs")]
 script = ExtResource("2_n0dth")
@@ -10,7 +19,7 @@ metadata/objectName = "NPC"
 metadata/InteractionType = "Dialog"
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
+disabled = true
 
 [node name="Interactable" parent="." index="5" instance=ExtResource("2_v2mxl")]
 
@@ -20,3 +29,13 @@ offset_left = 80.0
 offset_top = -35.0
 offset_right = 120.0
 offset_bottom = 5.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="7"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(0, 162.7)
+scale = Vector2(2.61, 0.653)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_n0dth")

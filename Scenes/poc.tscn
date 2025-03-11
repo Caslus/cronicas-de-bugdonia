@@ -135,6 +135,7 @@ z_index = -10
 position = Vector2(-335.5, 87)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+light_mask = 3
 texture = ExtResource("1_m1u6v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -199,7 +200,7 @@ anim_speed_max = 109.0
 
 [node name="Player" parent="." instance=ExtResource("15_m1u6v")]
 z_index = 10
-position = Vector2(-247, -299)
+position = Vector2(-247, -83)
 
 [node name="SelectedManager" type="Node" parent="Player"]
 script = ExtResource("9_kt8cb")
@@ -211,4 +212,4 @@ script = ExtResource("14_m1u6v")
 script = ExtResource("15_pxbtr")
 
 [node name="NPC" parent="." instance=ExtResource("14_j81f7")]
-position = Vector2(334, -35)
+position = Vector2(335, -127)
