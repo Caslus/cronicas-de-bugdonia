@@ -63,6 +63,18 @@ script = ExtResource("2_ka4io")
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
 offset = Vector2(0, -177)
+limit_left = -1550
+limit_top = -2000
+limit_bottom = 460
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.05
+drag_top_margin = 0.3
+drag_right_margin = 0.05
+drag_bottom_margin = 0.1
 
 [node name="Selectable" type="Sprite2D" parent="." index="7"]
 visible = false

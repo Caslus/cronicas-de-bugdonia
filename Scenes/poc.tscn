@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bhs0tcq33s1sc"]
+[gd_scene load_steps=30 format=3 uid="uid://bhs0tcq33s1sc"]
 
 [ext_resource type="Texture2D" uid="uid://c08s16xa2r7wh" path="res://Assets/icon.svg" id="1_0qo5a"]
 [ext_resource type="Texture2D" uid="uid://diughd3j6e4b8" path="res://Assets/teste.png" id="1_m1u6v"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://duouvr2jx74t3" path="res://Assets/test/layer06_Rocks.png" id="22_qieib"]
 
 [sub_resource type="Theme" id="Theme_pddq8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt8cb"]
+size = Vector2(20, 1000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujg4g"]
 size = Vector2(2311, 216)
@@ -137,6 +140,10 @@ position = Vector2(-335.5, 87)
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 light_mask = 3
 texture = ExtResource("1_m1u6v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1216.5, -386)
+shape = SubResource("RectangleShape2D_kt8cb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-92, 148)
