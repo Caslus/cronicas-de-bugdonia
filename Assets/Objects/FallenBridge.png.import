@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oguqfee53ex"
-path="res://.godot/imported/Soldier-Idle.png-8c81113285e08ebcd530bbecdc5c831f.ctex"
+uid="uid://by0ie0wjc3dna"
+path="res://.godot/imported/FallenBridge.png-794f386f4a7566a7243c4d710ee94b3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Soldier-Idle.png"
-dest_files=["res://.godot/imported/Soldier-Idle.png-8c81113285e08ebcd530bbecdc5c831f.ctex"]
+source_file="res://Assets/Objects/FallenBridge.png"
+dest_files=["res://.godot/imported/FallenBridge.png-794f386f4a7566a7243c4d710ee94b3d.ctex"]
 
 [params]
 

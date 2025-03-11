@@ -1,0 +1,54 @@
+[
+	{
+		"id": "1",
+		"text": "It's such a shame...",
+		"options": [
+			{ "text": "What are you talking about?", "next": "2" },
+			{ "text": "I don't care.", "next": null }
+		]
+	},
+	{
+		"id": "2",
+		"text": "The bridge... It's gone!",
+		"options": [{ "text": "Oh no!", "next": "3" }]
+	},
+	{
+		"id": "3",
+		"text": "Yeah, it's a real tragedy. I don't know how I'll get across now.",
+		"options": [{ "text": "...", "next": "4" }]
+	},
+	{
+		"id": "4",
+		"text": "It would be great if someone could help me out.",
+		"options": [
+			{ "text": "I'll help you.", "next": "5" },
+			{ "text": "I can't help you.", "next": null }
+		]
+	},
+	{
+		"id": "5",
+		"text": "Really? That would be amazing!",
+		"options": [
+			{ "text": "...", "next": "6" },
+			{ "text": "I changed my mind.", "next": null }
+		]
+	},
+	{
+		"id": "6",
+		"text": "In that case, I heard that magicians can edit the world around them. Maybe you could find one to help me out.",
+		"options": [{ "text": "I am a magician!", "next": "7" }]
+	},
+	{
+		"id": "7",
+		"text": "Oh, that's great! Can you try editing that floating platform over there?",
+		"options": [
+			{ "text": "Sure!", "next": "8" },
+			{ "text": "I can't help you.", "next": null }
+		]
+	},
+	{
+		"id": "8",
+		"text": "Thank you so much! I can finally get across now.",
+		"options": []
+	}
+]

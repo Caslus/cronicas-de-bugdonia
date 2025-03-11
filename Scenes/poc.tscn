@@ -1,11 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://bhs0tcq33s1sc"]
+[gd_scene load_steps=34 format=3 uid="uid://bhs0tcq33s1sc"]
 
 [ext_resource type="Texture2D" uid="uid://c08s16xa2r7wh" path="res://Assets/icon.svg" id="1_0qo5a"]
-[ext_resource type="Texture2D" uid="uid://diughd3j6e4b8" path="res://Assets/teste.png" id="1_m1u6v"]
+[ext_resource type="Texture2D" uid="uid://bd4oj4a0ttgxf" path="res://Assets/Background/Clouds.png" id="3_i6grk"]
 [ext_resource type="Shader" uid="uid://d4f40oblnyfg0" path="res://Shaders/shiny.gdshader" id="4_35a4y"]
+[ext_resource type="Texture2D" uid="uid://b3r3iqfyl71tp" path="res://Assets/Background/Hills.png" id="4_i6grk"]
+[ext_resource type="Texture2D" uid="uid://bcdpgqnn3ymdo" path="res://Assets/Background/Mountains.png" id="5_7wpht"]
 [ext_resource type="Script" uid="uid://dy12jc5lwfsjh" path="res://Scripts/Selectable.gd" id="5_gv2ab"]
+[ext_resource type="Texture2D" uid="uid://c1icpnkjpwirg" path="res://Assets/Objects/Cliff.png" id="6_i6grk"]
 [ext_resource type="Script" uid="uid://cvp73h1iqxaof" path="res://Scripts/AttributeEditor.gd" id="6_j81f7"]
 [ext_resource type="Script" uid="uid://r5pp0sf067jp" path="res://Scripts/square.gd" id="7_m1u6v"]
+[ext_resource type="Texture2D" uid="uid://brac0nym6yjvh" path="res://Assets/Objects/NoEntry.png" id="7_pddq8"]
 [ext_resource type="Shader" uid="uid://dg1ggw3ohp80e" path="res://Shaders/godray.gdshader" id="8_pxbtr"]
 [ext_resource type="Script" uid="uid://bdd460m5b8pte" path="res://Scripts/selected_manager.gd" id="9_kt8cb"]
 [ext_resource type="PackedScene" uid="uid://cakt5wbo6p32p" path="res://Scenes/Utils/interactable.tscn" id="12_kt8cb"]
@@ -14,9 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="15_m1u6v"]
 [ext_resource type="Script" uid="uid://7hud6wwm12en" path="res://Scripts/DialogManager.gd" id="15_pxbtr"]
 [ext_resource type="Script" uid="uid://dyprl6i7cqri1" path="res://Scripts/Cloud.gd" id="17_pddq8"]
-[ext_resource type="Texture2D" uid="uid://b1a5s6wpjybfe" path="res://Assets/test/layer04_Clouds.png" id="20_7wpht"]
-[ext_resource type="Texture2D" uid="uid://5npcpxhyx184" path="res://Assets/test/layer05_Hills.png" id="20_t30v0"]
-[ext_resource type="Texture2D" uid="uid://duouvr2jx74t3" path="res://Assets/test/layer06_Rocks.png" id="22_qieib"]
+[ext_resource type="Script" uid="uid://br3yjoye3jsd8" path="res://Scripts/Killzone.gd" id="19_i6grk"]
+[ext_resource type="Texture2D" uid="uid://by0ie0wjc3dna" path="res://Assets/Objects/FallenBridge.png" id="20_7wpht"]
 
 [sub_resource type="Theme" id="Theme_pddq8"]
 
@@ -80,6 +83,9 @@ height = 2
 [sub_resource type="Gradient" id="Gradient_35a4y"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pddq8"]
+size = Vector2(999999, 20)
+
 [node name="POC" type="Node2D"]
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -99,38 +105,39 @@ metadata/_edit_use_anchors_ = true
 scroll_base_offset = Vector2(-960, -540)
 scroll_ignore_camera_zoom = true
 
-[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Hills" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = -2
 position = Vector2(0, -250)
 motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(0, 500)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Layer05Hills" type="Sprite2D" parent="ParallaxBackground/Hills"]
+texture = ExtResource("4_i6grk")
+centered = false
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -3
+position = Vector2(0, -250)
+motion_scale = Vector2(0.2, 0.2)
 motion_offset = Vector2(0, 200)
 motion_mirroring = Vector2(1920, 0)
 script = ExtResource("17_pddq8")
 speed = -10.0
 
 [node name="Layer04Clouds" type="Sprite2D" parent="ParallaxBackground/Clouds"]
-texture = ExtResource("20_7wpht")
-centered = false
-
-[node name="Cliffs" type="ParallaxLayer" parent="ParallaxBackground"]
-z_index = -3
-position = Vector2(0, -250)
-motion_scale = Vector2(0.2, 0.2)
-motion_offset = Vector2(0, 82)
-motion_mirroring = Vector2(1920, 0)
-
-[node name="Layer05Hills" type="Sprite2D" parent="ParallaxBackground/Cliffs"]
-texture = ExtResource("20_t30v0")
+texture = ExtResource("3_i6grk")
 centered = false
 
 [node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
 z_index = -4
 position = Vector2(0, -250)
 motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(0, 250)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Layer06Rocks" type="Sprite2D" parent="ParallaxBackground/Mountains"]
-texture = ExtResource("22_qieib")
+texture = ExtResource("5_7wpht")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -139,10 +146,10 @@ position = Vector2(-335.5, 87)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 light_mask = 3
-texture = ExtResource("1_m1u6v")
+texture = ExtResource("6_i6grk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1216.5, -386)
+position = Vector2(-1111.5, -387)
 shape = SubResource("RectangleShape2D_kt8cb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -208,6 +215,7 @@ anim_speed_max = 109.0
 [node name="Player" parent="." instance=ExtResource("15_m1u6v")]
 z_index = 10
 position = Vector2(-247, -83)
+VAR_SPEED = 15.0
 
 [node name="SelectedManager" type="Node" parent="Player"]
 script = ExtResource("9_kt8cb")
@@ -220,3 +228,22 @@ script = ExtResource("15_pxbtr")
 
 [node name="NPC" parent="." instance=ExtResource("14_j81f7")]
 position = Vector2(335, -127)
+dialogFile = "res://Dialog/FallenBridge.json"
+
+[node name="Killzone" type="Area2D" parent="."]
+script = ExtResource("19_i6grk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 377)
+shape = SubResource("RectangleShape2D_pddq8")
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="NoEntry" type="Sprite2D" parent="Objects"]
+position = Vector2(-1520, 16)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_pddq8")
+
+[node name="FallenBridge" type="Sprite2D" parent="Objects"]
+position = Vector2(682, 82)
+texture = ExtResource("20_7wpht")

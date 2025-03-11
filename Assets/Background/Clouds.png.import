@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cinffv8jqclrd"
-path="res://.godot/imported/layer02_Trees_rocks.png-1914b9c71ee7e9a3adcc191d1ba34fd9.ctex"
+uid="uid://bd4oj4a0ttgxf"
+path="res://.godot/imported/Clouds.png-b2222a8be0e9f2a295aa10fb42998d29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/test/layer02_Trees_rocks.png"
-dest_files=["res://.godot/imported/layer02_Trees_rocks.png-1914b9c71ee7e9a3adcc191d1ba34fd9.ctex"]
+source_file="res://Assets/Background/Clouds.png"
+dest_files=["res://.godot/imported/Clouds.png-b2222a8be0e9f2a295aa10fb42998d29.ctex"]
 
 [params]
 

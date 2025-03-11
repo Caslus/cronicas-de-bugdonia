@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buylaj612a0tn"
-path="res://.godot/imported/Snowy_ice.png-e722697f99e24087cce6b2ee5bb53a65.ctex"
+uid="uid://b3r3iqfyl71tp"
+path="res://.godot/imported/Hills.png-4b955ad37035957c3c05d06a28cb60e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/Snowy_ice.png"
-dest_files=["res://.godot/imported/Snowy_ice.png-e722697f99e24087cce6b2ee5bb53a65.ctex"]
+source_file="res://Assets/Background/Hills.png"
+dest_files=["res://.godot/imported/Hills.png-4b955ad37035957c3c05d06a28cb60e8.ctex"]
 
 [params]
 

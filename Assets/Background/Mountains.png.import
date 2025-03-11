@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duouvr2jx74t3"
-path="res://.godot/imported/layer06_Rocks.png-ebf97a1f8e16a3ea2a88bd790992156f.ctex"
+uid="uid://bcdpgqnn3ymdo"
+path="res://.godot/imported/Mountains.png-f54c050158fe5a21970ceb3a5874f89d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/test/layer06_Rocks.png"
-dest_files=["res://.godot/imported/layer06_Rocks.png-ebf97a1f8e16a3ea2a88bd790992156f.ctex"]
+source_file="res://Assets/Background/Mountains.png"
+dest_files=["res://.godot/imported/Mountains.png-f54c050158fe5a21970ceb3a5874f89d.ctex"]
 
 [params]
 

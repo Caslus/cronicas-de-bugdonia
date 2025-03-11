@@ -17,10 +17,10 @@ func setName():
 
 func setText(text):
 	if npc == null: return
-	var dialogText = Label.new()
+	var dialogText: Label = Label.new()
 	dialogText.name = "Bubble"
 	dialogText.text = text
-	dialogText.size = Vector2(200, 100)
+	dialogText.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	npc.get_node("Dialog").add_child(dialogText)
 
 func clearDialog():

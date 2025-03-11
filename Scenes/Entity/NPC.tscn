@@ -25,9 +25,10 @@ disabled = true
 
 [node name="Dialog" type="VBoxContainer" parent="." index="6"]
 z_index = 100
+clip_contents = true
 offset_left = 80.0
 offset_top = -35.0
-offset_right = 120.0
+offset_right = 330.0
 offset_bottom = 5.0
 
 [node name="PointLight2D" type="PointLight2D" parent="." index="7"]

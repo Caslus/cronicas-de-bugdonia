@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdqcrk54gwjr"
-path="res://.godot/imported/Grassy_stone.png-3cea7adf0ad65442f659dad54ee74322.ctex"
+uid="uid://c1icpnkjpwirg"
+path="res://.godot/imported/Cliff.png-4b68efcad448d9a8de3436092662d4b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/Grassy_stone.png"
-dest_files=["res://.godot/imported/Grassy_stone.png-3cea7adf0ad65442f659dad54ee74322.ctex"]
+source_file="res://Assets/Objects/Cliff.png"
+dest_files=["res://.godot/imported/Cliff.png-4b68efcad448d9a8de3436092662d4b3.ctex"]
 
 [params]
 
