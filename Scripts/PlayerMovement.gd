@@ -10,6 +10,11 @@ func _ready():
 	pass
 
 func _physics_process(delta: float) -> void:
+	if player.get("BEING_RESPAWNED"):
+		player.velocity = Vector2(0, 0)
+		player.position = player.position
+		return
+	
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
 		coyoteTimer -= delta
@@ -17,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		coyoteTimer = coyoteTime
 	
 	if player.get("VAR_USE_GRAVITY"):
-		player.velocity += player.get_gravity() * delta
+			player.velocity += player.get_gravity() * delta
 	else:
 		player.velocity -= player.get_gravity() * delta * 2
 	

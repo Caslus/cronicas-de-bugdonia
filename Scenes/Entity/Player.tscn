@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cherfw86xm8pm"]
+[gd_scene load_steps=19 format=3 uid="uid://cherfw86xm8pm"]
 
 [ext_resource type="PackedScene" uid="uid://cs6aypgbxb8vj" path="res://Scenes/Entity/BaseCharacter.tscn" id="1_fsx4v"]
 [ext_resource type="Script" uid="uid://cxka0ivly25ah" path="res://Scripts/Player.gd" id="2_8iqms"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://dy12jc5lwfsjh" path="res://Scripts/Selectable.gd" id="4_sasgv"]
 [ext_resource type="Texture2D" uid="uid://gvvv874t4x51" path="res://Assets/Entity/Player/l_leg.png" id="5_1bstl"]
 [ext_resource type="Script" uid="uid://c145g3cjtvfq1" path="res://Scripts/cast_shadow.gd" id="10_1bstl"]
+[ext_resource type="Texture2D" uid="uid://rrn1xatox4g0" path="res://Assets/Objects/GodHand.png" id="11_ttkxq"]
+[ext_resource type="Shader" uid="uid://dg1ggw3ohp80e" path="res://Shaders/godray.gdshader" id="12_bkqu3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_paosx"]
 shader = ExtResource("3_2846a")
@@ -34,6 +36,24 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_1bstl")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cceh"]
+shader = ExtResource("12_bkqu3")
+shader_parameter/angle = -3.4
+shader_parameter/position = 0.935
+shader_parameter/spread = 0.5
+shader_parameter/cutoff = 0.193
+shader_parameter/falloff = 0.645
+shader_parameter/edge_fade = 1.0
+shader_parameter/speed = 4.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/color = Color(1, 0.901961, 0.65098, 1)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_buvgd"]
 
 [node name="Player" instance=ExtResource("1_fsx4v")]
 input_pickable = true
@@ -101,3 +121,17 @@ scale = Vector2(2.56, 0.639999)
 blend_mode = 1
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_ttkxq")
+
+[node name="Respawn" type="Node2D" parent="." index="9"]
+
+[node name="GodHand" type="Sprite2D" parent="Respawn" index="0"]
+visible = false
+position = Vector2(-123, -445)
+texture = ExtResource("11_ttkxq")
+
+[node name="Godrays" type="Sprite2D" parent="Respawn" index="1"]
+z_index = 100
+material = SubResource("ShaderMaterial_0cceh")
+position = Vector2(95, -500)
+scale = Vector2(2000, 3000)
+texture = SubResource("CanvasTexture_buvgd")

@@ -7,3 +7,5 @@ extends CharacterBody2D
 @export var VAR_USE_GRAVITY: bool = true
 @export var RUN_MULTIPLIER: float = 1.5
 @export var CAN_MOVE: bool = true
+@export var BEING_RESPAWNED: bool = false
+@export var RESPAWN_POINT: Vector2 = Vector2(0, 0)
