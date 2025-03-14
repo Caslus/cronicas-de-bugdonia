@@ -6,6 +6,7 @@ extends Node
 @onready var originalCameraZoom: Vector2 = camera.zoom
 @onready var originalCameraOffset: Vector2 = camera.offset
 
+@export var uiNode: CanvasLayer = null
 @export var zoomScale: float = 2.0
 @export var zoomSpeed: float = 1.0
 
@@ -13,9 +14,30 @@ var interactable: Node2D = null
 var interacting: bool = false
 
 signal start_dialog(npc, dialog)
+signal pickup_item(item)
 
 func set_interactable(node: Node2D):
 	interactable = node
+
+func interactWithItem():
+	var item = interactable
+	var itemName = item.get_meta("objectName")
+	var itemDescription = item.get_meta("objectDescription")
+	var itemMessageBox = VBoxContainer.new()
+	itemMessageBox.name = "ItemMessageBox"
+	var itemTitleLabel = Label.new()
+	itemTitleLabel.text = itemName
+	itemMessageBox.add_child(itemTitleLabel)
+	var itemDescriptionLabel = Label.new()
+	itemDescriptionLabel.text = itemDescription
+	itemMessageBox.add_child(itemDescriptionLabel)
+	uiNode.add_child(itemMessageBox)
+	var timer = get_tree().create_timer(zoomSpeed + 0.5)
+	await timer.timeout
+	var itemCloseButton = Button.new()
+	itemCloseButton.text = "Pick up"
+	itemCloseButton.connect("pressed", Callable(self, "end_interaction"))
+	itemMessageBox.add_child(itemCloseButton)
 
 func cameraZoomIn():
 	var tweenZoom = create_tween()
@@ -57,15 +79,21 @@ func start_interaction():
 	cameraZoomIn()
 	if interactable.get_meta("InteractionType") == "Dialog":
 		emit_signal("start_dialog", interactable, interactable.get("dialog"))
+	if interactable.get_meta("InteractionType") == "Item":
+		interactWithItem()
 	pass
 
 func end_interaction():
+	if (uiNode.has_node("ItemMessageBox")):
+		uiNode.get_node("ItemMessageBox").queue_free()
+		interactable.queue_free()
+		emit_signal("pickup_item", interactable)
+
 	interacting = false
 	cameraZoomOut()
 	player.set("CAN_MOVE", true)
 	interactable.get_node("Interactable").set("enableExclamation", true)
 	interactable = null
-
 
 func connectToInteractables():
 	for interactableNode in get_tree().get_nodes_in_group("interactable"):

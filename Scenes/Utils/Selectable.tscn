@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://g6kx2to330s4"]
+
+[ext_resource type="Shader" uid="uid://d4f40oblnyfg0" path="res://Shaders/shiny.gdshader" id="1_xbsj1"]
+[ext_resource type="Script" uid="uid://dy12jc5lwfsjh" path="res://Scripts/Utils/Selectable.gd" id="2_bam0h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_paosx"]
+shader = ExtResource("1_xbsj1")
+shader_parameter/shine_num = 8.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/light_magnitude = 2.0
+shader_parameter/filter_distence = 1.0
+shader_parameter/filter_magnitude = 1.0
+shader_parameter/filter_minv = 0.75
+shader_parameter/cut_inner_radius = 0.1
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/NOISE_speed = Vector2(0, 0)
+shader_parameter/NOISE_magnitude = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_untn5"]
+
+[node name="Selectable" type="Sprite2D"]
+visible = false
+z_index = -2
+material = SubResource("ShaderMaterial_paosx")
+scale = Vector2(321.419, 321.419)
+texture = SubResource("CanvasTexture_untn5")
+script = ExtResource("2_bam0h")

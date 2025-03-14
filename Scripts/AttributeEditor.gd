@@ -2,6 +2,8 @@ extends VBoxContainer
 
 var uiOpen = false
 
+@onready var player: CharacterBody2D = get_tree().get_nodes_in_group("player")[0]
+
 func get_variables():
 	var properties = []
 
@@ -140,7 +142,6 @@ func _on_toggle_button_pressed(prop_name, value_label):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	create_ui()
 	SelectedManager.selected_changed.connect(create_ui)
 
 func _process(_delta: float) -> void:

@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcbc26gk3t6db"]
+[gd_scene load_steps=10 format=3 uid="uid://dcbc26gk3t6db"]
 
 [ext_resource type="PackedScene" uid="uid://cs6aypgbxb8vj" path="res://Scenes/Entity/BaseCharacter.tscn" id="1_p8qbs"]
-[ext_resource type="Script" uid="uid://cpngnlg3fyohq" path="res://Scripts/NPC.gd" id="2_n0dth"]
+[ext_resource type="Script" uid="uid://cpngnlg3fyohq" path="res://Scripts/Entity/NPC.gd" id="2_n0dth"]
 [ext_resource type="PackedScene" uid="uid://cakt5wbo6p32p" path="res://Scenes/Utils/interactable.tscn" id="2_v2mxl"]
+[ext_resource type="Texture2D" uid="uid://dag3rxipo2up4" path="res://Assets/Entity/Character/head.png" id="3_cg4f0"]
+[ext_resource type="Texture2D" uid="uid://d1ltr6mqyxnrp" path="res://Assets/Entity/Character/torso.png" id="4_u8ttu"]
+[ext_resource type="Texture2D" uid="uid://cl7ubhquj5hbe" path="res://Assets/Entity/Character/r_arm.png" id="5_c3kpk"]
+[ext_resource type="Texture2D" uid="uid://dvdoyaljimoto" path="res://Assets/Entity/Character/l_leg.png" id="6_8l81w"]
 
 [sub_resource type="Gradient" id="Gradient_n0dth"]
 offsets = PackedFloat32Array(0.209459, 0.625)
@@ -15,6 +19,10 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="NPC" instance=ExtResource("1_p8qbs")]
 script = ExtResource("2_n0dth")
+head = ExtResource("3_cg4f0")
+torso = ExtResource("4_u8ttu")
+arm = ExtResource("5_c3kpk")
+leg = ExtResource("6_8l81w")
 metadata/objectName = "NPC"
 metadata/InteractionType = "Dialog"
 
@@ -22,6 +30,7 @@ metadata/InteractionType = "Dialog"
 disabled = true
 
 [node name="Interactable" parent="." index="5" instance=ExtResource("2_v2mxl")]
+position = Vector2(0, -20)
 
 [node name="Dialog" type="VBoxContainer" parent="." index="6"]
 z_index = 100

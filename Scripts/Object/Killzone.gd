@@ -15,7 +15,6 @@ func respawn_player(player):
 	var tweenGodrays = create_tween()
 	tweenGodrays.set_ease(Tween.EASE_IN_OUT)
 	tweenGodrays.tween_property(godRays.material, "shader_parameter/edge_fade", 0.111, 3.0)
-	# await tweenGodrays.finished
 
 	var tweenGodHandDown = create_tween()
 	tweenGodHandDown.set_ease(Tween.EASE_IN_OUT)

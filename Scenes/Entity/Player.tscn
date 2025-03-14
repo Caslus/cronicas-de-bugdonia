@@ -1,32 +1,22 @@
 [gd_scene load_steps=19 format=3 uid="uid://cherfw86xm8pm"]
 
 [ext_resource type="PackedScene" uid="uid://cs6aypgbxb8vj" path="res://Scenes/Entity/BaseCharacter.tscn" id="1_fsx4v"]
-[ext_resource type="Script" uid="uid://cxka0ivly25ah" path="res://Scripts/Player.gd" id="2_8iqms"]
+[ext_resource type="Script" uid="uid://cxka0ivly25ah" path="res://Scripts/Entity/Player.gd" id="2_8iqms"]
 [ext_resource type="Texture2D" uid="uid://rta4ycs5514u" path="res://Assets/Entity/Player/torso.png" id="2_ibit6"]
-[ext_resource type="Script" uid="uid://dauwgdi6g0ryd" path="res://Scripts/PlayerMovement.gd" id="2_ka4io"]
+[ext_resource type="Script" uid="uid://dauwgdi6g0ryd" path="res://Scripts/Entity/PlayerMovement.gd" id="2_ka4io"]
 [ext_resource type="Texture2D" uid="uid://sm8k3lnwi66j" path="res://Assets/Entity/Player/head.png" id="2_sasgv"]
-[ext_resource type="Shader" uid="uid://d4f40oblnyfg0" path="res://Shaders/shiny.gdshader" id="3_2846a"]
 [ext_resource type="Texture2D" uid="uid://1u4ie3crxr7l" path="res://Assets/Entity/Player/r_arm.png" id="4_8iqms"]
-[ext_resource type="Script" uid="uid://dy12jc5lwfsjh" path="res://Scripts/Selectable.gd" id="4_sasgv"]
 [ext_resource type="Texture2D" uid="uid://gvvv874t4x51" path="res://Assets/Entity/Player/l_leg.png" id="5_1bstl"]
-[ext_resource type="Script" uid="uid://c145g3cjtvfq1" path="res://Scripts/cast_shadow.gd" id="10_1bstl"]
+[ext_resource type="Texture2D" uid="uid://w1y7o5846du6" path="res://Assets/Objects/Sparkle.png" id="7_0cceh"]
+[ext_resource type="Texture2D" uid="uid://kllwuyqwtb3l" path="res://Assets/Objects/MagicWand.png" id="7_bkqu3"]
+[ext_resource type="PackedScene" uid="uid://g6kx2to330s4" path="res://Scenes/Utils/Selectable.tscn" id="8_ttkxq"]
+[ext_resource type="Script" uid="uid://c145g3cjtvfq1" path="res://Scripts/Utils/CastShadow.gd" id="10_1bstl"]
 [ext_resource type="Texture2D" uid="uid://rrn1xatox4g0" path="res://Assets/Objects/GodHand.png" id="11_ttkxq"]
 [ext_resource type="Shader" uid="uid://dg1ggw3ohp80e" path="res://Shaders/godray.gdshader" id="12_bkqu3"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_paosx"]
-shader = ExtResource("3_2846a")
-shader_parameter/shine_num = 8.0
-shader_parameter/rotation_speed = 3.0
-shader_parameter/light_magnitude = 2.0
-shader_parameter/filter_distence = 1.0
-shader_parameter/filter_magnitude = 1.0
-shader_parameter/filter_minv = 0.75
-shader_parameter/cut_inner_radius = 0.1
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/NOISE_speed = Vector2(0, 0)
-shader_parameter/NOISE_magnitude = 0.0
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_untn5"]
+[sub_resource type="Curve" id="Curve_0cceh"]
+_data = [Vector2(0.00628931, 1), 0.0, 1.30328, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_1bstl"]
 offsets = PackedFloat32Array(0.209459, 0.625)
@@ -64,10 +54,30 @@ metadata/objectName = "Player"
 texture = ExtResource("2_ibit6")
 
 [node name="head" parent="Sprite" index="0"]
+z_index = 4
 texture = ExtResource("2_sasgv")
 
 [node name="l_arm" parent="Sprite" index="1"]
+z_index = 3
 texture = ExtResource("4_8iqms")
+
+[node name="MagicWand" type="Sprite2D" parent="Sprite/l_arm" index="0"]
+visible = false
+z_index = -1
+position = Vector2(-23.3121, 60.1242)
+rotation = -2.30907
+texture = ExtResource("7_bkqu3")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite/l_arm/MagicWand" index="0"]
+z_index = 3
+position = Vector2(19.7771, -14.0593)
+rotation = 2.44618
+amount = 2
+texture = ExtResource("7_0cceh")
+emission_shape = 3
+emission_rect_extents = Vector2(27.185, 10.55)
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_0cceh")
 
 [node name="l_leg" parent="Sprite" index="2"]
 texture = ExtResource("5_1bstl")
@@ -96,14 +106,8 @@ drag_top_margin = 0.3
 drag_right_margin = 0.05
 drag_bottom_margin = 0.1
 
-[node name="Selectable" type="Sprite2D" parent="." index="7"]
-visible = false
-z_index = -2
-material = SubResource("ShaderMaterial_paosx")
+[node name="Selectable" parent="." index="7" instance=ExtResource("8_ttkxq")]
 position = Vector2(0, 40)
-scale = Vector2(321.419, 321.419)
-texture = SubResource("CanvasTexture_untn5")
-script = ExtResource("4_sasgv")
 
 [node name="CastShadow" type="Node2D" parent="." index="8"]
 show_behind_parent = true
@@ -130,6 +134,7 @@ position = Vector2(-123, -445)
 texture = ExtResource("11_ttkxq")
 
 [node name="Godrays" type="Sprite2D" parent="Respawn" index="1"]
+visible = false
 z_index = 100
 material = SubResource("ShaderMaterial_0cceh")
 position = Vector2(95, -500)

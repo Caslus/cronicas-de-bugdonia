@@ -29,16 +29,21 @@ func clearDialog():
 	for child in dialogNode.get_children():
 		child.queue_free()
 
-func nextDialog(id):
+func nextDialog(option):
+	# example option: {"text": "I will check it out.", "next": null, "toggle": "talked" }
 	if npc == null: return
 	clearDialog()
-	if id == null:
+	
+	if option.has("toggle"):
+		QuestManager.toggleQuestVar(option.toggle)
+
+	if option.next == null:
 		endDialog()
 		return
 	setName()
-	setText(npc.dialog[id]["text"])
-	if dialog[id].has("options"):
-		createOptions(npc.dialog[id]["options"])
+	setText(npc.dialog[option.next]["text"])
+	if dialog[option.next].has("options"):
+		createOptions(npc.dialog[option.next]["options"])
 
 func createOptions(options):
 	if npc == null: return
@@ -50,7 +55,7 @@ func createOptions(options):
 		var option = options[i]
 		var optionButton = Button.new()
 		optionButton.text = option["text"]
-		optionButton.connect("pressed", Callable(self, "nextDialog").bind(option["next"]))
+		optionButton.connect("pressed", Callable(self, "nextDialog").bind(option))
 		optionsContainer.add_child(optionButton)
 	
 	if options.size() == 0:
@@ -64,7 +69,12 @@ func createOptions(options):
 func startDialog(npcRef, dialogRef):
 	npc = npcRef
 	dialog = dialogRef
-	nextDialog("1")
+	var starterDialog = npc.dialog.get(npc.get("startingDialog"))
+	nextDialog({"next": starterDialog.id, "options": starterDialog.options})
+	# start npc quest if it has one
+	if (npc.get("quest")) != null and QuestManager.currentQuest == null:
+		QuestManager.currentQuest = npc.quest
+
 
 func endDialog():
 	emit_signal("end_dialog")

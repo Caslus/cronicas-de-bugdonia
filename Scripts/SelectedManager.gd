@@ -2,6 +2,7 @@ extends Node
 
 @export var selected: Node = null;
 var shader = load("res://Shaders/Glitch.gdshader")
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 
 signal selected_changed
 signal selected_edited

@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var enableExclamation: bool = true
+@export var enableInteraction: bool = true
 @onready var exclamation: Sprite2D = get_node("Exclamation")
 @onready var exclamationAnimationPlayer: AnimationPlayer = exclamation.get_node("AnimationPlayer")
 @onready var area: Area2D = get_node("Area2D")
@@ -14,7 +15,7 @@ func _ready():
 
 
 func _on_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player" and enableInteraction:
 		activate_interactable()
 
 func _on_body_exited(body):

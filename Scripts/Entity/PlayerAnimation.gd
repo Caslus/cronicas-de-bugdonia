@@ -8,7 +8,6 @@ func _physics_process(_delta: float) -> void:
 	var moving = character.velocity.x and !character.velocity.y
 	var jumping = character.velocity.y != 0
 
-	# flip the sprite based on the direction
 	if character.velocity.x > 0:
 		character.get_node("Sprite").scale.x = -1
 	elif character.velocity.x < 0:

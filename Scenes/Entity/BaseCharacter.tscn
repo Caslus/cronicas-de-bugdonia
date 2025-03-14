@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dag3rxipo2up4" path="res://Assets/Entity/Character/head.png" id="3_anliv"]
 [ext_resource type="Texture2D" uid="uid://cl7ubhquj5hbe" path="res://Assets/Entity/Character/r_arm.png" id="4_ybp4q"]
 [ext_resource type="Texture2D" uid="uid://dvdoyaljimoto" path="res://Assets/Entity/Character/l_leg.png" id="5_e33jt"]
-[ext_resource type="Script" uid="uid://bu0efinbvylq0" path="res://Scripts/PlayerAnimation.gd" id="7_ukj11"]
+[ext_resource type="Script" uid="uid://bu0efinbvylq0" path="res://Scripts/Entity/PlayerAnimation.gd" id="7_ukj11"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anliv"]
 radius = 5.88868

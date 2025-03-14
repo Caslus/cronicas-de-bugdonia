@@ -18,8 +18,9 @@ config/icon="res://Assets/icon.svg"
 
 [autoload]
 
-Utils="*res://Scripts/Utils.gd"
-SelectedManager="*res://Scripts/selected_manager.gd"
+Utils="*res://Scripts/Utils/Utils.gd"
+SelectedManager="*res://Scripts/SelectedManager.gd"
+QuestManager="*res://Scripts/QuestManager.gd"
 
 [display]
 
@@ -29,6 +30,7 @@ window/size/viewport_height=1080
 [global_group]
 
 interactable=""
+player=""
 
 [input]
 
