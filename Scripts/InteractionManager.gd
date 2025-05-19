@@ -35,7 +35,7 @@ func interactWithItem():
 	var timer = get_tree().create_timer(zoomSpeed + 0.5)
 	await timer.timeout
 	var itemCloseButton = Button.new()
-	itemCloseButton.text = "Pick up"
+	itemCloseButton.text = "Pegar"
 	itemCloseButton.connect("pressed", Callable(self, "end_interaction"))
 	itemMessageBox.add_child(itemCloseButton)
 

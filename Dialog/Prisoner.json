@@ -1,83 +1,89 @@
 [
 	{
 		"id": "1",
-		"text": "Well, well, well... If it isn't me, in jail. Again.",
+		"text": "Ora, ora, ora... Se não sou eu, preso. De novo.",
 		"options": [
-			{ "text": "What did you do?", "next": "2" },
-			{ "text": "You're a criminal?", "next": "3" }
+			{ "text": "O que você fez?", "next": "2" },
+			{ "text": "Você é um criminoso?", "next": "3" }
 		]
 	},
 	{
 		"id": "2",
-		"text": "I got into a *minor* disagreement last night. With my fists. And a guard's face.",
-		"options": [{ "text": "That's rough.", "next": "4" }]
+		"text": "Tive um *pequeno* desentendimento ontem à noite. Com meus punhos. E o rosto de um guarda.",
+		"options": [{ "text": "Que tenso.", "next": "4" }]
 	},
 	{
 		"id": "3",
-		"text": "Criminal? No way! Just... an enthusiastic negotiator.",
-		"options": [{ "text": "What did you do?", "next": "2" }]
+		"text": "Criminoso? De jeito nenhum! Só... um pouco animado demais.",
+		"options": [{ "text": "O que você fez?", "next": "2" }]
 	},
 	{
 		"id": "4",
-		"text": "Yeah, it sucks. I just remembered I have an urgent appointment... outside of here.",
-		"options": [{ "text": "I'll help you escape.", "next": "5" }]
+		"text": "É, que droga. Acabei de lembrar que tenho um compromisso urgente... fora daqui.",
+		"options": [{ "text": "Vou te ajudar a fugir.", "next": "5" }]
 	},
 	{
 		"id": "5",
-		"text": "You're the best! I think I saw something useful under my bed. Hopefully not another rat.",
+		"text": "Tinha alguma coisa debaixo da cama. Espero que não seja outro rato.",
 		"options": [
-			{ "text": "I will check it out.", "next": null, "toggle": "talked" }
+			{ "text": "Vou dar uma olhada.", "next": null, "toggle": "talked" }
 		]
 	},
-
 	{
 		"id": "6",
-		"text": "So? Did you check? Or are you just admiring my fantastic jail bed?",
-		"options": [{ "text": "I didn't check it out yet...", "next": null }]
+		"text": "E aí? Você olhou? Ou só tá admirando os desenhos na parede?",
+		"options": [{ "text": "Ainda não olhei...", "next": null }]
 	},
-
 	{
 		"id": "7",
-		"text": "Any luck? Or was it just lint and disappointment?",
-		"options": [{ "text": "I found some weird thing, look!", "next": "8" }]
+		"text": "E aí? Alguma coisa?",
+		"options": [{ "text": "Achei uma coisa estranha, olha!", "next": "8" }]
 	},
 	{
 		"id": "8",
-		"text": "HOLY—That's a magic wand! Congratulations, you're now a wizard, whether you like it or not!",
-		"options": [{ "text": "I'm a wizard now?", "next": "9" }]
+		"text": "MEU DEUS! Isso é uma varinha mágica! Você agora é um mago! Querendo ou não!",
+		"options": [{ "text": "Agora sou um mago?", "next": "9" }]
 	},
 	{
 		"id": "9",
-		"text": "Yup! Pointy hat not included. You can do all kinds of cool stuff—like editing the game itself. No big deal.",
-		"options": [{ "text": "Game?", "next": "10" }]
+		"text": "Sim! Só faltou o chapéu pontudo. Você pode fazer várias coisas legais tipo editar o próprio jogo.",
+		"options": [{ "text": "Jogo?", "next": "10" }]
 	},
 	{
 		"id": "10",
-		"text": "Yeah, turns out we live in a game. Weird, right? But hey, at least you can cheat legally now!",
-		"options": [{ "text": "I don't get it!", "next": "11" }]
+		"text": "É, parece que a gente vive num jogo. Estranho, né? Pelo menos você não é um NPC que nem eu...",
+		"options": [{ "text": "Não entendi!", "next": "11" }]
 	},
 	{
 		"id": "11",
-		"text": "Okay, wizard tutorial time! That door is locked because of a boolean variable. Boolean means true or false—like whether pineapple belongs on pizza.",
+		"text": "Ta, ta ta. Hora do tutorial de mago! Aquela porta está trancada por causa de uma variável booleana.",
+		"options": [{ "text": "...", "next": "11.1" }]
+	},
+	{
+		"id": "11.1",
+		"text": "A variável booleana é um tipo de dado que só pode ter dois valores: verdadeiro ou falso.",
 		"options": [{ "text": "...", "next": "12" }]
 	},
 	{
 		"id": "12",
-		"text": "If it's true, the door stays locked. If it's false, the door magically opens. Kinda like my willpower around snacks.",
+		"text": "Se for verdadeiro, a porta continua trancada. Se for falso, ela se abre magicamente. Sacou?",
 		"options": [
-			{ "text": "I will try to open it!", "next": null, "toggle": "talked2" }
+			{ "text": "Vou tentar abrir!", "next": null, "toggle": "talked2" }
 		]
 	},
-
 	{
 		"id": "13",
-		"text": "Did you do it? Did you change the variable?",
-		"options": [{ "text": "Not yet...", "next": null }]
+		"text": "Você conseguiu? Mudou a variável?",
+		"options": [{ "text": "Ainda não...", "next": "13.1" }]
 	},
-
+	{
+		"id": "13.1",
+		"text": "Tenta clicar na porta, ou não... Sei lá, o mágico aqui é você. Eu só sou um NPC.",
+		"options": [{ "text": "Vou tentar.", "next": null }]
+	},
 	{
 		"id": "14",
-		"text": "YOU DID IT! The door is open! Let's get out of here!.",
-		"options": [{ "text": "We are free!", "next": null }]
+		"text": "VOCÊ CONSEGUIU! A porta abriu! Vamos sair daqui!",
+		"options": [{ "text": "Estamos livres!", "next": null }]
 	}
 ]

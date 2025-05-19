@@ -234,12 +234,15 @@ z_index = 10
 position = Vector2(-270, -270)
 VAR_SPEED = 15.0
 RESPAWN_POINT = Vector2(-270, -270)
+hasWand = true
+metadata/Interactable = true
 
 [node name="SelectedManager" type="Node" parent="Player"]
 script = ExtResource("9_kt8cb")
 
-[node name="InteractionManager" type="Node" parent="Player"]
+[node name="InteractionManager" type="Node" parent="Player" node_paths=PackedStringArray("uiNode")]
 script = ExtResource("14_m1u6v")
+uiNode = NodePath("../../UI")
 
 [node name="DialogManager" type="Node" parent="Player"]
 script = ExtResource("15_pxbtr")
@@ -331,6 +334,7 @@ input_pickable = true
 sync_to_physics = false
 script = ExtResource("23_2js3y")
 metadata/objectName = "Convenient Platform"
+metadata/Interactable = true
 
 [node name="Sprite" type="Sprite2D" parent="FloatingPlatform"]
 light_mask = 3

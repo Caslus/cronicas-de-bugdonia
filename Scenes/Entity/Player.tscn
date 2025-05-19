@@ -45,7 +45,7 @@ shader_parameter/seed = 5.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_buvgd"]
 
-[node name="Player" instance=ExtResource("1_fsx4v")]
+[node name="Player" groups=["player"] instance=ExtResource("1_fsx4v")]
 input_pickable = true
 script = ExtResource("2_8iqms")
 metadata/objectName = "Player"

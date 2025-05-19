@@ -7,17 +7,17 @@ extends Node
 @export var lock: StaticBody2D = null
 
 func onUpdateQuestVariables():
-  if questVariables.get("talked"):
-    npc.set("startingDialog", "6")
-  if questVariables.get("pickedWand"):
-    npc.set("startingDialog", "7")
-  if questVariables.get("talked2"):
-    npc.set("startingDialog", "13")
-    lock.set_meta("Interactable", true)
-  if questVariables.get("opened"):
-    npc.set("startingDialog", "14")
-  pass
+	if questVariables.get("talked"):
+		npc.set("startingDialog", "6")
+	if questVariables.get("pickedWand"):
+		npc.set("startingDialog", "7")
+	if questVariables.get("talked2"):
+		npc.set("startingDialog", "13")
+		lock.set_meta("Interactable", true)
+	if questVariables.get("opened"):
+		npc.set("startingDialog", "14")
+	pass
 
 
 func _ready():
-  QuestManager.connect("questVariablesChanged", Callable(self, "onUpdateQuestVariables"))
+	QuestManager.connect("questVariablesChanged", Callable(self, "onUpdateQuestVariables"))
