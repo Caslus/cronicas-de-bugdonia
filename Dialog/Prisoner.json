@@ -85,5 +85,10 @@
 		"id": "14",
 		"text": "VOCÊ CONSEGUIU! A porta abriu! Vamos sair daqui!",
 		"options": [{ "text": "Estamos livres!", "next": null }]
+	},
+	{
+		"id": "caught",
+		"text": "Se você fizer menos barulho vamos conseguir fugir...",
+		"options": [{"text": "Vou tentar...", "next": null}]
 	}
 ]

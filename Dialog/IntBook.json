@@ -1,0 +1,35 @@
+[
+	{
+		"id": "1",
+		"text": "Era uma vez, um mago que tropeçou numa pedra e fez muito barulho, todos ao seu redor riram dele.",
+		"options": [
+			{ "text": "[Próxima página]", "next": "2" },
+			{ "text": "[Sair]", "next": null}
+		]
+	},
+	{
+		"id": "2",
+		"text": "O mago, cansado das risadas, decidiu estudar um dos maiores poderes da lógica para resolver o seu problema: os números inteiros.",
+		"options": [{ "text": "[Próxima página]", "next": "3" }]
+	},
+	{
+		"id": "3",
+		"text": "Chamavam-se inteiros, porque não tinham vírgulas, frescuras ou partes quebradas. Só números diretos como 0, 1, 2, 3... e até os negativos, como -1, -2, -3...",
+		"options": [{ "text": "[Próxima página]", "next": "4" }]
+	},
+	{
+		"id": "4",
+		"text": "Após estudar por anos, o mago finalmente chegou a uma conclusão.",
+		"options": [{ "text": "[Próxima página]", "next": "5" }]
+	},
+	{
+		"id": "5",
+		"text": "‘Se meus passos estiverem com volume 10, faço muito barulho. Mas quando o volume é igual ou menor a 2, ninguém ouve nada. Mesmo se eu tropeçar...’",
+		"options": [{ "text": "[Próxima página]", "next": "6" }]
+	},
+	{
+		"id": "6",
+		"text": "Após essa descoberta, o mago ficou conhecido na história como 'Tropinsky, o tropeçador', pois ele continuou tropeçando silenciosamente para o resto da vida.",
+		"options": [{ "text": "[Fim]", "next": null,  "toggle": "read"  }]
+	}
+]

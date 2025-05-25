@@ -5,6 +5,7 @@ extends Sprite2D
 
 func interactable() -> bool:
 	if not collision.has_meta("Interactable"): return false
+	if get_parent().get("editableVars").size() == 0: return false
 	return collision.get_meta("Interactable")
 
 func _on_mouse_entered():

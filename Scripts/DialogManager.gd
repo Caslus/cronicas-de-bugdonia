@@ -72,7 +72,7 @@ func startDialog(npcRef, dialogRef):
 	var starterDialog = npc.dialog.get(npc.get("startingDialog"))
 	nextDialog({"next": starterDialog.id, "options": starterDialog.options})
 	# start npc quest if it has one
-	if (npc.get("quest")) != null and QuestManager.currentQuest == null:
+	if (npc.get("quest")) != null and (QuestManager.currentQuest == null or QuestManager.getQuestVar("finished")):
 		QuestManager.currentQuest = npc.quest
 
 

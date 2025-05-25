@@ -13,7 +13,7 @@ func get_variables():
 		return properties
 
 	for property in selected.get_property_list():
-		if property.get("name").begins_with("VAR_"):
+		if property.get("name").begins_with("VAR_") and property.get("name") in selected.get("editableVars"):
 			properties.append(property)
 	return properties
 

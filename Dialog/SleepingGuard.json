@@ -1,0 +1,21 @@
+[
+	{
+		"id": "1",
+		"text": "Zzz... Grrrhh... quem... *ronco* pegou meu pão... ZzzZz...",
+		"options": [
+			{ "text": "...", "next": null, "toggle": "talked" }
+		]
+	},
+	{
+		"id": "2",
+		"text": "ZzzZZzzzZz...",
+		"options": [
+			{ "text": "...", "next": null }
+		]
+	},
+	{
+		"id": "caught",
+		"text": "EI! O QUE VOCÊ ESTÁ FAZENDO? VOLTE PARA SUA CELA!!!",
+		"options": [{"text": "...", "next": null, "toggle": "caught"}]
+	}
+]

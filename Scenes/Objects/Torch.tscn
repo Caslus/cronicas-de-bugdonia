@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsg27of52d3no"]
+
+[ext_resource type="Texture2D" uid="uid://3k1hyreeahup" path="res://Assets/Objects/TorchOn.png" id="1_2bomy"]
+[ext_resource type="Script" uid="uid://cqq03mlm1jw0v" path="res://Scripts/Object/Torch.gd" id="1_ak37a"]
+[ext_resource type="PackedScene" uid="uid://g6kx2to330s4" path="res://Scenes/Utils/Selectable.tscn" id="2_ak37a"]
+[ext_resource type="Texture2D" uid="uid://cgg0gwqfvuqwj" path="res://Assets/Objects/TorchOff.png" id="2_gn6qy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn6qy"]
+size = Vector2(74, 213)
+
+[node name="Torch" type="StaticBody2D"]
+script = ExtResource("1_ak37a")
+ImageOff = ExtResource("2_gn6qy")
+ImageOn = ExtResource("1_2bomy")
+editableVars = ["VAR_ACESA"]
+metadata/objectName = "Tocha"
+metadata/Interactable = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_2bomy")
+
+[node name="Selectable" parent="." instance=ExtResource("2_ak37a")]
+z_index = 0
+position = Vector2(12, 49)
+scale = Vector2(214.475, 214.475)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 40.5)
+shape = SubResource("RectangleShape2D_gn6qy")
+one_way_collision = true
+debug_color = Color(0.680763, 0.525293, 0, 0.42)

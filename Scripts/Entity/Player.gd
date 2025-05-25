@@ -5,11 +5,14 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY: float = 14.5
 @export var VAR_INT: int = 13
 @export var VAR_USE_GRAVITY: bool = true
+@export var VAR_VOLUME_PASSOS: int = 10
 @export var RUN_MULTIPLIER: float = 1.5
 @export var CAN_MOVE: bool = true
 @export var BEING_RESPAWNED: bool = false
 @export var RESPAWN_POINT: Vector2 = Vector2(0, 0)
 @export var hasWand: bool = false
+
+@export var editableVars: Array = []
 
 # camera
 @export var CAMERA_LIMIT_LEFT: int = -1000

@@ -8,7 +8,7 @@ extends Node
 
 @export var uiNode: CanvasLayer = null
 @export var zoomScale: float = 2.0
-@export var zoomSpeed: float = 1.0
+@export var zoomSpeed: float = 0.6
 
 var interactable: Node2D = null
 var interacting: bool = false
@@ -56,15 +56,15 @@ func cameraZoomIn():
 func cameraZoomOut():
 	var tweenZoom = create_tween()
 	tweenZoom.set_ease(Tween.EASE_IN_OUT)
-	tweenZoom.tween_property(camera, "zoom", originalCameraZoom, zoomSpeed * 0.4)
+	tweenZoom.tween_property(camera, "zoom", originalCameraZoom, zoomSpeed)
 
 	var tweenPosition = create_tween()
 	tweenPosition.set_ease(Tween.EASE_IN_OUT)
-	tweenPosition.tween_property(camera, "position", Vector2(0, 0), zoomSpeed * 0.4)
+	tweenPosition.tween_property(camera, "position", Vector2(0, 0), zoomSpeed)
 	
 	var tweenOffset = create_tween()
 	tweenOffset.set_ease(Tween.EASE_IN_OUT)
-	tweenOffset.tween_property(camera, "offset", originalCameraOffset, zoomSpeed * 0.4)
+	tweenOffset.tween_property(camera, "offset", originalCameraOffset, zoomSpeed)
 
 func start_interaction():
 	if (player == null or interactable == null):

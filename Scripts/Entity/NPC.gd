@@ -5,6 +5,8 @@ var dialog: Dictionary = {}
 @export var startingDialog: String = "1"
 @export var quest: Node = null
 
+@export var turnsToPlayer: bool = true
+
 # texture for sprites
 @export var head: CompressedTexture2D = null
 @export var torso: CompressedTexture2D = null
@@ -44,7 +46,7 @@ func _ready():
 
 func _process(_delta):
 	var torsoNode = get_node("Sprite")
-	if player.global_position.x > global_position.x:
+	if player.global_position.x > global_position.x and turnsToPlayer:
 		torsoNode.scale = Vector2(-1, 1)
 	else:
 		torsoNode.scale = Vector2(1, 1)
