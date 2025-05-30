@@ -1,6 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://cjix7pwd21t2a"]
+[gd_scene load_steps=77 format=3 uid="uid://cjix7pwd21t2a"]
 
 [ext_resource type="Script" uid="uid://cvp73h1iqxaof" path="res://Scripts/AttributeEditor.gd" id="1_eo3in"]
+[ext_resource type="Script" uid="uid://ben1rh6orqham" path="res://Scripts/Quest/FallenBridgeQuest.gd" id="4_8r1tc"]
 [ext_resource type="Texture2D" uid="uid://bmrjglbbcotuw" path="res://Assets/Objects/JailCellInstructions.png" id="4_k78fl"]
 [ext_resource type="Script" uid="uid://c1frvey4w08r7" path="res://Scripts/Object/BreakCell.gd" id="4_ub66v"]
 [ext_resource type="Texture2D" uid="uid://ddha00ljvixqj" path="res://Assets/Objects/JailCellWallDestroyed.png" id="5_jhb7i"]
@@ -10,6 +11,7 @@
 [ext_resource type="Script" uid="uid://81sw4i4e0e27" path="res://Scripts/Object/HollowObject.gd" id="7_bs8ln"]
 [ext_resource type="Script" uid="uid://fijg8l1ggma8" path="res://Scripts/Object/Lock.gd" id="9_bs8ln"]
 [ext_resource type="PackedScene" uid="uid://g6kx2to330s4" path="res://Scenes/Utils/Selectable.tscn" id="9_nfwj3"]
+[ext_resource type="Texture2D" uid="uid://c1icpnkjpwirg" path="res://Assets/Objects/Cliff.png" id="11_hexqm"]
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="13_52hs2"]
 [ext_resource type="Texture2D" uid="uid://belbjf3qri30b" path="res://Assets/Objects/Bed.png" id="13_67n20"]
 [ext_resource type="Texture2D" uid="uid://cu8oxkgp5cydw" path="res://Assets/Objects/JailCellDoor.png" id="13_dg4op"]
@@ -38,6 +40,24 @@
 [ext_resource type="Script" uid="uid://ggqvm4p481pm" path="res://Scripts/Object/ShushZone.gd" id="34_w40my"]
 [ext_resource type="Texture2D" uid="uid://bx64o771pkl3w" path="res://Assets/Entity/Guard/Head.png" id="35_64elk"]
 [ext_resource type="Texture2D" uid="uid://dx261cbtbwnkl" path="res://Assets/Objects/PrisonInnerDoor.png" id="36_52hs2"]
+[ext_resource type="Script" uid="uid://g02qovj6k2cy" path="res://Scripts/Object/PrisonExitDoor.gd" id="36_ujk5p"]
+[ext_resource type="Texture2D" uid="uid://cu4em8ni76ad6" path="res://Assets/Objects/Tree.png" id="38_c1s1p"]
+[ext_resource type="Texture2D" uid="uid://c5k1uluvqvrsf" path="res://Assets/Objects/Bush.png" id="39_ckbi7"]
+[ext_resource type="Texture2D" uid="uid://c07j2oono3xkc" path="res://Assets/Objects/TownSign.png" id="40_i3hgx"]
+[ext_resource type="Texture2D" uid="uid://bl8cr6fnwoqlw" path="res://Assets/Objects/PrisonOuterDoor.png" id="40_wpwjm"]
+[ext_resource type="Script" uid="uid://b71pcmvgdhmcs" path="res://Scripts/Object/FallenBridge.gd" id="41_0t146"]
+[ext_resource type="Texture2D" uid="uid://by0ie0wjc3dna" path="res://Assets/Objects/FallenBridge.png" id="41_i3hgx"]
+[ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="41_wpwjm"]
+[ext_resource type="Script" uid="uid://br3yjoye3jsd8" path="res://Scripts/Object/Killzone.gd" id="43_gbewc"]
+[ext_resource type="Texture2D" uid="uid://dshx46r1y370c" path="res://Assets/Objects/Bush2.png" id="45_vxrry"]
+[ext_resource type="Texture2D" uid="uid://b3r3iqfyl71tp" path="res://Assets/Background/Hills.png" id="46_k16g4"]
+[ext_resource type="Script" uid="uid://dyprl6i7cqri1" path="res://Scripts/Object/Cloud.gd" id="47_8r1tc"]
+[ext_resource type="Texture2D" uid="uid://bd4oj4a0ttgxf" path="res://Assets/Background/Clouds.png" id="48_dys7t"]
+[ext_resource type="Texture2D" uid="uid://bcdpgqnn3ymdo" path="res://Assets/Background/Mountains.png" id="49_leex6"]
+[ext_resource type="Script" uid="uid://v3c6bacceoas" path="res://Scripts/Object/MovingPlatform.gd" id="51_c1ngr"]
+[ext_resource type="Texture2D" uid="uid://dqp1um4bde6ys" path="res://Assets/Objects/FloatingPlatform.png" id="52_fcg8e"]
+[ext_resource type="Shader" uid="uid://d4f40oblnyfg0" path="res://Shaders/shiny.gdshader" id="53_n0u5b"]
+[ext_resource type="Script" uid="uid://dy12jc5lwfsjh" path="res://Scripts/Utils/Selectable.gd" id="54_ga23o"]
 
 [sub_resource type="Theme" id="Theme_pddq8"]
 
@@ -48,7 +68,7 @@ size = Vector2(199, 363)
 size = Vector2(459, 1399)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujg4g"]
-size = Vector2(8752.5, 216)
+size = Vector2(8160.5, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67n20"]
 size = Vector2(88, 169)
@@ -59,7 +79,97 @@ size = Vector2(106, 502)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dj28e"]
 size = Vector2(872, 436)
 
+[sub_resource type="Gradient" id="Gradient_yod24"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0t146"]
+gradient = SubResource("Gradient_yod24")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_gbewc"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c1s1p"]
+gradient = SubResource("Gradient_gbewc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckbi7"]
+size = Vector2(1892, 193)
+
+[sub_resource type="Gradient" id="Gradient_36yee"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gbewc"]
+gradient = SubResource("Gradient_36yee")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1s1p"]
+size = Vector2(999999, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jux46"]
+size = Vector2(581.16, 147)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3o5t6"]
+shader = ExtResource("53_n0u5b")
+shader_parameter/shine_num = 8.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/light_magnitude = 2.0
+shader_parameter/filter_distence = 1.0
+shader_parameter/filter_magnitude = 1.0
+shader_parameter/filter_minv = 0.75
+shader_parameter/cut_inner_radius = 0.1
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/NOISE_speed = Vector2(0, 0)
+shader_parameter/NOISE_magnitude = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8uo1y"]
+
 [node name="Jailbroken!" type="Node2D"]
+
+[node name="JailbrokenQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "lock", "nextQuest")]
+script = ExtResource("19_quiam")
+questName = "Jailbreak!"
+questDescription = "Escape da sua cela através da manipulação de variáveis booleanas."
+questVariables = {
+"finished": false,
+"pickedWand": false,
+"talked": false,
+"talked2": false
+}
+npc = NodePath("../Prison/Prisoner")
+lock = NodePath("../Prison/JailDoor/Lock")
+nextQuest = NodePath("../IntQuest")
+
+[node name="IntQuest" type="Node" parent="." node_paths=PackedStringArray("nextQuest", "npc", "prisoner")]
+script = ExtResource("22_84rmi")
+questName = "Inteiramente silencioso."
+questDescription = "Passe pelo guarda da prisão sem fazer barulho."
+questVariables = {
+"escaped": false,
+"read": false,
+"talked": false
+}
+nextQuest = NodePath("../FallenBridgeQuest")
+npc = NodePath("../Prison/Guard")
+prisoner = NodePath("../Prison/Prisoner")
+guardSleepingFace = ExtResource("30_dj28e")
+
+[node name="FallenBridgeQuest" type="Node" parent="." node_paths=PackedStringArray("floatingPlatform", "fallenBridge")]
+script = ExtResource("4_8r1tc")
+questName = "Ponte? Pra que?"
+questDescription = "Modifique a velocidade de uma plataforma voadora para atravessar o penhasco."
+questVariables = {
+"fell": false,
+"talked": false
+}
+floatingPlatform = NodePath("../Outside/FloatingPlatform")
+fallenBridge = NodePath("../Outside/FallenBridge")
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -75,109 +185,435 @@ theme = SubResource("Theme_pddq8")
 script = ExtResource("1_eo3in")
 metadata/_edit_use_anchors_ = true
 
-[node name="CellWall" type="Sprite2D" parent="."]
+[node name="DevTools" parent="." instance=ExtResource("41_wpwjm")]
+visible = false
+
+[node name="Prison" type="Node" parent="."]
+
+[node name="CellWall" type="Sprite2D" parent="Prison"]
 z_index = 1
 position = Vector2(669, -491)
 texture = ExtResource("6_nfwj3")
 script = ExtResource("7_bs8ln")
 xOffset = -36.49
 
-[node name="Area2D" type="Area2D" parent="CellWall"]
+[node name="Area2D" type="Area2D" parent="Prison/CellWall"]
 script = ExtResource("4_ub66v")
 brokenCell = ExtResource("5_jhb7i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CellWall/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prison/CellWall/Area2D"]
 position = Vector2(96.5, -242.5)
 shape = SubResource("RectangleShape2D_52hs2")
 
-[node name="Cell" type="StaticBody2D" parent="."]
+[node name="Cell" type="StaticBody2D" parent="Prison"]
 z_index = -10
 
-[node name="JailCellInstructions" type="Sprite2D" parent="Cell"]
+[node name="JailCellInstructions" type="Sprite2D" parent="Prison/Cell"]
 z_index = 1
 position = Vector2(-327, -348)
 texture = ExtResource("4_k78fl")
 
-[node name="JailCell2" type="Sprite2D" parent="Cell"]
+[node name="JailCell2" type="Sprite2D" parent="Prison/Cell"]
 light_mask = 3
 position = Vector2(1597, -491)
 texture = ExtResource("6_deseg")
 
-[node name="JailCell3" type="Sprite2D" parent="Cell"]
+[node name="JailCell3" type="Sprite2D" parent="Prison/Cell"]
 light_mask = 3
 position = Vector2(3206, -487)
 texture = ExtResource("6_deseg")
 
-[node name="JailCell4" type="Sprite2D" parent="Cell"]
+[node name="JailCell4" type="Sprite2D" parent="Prison/Cell"]
 light_mask = 3
 position = Vector2(4815, -487)
 texture = ExtResource("6_deseg")
 
-[node name="JailCell5" type="Sprite2D" parent="Cell"]
+[node name="JailCell5" type="Sprite2D" parent="Prison/Cell"]
 light_mask = 3
 position = Vector2(6423, -487)
 texture = ExtResource("6_deseg")
 
-[node name="JailCell" type="Sprite2D" parent="Cell"]
+[node name="JailCell" type="Sprite2D" parent="Prison/Cell"]
 light_mask = 3
 position = Vector2(0, -490.73)
 texture = ExtResource("6_deseg")
 
-[node name="JailColumn" type="Sprite2D" parent="Cell"]
+[node name="JailColumn" type="Sprite2D" parent="Prison/Cell"]
 position = Vector2(2406, -620)
 texture = ExtResource("6_eo3in")
 
-[node name="JailColumn2" type="Sprite2D" parent="Cell"]
+[node name="JailColumn2" type="Sprite2D" parent="Prison/Cell"]
 position = Vector2(4018, -620)
 texture = ExtResource("6_eo3in")
 
-[node name="JailColumn3" type="Sprite2D" parent="Cell"]
+[node name="JailColumn3" type="Sprite2D" parent="Prison/Cell"]
 position = Vector2(5626, -620)
 texture = ExtResource("6_eo3in")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cell"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Prison/Cell"]
 position = Vector2(-1019.5, -586.5)
 shape = SubResource("RectangleShape2D_kt8cb")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Cell"]
-position = Vector2(6943, -586)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Prison/Cell"]
+position = Vector2(8352, -586)
 shape = SubResource("RectangleShape2D_kt8cb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cell"]
-position = Vector2(3128.75, 148)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prison/Cell"]
+position = Vector2(2832.75, 148)
 shape = SubResource("RectangleShape2D_ujg4g")
 
-[node name="Torch" parent="Cell" instance=ExtResource("15_cknwh")]
+[node name="Torch" parent="Prison/Cell" instance=ExtResource("15_cknwh")]
 position = Vector2(1608, -377)
 input_pickable = true
 
-[node name="Torch3" parent="Cell" instance=ExtResource("15_cknwh")]
+[node name="Torch3" parent="Prison/Cell" instance=ExtResource("15_cknwh")]
 position = Vector2(4898, -377)
 input_pickable = true
 
-[node name="Torch4" parent="Cell" instance=ExtResource("15_cknwh")]
+[node name="Torch4" parent="Prison/Cell" instance=ExtResource("15_cknwh")]
 position = Vector2(6479, -377)
 input_pickable = true
 
-[node name="Torch2" parent="Cell" instance=ExtResource("15_cknwh")]
+[node name="Torch2" parent="Prison/Cell" instance=ExtResource("15_cknwh")]
 position = Vector2(3278, -377)
 input_pickable = true
 
-[node name="PrisonInnerDoor" type="Sprite2D" parent="Cell"]
+[node name="PrisonInnerDoor" type="Sprite2D" parent="Prison/Cell"]
 position = Vector2(6488, -566)
 texture = ExtResource("36_52hs2")
 
-[node name="PrisonInnerDoor2" type="Sprite2D" parent="Cell"]
+[node name="PrisonInnerDoor2" type="Sprite2D" parent="Prison/Cell"]
 position = Vector2(8553, -566)
 rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("36_52hs2")
 
+[node name="PrisonInnerDoor3" type="Sprite2D" parent="Prison/Cell"]
+position = Vector2(8659, -598)
+rotation = 3.24696
+scale = Vector2(1, -1)
+texture = ExtResource("36_52hs2")
+
+[node name="JailDoor" type="Node2D" parent="Prison"]
+z_index = -1
+position = Vector2(16, 0)
+
+[node name="Lock" type="StaticBody2D" parent="Prison/JailDoor"]
+z_index = 1
+position = Vector2(610, -146)
+input_pickable = true
+script = ExtResource("9_bs8ln")
+editableVars = ["VAR_LOCKED"]
+metadata/objectName = "Cadeado Impossível de Abrir"
+metadata/Interactable = false
+
+[node name="Selectable" parent="Prison/JailDoor/Lock" instance=ExtResource("9_nfwj3")]
+z_index = 0
+position = Vector2(0, 28.625)
+scale = Vector2(214.475, 214.475)
+
+[node name="Sprite" type="Sprite2D" parent="Prison/JailDoor/Lock"]
+texture = ExtResource("14_67n20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prison/JailDoor/Lock"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_67n20")
+one_way_collision = true
+debug_color = Color(0.680763, 0.525293, 0, 0.42)
+
+[node name="Door" type="StaticBody2D" parent="Prison/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Prison/JailDoor/Door"]
+texture = ExtResource("13_dg4op")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prison/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_dg4op")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Bed" type="Sprite2D" parent="Prison"]
+position = Vector2(-575, -126)
+texture = ExtResource("13_67n20")
+
+[node name="Prisoner" parent="Prison" node_paths=PackedStringArray("quest") instance=ExtResource("17_hexqm")]
+position = Vector2(193, -209)
+dialogFile = "res://Dialog/Prisoner.json"
+quest = NodePath("../../JailbrokenQuest")
+head = ExtResource("15_cd2dw")
+torso = ExtResource("16_quiam")
+arm = ExtResource("17_6i2n7")
+leg = ExtResource("18_t8e3p")
+metadata/objectName = "Prisio, o Prisioneiro"
+
+[node name="Guard" parent="Prison" instance=ExtResource("17_hexqm")]
+position = Vector2(3940, -201)
+dialogFile = "res://Dialog/SleepingGuard.json"
+turnsToPlayer = false
+head = ExtResource("30_dj28e")
+torso = ExtResource("31_w40my")
+arm = ExtResource("32_64elk")
+leg = ExtResource("33_52hs2")
+metadata/objectName = "Guarda Sonolento"
+
+[node name="ShushZone" type="Area2D" parent="Prison/Guard"]
+script = ExtResource("34_w40my")
+guardWokeFace = ExtResource("35_64elk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prison/Guard/ShushZone"]
+shape = SubResource("RectangleShape2D_dj28e")
+debug_color = Color(0.93375, 0.25783, 0, 0.42)
+
+[node name="MagicWand" type="Node2D" parent="Prison"]
+position = Vector2(-758, -36)
+script = ExtResource("20_frlqq")
+metadata/objectName = "Varinha Mágica"
+metadata/objectDescription = "É só um pedaço de pau. Mas ele é mágico."
+metadata/InteractionType = "Item"
+
+[node name="Sprite" type="Sprite2D" parent="Prison/MagicWand"]
+z_index = -1
+texture = ExtResource("20_6i2n7")
+
+[node name="Interactable" parent="Prison/MagicWand" instance=ExtResource("21_t8e3p")]
+position = Vector2(0, 6.565)
+enableInteraction = false
+
+[node name="SmallTable" type="Sprite2D" parent="Prison"]
+position = Vector2(2072, -82)
+texture = ExtResource("25_q6ot7")
+
+[node name="RedBook" type="Node2D" parent="Prison/SmallTable" node_paths=PackedStringArray("quest")]
+position = Vector2(-6, -67)
+script = ExtResource("26_vl4p4")
+quest = NodePath("../../../IntQuest")
+metadata/objectName = "A Lenda de Tropinsky"
+metadata/InteractionType = "Dialog"
+
+[node name="Sprite" type="Sprite2D" parent="Prison/SmallTable/RedBook"]
+position = Vector2(8, 6)
+texture = ExtResource("26_3c4nm")
+
+[node name="Interactable" parent="Prison/SmallTable/RedBook" instance=ExtResource("21_t8e3p")]
+position = Vector2(0, 6.565)
+
+[node name="Dialog" type="VBoxContainer" parent="Prison/SmallTable/RedBook"]
+z_index = 100
+clip_contents = true
+offset_left = 80.0
+offset_top = -35.0
+offset_right = 330.0
+offset_bottom = 5.0
+
+[node name="Exit" type="Area2D" parent="Prison" node_paths=PackedStringArray("nextQuest")]
+script = ExtResource("36_ujk5p")
+nextQuest = NodePath("../../FallenBridgeQuest")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Prison/Exit"]
+position = Vector2(6943, -586)
+shape = SubResource("RectangleShape2D_kt8cb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Prison/Exit"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Prison/Exit/StaticBody2D"]
+position = Vector2(6980, -586)
+shape = SubResource("RectangleShape2D_kt8cb")
+
+[node name="Outside" type="Node" parent="."]
+
+[node name="Cliff" type="Sprite2D" parent="Outside"]
+light_mask = 3
+z_index = -11
+position = Vector2(9053, 73)
+texture = ExtResource("11_hexqm")
+
+[node name="Tree" type="Sprite2D" parent="Outside"]
+position = Vector2(9985, -370)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Tree"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="PrisonOuterDoor" type="Sprite2D" parent="Outside"]
+position = Vector2(8456, -528)
+texture = ExtResource("40_wpwjm")
+
+[node name="Bush" type="Sprite2D" parent="Outside"]
+position = Vector2(8926, -140)
+texture = ExtResource("39_ckbi7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Bush"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="TownSign" type="Sprite2D" parent="Outside"]
+position = Vector2(9471, -181)
+texture = ExtResource("40_i3hgx")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/TownSign"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-9.99997, 142)
+scale = Vector2(1.12313, 0.364047)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_c1s1p")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Outside"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/StaticBody2D"]
+position = Vector2(9154, 221.5)
+shape = SubResource("RectangleShape2D_ckbi7")
+
+[node name="FallenBridge" type="Node2D" parent="Outside"]
+script = ExtResource("41_0t146")
+metadata/objectName = "Ponte Quebrada"
+metadata/InteractionType = "Dialog"
+
+[node name="Sprite" type="Sprite2D" parent="Outside/FallenBridge"]
+position = Vector2(10069, 67)
+texture = ExtResource("41_i3hgx")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/FallenBridge/Sprite"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-14, 41)
+scale = Vector2(0.824374, 0.228094)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_gbewc")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Outside/FallenBridge/Sprite"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(86, -45)
+scale = Vector2(0.824374, 0.228094)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_gbewc")
+
+[node name="Interactable" parent="Outside/FallenBridge" instance=ExtResource("21_t8e3p")]
+position = Vector2(10069, -47)
+
+[node name="Dialog" type="VBoxContainer" parent="Outside/FallenBridge"]
+z_index = 100
+clip_contents = true
+offset_left = 10131.0
+offset_top = -80.0
+offset_right = 10381.0
+offset_bottom = -40.0
+
+[node name="Killzone" type="Area2D" parent="Outside"]
+position = Vector2(0, 600)
+script = ExtResource("43_gbewc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Killzone"]
+shape = SubResource("RectangleShape2D_c1s1p")
+
+[node name="Bush2" type="Sprite2D" parent="Outside"]
+z_index = -1
+position = Vector2(9847, -96)
+scale = Vector2(0.640039, 0.640039)
+texture = ExtResource("45_vxrry")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Bush2"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Outside"]
+scroll_base_offset = Vector2(-960, -540)
+scroll_ignore_camera_zoom = true
+
+[node name="Hills" type="ParallaxLayer" parent="Outside/ParallaxBackground"]
+z_index = -2
+position = Vector2(0, -250)
+motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(0, 500)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Layer05Hills" type="Sprite2D" parent="Outside/ParallaxBackground/Hills"]
+texture = ExtResource("46_k16g4")
+centered = false
+
+[node name="Clouds" type="ParallaxLayer" parent="Outside/ParallaxBackground"]
+z_index = -3
+position = Vector2(0, -250)
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(0, 200)
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("47_8r1tc")
+speed = -10.0
+
+[node name="Layer04Clouds" type="Sprite2D" parent="Outside/ParallaxBackground/Clouds"]
+texture = ExtResource("48_dys7t")
+centered = false
+
+[node name="Mountains" type="ParallaxLayer" parent="Outside/ParallaxBackground"]
+z_index = -4
+position = Vector2(0, -250)
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(0, 250)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Layer06Rocks" type="Sprite2D" parent="Outside/ParallaxBackground/Mountains"]
+texture = ExtResource("49_leex6")
+centered = false
+
+[node name="FloatingPlatform" type="AnimatableBody2D" parent="Outside"]
+position = Vector2(13000, 161)
+input_pickable = true
+sync_to_physics = false
+script = ExtResource("51_c1ngr")
+metadata/objectName = "Plataforma Conveniente"
+metadata/Interactable = true
+
+[node name="Sprite" type="Sprite2D" parent="Outside/FloatingPlatform"]
+light_mask = 3
+texture = ExtResource("52_fcg8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/FloatingPlatform"]
+position = Vector2(0, 37.5)
+shape = SubResource("RectangleShape2D_jux46")
+
+[node name="Selectable" type="Sprite2D" parent="Outside/FloatingPlatform"]
+visible = false
+z_index = -3
+material = SubResource("ShaderMaterial_3o5t6")
+scale = Vector2(600, 600)
+texture = SubResource("CanvasTexture_8uo1y")
+script = ExtResource("54_ga23o")
+
 [node name="Player" parent="." instance=ExtResource("13_52hs2")]
 z_index = 10
-position = Vector2(-69, -143)
+position = Vector2(6584, -143)
 VAR_SPEED = 15.0
 RESPAWN_POINT = Vector2(-270, -270)
+hasWand = true
 CAMERA_LIMIT_LEFT = -812
 metadata/objectName = "Jogador"
 metadata/Interactable = true
@@ -194,142 +630,3 @@ script = ExtResource("16_ulrca")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(69, 143)
-
-[node name="JailDoor" type="Node2D" parent="."]
-z_index = -1
-position = Vector2(16, 0)
-
-[node name="Lock" type="StaticBody2D" parent="JailDoor"]
-z_index = 1
-position = Vector2(610, -146)
-input_pickable = true
-script = ExtResource("9_bs8ln")
-editableVars = ["VAR_LOCKED"]
-metadata/objectName = "Cadeado Impossível de Abrir"
-metadata/Interactable = false
-
-[node name="Selectable" parent="JailDoor/Lock" instance=ExtResource("9_nfwj3")]
-z_index = 0
-position = Vector2(0, 28.625)
-scale = Vector2(214.475, 214.475)
-
-[node name="Sprite" type="Sprite2D" parent="JailDoor/Lock"]
-texture = ExtResource("14_67n20")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JailDoor/Lock"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_67n20")
-one_way_collision = true
-debug_color = Color(0.680763, 0.525293, 0, 0.42)
-
-[node name="Door" type="StaticBody2D" parent="JailDoor"]
-position = Vector2(620, -107)
-
-[node name="Sprite" type="Sprite2D" parent="JailDoor/Door"]
-texture = ExtResource("13_dg4op")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JailDoor/Door"]
-z_index = 999
-z_as_relative = false
-position = Vector2(-2, -113)
-shape = SubResource("RectangleShape2D_dg4op")
-debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
-
-[node name="Bed" type="Sprite2D" parent="."]
-position = Vector2(-575, -126)
-texture = ExtResource("13_67n20")
-
-[node name="Prisoner" parent="." node_paths=PackedStringArray("quest") instance=ExtResource("17_hexqm")]
-position = Vector2(193, -209)
-dialogFile = "res://Dialog/Prisoner.json"
-quest = NodePath("../JailbrokenQuest")
-head = ExtResource("15_cd2dw")
-torso = ExtResource("16_quiam")
-arm = ExtResource("17_6i2n7")
-leg = ExtResource("18_t8e3p")
-metadata/objectName = "Prisio, o Prisioneiro"
-
-[node name="JailbrokenQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "lock", "nextQuest")]
-script = ExtResource("19_quiam")
-questName = "Jailbreak!"
-questDescription = "Escape da sua cela através da manipulação de variáveis booleanas."
-questVariables = {
-"finished": false,
-"pickedWand": false,
-"talked": false,
-"talked2": false
-}
-npc = NodePath("../Prisoner")
-lock = NodePath("../JailDoor/Lock")
-nextQuest = NodePath("../IntQuest")
-
-[node name="IntQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "prisoner")]
-script = ExtResource("22_84rmi")
-questName = "Inteiramente silencioso."
-questDescription = "Passe pelo guarda da prisão sem fazer barulho."
-questVariables = {
-"read": false,
-"talked": false
-}
-npc = NodePath("../Guard")
-prisoner = NodePath("../Prisoner")
-guardSleepingFace = ExtResource("30_dj28e")
-
-[node name="MagicWand" type="Node2D" parent="."]
-position = Vector2(-758, -36)
-script = ExtResource("20_frlqq")
-metadata/objectName = "Varinha Mágica"
-metadata/objectDescription = "É só um pedaço de pau. Mas ele é mágico."
-metadata/InteractionType = "Item"
-
-[node name="Sprite" type="Sprite2D" parent="MagicWand"]
-z_index = -1
-texture = ExtResource("20_6i2n7")
-
-[node name="Interactable" parent="MagicWand" instance=ExtResource("21_t8e3p")]
-position = Vector2(0, 6.565)
-enableInteraction = false
-
-[node name="SmallTable" type="Sprite2D" parent="."]
-position = Vector2(2072, -82)
-texture = ExtResource("25_q6ot7")
-
-[node name="RedBook" type="Node2D" parent="SmallTable" node_paths=PackedStringArray("quest")]
-position = Vector2(-6, -67)
-script = ExtResource("26_vl4p4")
-quest = NodePath("../../IntQuest")
-metadata/objectName = "A Lenda de Tropinsky"
-metadata/InteractionType = "Dialog"
-
-[node name="Sprite" type="Sprite2D" parent="SmallTable/RedBook"]
-position = Vector2(8, 6)
-texture = ExtResource("26_3c4nm")
-
-[node name="Interactable" parent="SmallTable/RedBook" instance=ExtResource("21_t8e3p")]
-position = Vector2(0, 6.565)
-
-[node name="Dialog" type="VBoxContainer" parent="SmallTable/RedBook"]
-z_index = 100
-clip_contents = true
-offset_left = 80.0
-offset_top = -35.0
-offset_right = 330.0
-offset_bottom = 5.0
-
-[node name="Guard" parent="." instance=ExtResource("17_hexqm")]
-position = Vector2(3940, -201)
-dialogFile = "res://Dialog/SleepingGuard.json"
-turnsToPlayer = false
-head = ExtResource("30_dj28e")
-torso = ExtResource("31_w40my")
-arm = ExtResource("32_64elk")
-leg = ExtResource("33_52hs2")
-metadata/objectName = "Guarda Sonolento"
-
-[node name="ShushZone" type="Area2D" parent="Guard"]
-script = ExtResource("34_w40my")
-guardWokeFace = ExtResource("35_64elk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard/ShushZone"]
-shape = SubResource("RectangleShape2D_dj28e")
-debug_color = Color(0.93375, 0.25783, 0, 0.42)

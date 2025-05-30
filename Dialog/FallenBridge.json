@@ -1,68 +1,49 @@
 [
 	{
 		"id": "1",
-		"text": "Ah, what a tragedy... a real tragedy...",
+		"text": "Ah, que trágedia... Uma verdadeira tragédia.",
 		"options": [
-			{ "text": "What’s the drama this time?", "next": "2" },
-			{ "text": "I don't really care.", "next": null }
+			{ "text": "O que aconteceu?", "next": "2b" },
+			{ "text": "Por que uma ponte está falando?", "next": "2a"}
 		]
 	},
 	{
-		"id": "2",
-		"text": "The bridge! It's gone! Just like my will to exercise.",
-		"options": [{ "text": "Oh no! ...Wait, what bridge?", "next": "3" }]
+		"id": "2a",
+		"text": "Não questione. Nada disso é verdade. Vivemos todos em uma simulação.",
+		"options": [
+			{ "text": "???", "next": "2aa" }
+		]
+	},
+	{
+		"id": "2aa",
+		"text": "Posso continuar o roteiro?",
+		"options": [
+			{ "text": "Pode... eu acho...", "next": "2b" }
+		]
+	},
+	{
+		"id": "2b",
+		"text": "É uma tragédia que tenham me quebrado... Eu até me consertaria mas como você pode ver eu não tenho braços.",
+		"options": [{ "text": "Complicado.", "next": "2c" }]
+	},
+	{
+		"id": "2c",
+		"text": "Ha! Complicado vai ser pra quem quiser ir pro outro lado, dese jeito ninguém vai conseguir. Ninguém mesmo!",
+		"options": [{ "text": "Ninguém mesmo??", "next": "3" }]
 	},
 	{
 		"id": "3",
-		"text": "The one that was here! Super convenient, always in the right spot, just the right width... *sigh*",
-		"options": [{ "text": "Sounds like a skill issue.", "next": "4" }]
+		"text": "Ah, veja bem, talvez um mago consiga fazer algo e ir para o outro lado, mas faz anos que um mago não aparece por essas terras.",
+		"options": [{ "text": "...", "next": null, "toggle": "talked" }]
 	},
 	{
 		"id": "4",
-		"text": "Look, I'd fix it myself, but unfortunately, I have a rare condition called 'Too Lazy to Try.'",
-		"options": [
-			{ "text": "Fascinating. Go on.", "next": "5" },
-			{ "text": "I, too, suffer from that.", "next": null }
-		]
+		"text": "Não me diga que essa plataforma veio até nós... Que conveniente. Muito conveniente. Exageradamente conveniente.",
+		"options": [{ "text": "...", "next": "5" }]
 	},
 	{
 		"id": "5",
-		"text": "So, yeah... would be *real nice* if someone just happened to help me, you know? Maybe someone with, say, *protagonist energy*?",
-		"options": [
-			{ "text": "Fine. I'll do it.", "next": "6" },
-			{ "text": "Sounds like a you problem.", "next": null }
-		]
-	},
-	{
-		"id": "6",
-		"text": "Seriously?! That’s incredible! Almost like the game *wants* you to help me! What are the odds?",
-		"options": [{ "text": "Let’s get this over with.", "next": "7" }]
-	},
-	{
-		"id": "7",
-		"text": "I heard magicians can literally rewrite reality. Maybe you could find one of those convenient world-editing types?",
-		"options": [
-			{
-				"text": "Oh yeah, that's me.",
-				"next": "8"
-			},
-			{ "text": "Sounds complicated. I'm out.", "next": null }
-		]
-	},
-	{
-		"id": "8",
-		"text": "Oh, perfect! In that case, could you just *casually* edit that way-too-convenient floating platform over there? You know, the one that exists *only* for this exact moment?",
-		"options": [
-			{
-				"text": "Sure, very convenient.",
-				"next": null
-			},
-			{ "text": "Nah.", "next": null }
-		]
-	},
-	{
-		"id": "9",
-		"text": "You did it! Wow! How did you *ever* manage to solve this incredibly difficult puzzle? Truly, you are the *chosen one*.",
-		"options": []
+		"text": "Deixa eu te dar uma dica: se você segurar CTRL ou SHIFT ao editar variáveis, os valores são alterados de maneira diferente.",
+		"options": [{ "text": "...", "next": null }]
 	}
 ]

@@ -2,7 +2,7 @@ extends Sprite2D
 
 @export var xOffset: float = 0
 
-@onready var player: CharacterBody2D = get_node("../Player")
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 var originalZIndex: int
 
 func _ready() -> void:

@@ -1,5 +1,9 @@
 extends Area2D
 
+@onready var player = get_tree().get_nodes_in_group("player")[0]
+@onready var audioStreamPlayer = player.get_node("AudioStreamPlayer2D")
+var angelChoir = preload("res://Assets/Audio/AngelChoir.wav")
+
 func respawn_player(player):
 	var respawnNode: Node2D = player.get_node("Respawn")
 	var godHand: Sprite2D = respawnNode.get_node("GodHand")
@@ -7,7 +11,10 @@ func respawn_player(player):
 	player.CAN_MOVE = false
 	player.BEING_RESPAWNED = true
 	var playerCollision: CollisionShape2D = player.get_node("CollisionShape2D")
-	playerCollision.disabled = true
+	#playerCollision.disabled = true
+	
+	audioStreamPlayer.stream = angelChoir
+	audioStreamPlayer.play()
 
 	godHand.visible = true
 	var godRays: Sprite2D = respawnNode.get_node("Godrays")
@@ -23,13 +30,13 @@ func respawn_player(player):
 
 	var tweenPosition = create_tween()
 	tweenPosition.set_ease(Tween.EASE_IN_OUT)
-	tweenPosition.tween_property(player, "position", Vector2(player.position.x, -1000.0), 2.0)
-	tweenPosition.tween_property(player, "position", Vector2(player.RESPAWN_POINT.x, -1000.0), 2.0)
+	tweenPosition.tween_property(player, "position", Vector2(player.position.x, -600.0), 2.0)
+	tweenPosition.tween_property(player, "position", Vector2(player.RESPAWN_POINT.x, -600.0), 2.0)
 	tweenPosition.tween_property(player, "position", player.RESPAWN_POINT, 2.0)
 	await tweenPosition.finished
 
 	player.BEING_RESPAWNED = false
-	playerCollision.disabled = false
+	#playerCollision.disabled = false
 	
 	var tweenHandPosition = create_tween()
 	tweenHandPosition.set_ease(Tween.EASE_IN_OUT)
@@ -45,9 +52,9 @@ func respawn_player(player):
 	godRays.visible = false
 	player.CAN_MOVE = true
 
-
 func _on_body_entered(body):
 	if body.name == "Player":
+		QuestManager.toggleQuestVar("fell")
 		respawn_player(body)
 
 

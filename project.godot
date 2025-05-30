@@ -23,6 +23,7 @@ config/icon="uid://0s2bs6ohh42v"
 Utils="*res://Scripts/Utils/Utils.gd"
 SelectedManager="*res://Scripts/SelectedManager.gd"
 QuestManager="*res://Scripts/QuestManager.gd"
+TransitionCanvas="*res://Scenes/Utils/TransitionCanvas.tscn"
 
 [display]
 

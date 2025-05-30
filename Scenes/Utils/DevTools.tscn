@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfv7fpnqjbtc4"]
+
+[ext_resource type="Script" uid="uid://bu74ve0ufn22i" path="res://Scripts/Utils/PrintPlayerPosition.gd" id="1_dp3bj"]
+
+[node name="DevTools" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Print player position"
+script = ExtResource("1_dp3bj")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

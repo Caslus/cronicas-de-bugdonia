@@ -3,6 +3,7 @@ extends Node
 @export var questName: String = "Quest Name"
 @export var questDescription: String = "Quest Description"
 @export var questVariables: Dictionary = {}
+@export var nextQuest: Node
 @export var npc: CharacterBody2D = null
 @export var prisoner: CharacterBody2D
 @export var guardSleepingFace: CompressedTexture2D
@@ -71,6 +72,8 @@ func onUpdateQuestVariables():
 		questVariables.set("caught", false)
 		npc.set("startingDialog", "1")
 		prisoner.set("startingDialog", "caught")
+	if questVariables.get("escaped"):
+		QuestManager.currentQuest = nextQuest
 	pass
 
 

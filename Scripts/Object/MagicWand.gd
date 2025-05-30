@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var interactableNode = get_node("Interactable")
-@onready var player: CharacterBody2D = get_node("../Player")
+@onready var player = get_tree().get_nodes_in_group("player")[0]
 @onready var interactionManager: Node = player.get_node("InteractionManager")
 
 func questUpdated():
