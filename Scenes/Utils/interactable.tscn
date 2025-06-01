@@ -160,7 +160,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0dth"]
-size = Vector2(300, 250)
+size = Vector2(300, 368)
 
 [node name="Interactable" type="Node2D" groups=["interactable"]]
 script = ExtResource("1_ygnqw")
@@ -184,5 +184,5 @@ libraries = {
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 40)
+position = Vector2(0, -19)
 shape = SubResource("RectangleShape2D_n0dth")
