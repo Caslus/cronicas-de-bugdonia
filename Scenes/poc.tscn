@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bhs0tcq33s1sc"]
+[gd_scene load_steps=35 format=3 uid="uid://bhs0tcq33s1sc"]
 
 [ext_resource type="Texture2D" uid="uid://c08s16xa2r7wh" path="res://Assets/icon.svg" id="1_0qo5a"]
 [ext_resource type="Texture2D" uid="uid://bd4oj4a0ttgxf" path="res://Assets/Background/Clouds.png" id="3_i6grk"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://cvp73h1iqxaof" path="res://Scripts/AttributeEditor.gd" id="6_j81f7"]
 [ext_resource type="Script" uid="uid://r5pp0sf067jp" path="res://Scripts/Object/square.gd" id="7_m1u6v"]
 [ext_resource type="Texture2D" uid="uid://brac0nym6yjvh" path="res://Assets/Objects/NoEntry.png" id="7_pddq8"]
-[ext_resource type="Shader" uid="uid://dg1ggw3ohp80e" path="res://Shaders/godray.gdshader" id="8_pxbtr"]
 [ext_resource type="Script" uid="uid://bdd460m5b8pte" path="res://Scripts/SelectedManager.gd" id="9_kt8cb"]
+[ext_resource type="PackedScene" uid="uid://c33s207brjvog" path="res://Scenes/Utils/Godray.tscn" id="11_2js3y"]
 [ext_resource type="PackedScene" uid="uid://cakt5wbo6p32p" path="res://Scenes/Utils/interactable.tscn" id="12_kt8cb"]
 [ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="14_j81f7"]
 [ext_resource type="Script" uid="uid://cgj3geefma26i" path="res://Scripts/InteractionManager.gd" id="14_m1u6v"]
@@ -50,42 +50,6 @@ shader_parameter/NOISE_speed = Vector2(0, 0)
 shader_parameter/NOISE_magnitude = 0.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_i8qhx"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ucc35"]
-shader = ExtResource("8_pxbtr")
-shader_parameter/angle = -3.0
-shader_parameter/position = 0.82
-shader_parameter/spread = 0.485
-shader_parameter/cutoff = 0.175
-shader_parameter/falloff = 0.645
-shader_parameter/edge_fade = 0.56
-shader_parameter/speed = 4.0
-shader_parameter/ray1_density = 8.0
-shader_parameter/ray2_density = 30.0
-shader_parameter/ray2_intensity = 0.3
-shader_parameter/color = Color(1, 0.901961, 0.65098, 1)
-shader_parameter/hdr = false
-shader_parameter/seed = 5.0
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_byd1s"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ux0tg"]
-particles_animation = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Gradient" id="Gradient_2js3y"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3x2lm"]
-gradient = SubResource("Gradient_2js3y")
-width = 2
-height = 2
-
-[sub_resource type="Gradient" id="Gradient_35a4y"]
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pddq8"]
 size = Vector2(999999, 20)
@@ -205,27 +169,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Godrays" type="Sprite2D" parent="Square"]
-z_index = 100
-material = SubResource("ShaderMaterial_ucc35")
-scale = Vector2(800, 800)
-texture = SubResource("CanvasTexture_byd1s")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Square/Godrays"]
-material = SubResource("CanvasItemMaterial_ux0tg")
-amount = 10
-texture = SubResource("GradientTexture2D_3x2lm")
-lifetime = 2.0
-randomness = 0.3
-lifetime_randomness = 0.3
-emission_shape = 3
-emission_rect_extents = Vector2(0.15, 0.1)
-gravity = Vector2(0, -9)
-scale_amount_min = 0.5
-scale_amount_max = 2.0
-color = Color(0.953227, 0.795913, 0.686273, 0.501961)
-color_ramp = SubResource("Gradient_35a4y")
-anim_speed_max = 109.0
+[node name="Godrays" parent="Square" instance=ExtResource("11_2js3y")]
 
 [node name="Interactable" parent="Square" instance=ExtResource("12_kt8cb")]
 

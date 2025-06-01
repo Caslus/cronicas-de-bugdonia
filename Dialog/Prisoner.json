@@ -68,7 +68,14 @@
 		"id": "12",
 		"text": "Se for verdadeiro, a porta continua trancada. Se for falso, ela se abre magicamente. Sacou?",
 		"options": [
-			{ "text": "Vou tentar abrir!", "next": null, "toggle": "talked2" }
+			{ "text": "Saquei!", "next": "12.1"}
+		]
+	},
+	{
+		"id": "12.1",
+		"text": "Então clica no cadeado, faça sua mágica e vamos sair logo daqui!",
+		"options": [
+			{ "text": "Vou tentar!", "next": null, "toggle": "talked2" }
 		]
 	},
 	{
@@ -83,12 +90,12 @@
 	},
 	{
 		"id": "14",
-		"text": "VOCÊ CONSEGUIU! A porta abriu! Vamos sair daqui!",
+		"text": "VOCÊ CONSEGUIU! A porta abriu! Vamos sair logo daqui!",
 		"options": [{ "text": "Estamos livres!", "next": null }]
 	},
 	{
 		"id": "caught",
-		"text": "Se você fizer menos barulho vamos conseguir fugir...",
+		"text": "Se você clicar em você mesmo e se editar para fazer menos barulho, vamos conseguir fugir...",
 		"options": [{"text": "Vou tentar...", "next": null}]
 	}
 ]

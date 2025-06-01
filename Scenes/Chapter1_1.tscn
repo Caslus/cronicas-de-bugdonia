@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://cjix7pwd21t2a"]
+[gd_scene load_steps=79 format=3 uid="uid://cjix7pwd21t2a"]
 
 [ext_resource type="Script" uid="uid://cvp73h1iqxaof" path="res://Scripts/AttributeEditor.gd" id="1_eo3in"]
 [ext_resource type="Script" uid="uid://ben1rh6orqham" path="res://Scripts/Quest/FallenBridgeQuest.gd" id="4_8r1tc"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://81sw4i4e0e27" path="res://Scripts/Object/HollowObject.gd" id="7_bs8ln"]
 [ext_resource type="Script" uid="uid://fijg8l1ggma8" path="res://Scripts/Object/Lock.gd" id="9_bs8ln"]
 [ext_resource type="PackedScene" uid="uid://g6kx2to330s4" path="res://Scenes/Utils/Selectable.tscn" id="9_nfwj3"]
+[ext_resource type="PackedScene" uid="uid://c33s207brjvog" path="res://Scenes/Utils/Godray.tscn" id="11_fcg8e"]
 [ext_resource type="Texture2D" uid="uid://c1icpnkjpwirg" path="res://Assets/Objects/Cliff.png" id="11_hexqm"]
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="13_52hs2"]
 [ext_resource type="Texture2D" uid="uid://belbjf3qri30b" path="res://Assets/Objects/Bed.png" id="13_67n20"]
@@ -208,6 +209,11 @@ brokenCell = ExtResource("5_jhb7i")
 position = Vector2(96.5, -242.5)
 shape = SubResource("RectangleShape2D_52hs2")
 
+[node name="Godrays" parent="Prison" instance=ExtResource("11_fcg8e")]
+position = Vector2(552, -219)
+rotation = -3.36325
+scale = Vector2(800, -1973.21)
+
 [node name="Cell" type="StaticBody2D" parent="Prison"]
 z_index = -10
 
@@ -306,7 +312,7 @@ z_index = 1
 position = Vector2(610, -146)
 input_pickable = true
 script = ExtResource("9_bs8ln")
-editableVars = ["VAR_LOCKED"]
+editableVars = ["VAR_TRANCADO"]
 metadata/objectName = "Cadeado Impossível de Abrir"
 metadata/Interactable = false
 

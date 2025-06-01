@@ -22,11 +22,11 @@ func onUpdateQuestVariables():
 	if questVariables.get("talked"):
 		fallenBridge.set("startingDialog", "4")
 		if !broughtPlatformOnce:
-			floatingPlatform.set("VAR_VELOCIDADE_X", -30)
+			floatingPlatform.set("VAR_VELOCIDADE_HORIZONTAL", -100)
 		if questVariables.get("fell"):
 			numberFalls+=1
 			animatePlatform()
-			floatingPlatform.set("VAR_VELOCIDADE_X", -30)
+			floatingPlatform.set("VAR_VELOCIDADE_HORIZONTAL", -100)
 			questVariables.set("fell", false)
 
 

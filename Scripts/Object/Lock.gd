@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var VAR_LOCKED: bool = true
+@export var VAR_TRANCADO: bool = true
 
 var openedBefore: bool = false
 
@@ -8,7 +8,7 @@ var openedBefore: bool = false
 
 func open_door():
 	openedBefore = true
-	VAR_LOCKED = false
+	VAR_TRANCADO = false
 	SelectedManager.set_selected(null)
 	get_node("CollisionShape2D").disabled = true
 	var group = get_parent()
@@ -20,5 +20,5 @@ func open_door():
 	group.visible = false
 
 func _process(_delta):
-	if not VAR_LOCKED and not openedBefore:
+	if not VAR_TRANCADO and not openedBefore:
 		open_door()

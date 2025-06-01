@@ -43,7 +43,12 @@
 	},
 	{
 		"id": "5",
-		"text": "Deixa eu te dar uma dica: se você segurar CTRL ou SHIFT ao editar variáveis, os valores são alterados de maneira diferente.",
-		"options": [{ "text": "...", "next": null }]
+		"text": "Deixa eu te dar uma dica: editando inteiros, se você segurar SHIFT ao clicar nos botões, é como se você clicasse 10 vezes.",
+		"options": [{ "text": "...", "next": "6" }]
+	},
+	{
+		"id": "6",
+		"text": "Talvez isso te ajude a editar valores grandes...",
+		"options": [{ "text": "Ah, obrigado!", "next": null }]
 	}
 ]

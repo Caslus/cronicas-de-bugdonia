@@ -24,7 +24,7 @@
 	},
 	{
 		"id": "5",
-		"text": "‘Se meus passos estiverem com volume 10, faço muito barulho. Mas quando o volume é igual ou menor a 2, ninguém ouve nada. Mesmo se eu tropeçar...’",
+		"text": "‘Se meus passos estiverem com volume 10, faço muito barulho. Mas se eu me editar e alterar o volume para 2 ou menos, ninguém ouve nada. Mesmo se eu tropeçar...’",
 		"options": [{ "text": "[Próxima página]", "next": "6" }]
 	},
 	{
