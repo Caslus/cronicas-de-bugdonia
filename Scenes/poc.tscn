@@ -184,9 +184,8 @@ metadata/Interactable = true
 [node name="SelectedManager" type="Node" parent="Player"]
 script = ExtResource("9_kt8cb")
 
-[node name="InteractionManager" type="Node" parent="Player" node_paths=PackedStringArray("uiNode")]
+[node name="InteractionManager" type="Node" parent="Player"]
 script = ExtResource("14_m1u6v")
-uiNode = NodePath("../../UI")
 
 [node name="DialogManager" type="Node" parent="Player"]
 script = ExtResource("15_pxbtr")

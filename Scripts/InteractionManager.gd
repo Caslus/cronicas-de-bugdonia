@@ -5,8 +5,8 @@ extends Node
 @onready var camera: Camera2D = player.get_node("Camera2D")
 @onready var originalCameraZoom: Vector2 = camera.zoom
 @onready var originalCameraOffset: Vector2 = camera.offset
-
-@export var uiNode: CanvasLayer = null
+@onready var uiNode: CanvasLayer = $UI
+@onready var itemInteractionPanel: Panel = $UI/ItemInteractionPanel
 @export var zoomScale: float = 2.0
 @export var zoomSpeed: float = 0.6
 
@@ -23,21 +23,13 @@ func interactWithItem():
 	var item = interactable
 	var itemName = item.get_meta("objectName")
 	var itemDescription = item.get_meta("objectDescription")
-	var itemMessageBox = VBoxContainer.new()
-	itemMessageBox.name = "ItemMessageBox"
-	var itemTitleLabel = Label.new()
-	itemTitleLabel.text = itemName
-	itemMessageBox.add_child(itemTitleLabel)
-	var itemDescriptionLabel = Label.new()
+	var itemNameLabel: Label = itemInteractionPanel.get_node("MarginContainer/ItemMessageBox/ItemName")
+	var itemDescriptionLabel: RichTextLabel = itemInteractionPanel.get_node("MarginContainer/ItemMessageBox/ItemDescription")
+	var itemCloseButton: Button = itemInteractionPanel.get_node("CloseButton")
+	itemNameLabel.text = itemName
 	itemDescriptionLabel.text = itemDescription
-	itemMessageBox.add_child(itemDescriptionLabel)
-	uiNode.add_child(itemMessageBox)
-	var timer = get_tree().create_timer(zoomSpeed + 0.5)
-	await timer.timeout
-	var itemCloseButton = Button.new()
-	itemCloseButton.text = "Pegar"
 	itemCloseButton.connect("pressed", Callable(self, "end_interaction"))
-	itemMessageBox.add_child(itemCloseButton)
+	itemInteractionPanel.visible = true
 
 func cameraZoomIn():
 	var tweenZoom = create_tween()
@@ -84,9 +76,8 @@ func start_interaction():
 	pass
 
 func end_interaction():
-	if (uiNode.has_node("ItemMessageBox")):
-		uiNode.get_node("ItemMessageBox").queue_free()
-		interactable.queue_free()
+	if interactable.get_meta("InteractionType") == "Item":
+		itemInteractionPanel.visible = false
 		emit_signal("pickup_item", interactable)
 
 	interacting = false
