@@ -73,7 +73,7 @@ func onUpdateQuestVariables():
 		npc.set("startingDialog", "1")
 		prisoner.set("startingDialog", "caught")
 	if questVariables.get("escaped"):
-		QuestManager.currentQuest = nextQuest
+		QuestManager.setCurrentQuest(nextQuest)
 	pass
 
 

@@ -13,6 +13,9 @@ func toggleQuestVar(varName: String) -> void:
 	var currentValue: Variant = questVariables.get(varName)
 	questVariables.set(varName, !currentValue)
 	emit_signal("questVariablesChanged")
+	
+func setCurrentQuest(newQuest: Node) -> void:
+	currentQuest = newQuest
 
 func _ready():
 	pass

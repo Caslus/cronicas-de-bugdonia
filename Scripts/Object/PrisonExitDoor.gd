@@ -6,7 +6,6 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		QuestManager.currentQuest = nextQuest
 		QuestManager.toggleQuestVar("escaped")
 		TransitionCanvas.transition()
 		await TransitionCanvas.on_transition_finished

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cjix7pwd21t2a"]
+[gd_scene load_steps=78 format=3 uid="uid://cjix7pwd21t2a"]
 
 [ext_resource type="Script" uid="uid://cvp73h1iqxaof" path="res://Scripts/AttributeEditor.gd" id="1_eo3in"]
 [ext_resource type="Script" uid="uid://ben1rh6orqham" path="res://Scripts/Quest/FallenBridgeQuest.gd" id="4_8r1tc"]
@@ -78,6 +78,9 @@ size = Vector2(106, 502)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dj28e"]
 size = Vector2(872, 436)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1ngr"]
+size = Vector2(608, 1436)
 
 [sub_resource type="Gradient" id="Gradient_yod24"]
 offsets = PackedFloat32Array(0.209459, 0.625)
@@ -412,8 +415,8 @@ script = ExtResource("36_ujk5p")
 nextQuest = NodePath("../../FallenBridgeQuest")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Prison/Exit"]
-position = Vector2(6943, -586)
-shape = SubResource("RectangleShape2D_kt8cb")
+position = Vector2(6928, -586)
+shape = SubResource("RectangleShape2D_c1ngr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Prison/Exit"]
 
@@ -610,7 +613,7 @@ script = ExtResource("54_ga23o")
 
 [node name="Player" parent="." instance=ExtResource("13_52hs2")]
 z_index = 10
-position = Vector2(6584, -143)
+position = Vector2(-203, -143)
 VAR_SPEED = 15.0
 RESPAWN_POINT = Vector2(-270, -270)
 hasWand = true

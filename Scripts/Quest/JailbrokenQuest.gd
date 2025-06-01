@@ -17,7 +17,7 @@ func onUpdateQuestVariables():
 		lock.set_meta("Interactable", true)
 	if questVariables.get("finished"):
 		npc.set("startingDialog", "14")
-		QuestManager.currentQuest = nextQuest
+		QuestManager.setCurrentQuest(nextQuest)
 	pass
 
 
