@@ -1,8 +1,20 @@
-extends VBoxContainer
-
-var uiOpen = false
+extends Node
 
 @onready var player: CharacterBody2D = get_tree().get_nodes_in_group("player")[0]
+@onready var ui: CanvasLayer = $AttributeEditorUI
+@onready var header: HBoxContainer = $AttributeEditorUI/Panel/MarginContainer/VBox/Header
+@onready var attributeList: VBoxContainer = $AttributeEditorUI/Panel/MarginContainer/VBox/AttributeList
+
+var booleanEditorScene: PackedScene = preload("res://Scenes/Utils/BooleanEdit.tscn")
+var intEditorScene: PackedScene = preload("res://Scenes/Utils/IntEdit.tscn")
+var floatEditorScene: PackedScene = preload("res://Scenes/Utils/FloatEdit.tscn")
+var stringEditorScene: PackedScene = preload("res://Scenes/Utils/StringEdit.tscn")
+
+func formatPropertyName(selected, propName) -> String:
+	var value = str(selected.get(propName))
+	var text = propName.replace("VAR_", "")
+	return text + ": " + value
+
 
 func get_variables():
 	var properties = []
@@ -18,74 +30,65 @@ func get_variables():
 	return properties
 
 func create_editor_header(selected):
-	var labelContainer = HBoxContainer.new()
-	labelContainer.alignment = HBoxContainer.AlignmentMode.ALIGNMENT_CENTER
-	add_child(labelContainer)
-
-	var labelName = Label.new()
+	var headerNameLabel = header.get_node("SelectedName")
+	var headerCloseButton = header.get_node("Button")
 	if (selected.get_meta("objectName") != null):
-		labelName.text = selected.get_meta("objectName")
+		headerNameLabel.text = selected.get_meta("objectName")
 	else:
-		labelName.text = "Object"
-	labelName.size_flags_horizontal = Control.SIZE_EXPAND_FILL | Control.SIZE_FILL
-	labelContainer.add_child(labelName)
+		headerNameLabel.text = "Objeto"
 
-	var close_button = Button.new()
-	close_button.text = "X"
-	close_button.size_flags_horizontal = Control.SIZE_SHRINK_END
-	close_button.connect("pressed", Callable(self, "_on_close_button_pressed"))
-	labelContainer.add_child(close_button)
+	headerCloseButton.connect("pressed", Callable(self, "_on_close_button_pressed"))
 
-func create_float_editor(selected, container, prop):
-		var value = Label.new()
-		value.text = str(selected.get(prop.name))
-		container.add_child(value)
+func create_float_editor(selected, prop):
+	var floatEdit = floatEditorScene.instantiate()
+	var nameLabel = floatEdit.get_node("Label").get_node("AttributeName")
+	nameLabel.text = str(prop.name).replace("VAR_", "") + ":"
+	var valueLabel = floatEdit.get_node("Label").get_node("Value")
+	valueLabel.text = str(selected.get(prop.name))
+	var buttonMinus = floatEdit.get_node("ButtonMinus")
+	buttonMinus.connect("pressed", Callable(self, "_on_button_pressed").bind(prop.name, -1, valueLabel))
+	var buttonPlus = floatEdit.get_node("ButtonPlus")
+	buttonPlus.connect("pressed", Callable(self, "_on_button_pressed").bind(prop.name, 1, valueLabel))
+	attributeList.add_child(floatEdit)
 
-		var buttonMinus = Button.new()
-		buttonMinus.text = "-"
-		buttonMinus.connect("pressed", Callable(self, "_on_button_pressed").bind(prop.name, -1, value))
-		container.add_child(buttonMinus)
+func create_int_editor(selected, prop):
+	var intEdit = intEditorScene.instantiate()
+	var nameLabel = intEdit.get_node("Label").get_node("AttributeName")
+	nameLabel.text = str(prop.name).replace("VAR_", "") + ":"
+	var valueLabel = intEdit.get_node("Label").get_node("Value")
+	valueLabel.text = str(selected.get(prop.name))
+	var buttonMinus = intEdit.get_node("ButtonMinus")
+	buttonMinus.connect("pressed", Callable(self, "_on_button_pressed").bind(prop.name, -1, valueLabel))
+	var buttonPlus = intEdit.get_node("ButtonPlus")
+	buttonPlus.connect("pressed", Callable(self, "_on_button_pressed").bind(prop.name, 1, valueLabel))
+	attributeList.add_child(intEdit)
 
-		var buttonPlus = Button.new()
-		buttonPlus.text = "+"
-		buttonPlus.connect("pressed", Callable(self, "_on_button_pressed").bind(prop.name, 1, value))
-		container.add_child(buttonPlus)
+func create_string_editor(selected, prop):
+	var stringEdit = stringEditorScene.instantiate()
+	var nameLabel = stringEdit.get_node("AttributeName")
+	nameLabel.text = prop.name.replace("VAR_", "") + ":"
+	var lineEdit = stringEdit.get_node("LineEdit")
+	lineEdit.text = selected.get(prop.name)
+	lineEdit.connect("text_changed", Callable(self, "_on_text_changed").bind(prop.name))
+	attributeList.add_child(stringEdit)
 
-func create_int_editor(selected, container, prop):
-		var value = Label.new()
-		value.text = str(selected.get(prop.name))
-		container.add_child(value)
+func create_boolean_editor(selected, prop):
+	var booleanEdit = booleanEditorScene.instantiate()
+	var nameLabel = booleanEdit.get_node("AttributeName")
+	nameLabel.text = formatPropertyName(selected, prop.name)
 
-		var buttonMinus = Button.new()
-		buttonMinus.text = "-"
-		buttonMinus.connect("pressed", Callable(self, "_on_button_pressed").bind(prop.name, -1, value))
-		container.add_child(buttonMinus)
-
-		var buttonPlus = Button.new()
-		buttonPlus.text = "+"
-		buttonPlus.connect("pressed", Callable(self, "_on_button_pressed").bind(prop.name, 1, value))
-		container.add_child(buttonPlus)
-
-func create_string_editor(selected, container, prop):
-		var value = LineEdit.new()
-		value.text = selected.get(prop.name)
-		value.connect("text_changed", Callable(self, "_on_text_changed").bind(prop.name))
-		container.add_child(value)
-
-func create_boolean_editor(selected, container, prop):
-		var value = Label.new()
-		value.text = str(selected.get(prop.name)).to_upper()
-		container.add_child(value)
-
-		var buttonPlus = Button.new()
-		buttonPlus.text = "Toggle"
-		buttonPlus.connect("pressed", Callable(self, "_on_toggle_button_pressed").bind(prop.name, value))
-		container.add_child(buttonPlus)
+	var buttonToggle = booleanEdit.get_node("ButtonToggle")
+	buttonToggle.connect("pressed", Callable(self, "_on_toggle_button_pressed").bind(prop.name, nameLabel))
+	attributeList.add_child(booleanEdit)
 
 func create_ui():
-	uiOpen = true
-	for child in get_children():
-		remove_child(child)
+	if SelectedManager.selected == null:
+		ui.visible = false
+		return
+	
+	ui.visible = true
+	for child in attributeList.get_children():
+		attributeList.remove_child(child)
 
 	var selected = SelectedManager.selected;
 	var properties = get_variables()
@@ -96,25 +99,18 @@ func create_ui():
 	create_editor_header(selected)
 	
 	for prop in properties:
-		var container = HBoxContainer.new()
-		add_child(container)
-
-		var label = Label.new()
-		label.text = prop.name.replace("VAR_", "") + ":"
-		container.add_child(label)
-
 		if prop.type == TYPE_FLOAT:
-			create_float_editor(selected, container, prop)
+			create_float_editor(selected, prop)
 		elif prop.type == TYPE_INT:
-			create_int_editor(selected, container, prop)
+			create_int_editor(selected, prop)
 		elif prop.type == TYPE_STRING:
-			create_string_editor(selected, container, prop)
+			create_string_editor(selected, prop)
 		elif prop.type == TYPE_BOOL:
-			create_boolean_editor(selected, container, prop)
+			create_boolean_editor(selected, prop)
 			
 func _on_close_button_pressed():
 		SelectedManager.set_selected(null)
-		uiOpen = false
+		ui.visible = false
 
 func _on_button_pressed(prop_name, change, value_label):
 		var selected = SelectedManager.selected
@@ -130,21 +126,20 @@ func _on_button_pressed(prop_name, change, value_label):
 		SelectedManager.edit_number(prop_name, current_value)
 		value_label.text = str(current_value)
 
-func _on_text_changed(new_text, prop_name):
-		SelectedManager.edit_string(prop_name, new_text)
+func _on_text_changed(new_text, propName):
+		SelectedManager.edit_string(propName, new_text)
 
-func _on_toggle_button_pressed(prop_name, value_label):
+func _on_toggle_button_pressed(propName, value_label):
 		var selected = SelectedManager.selected
-		var current_value = selected.get(prop_name)
+		var current_value = selected.get(propName)
 		current_value = !current_value
-		SelectedManager.edit_boolean(prop_name, current_value)
-		value_label.text = str(current_value).to_upper()
+		SelectedManager.edit_boolean(propName, current_value)
+		value_label.text = formatPropertyName(selected, propName)
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SelectedManager.selected_changed.connect(create_ui)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_text_clear_carets_and_selection"):
-		if uiOpen:
+		if ui.visible:
 			_on_close_button_pressed()

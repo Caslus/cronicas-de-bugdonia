@@ -5,7 +5,6 @@ extends Node
 @onready var camera: Camera2D = player.get_node("Camera2D")
 @onready var originalCameraZoom: Vector2 = camera.zoom
 @onready var originalCameraOffset: Vector2 = camera.offset
-@onready var uiNode: CanvasLayer = $UI
 @onready var itemInteractionPanel: Panel = $UI/ItemInteractionPanel
 @export var zoomScale: float = 2.0
 @export var zoomSpeed: float = 0.6

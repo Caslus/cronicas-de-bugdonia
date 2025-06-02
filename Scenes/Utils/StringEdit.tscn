@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://tsy8jgk2v45t"]
+
+[node name="StringEdit" type="HBoxContainer"]
+size_flags_vertical = 0
+
+[node name="AttributeName" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "VARIAVEL_EXEMPLO_STRING:"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+placeholder_text = "Exemplo"

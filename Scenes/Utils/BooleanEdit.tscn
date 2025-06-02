@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d4efbfhca0655"]
+
+[node name="BooleanEdit" type="HBoxContainer"]
+size_flags_vertical = 0
+
+[node name="AttributeName" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "VARIAVEL_EXEMPLO_BOOLEAN: TRUE"
+
+[node name="ButtonToggle" type="Button" parent="."]
+custom_minimum_size = Vector2(74, 32)
+layout_mode = 2
+text = "Alternar"

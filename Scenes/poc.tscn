@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bhs0tcq33s1sc"]
+[gd_scene load_steps=41 format=3 uid="uid://bhs0tcq33s1sc"]
 
 [ext_resource type="Texture2D" uid="uid://c08s16xa2r7wh" path="res://Assets/icon.svg" id="1_0qo5a"]
 [ext_resource type="Texture2D" uid="uid://bd4oj4a0ttgxf" path="res://Assets/Background/Clouds.png" id="3_i6grk"]
@@ -24,6 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://c07j2oono3xkc" path="res://Assets/Objects/TownSign.png" id="22_qieib"]
 [ext_resource type="Script" uid="uid://v3c6bacceoas" path="res://Scripts/Object/MovingPlatform.gd" id="23_2js3y"]
 [ext_resource type="Texture2D" uid="uid://dqp1um4bde6ys" path="res://Assets/Objects/FloatingPlatform.png" id="23_l7uws"]
+[ext_resource type="PackedScene" uid="uid://5saakwih171l" path="res://Scenes/Utils/IntEdit.tscn" id="25_2upgb"]
+[ext_resource type="PackedScene" uid="uid://cn6yrffukexnr" path="res://Scenes/Utils/FloatEdit.tscn" id="26_ee4y7"]
+[ext_resource type="PackedScene" uid="uid://tsy8jgk2v45t" path="res://Scenes/Utils/StringEdit.tscn" id="27_rlwgt"]
+[ext_resource type="PackedScene" uid="uid://d4efbfhca0655" path="res://Scenes/Utils/BooleanEdit.tscn" id="28_4nfaa"]
 
 [sub_resource type="Theme" id="Theme_pddq8"]
 
@@ -65,6 +69,10 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2js3y"]
 size = Vector2(581.16, 147)
+
+[sub_resource type="Theme" id="Theme_eue4q"]
+
+[sub_resource type="Theme" id="Theme_ja7de"]
 
 [node name="POC" type="Node2D"]
 
@@ -173,23 +181,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Interactable" parent="Square" instance=ExtResource("12_kt8cb")]
 
-[node name="Player" parent="." instance=ExtResource("15_m1u6v")]
-z_index = 10
-position = Vector2(-270, -270)
-VAR_SPEED = 15.0
-RESPAWN_POINT = Vector2(-270, -270)
-hasWand = true
-metadata/Interactable = true
-
-[node name="SelectedManager" type="Node" parent="Player"]
-script = ExtResource("9_kt8cb")
-
-[node name="InteractionManager" type="Node" parent="Player"]
-script = ExtResource("14_m1u6v")
-
-[node name="DialogManager" type="Node" parent="Player"]
-script = ExtResource("15_pxbtr")
-
 [node name="NPC" parent="." instance=ExtResource("14_j81f7")]
 position = Vector2(335, -127)
 dialogFile = "res://Dialog/FallenBridge.json"
@@ -294,3 +285,158 @@ material = SubResource("ShaderMaterial_1iqnk")
 scale = Vector2(600, 600)
 texture = SubResource("CanvasTexture_i8qhx")
 script = ExtResource("5_gv2ab")
+
+[node name="Player" parent="." instance=ExtResource("15_m1u6v")]
+z_index = 10
+position = Vector2(-203, -143)
+VAR_SPEED = 15.0
+RESPAWN_POINT = Vector2(-270, -270)
+hasWand = true
+editableVars = ["VAR_NAME", null]
+CAMERA_LIMIT_LEFT = -812
+metadata/objectName = "Jogador"
+metadata/Interactable = true
+
+[node name="SelectedManager" type="Node" parent="Player"]
+script = ExtResource("9_kt8cb")
+
+[node name="InteractionManager" type="Node" parent="Player"]
+script = ExtResource("14_m1u6v")
+
+[node name="UI" type="CanvasLayer" parent="Player/InteractionManager"]
+process_mode = 3
+
+[node name="ItemInteractionPanel" type="Panel" parent="Player/InteractionManager/UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/InteractionManager/UI/ItemInteractionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ItemMessageBox" type="VBoxContainer" parent="Player/InteractionManager/UI/ItemInteractionPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Player/InteractionManager/UI/ItemInteractionPanel/MarginContainer/ItemMessageBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Item teste"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDescription" type="RichTextLabel" parent="Player/InteractionManager/UI/ItemInteractionPanel/MarginContainer/ItemMessageBox"]
+layout_mode = 2
+text = "Essa é a descrição de um item utilizado para testes e será substituida assim que um item verdadeira for instanciado e uma interação ser realizada."
+fit_content = true
+
+[node name="CloseButton" type="Button" parent="Player/InteractionManager/UI/ItemInteractionPanel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -40.0
+offset_right = 100.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Fechar"
+
+[node name="DialogManager" type="Node" parent="Player"]
+script = ExtResource("15_pxbtr")
+
+[node name="AttributeEditorManager" type="Node" parent="Player"]
+script = ExtResource("6_j81f7")
+
+[node name="AttributeEditorUI" type="CanvasLayer" parent="Player/AttributeEditorManager"]
+visible = false
+
+[node name="Panel" type="PanelContainer" parent="Player/AttributeEditorManager/AttributeEditorUI"]
+z_index = -1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -397.0
+offset_top = -216.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_eue4q")
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel/MarginContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="SelectedName" type="Label" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel/MarginContainer/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Item teste"
+
+[node name="Button" type="Button" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel/MarginContainer/VBox/Header"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "X"
+
+[node name="AttributeList" type="VBoxContainer" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel/MarginContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_ja7de")
+
+[node name="IntEdit" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel/MarginContainer/VBox/AttributeList" instance=ExtResource("25_2upgb")]
+layout_mode = 2
+
+[node name="FloatEdit" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel/MarginContainer/VBox/AttributeList" instance=ExtResource("26_ee4y7")]
+layout_mode = 2
+
+[node name="StringEdit" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel/MarginContainer/VBox/AttributeList" instance=ExtResource("27_rlwgt")]
+layout_mode = 2
+
+[node name="BooleanEdit" parent="Player/AttributeEditorManager/AttributeEditorUI/Panel/MarginContainer/VBox/AttributeList" instance=ExtResource("28_4nfaa")]
+layout_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(69, 143)

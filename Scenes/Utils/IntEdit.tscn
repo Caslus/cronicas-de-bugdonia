@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://5saakwih171l"]
+
+[node name="IntEdit" type="HBoxContainer"]
+size_flags_vertical = 0
+
+[node name="Label" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="AttributeName" type="Label" parent="Label"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "VARIAVEL_EXEMPLO_INTEIRO:"
+
+[node name="Value" type="Label" parent="Label"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "12478"
+
+[node name="ButtonMinus" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "-"
+
+[node name="ButtonPlus" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "+"

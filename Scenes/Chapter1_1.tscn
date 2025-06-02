@@ -1,6 +1,5 @@
-[gd_scene load_steps=80 format=3 uid="uid://cjix7pwd21t2a"]
+[gd_scene load_steps=73 format=3 uid="uid://cjix7pwd21t2a"]
 
-[ext_resource type="Script" uid="uid://cvp73h1iqxaof" path="res://Scripts/AttributeEditor.gd" id="1_eo3in"]
 [ext_resource type="Script" uid="uid://ben1rh6orqham" path="res://Scripts/Quest/FallenBridgeQuest.gd" id="4_8r1tc"]
 [ext_resource type="Texture2D" uid="uid://bmrjglbbcotuw" path="res://Assets/Objects/JailCellInstructions.png" id="4_k78fl"]
 [ext_resource type="Script" uid="uid://c1frvey4w08r7" path="res://Scripts/Object/BreakCell.gd" id="4_ub66v"]
@@ -17,12 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://belbjf3qri30b" path="res://Assets/Objects/Bed.png" id="13_67n20"]
 [ext_resource type="Texture2D" uid="uid://cu8oxkgp5cydw" path="res://Assets/Objects/JailCellDoor.png" id="13_dg4op"]
 [ext_resource type="Texture2D" uid="uid://cc4fq48olygwu" path="res://Assets/Objects/JailCellLock.png" id="14_67n20"]
-[ext_resource type="Script" uid="uid://bdd460m5b8pte" path="res://Scripts/SelectedManager.gd" id="14_ub66v"]
 [ext_resource type="Texture2D" uid="uid://cnxqx2c7bmvxp" path="res://Assets/Entity/Prisoner/head.png" id="15_cd2dw"]
 [ext_resource type="PackedScene" uid="uid://dsg27of52d3no" path="res://Scenes/Objects/Torch.tscn" id="15_cknwh"]
-[ext_resource type="Script" uid="uid://cgj3geefma26i" path="res://Scripts/InteractionManager.gd" id="15_jhb7i"]
 [ext_resource type="Texture2D" uid="uid://c1xf0slgfy84w" path="res://Assets/Entity/Prisoner/torso.png" id="16_quiam"]
-[ext_resource type="Script" uid="uid://7hud6wwm12en" path="res://Scripts/DialogManager.gd" id="16_ulrca"]
 [ext_resource type="Texture2D" uid="uid://ovftsgqm78g3" path="res://Assets/Entity/Prisoner/arm.png" id="17_6i2n7"]
 [ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="17_hexqm"]
 [ext_resource type="Texture2D" uid="uid://boexy32plg3c1" path="res://Assets/Entity/Prisoner/leg.png" id="18_t8e3p"]
@@ -48,7 +44,6 @@
 [ext_resource type="Texture2D" uid="uid://bl8cr6fnwoqlw" path="res://Assets/Objects/PrisonOuterDoor.png" id="40_wpwjm"]
 [ext_resource type="Script" uid="uid://b71pcmvgdhmcs" path="res://Scripts/Object/FallenBridge.gd" id="41_0t146"]
 [ext_resource type="Texture2D" uid="uid://by0ie0wjc3dna" path="res://Assets/Objects/FallenBridge.png" id="41_i3hgx"]
-[ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="41_wpwjm"]
 [ext_resource type="Script" uid="uid://br3yjoye3jsd8" path="res://Scripts/Object/Killzone.gd" id="43_gbewc"]
 [ext_resource type="Texture2D" uid="uid://dshx46r1y370c" path="res://Assets/Objects/Bush2.png" id="45_vxrry"]
 [ext_resource type="Texture2D" uid="uid://b3r3iqfyl71tp" path="res://Assets/Background/Hills.png" id="46_k16g4"]
@@ -132,10 +127,6 @@ shader_parameter/NOISE_magnitude = 0.0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8uo1y"]
 
-[sub_resource type="Theme" id="Theme_fcg8e"]
-
-[sub_resource type="Theme" id="Theme_pddq8"]
-
 [node name="Jailbroken!" type="Node2D"]
 
 [node name="JailbrokenQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "lock", "nextQuest")]
@@ -176,9 +167,6 @@ questVariables = {
 }
 floatingPlatform = NodePath("../Outside/FloatingPlatform")
 fallenBridge = NodePath("../Outside/FallenBridge")
-
-[node name="DevTools" parent="." instance=ExtResource("41_wpwjm")]
-visible = false
 
 [node name="Prison" type="Node" parent="."]
 
@@ -610,107 +598,6 @@ z_index = 10
 position = Vector2(-203, -143)
 VAR_SPEED = 15.0
 RESPAWN_POINT = Vector2(-270, -270)
-hasWand = true
 CAMERA_LIMIT_LEFT = -812
 metadata/objectName = "Jogador"
 metadata/Interactable = true
-
-[node name="SelectedManager" type="Node" parent="Player"]
-script = ExtResource("14_ub66v")
-
-[node name="InteractionManager" type="Node" parent="Player"]
-script = ExtResource("15_jhb7i")
-
-[node name="UI" type="CanvasLayer" parent="Player/InteractionManager"]
-process_mode = 3
-
-[node name="Panel" type="Panel" parent="Player/InteractionManager/UI"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -500.0
-offset_top = -200.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = SubResource("Theme_fcg8e")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/InteractionManager/UI/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_pddq8")
-script = ExtResource("1_eo3in")
-
-[node name="ItemInteractionPanel" type="Panel" parent="Player/InteractionManager/UI"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -100.0
-offset_right = 250.0
-offset_bottom = 200.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="Player/InteractionManager/UI/ItemInteractionPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="ItemMessageBox" type="VBoxContainer" parent="Player/InteractionManager/UI/ItemInteractionPanel/MarginContainer"]
-layout_mode = 2
-
-[node name="ItemName" type="Label" parent="Player/InteractionManager/UI/ItemInteractionPanel/MarginContainer/ItemMessageBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 46
-text = "Item teste"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ItemDescription" type="RichTextLabel" parent="Player/InteractionManager/UI/ItemInteractionPanel/MarginContainer/ItemMessageBox"]
-layout_mode = 2
-text = "Essa é a descrição de um item utilizado para testes e será substituida assim que um item verdadeira for instanciado e uma interação ser realizada."
-fit_content = true
-
-[node name="CloseButton" type="Button" parent="Player/InteractionManager/UI/ItemInteractionPanel"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -40.0
-offset_right = 100.0
-offset_bottom = -9.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Fechar"
-
-[node name="DialogManager" type="Node" parent="Player"]
-script = ExtResource("16_ulrca")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
-position = Vector2(69, 143)

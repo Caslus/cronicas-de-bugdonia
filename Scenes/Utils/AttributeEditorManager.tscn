@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlh6ybncs70pj"]
+
+[ext_resource type="Script" uid="uid://cvp73h1iqxaof" path="res://Scripts/AttributeEditor.gd" id="1_ig04a"]
+[ext_resource type="PackedScene" uid="uid://5saakwih171l" path="res://Scenes/Utils/IntEdit.tscn" id="2_t3ipc"]
+[ext_resource type="PackedScene" uid="uid://cn6yrffukexnr" path="res://Scenes/Utils/FloatEdit.tscn" id="3_xhkp5"]
+[ext_resource type="PackedScene" uid="uid://tsy8jgk2v45t" path="res://Scenes/Utils/StringEdit.tscn" id="4_onl1q"]
+[ext_resource type="PackedScene" uid="uid://d4efbfhca0655" path="res://Scenes/Utils/BooleanEdit.tscn" id="5_cxdye"]
+
+[sub_resource type="Theme" id="Theme_fcg8e"]
+
+[sub_resource type="Theme" id="Theme_pddq8"]
+
+[node name="AttributeEditorManager" type="Node"]
+script = ExtResource("1_ig04a")
+
+[node name="AttributeEditorUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="PanelContainer" parent="AttributeEditorUI"]
+z_index = -1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -397.0
+offset_top = -216.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_fcg8e")
+
+[node name="MarginContainer" type="MarginContainer" parent="AttributeEditorUI/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="AttributeEditorUI/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="AttributeEditorUI/Panel/MarginContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="SelectedName" type="Label" parent="AttributeEditorUI/Panel/MarginContainer/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Item teste"
+
+[node name="Button" type="Button" parent="AttributeEditorUI/Panel/MarginContainer/VBox/Header"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "X"
+
+[node name="AttributeList" type="VBoxContainer" parent="AttributeEditorUI/Panel/MarginContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_pddq8")
+
+[node name="IntEdit" parent="AttributeEditorUI/Panel/MarginContainer/VBox/AttributeList" instance=ExtResource("2_t3ipc")]
+layout_mode = 2
+
+[node name="FloatEdit" parent="AttributeEditorUI/Panel/MarginContainer/VBox/AttributeList" instance=ExtResource("3_xhkp5")]
+layout_mode = 2
+
+[node name="StringEdit" parent="AttributeEditorUI/Panel/MarginContainer/VBox/AttributeList" instance=ExtResource("4_onl1q")]
+layout_mode = 2
+
+[node name="BooleanEdit" parent="AttributeEditorUI/Panel/MarginContainer/VBox/AttributeList" instance=ExtResource("5_cxdye")]
+layout_mode = 2
