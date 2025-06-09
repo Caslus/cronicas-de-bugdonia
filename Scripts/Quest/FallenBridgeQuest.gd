@@ -7,6 +7,8 @@ extends Node
 @export var floatingPlatform: AnimatableBody2D
 @export var fallenBridge: Node2D
 
+@export var nextQuest: Node
+
 var broughtPlatformOnce: bool = false
 var numberFalls: int = 0
 
@@ -28,6 +30,9 @@ func onUpdateQuestVariables():
 			animatePlatform()
 			floatingPlatform.set("VAR_VELOCIDADE_HORIZONTAL", -100)
 			questVariables.set("fell", false)
+		if questVariables.get("passed"):
+			fallenBridge.set("startingDialog", "7")
+			QuestManager.setCurrentQuest(nextQuest)
 
 
 func _ready():

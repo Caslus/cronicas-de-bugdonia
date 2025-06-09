@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfv7fpnqjbtc4"]
+[gd_scene load_steps=4 format=3 uid="uid://cfv7fpnqjbtc4"]
 
 [ext_resource type="Script" uid="uid://bu74ve0ufn22i" path="res://Scripts/Utils/PrintPlayerPosition.gd" id="1_dp3bj"]
+[ext_resource type="Script" uid="uid://bsijbiip3atrh" path="res://Scripts/Utils/NextQuestButton.gd" id="2_r3npd"]
+[ext_resource type="Script" uid="uid://bry2juexi4mxo" path="res://Scripts/Utils/TpForwardButton.gd" id="3_ubkbr"]
 
 [node name="DevTools" type="Control"]
 layout_mode = 3
@@ -27,4 +29,16 @@ layout_mode = 2
 text = "Print player position"
 script = ExtResource("1_dp3bj")
 
+[node name="NextQuest" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "<Current Quest>"
+script = ExtResource("2_r3npd")
+
+[node name="TpForwardButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "TP Forward +5000"
+script = ExtResource("3_ubkbr")
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="CanvasLayer/VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/NextQuest" to="CanvasLayer/VBoxContainer/NextQuest" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/TpForwardButton" to="CanvasLayer/VBoxContainer/TpForwardButton" method="_on_pressed"]

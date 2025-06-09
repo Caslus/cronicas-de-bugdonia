@@ -1,13 +1,16 @@
-[gd_scene load_steps=115 format=3 uid="uid://cjix7pwd21t2a"]
+[gd_scene load_steps=122 format=3 uid="uid://cjix7pwd21t2a"]
 
 [ext_resource type="Script" uid="uid://ben1rh6orqham" path="res://Scripts/Quest/FallenBridgeQuest.gd" id="4_8r1tc"]
 [ext_resource type="Texture2D" uid="uid://bmrjglbbcotuw" path="res://Assets/Objects/JailCellInstructions.png" id="4_k78fl"]
 [ext_resource type="Script" uid="uid://c1frvey4w08r7" path="res://Scripts/Object/BreakCell.gd" id="4_ub66v"]
 [ext_resource type="Texture2D" uid="uid://ddha00ljvixqj" path="res://Assets/Objects/JailCellWallDestroyed.png" id="5_jhb7i"]
+[ext_resource type="Script" uid="uid://byectggkp7kfv" path="res://Scripts/Quest/OgreQuest.gd" id="5_q76x7"]
 [ext_resource type="Texture2D" uid="uid://d4j8ya07nd6bd" path="res://Assets/Objects/JailCell.png" id="6_deseg"]
 [ext_resource type="Texture2D" uid="uid://dh0yxmw1d163u" path="res://Assets/Objects/JailColumn.png" id="6_eo3in"]
+[ext_resource type="Texture2D" uid="uid://ct0xwn4le6pq4" path="res://Assets/Objects/CauldronGreen.png" id="6_jcfh3"]
 [ext_resource type="Texture2D" uid="uid://cipkrf20dhy2w" path="res://Assets/Objects/JailCellWall.png" id="6_nfwj3"]
 [ext_resource type="Script" uid="uid://81sw4i4e0e27" path="res://Scripts/Object/HollowObject.gd" id="7_bs8ln"]
+[ext_resource type="Texture2D" uid="uid://btc2s0yl58uaf" path="res://Assets/Objects/CauldronBubbleGreen.png" id="7_enhjr"]
 [ext_resource type="Script" uid="uid://fijg8l1ggma8" path="res://Scripts/Object/Lock.gd" id="9_bs8ln"]
 [ext_resource type="PackedScene" uid="uid://g6kx2to330s4" path="res://Scenes/Utils/Selectable.tscn" id="9_nfwj3"]
 [ext_resource type="PackedScene" uid="uid://c33s207brjvog" path="res://Scenes/Utils/Godray.tscn" id="11_fcg8e"]
@@ -61,6 +64,7 @@
 [ext_resource type="Shader" uid="uid://d4f40oblnyfg0" path="res://Shaders/shiny.gdshader" id="53_n0u5b"]
 [ext_resource type="Script" uid="uid://dy12jc5lwfsjh" path="res://Scripts/Utils/Selectable.gd" id="54_ga23o"]
 [ext_resource type="Texture2D" uid="uid://bd280o0ehm3wu" path="res://Assets/Objects/CauldronBubble.png" id="54_ljucx"]
+[ext_resource type="Script" uid="uid://c3o3flak58wrm" path="res://Scripts/Object/Cauldron.gd" id="54_she2e"]
 [ext_resource type="Texture2D" uid="uid://b1s0bppa8l8x0" path="res://Assets/Objects/Rock2.png" id="57_jux46"]
 [ext_resource type="Texture2D" uid="uid://8jurw8glnp2i" path="res://Assets/Objects/Rock3.png" id="58_3o5t6"]
 [ext_resource type="Texture2D" uid="uid://d1ltr6mqyxnrp" path="res://Assets/Entity/Character/torso.png" id="58_kwptw"]
@@ -73,6 +77,8 @@
 [ext_resource type="Texture2D" uid="uid://cese7g5ijtvgp" path="res://Assets/Entity/Ogre/arm.png" id="63_0e1u0"]
 [ext_resource type="Texture2D" uid="uid://orqu5bvbvjqf" path="res://Assets/Entity/Ogre/leg.png" id="64_am73m"]
 [ext_resource type="Texture2D" uid="uid://c7sjvksl1hodt" path="res://Assets/Objects/Cauldron.png" id="71_kwptw"]
+[ext_resource type="Script" uid="uid://cmt26tq3sdlmf" path="res://Scripts/Object/AfterBridgeArea.gd" id="73_wryby"]
+[ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="76_ol03g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52hs2"]
 size = Vector2(199, 363)
@@ -152,6 +158,9 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="Curve" id="Curve_wryby"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.493711, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_she2e"]
+size = Vector2(340, 299)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anliv"]
 radius = 5.88868
@@ -855,16 +864,31 @@ npc = NodePath("../Prison/Guard")
 prisoner = NodePath("../Prison/Prisoner")
 guardSleepingFace = ExtResource("30_dj28e")
 
-[node name="FallenBridgeQuest" type="Node" parent="." node_paths=PackedStringArray("floatingPlatform", "fallenBridge")]
+[node name="FallenBridgeQuest" type="Node" parent="." node_paths=PackedStringArray("floatingPlatform", "fallenBridge", "nextQuest")]
 script = ExtResource("4_8r1tc")
 questName = "Ponte? Pra que?"
 questDescription = "Modifique a velocidade de uma plataforma voadora para atravessar o penhasco."
 questVariables = {
 "fell": false,
+"passed": false,
 "talked": false
 }
 floatingPlatform = NodePath("../Outside/FloatingPlatform")
 fallenBridge = NodePath("../Outside/FallenBridge")
+nextQuest = NodePath("../OgreQuest")
+
+[node name="OgreQuest" type="Node" parent="." node_paths=PackedStringArray("cauldron", "ogre")]
+script = ExtResource("5_q76x7")
+questName = "Vai uma mãozinha?"
+questDescription = "Ajude o ogro a fazer sua sopa utilizando floats."
+questVariables = {
+"cooked": false,
+"talked": false
+}
+cauldron = NodePath("../Outside/Cauldron")
+ogre = NodePath("../Outside/Ogre")
+cauldronGreen = ExtResource("6_jcfh3")
+cauldronBubbleGreen = ExtResource("7_enhjr")
 
 [node name="Prison" type="Node" parent="."]
 
@@ -1281,11 +1305,17 @@ z_as_relative = false
 position = Vector2(0, 86)
 texture = ExtResource("52_xg13d")
 
-[node name="Cauldron" type="Sprite2D" parent="Outside"]
+[node name="Cauldron" type="StaticBody2D" parent="Outside"]
+input_pickable = true
+script = ExtResource("54_she2e")
+metadata/objectName = "Caldeirão de Sopa"
+metadata/Interactable = false
+
+[node name="Sprite" type="Sprite2D" parent="Outside/Cauldron"]
 position = Vector2(17145, -90)
 texture = ExtResource("71_kwptw")
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Cauldron"]
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Cauldron/Sprite"]
 show_behind_parent = true
 z_index = -10
 position = Vector2(7.9991, 140)
@@ -1297,7 +1327,7 @@ texture = SubResource("GradientTexture2D_0t146")
 offset = Vector2(0, -19.485)
 texture_scale = 1.5
 
-[node name="GPUParticles2D" type="CPUParticles2D" parent="Outside/Cauldron"]
+[node name="Particles" type="CPUParticles2D" parent="Outside/Cauldron/Sprite"]
 position = Vector2(2, -85)
 amount = 7
 texture = ExtResource("54_ljucx")
@@ -1312,10 +1342,21 @@ scale_amount_min = 0.2
 scale_amount_max = 0.6
 scale_amount_curve = SubResource("Curve_wryby")
 
+[node name="Selectable" parent="Outside/Cauldron" instance=ExtResource("9_nfwj3")]
+z_index = -1
+position = Vector2(17145, -117)
+scale = Vector2(476.236, 476.236)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Cauldron"]
+position = Vector2(17146, -92.5)
+shape = SubResource("RectangleShape2D_she2e")
+one_way_collision = true
+
 [node name="Ogre" type="CharacterBody2D" parent="Outside"]
 position = Vector2(17830, -300)
 scale = Vector2(2, 2)
 script = ExtResource("53_0h0o4")
+dialogFile = "res://Dialog/Ogre.json"
 head = ExtResource("61_8uo1y")
 torso = ExtResource("62_xg13d")
 arm = ExtResource("63_0e1u0")
@@ -1716,9 +1757,17 @@ z_index = -1
 position = Vector2(17621, -78)
 texture = ExtResource("57_jux46")
 
+[node name="AfterBridgeArea" type="Area2D" parent="Outside"]
+position = Vector2(7084, 0)
+script = ExtResource("73_wryby")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Outside/AfterBridgeArea"]
+position = Vector2(6928, -586)
+shape = SubResource("RectangleShape2D_c1ngr")
+
 [node name="Player" parent="." instance=ExtResource("13_52hs2")]
 z_index = 10
-position = Vector2(16634, -143)
+position = Vector2(-426, -143)
 VAR_SPEED = 15.0
 RESPAWN_POINT = Vector2(-270, -270)
 hasWand = true
@@ -1726,3 +1775,5 @@ editableVars = ["VAR_SPEED"]
 CAMERA_LIMIT_LEFT = -812
 metadata/objectName = "Jogador"
 metadata/Interactable = true
+
+[node name="DevTools" parent="." instance=ExtResource("76_ol03g")]

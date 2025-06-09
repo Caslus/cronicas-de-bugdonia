@@ -50,5 +50,10 @@
 		"id": "6",
 		"text": "Talvez isso te ajude a editar valores grandes...",
 		"options": [{ "text": "Ah, obrigado!", "next": null }]
-	}
+	},
+	{
+		"id": "7",
+		"text": "Por que você voltou? Não me diga que caiu no abismo?",
+		"options": [{ "text": "...", "next": null }]
+	},
 ]
