@@ -6,6 +6,7 @@ extends Node
 
 @export var cauldron: Node2D
 @export var ogre: Node2D
+@export var ogreBarrier: StaticBody2D
 
 @export var cauldronGreen: CompressedTexture2D
 @export var cauldronBubbleGreen: CompressedTexture2D
@@ -18,6 +19,8 @@ func onUpdateQuestVariables():
 		ogre.set("startingDialog", "8")
 	if questVariables.get("finished"):
 		ogre.set("startingDialog", "11")
+		var barrier: CollisionShape2D = ogreBarrier.get_node("Collision")
+		barrier.disabled = true
 	pass
 
 
