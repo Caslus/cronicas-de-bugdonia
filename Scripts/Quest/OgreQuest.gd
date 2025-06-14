@@ -11,6 +11,8 @@ extends Node
 @export var cauldronGreen: CompressedTexture2D
 @export var cauldronBubbleGreen: CompressedTexture2D
 
+@export var nextQuest: Node
+
 func onUpdateQuestVariables():
 	if questVariables.get("talked") and !questVariables.get("cooked"):
 		ogre.set("startingDialog", "6")
@@ -21,6 +23,7 @@ func onUpdateQuestVariables():
 		ogre.set("startingDialog", "11")
 		var barrier: CollisionShape2D = ogreBarrier.get_node("Collision")
 		barrier.disabled = true
+		QuestManager.setCurrentQuest(nextQuest)
 	pass
 
 

@@ -1,0 +1,65 @@
+[
+	{
+		"id": "1",
+		"text": "Aaaah! Minha carruagem! Aquele ogro maldito virou tudo... Minhas caixas, minhas frutas, meu sustento!",
+		"options": [
+			{ "text": "Você tá bem?", "next": "2" }
+		]
+	},
+	{
+		"id": "2",
+		"text": "Tô de pé... Mas os rótulos das caixas caíram, misturaram tudo. Agora não sei o que tem em qual!",
+		"options": [
+			{ "text": "Os rótulos cairam?", "next": "3" }
+		]
+	},
+	{
+		"id": "3",
+		"text": "É, os nomes! Tipo 'melancia', 'banana'... ouvi dizer que isso é chamado de... *string*! Coisa de magia, acho.",
+		"options": [
+			{ "text": "String...?", "next": "4" }
+		]
+	},
+	{
+		"id": "4",
+		"text": "É! Um pedaço de texto, dizem que só magos conseguem mudar essas coisas. Tipo... editar variáveis.",
+		"options": [
+			{ "text": "Eu sou um mago.", "next": "5" }
+		]
+	},
+	{
+		"id": "5",
+		"text": "SÉRIO?! Um mago de verdade?! Pelos frutos do pomar eterno! Você pode me ajudar com as strings então!",
+		"options": [
+			{ "text": "Como?", "next": "6" }
+		]
+	},
+	{
+		"id": "6",
+		"text": "Quatro frutas caíram das caixas: melancia, abacaxi, laranja e banana. Só preciso que os rótulos estejam certinhos de novo.",
+		"options": [
+			{ "text": "Pode deixar, vou arrumar.", "next": null, "toggle": "talked" }
+		]
+	},
+	{
+		"id": "7",
+		"text": "Oh, grande mago! As frutas são: melancia, abacaxi, laranja e banana! As melhores frutas de toda Bugdônia!",
+		"options": [
+			{ "text": "Beleza, vou terminar.", "next": null }
+		]
+	},
+	{
+		"id": "8",
+		"text": "Tudo certo! Os rótulos estão no lugar... Você salvou a minha mercadoria, mago! Muito obrigado!",
+		"options": [
+			{ "text": "Imagina!", "next": null, "toggle": "finished" }
+		]
+	},
+	{
+		"id": "9",
+		"text": "Muito obrigado, seu mago! Muito obrigado!",
+		"options": [
+			{ "text": "[Sair]", "next": null }
+		]
+	}
+]

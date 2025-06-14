@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://cjix7pwd21t2a"]
+[gd_scene load_steps=139 format=3 uid="uid://cjix7pwd21t2a"]
 
 [ext_resource type="Script" uid="uid://ben1rh6orqham" path="res://Scripts/Quest/FallenBridgeQuest.gd" id="4_8r1tc"]
 [ext_resource type="Texture2D" uid="uid://bmrjglbbcotuw" path="res://Assets/Objects/JailCellInstructions.png" id="4_k78fl"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cipkrf20dhy2w" path="res://Assets/Objects/JailCellWall.png" id="6_nfwj3"]
 [ext_resource type="Script" uid="uid://81sw4i4e0e27" path="res://Scripts/Object/HollowObject.gd" id="7_bs8ln"]
 [ext_resource type="Texture2D" uid="uid://btc2s0yl58uaf" path="res://Assets/Objects/CauldronBubbleGreen.png" id="7_enhjr"]
+[ext_resource type="Script" uid="uid://cg2dbkftqw81f" path="res://Scripts/Quest/MerchantQuest.gd" id="8_o1wc2"]
 [ext_resource type="Script" uid="uid://fijg8l1ggma8" path="res://Scripts/Object/Lock.gd" id="9_bs8ln"]
 [ext_resource type="PackedScene" uid="uid://g6kx2to330s4" path="res://Scenes/Utils/Selectable.tscn" id="9_nfwj3"]
 [ext_resource type="PackedScene" uid="uid://c33s207brjvog" path="res://Scenes/Utils/Godray.tscn" id="11_fcg8e"]
@@ -76,10 +77,22 @@
 [ext_resource type="Texture2D" uid="uid://cr4xgi7caglf5" path="res://Assets/Entity/Ogre/torso.png" id="62_xg13d"]
 [ext_resource type="Texture2D" uid="uid://cese7g5ijtvgp" path="res://Assets/Entity/Ogre/arm.png" id="63_0e1u0"]
 [ext_resource type="Texture2D" uid="uid://orqu5bvbvjqf" path="res://Assets/Entity/Ogre/leg.png" id="64_am73m"]
+[ext_resource type="Texture2D" uid="uid://316vawv8cbak" path="res://Assets/Entity/Merchant/HeadHappy.png" id="69_qbte1"]
+[ext_resource type="Texture2D" uid="uid://brha6r8w6xvgb" path="res://Assets/Entity/Merchant/Torso.png" id="70_03mfe"]
+[ext_resource type="Texture2D" uid="uid://bad0mp8744x3j" path="res://Assets/Entity/Merchant/HeadSad.png" id="70_7augy"]
+[ext_resource type="Texture2D" uid="uid://l7ghnkf1cwl1" path="res://Assets/Entity/Merchant/Arm.png" id="71_h7xbx"]
 [ext_resource type="Texture2D" uid="uid://c7sjvksl1hodt" path="res://Assets/Objects/Cauldron.png" id="71_kwptw"]
+[ext_resource type="Texture2D" uid="uid://bglgcq81nl2tb" path="res://Assets/Entity/Merchant/Leg.png" id="72_jjhqu"]
+[ext_resource type="Texture2D" uid="uid://dr2t1tv4or7qh" path="res://Assets/Objects/Crate.png" id="73_03mfe"]
+[ext_resource type="Script" uid="uid://dh61ycunx7pk4" path="res://Scripts/Object/FruitCrate.gd" id="73_h7xbx"]
 [ext_resource type="Script" uid="uid://cmt26tq3sdlmf" path="res://Scripts/Object/AfterBridgeArea.gd" id="73_wryby"]
-[ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="76_ol03g"]
+[ext_resource type="Texture2D" uid="uid://duncnxcerakfu" path="res://Assets/Objects/CrateUnknown.png" id="74_gao7h"]
+[ext_resource type="Texture2D" uid="uid://c12rirlyobguk" path="res://Assets/Objects/CrateBanana.png" id="75_7augy"]
+[ext_resource type="Texture2D" uid="uid://b21in6nwj0dm5" path="res://Assets/Objects/CrateOrange.png" id="76_we512"]
+[ext_resource type="Texture2D" uid="uid://bfdunrrh3vbom" path="res://Assets/Objects/CratePineapple.png" id="77_13qjx"]
 [ext_resource type="Texture2D" uid="uid://kwu88cybs5ye" path="res://Assets/Objects/FallenCarriage.png" id="77_enhjr"]
+[ext_resource type="Texture2D" uid="uid://d0fhbnj6qjffn" path="res://Assets/Objects/CrateWatermelon.png" id="78_kgtk1"]
+[ext_resource type="Texture2D" uid="uid://brac0nym6yjvh" path="res://Assets/Objects/NoEntry.png" id="91_7augy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52hs2"]
 size = Vector2(199, 363)
@@ -102,20 +115,14 @@ size = Vector2(872, 436)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1ngr"]
 size = Vector2(608, 1436)
 
-[sub_resource type="Gradient" id="Gradient_gbewc"]
-offsets = PackedFloat32Array(0.209459, 0.625)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_c1s1p"]
-gradient = SubResource("Gradient_gbewc")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckbi7"]
 size = Vector2(1892, 193)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r1tc"]
 size = Vector2(11611, 193)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1s1p"]
+size = Vector2(999999, 20)
 
 [sub_resource type="Gradient" id="Gradient_36yee"]
 offsets = PackedFloat32Array(0.209459, 0.625)
@@ -125,9 +132,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_36yee")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1s1p"]
-size = Vector2(999999, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jux46"]
 size = Vector2(581.16, 147)
@@ -835,6 +839,27 @@ gradient = SubResource("Gradient_n0dth")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7xbx"]
+size = Vector2(164, 148)
+
+[sub_resource type="Gradient" id="Gradient_gbewc"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c1s1p"]
+gradient = SubResource("Gradient_gbewc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_we512"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_13qjx"]
+gradient = SubResource("Gradient_we512")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Jailbroken!" type="Node2D"]
 
 [node name="JailbrokenQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "lock", "nextQuest")]
@@ -878,7 +903,7 @@ floatingPlatform = NodePath("../Outside/FloatingPlatform")
 fallenBridge = NodePath("../Outside/FallenBridge")
 nextQuest = NodePath("../OgreQuest")
 
-[node name="OgreQuest" type="Node" parent="." node_paths=PackedStringArray("cauldron", "ogre", "ogreBarrier")]
+[node name="OgreQuest" type="Node" parent="." node_paths=PackedStringArray("cauldron", "ogre", "ogreBarrier", "nextQuest")]
 script = ExtResource("5_q76x7")
 questName = "Vai uma mãozinha?"
 questDescription = "Ajude o ogro a fazer sua sopa utilizando floats."
@@ -891,6 +916,21 @@ ogre = NodePath("../Outside/Ogre")
 ogreBarrier = NodePath("../Outside/OgreBarrier")
 cauldronGreen = ExtResource("6_jcfh3")
 cauldronBubbleGreen = ExtResource("7_enhjr")
+nextQuest = NodePath("../MerchantQuest")
+
+[node name="MerchantQuest" type="Node" parent="." node_paths=PackedStringArray("merchant", "merchantBarrier", "cratesList")]
+script = ExtResource("8_o1wc2")
+questName = "String-feira"
+questDescription = "Ajude o comerciante a rotular as caixas utilizando strings."
+questVariables = {
+"finished": false,
+"fruitsOk": false,
+"talked": false
+}
+merchant = NodePath("../Outside/FruitMerchant")
+merchantBarrier = NodePath("../Outside/MerchantBarrier")
+cratesList = NodePath("../Outside/Crates")
+happyFace = ExtResource("69_qbte1")
 
 [node name="Prison" type="Node" parent="."]
 
@@ -1132,66 +1172,109 @@ shape = SubResource("RectangleShape2D_kt8cb")
 
 [node name="Outside" type="Node" parent="."]
 
-[node name="Cliff" type="Sprite2D" parent="Outside"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Outside"]
+scroll_base_offset = Vector2(-960, -540)
+scroll_ignore_camera_zoom = true
+
+[node name="Hills" type="ParallaxLayer" parent="Outside/ParallaxBackground"]
+z_index = -2
+position = Vector2(0, -250)
+motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(0, 500)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Layer05Hills" type="Sprite2D" parent="Outside/ParallaxBackground/Hills"]
+texture = ExtResource("46_k16g4")
+centered = false
+
+[node name="Clouds" type="ParallaxLayer" parent="Outside/ParallaxBackground"]
+z_index = -3
+position = Vector2(0, -250)
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(0, 200)
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("47_8r1tc")
+speed = -10.0
+
+[node name="Layer04Clouds" type="Sprite2D" parent="Outside/ParallaxBackground/Clouds"]
+texture = ExtResource("48_dys7t")
+centered = false
+
+[node name="Mountains" type="ParallaxLayer" parent="Outside/ParallaxBackground"]
+z_index = -4
+position = Vector2(0, -250)
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(0, 250)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Layer06Rocks" type="Sprite2D" parent="Outside/ParallaxBackground/Mountains"]
+texture = ExtResource("49_leex6")
+centered = false
+
+[node name="Cliffs" type="Node2D" parent="Outside"]
+
+[node name="Cliff" type="Sprite2D" parent="Outside/Cliffs"]
 light_mask = 3
 z_index = -11
 position = Vector2(9053, 73)
 texture = ExtResource("11_hexqm")
 
-[node name="Cliff2" type="Sprite2D" parent="Outside"]
+[node name="Cliff2" type="Sprite2D" parent="Outside/Cliffs"]
 light_mask = 3
 z_index = -11
 position = Vector2(14605, 73)
-scale = Vector2(-1, 1)
+rotation = 3.14159
+scale = Vector2(1, -1)
 texture = ExtResource("11_hexqm")
 
-[node name="Cliff4" type="Sprite2D" parent="Outside"]
+[node name="Cliff4" type="Sprite2D" parent="Outside/Cliffs"]
 light_mask = 3
 z_index = -11
 position = Vector2(21634, -33.525)
-scale = Vector2(-1, 1.55)
+rotation = 3.14159
+scale = Vector2(1, -1.55)
 texture = ExtResource("11_hexqm")
 
-[node name="Cliff5" type="Sprite2D" parent="Outside"]
+[node name="Cliff5" type="Sprite2D" parent="Outside/Cliffs"]
 light_mask = 3
 z_index = -11
 position = Vector2(24126, -33.525)
 scale = Vector2(1, 1.55)
 texture = ExtResource("11_hexqm")
 
-[node name="Cliff3" type="Sprite2D" parent="Outside"]
+[node name="Cliff3" type="Sprite2D" parent="Outside/Cliffs"]
 light_mask = 3
 z_index = -11
 position = Vector2(17097, 73)
 texture = ExtResource("11_hexqm")
 
-[node name="PrisonOuterDoor" type="Sprite2D" parent="Outside"]
-position = Vector2(8456, -528)
-texture = ExtResource("40_wpwjm")
+[node name="Floor" type="StaticBody2D" parent="Outside/Cliffs"]
 
-[node name="TownSign" type="Sprite2D" parent="Outside"]
-position = Vector2(9471, -181)
-texture = ExtResource("40_i3hgx")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/TownSign"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(-9.99997, 142)
-scale = Vector2(1.12313, 0.364047)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_c1s1p")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Outside"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Cliffs/Floor"]
 position = Vector2(9154, 221.5)
 shape = SubResource("RectangleShape2D_ckbi7")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Outside/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Outside/Cliffs/Floor"]
 position = Vector2(19345.5, 222.5)
 shape = SubResource("RectangleShape2D_8r1tc")
+
+[node name="LongBridge" type="Sprite2D" parent="Outside/Cliffs"]
+light_mask = 3
+position = Vector2(19367, 11)
+texture = ExtResource("51_n0u5b")
+
+[node name="LongBridgeUpper" type="Sprite2D" parent="Outside/Cliffs/LongBridge"]
+z_index = 50
+z_as_relative = false
+position = Vector2(0, 86)
+texture = ExtResource("52_xg13d")
+
+[node name="Killzone" type="Area2D" parent="Outside"]
+position = Vector2(0, 600)
+script = ExtResource("43_gbewc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Killzone"]
+shape = SubResource("RectangleShape2D_c1s1p")
 
 [node name="FallenBridge" type="Node2D" parent="Outside"]
 script = ExtResource("41_0t146")
@@ -1233,52 +1316,6 @@ offset_top = -80.0
 offset_right = 10381.0
 offset_bottom = -40.0
 
-[node name="Killzone" type="Area2D" parent="Outside"]
-position = Vector2(0, 600)
-script = ExtResource("43_gbewc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Killzone"]
-shape = SubResource("RectangleShape2D_c1s1p")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Outside"]
-scroll_base_offset = Vector2(-960, -540)
-scroll_ignore_camera_zoom = true
-
-[node name="Hills" type="ParallaxLayer" parent="Outside/ParallaxBackground"]
-z_index = -2
-position = Vector2(0, -250)
-motion_scale = Vector2(0.4, 0.4)
-motion_offset = Vector2(0, 500)
-motion_mirroring = Vector2(1920, 0)
-
-[node name="Layer05Hills" type="Sprite2D" parent="Outside/ParallaxBackground/Hills"]
-texture = ExtResource("46_k16g4")
-centered = false
-
-[node name="Clouds" type="ParallaxLayer" parent="Outside/ParallaxBackground"]
-z_index = -3
-position = Vector2(0, -250)
-motion_scale = Vector2(0.2, 0.2)
-motion_offset = Vector2(0, 200)
-motion_mirroring = Vector2(1920, 0)
-script = ExtResource("47_8r1tc")
-speed = -10.0
-
-[node name="Layer04Clouds" type="Sprite2D" parent="Outside/ParallaxBackground/Clouds"]
-texture = ExtResource("48_dys7t")
-centered = false
-
-[node name="Mountains" type="ParallaxLayer" parent="Outside/ParallaxBackground"]
-z_index = -4
-position = Vector2(0, -250)
-motion_scale = Vector2(0.1, 0.1)
-motion_offset = Vector2(0, 250)
-motion_mirroring = Vector2(1920, 0)
-
-[node name="Layer06Rocks" type="Sprite2D" parent="Outside/ParallaxBackground/Mountains"]
-texture = ExtResource("49_leex6")
-centered = false
-
 [node name="FloatingPlatform" type="AnimatableBody2D" parent="Outside"]
 position = Vector2(13000, 161)
 input_pickable = true
@@ -1303,16 +1340,13 @@ scale = Vector2(600, 600)
 texture = SubResource("CanvasTexture_8uo1y")
 script = ExtResource("54_ga23o")
 
-[node name="LongBridge" type="Sprite2D" parent="Outside"]
-light_mask = 3
-position = Vector2(19367, 11)
-texture = ExtResource("51_n0u5b")
+[node name="AfterBridgeArea" type="Area2D" parent="Outside"]
+position = Vector2(7084, 0)
+script = ExtResource("73_wryby")
 
-[node name="LongBridgeUpper" type="Sprite2D" parent="Outside/LongBridge"]
-z_index = 50
-z_as_relative = false
-position = Vector2(0, 86)
-texture = ExtResource("52_xg13d")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Outside/AfterBridgeArea"]
+position = Vector2(6928, -586)
+shape = SubResource("RectangleShape2D_c1ngr")
 
 [node name="Cauldron" type="StaticBody2D" parent="Outside"]
 input_pickable = true
@@ -1370,7 +1404,7 @@ head = ExtResource("61_8uo1y")
 torso = ExtResource("62_xg13d")
 arm = ExtResource("63_0e1u0")
 leg = ExtResource("64_am73m")
-metadata/objectName = "NPC"
+metadata/objectName = "Ogro Faminto"
 metadata/InteractionType = "Dialog"
 
 [node name="Sprite" type="Sprite2D" parent="Outside/Ogre"]
@@ -1462,14 +1496,184 @@ position = Vector2(11063, 0)
 position = Vector2(6980, -586)
 shape = SubResource("RectangleShape2D_kt8cb")
 
+[node name="FruitMerchant" parent="Outside" instance=ExtResource("17_hexqm")]
+position = Vector2(21916, -100)
+dialogFile = "res://Dialog/FruitMerchant.json"
+head = ExtResource("70_7augy")
+torso = ExtResource("70_03mfe")
+arm = ExtResource("71_h7xbx")
+leg = ExtResource("72_jjhqu")
+metadata/objectName = "Comerciante"
+
+[node name="Crates" type="Node2D" parent="Outside"]
+
+[node name="Crate1" type="StaticBody2D" parent="Outside/Crates"]
+position = Vector2(21523, -25)
+input_pickable = true
+script = ExtResource("73_h7xbx")
+spriteUnknown = ExtResource("74_gao7h")
+spriteBanana = ExtResource("75_7augy")
+spriteOrange = ExtResource("76_we512")
+spritePineapple = ExtResource("77_13qjx")
+spriteWatermelon = ExtResource("78_kgtk1")
+metadata/objectName = "Caixa"
+metadata/Interactable = false
+
+[node name="Sprite" type="Sprite2D" parent="Outside/Crates/Crate1"]
+texture = ExtResource("73_03mfe")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Crates/Crate1/Sprite"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(0.999626, 63)
+scale = Vector2(2.66052, 1.01076)
+energy = 0.59
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+offset = Vector2(0, -19.485)
+texture_scale = 1.5
+
+[node name="Selectable" parent="Outside/Crates/Crate1" instance=ExtResource("9_nfwj3")]
+z_index = -1
+scale = Vector2(260, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Crates/Crate1"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_h7xbx")
+one_way_collision = true
+
+[node name="Crate2" type="StaticBody2D" parent="Outside/Crates"]
+z_index = 3
+position = Vector2(21025, -109)
+input_pickable = true
+script = ExtResource("73_h7xbx")
+spriteUnknown = ExtResource("74_gao7h")
+spriteBanana = ExtResource("75_7augy")
+spriteOrange = ExtResource("76_we512")
+spritePineapple = ExtResource("77_13qjx")
+spriteWatermelon = ExtResource("78_kgtk1")
+metadata/objectName = "Caixa"
+metadata/Interactable = false
+
+[node name="Sprite" type="Sprite2D" parent="Outside/Crates/Crate2"]
+texture = ExtResource("73_03mfe")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Crates/Crate2/Sprite"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(0.999626, 63)
+scale = Vector2(2.66052, 1.01076)
+energy = 0.59
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+offset = Vector2(0, -19.485)
+texture_scale = 1.5
+
+[node name="Selectable" parent="Outside/Crates/Crate2" instance=ExtResource("9_nfwj3")]
+z_index = -1
+scale = Vector2(260, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Crates/Crate2"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_h7xbx")
+one_way_collision = true
+
+[node name="Crate3" type="StaticBody2D" parent="Outside/Crates"]
+position = Vector2(22264, -74)
+input_pickable = true
+script = ExtResource("73_h7xbx")
+spriteUnknown = ExtResource("74_gao7h")
+spriteBanana = ExtResource("75_7augy")
+spriteOrange = ExtResource("76_we512")
+spritePineapple = ExtResource("77_13qjx")
+spriteWatermelon = ExtResource("78_kgtk1")
+metadata/objectName = "Caixa"
+metadata/Interactable = false
+
+[node name="Sprite" type="Sprite2D" parent="Outside/Crates/Crate3"]
+texture = ExtResource("73_03mfe")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Crates/Crate3/Sprite"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(0.999626, 63)
+scale = Vector2(2.66052, 1.01076)
+energy = 0.59
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+offset = Vector2(0, -19.485)
+texture_scale = 1.5
+
+[node name="Selectable" parent="Outside/Crates/Crate3" instance=ExtResource("9_nfwj3")]
+z_index = -1
+scale = Vector2(260, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Crates/Crate3"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_h7xbx")
+one_way_collision = true
+
+[node name="Crate4" type="StaticBody2D" parent="Outside/Crates"]
+z_index = 30
+position = Vector2(21793, 207)
+input_pickable = true
+script = ExtResource("73_h7xbx")
+spriteUnknown = ExtResource("74_gao7h")
+spriteBanana = ExtResource("75_7augy")
+spriteOrange = ExtResource("76_we512")
+spritePineapple = ExtResource("77_13qjx")
+spriteWatermelon = ExtResource("78_kgtk1")
+metadata/objectName = "Caixa"
+metadata/Interactable = false
+
+[node name="Sprite" type="Sprite2D" parent="Outside/Crates/Crate4"]
+texture = ExtResource("73_03mfe")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Crates/Crate4/Sprite"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(0.999626, 63)
+scale = Vector2(2.66052, 1.01076)
+energy = 0.59
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+offset = Vector2(0, -19.485)
+texture_scale = 1.5
+
+[node name="Selectable" parent="Outside/Crates/Crate4" instance=ExtResource("9_nfwj3")]
+z_index = -1
+scale = Vector2(260, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Crates/Crate4"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_h7xbx")
+one_way_collision = true
+
+[node name="MerchantBarrier" type="StaticBody2D" parent="Outside"]
+position = Vector2(15785, 0)
+
+[node name="Collision" type="CollisionShape2D" parent="Outside/MerchantBarrier"]
+position = Vector2(6980, -586)
+shape = SubResource("RectangleShape2D_kt8cb")
+
 [node name="Objects" type="Node2D" parent="Outside"]
 
-[node name="Tree" type="Sprite2D" parent="Outside/Objects"]
+[node name="BeforeFallenBridge" type="Node2D" parent="Outside/Objects"]
+
+[node name="PrisonOuterDoor" type="Sprite2D" parent="Outside/Objects/BeforeFallenBridge"]
+position = Vector2(8456, -528)
+texture = ExtResource("40_wpwjm")
+
+[node name="Tree" type="Sprite2D" parent="Outside/Objects/BeforeFallenBridge"]
 z_index = -1
 position = Vector2(9985, -370)
 texture = ExtResource("38_c1s1p")
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree"]
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeFallenBridge/Tree"]
 show_behind_parent = true
 z_index = -10
 position = Vector2(2, 329)
@@ -1480,356 +1684,11 @@ range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_0t146")
 texture_scale = 1.55
 
-[node name="Tree2" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(14356, -453)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree2"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree3" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(14606, -297)
-scale = Vector2(0.845, 0.845)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree3"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree11" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(15628, -180)
-scale = Vector2(0.845, 0.845)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree11"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree5" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(16541, -377)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree5"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree4" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(14969, -359)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree4"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree6" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(20645.3, -652.34)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree6"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree15" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(21087, -700.34)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree15"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree14" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(21567, -624.34)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree14"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree22" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(22249, -599)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree22"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree16" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(23944.3, -696.001)
-scale = Vector2(1.34718, 1.34718)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree16"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree7" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(20895.3, -496.34)
-scale = Vector2(0.845, 0.845)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree7"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree13" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(21762, -434.34)
-scale = Vector2(0.845, 0.845)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree13"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree8" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(21258.3, -558.34)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree8"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree12" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(21966, -517.34)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree12"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree18" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(24693.5, -650.341)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree18"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree19" type="Sprite2D" parent="Outside/Objects"]
-z_index = 1
-position = Vector2(24901.3, -482.001)
-scale = Vector2(0.845, 0.845)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree19"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree20" type="Sprite2D" parent="Outside/Objects"]
-z_index = -2
-position = Vector2(24328.3, -622.001)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree20"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree21" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(25092.5, -543.341)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree21"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree9" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(23612.3, -606.001)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree9"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree17" type="Sprite2D" parent="Outside/Objects"]
-z_index = 2
-position = Vector2(23426.3, -527.001)
-scale = Vector2(1.18, 1.18)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree17"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Tree10" type="Sprite2D" parent="Outside/Objects"]
-z_index = 1
-position = Vector2(23820.3, -440.001)
-scale = Vector2(0.845, 0.845)
-texture = ExtResource("38_c1s1p")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Tree10"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 329)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.41
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 1.55
-
-[node name="Bush" type="Sprite2D" parent="Outside/Objects"]
+[node name="Bush" type="Sprite2D" parent="Outside/Objects/BeforeFallenBridge"]
 position = Vector2(8926, -140)
 texture = ExtResource("39_ckbi7")
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush"]
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeFallenBridge/Bush"]
 show_behind_parent = true
 z_index = -10
 position = Vector2(2, 78)
@@ -1839,267 +1698,13 @@ blend_mode = 1
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_0t146")
 
-[node name="Bush3" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(13824, -140)
-texture = ExtResource("39_ckbi7")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush3"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 78)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush10" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(13690, -56)
-texture = ExtResource("41_fcg8e")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush10"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 56)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 0.73
-
-[node name="Bush11" type="Sprite2D" parent="Outside/Objects"]
-z_index = 1
-position = Vector2(15102, -13)
-texture = ExtResource("41_fcg8e")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush11"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 56)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 0.73
-
-[node name="Bush12" type="Sprite2D" parent="Outside/Objects"]
-z_index = 1
-position = Vector2(16323, 27)
-texture = ExtResource("41_fcg8e")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush12"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 56)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 0.73
-
-[node name="Bush13" type="Sprite2D" parent="Outside/Objects"]
-z_index = 1
-position = Vector2(16740, -72)
-texture = ExtResource("41_fcg8e")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush13"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 56)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 0.73
-
-[node name="Bush19" type="Sprite2D" parent="Outside/Objects"]
-z_index = 1
-position = Vector2(21396, -186)
-texture = ExtResource("41_fcg8e")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush19"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 56)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 0.73
-
-[node name="Bush20" type="Sprite2D" parent="Outside/Objects"]
-z_index = 1
-position = Vector2(23754, -157)
-texture = ExtResource("41_fcg8e")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush20"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 56)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 0.73
-
-[node name="Bush21" type="Sprite2D" parent="Outside/Objects"]
-z_index = -2
-position = Vector2(24081, -328)
-texture = ExtResource("41_fcg8e")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush21"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 56)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-texture_scale = 0.73
-
-[node name="Bush7" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(14425, -25)
-texture = ExtResource("42_n0u5b")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush7"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 48)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush23" type="Sprite2D" parent="Outside/Objects"]
-z_index = -3
-position = Vector2(24478, -340)
-texture = ExtResource("42_n0u5b")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush23"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 48)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush9" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(16427, -59)
-texture = ExtResource("42_n0u5b")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush9"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 48)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush4" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(15252, -85)
-texture = ExtResource("39_ckbi7")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush4"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 78)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush26" type="Sprite2D" parent="Outside/Objects"]
-z_index = 20
-position = Vector2(14619, 149)
-texture = ExtResource("39_ckbi7")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush26"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 78)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush15" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(21112, -222)
-texture = ExtResource("39_ckbi7")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush15"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 78)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush16" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(22251, -207)
-texture = ExtResource("39_ckbi7")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush16"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 78)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush17" type="Sprite2D" parent="Outside/Objects"]
-z_index = 2
-position = Vector2(23561, -173)
-texture = ExtResource("39_ckbi7")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush17"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 78)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush18" type="Sprite2D" parent="Outside/Objects"]
-position = Vector2(24650, -286)
-texture = ExtResource("39_ckbi7")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush18"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(2, 78)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-
-[node name="Bush2" type="Sprite2D" parent="Outside/Objects"]
+[node name="Bush2" type="Sprite2D" parent="Outside/Objects/BeforeFallenBridge"]
 z_index = -2
 position = Vector2(9847, -96)
 scale = Vector2(0.640039, 0.640039)
 texture = ExtResource("45_vxrry")
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush2"]
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeFallenBridge/Bush2"]
 show_behind_parent = true
 z_index = -10
 position = Vector2(-15.6259, 71.8706)
@@ -2109,13 +1714,242 @@ blend_mode = 1
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_0t146")
 
-[node name="Bush5" type="Sprite2D" parent="Outside/Objects"]
+[node name="TownSign" type="Sprite2D" parent="Outside/Objects/BeforeFallenBridge"]
+position = Vector2(9471, -181)
+texture = ExtResource("40_i3hgx")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeFallenBridge/TownSign"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-9.99997, 142)
+scale = Vector2(1.12313, 0.364047)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_c1s1p")
+
+[node name="BeforeOgreBridge" type="Node2D" parent="Outside/Objects"]
+
+[node name="Tree2" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+position = Vector2(14356, -453)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Tree2"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree3" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+position = Vector2(14606, -297)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Tree3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree11" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+position = Vector2(15628, -180)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Tree11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree5" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+position = Vector2(16541, -377)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Tree5"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree4" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+z_index = -1
+position = Vector2(14969, -359)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Tree4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Bush3" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+position = Vector2(13824, -140)
+texture = ExtResource("39_ckbi7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush10" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+position = Vector2(13690, -56)
+texture = ExtResource("41_fcg8e")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush10"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 0.73
+
+[node name="Bush11" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+z_index = 1
+position = Vector2(15102, -13)
+texture = ExtResource("41_fcg8e")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 0.73
+
+[node name="Bush12" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+z_index = 1
+position = Vector2(16323, 27)
+texture = ExtResource("41_fcg8e")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush12"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 0.73
+
+[node name="Bush13" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+z_index = 1
+position = Vector2(16740, -72)
+texture = ExtResource("41_fcg8e")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush13"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 0.73
+
+[node name="Bush7" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+position = Vector2(14425, -25)
+texture = ExtResource("42_n0u5b")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush7"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush9" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+position = Vector2(16427, -59)
+texture = ExtResource("42_n0u5b")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush9"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush4" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+position = Vector2(15252, -85)
+texture = ExtResource("39_ckbi7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush26" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
+z_index = 20
+position = Vector2(14619, 149)
+texture = ExtResource("39_ckbi7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush26"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush5" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 z_index = -1
 position = Vector2(14096, -96)
 scale = Vector2(0.640039, 0.640039)
 texture = ExtResource("45_vxrry")
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush5"]
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush5"]
 show_behind_parent = true
 z_index = -10
 position = Vector2(-15.6259, 71.8706)
@@ -2125,12 +1959,12 @@ blend_mode = 1
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_0t146")
 
-[node name="Bush6" type="Sprite2D" parent="Outside/Objects"]
+[node name="Bush6" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 z_index = -1
 position = Vector2(14870, -27)
 texture = ExtResource("48_ga23o")
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush6"]
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush6"]
 show_behind_parent = true
 z_index = -10
 position = Vector2(-15.6259, 71.8706)
@@ -2141,12 +1975,12 @@ range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_0t146")
 offset = Vector2(0, -19.485)
 
-[node name="Bush14" type="Sprite2D" parent="Outside/Objects"]
+[node name="Bush14" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 z_index = -1
 position = Vector2(17435, -123)
 texture = ExtResource("48_ga23o")
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush14"]
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush14"]
 show_behind_parent = true
 z_index = -10
 position = Vector2(-15.6259, 71.8706)
@@ -2157,12 +1991,12 @@ range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_0t146")
 offset = Vector2(0, -19.485)
 
-[node name="Bush8" type="Sprite2D" parent="Outside/Objects"]
+[node name="Bush8" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 z_index = -1
 position = Vector2(16015, 37)
 texture = ExtResource("48_ga23o")
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush8"]
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/BeforeOgreBridge/Bush8"]
 show_behind_parent = true
 z_index = -10
 position = Vector2(-15.6259, 71.8706)
@@ -2173,112 +2007,424 @@ range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_0t146")
 offset = Vector2(0, -19.485)
 
-[node name="Bush22" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(25021, -258)
-texture = ExtResource("48_ga23o")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush22"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(-15.6259, 71.8706)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.24
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-offset = Vector2(0, -19.485)
-
-[node name="Bush24" type="Sprite2D" parent="Outside/Objects"]
-z_index = -1
-position = Vector2(21531, -255)
-texture = ExtResource("48_ga23o")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush24"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(-15.6259, 71.8706)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.24
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-offset = Vector2(0, -19.485)
-
-[node name="Bush25" type="Sprite2D" parent="Outside/Objects"]
-z_index = -2
-position = Vector2(20592, -327)
-texture = ExtResource("48_ga23o")
-
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Bush25"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(-15.6259, 71.8706)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.24
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_0t146")
-offset = Vector2(0, -19.485)
-
-[node name="Rock2" type="Sprite2D" parent="Outside/Objects"]
+[node name="Rock2" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 position = Vector2(14203, -18)
 texture = ExtResource("57_jux46")
 
-[node name="Rock3" type="Sprite2D" parent="Outside/Objects"]
+[node name="Rock3" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 position = Vector2(14693, 16)
 texture = ExtResource("58_3o5t6")
 
-[node name="Rock4" type="Sprite2D" parent="Outside/Objects"]
+[node name="Rock4" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 position = Vector2(16535, 6)
 texture = ExtResource("58_3o5t6")
 
-[node name="Rock6" type="Sprite2D" parent="Outside/Objects"]
+[node name="Rock6" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 position = Vector2(15525, 220)
 texture = ExtResource("58_3o5t6")
 
-[node name="Rock7" type="Sprite2D" parent="Outside/Objects"]
+[node name="Rock7" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 position = Vector2(17354, 211)
 texture = ExtResource("58_3o5t6")
 
-[node name="Rock5" type="Sprite2D" parent="Outside/Objects"]
+[node name="Rock5" type="Sprite2D" parent="Outside/Objects/BeforeOgreBridge"]
 z_index = -1
 position = Vector2(17621, -78)
 texture = ExtResource("57_jux46")
 
-[node name="FallenCarriage" type="Sprite2D" parent="Outside/Objects"]
+[node name="Forest" type="Node2D" parent="Outside/Objects"]
+
+[node name="PointLight2D2" type="PointLight2D" parent="Outside/Objects/Forest"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(21262, -318.5)
+scale = Vector2(45.5625, 7.89062)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Tree6" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -1
+position = Vector2(20645.3, -652.34)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("38_c1s1p")
+
+[node name="Tree15" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -1
+position = Vector2(21087, -700.34)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("38_c1s1p")
+
+[node name="Tree14" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -3
+position = Vector2(21567, -624.34)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("38_c1s1p")
+
+[node name="Tree22" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -3
+position = Vector2(22249, -599)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("38_c1s1p")
+
+[node name="Tree16" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -1
+position = Vector2(23944.3, -696.001)
+scale = Vector2(1.34718, 1.34718)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Tree16"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree7" type="Sprite2D" parent="Outside/Objects/Forest"]
+position = Vector2(20895.3, -496.34)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("38_c1s1p")
+
+[node name="Tree13" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -2
+position = Vector2(21762, -434.34)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("38_c1s1p")
+
+[node name="Tree8" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -1
+position = Vector2(21258.3, -558.34)
+texture = ExtResource("38_c1s1p")
+
+[node name="Tree12" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -3
+position = Vector2(21966, -517.34)
+texture = ExtResource("38_c1s1p")
+
+[node name="Tree18" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -1
+position = Vector2(24693.5, -650.341)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Tree18"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree19" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = 1
+position = Vector2(24901.3, -482.001)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Tree19"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree20" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -2
+position = Vector2(24328.3, -622.001)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Tree20"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree21" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -1
+position = Vector2(25092.5, -543.341)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Tree21"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree9" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -1
+position = Vector2(23612.3, -606.001)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Tree9"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree17" type="Sprite2D" parent="Outside/Objects/Forest"]
 z_index = 2
+position = Vector2(23426.3, -527.001)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Tree17"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Tree10" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = 1
+position = Vector2(23820.3, -440.001)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("38_c1s1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Tree10"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 1.55
+
+[node name="Bush19" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = 1
+position = Vector2(21396, -186)
+texture = ExtResource("41_fcg8e")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Bush19"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 0.73
+
+[node name="Bush20" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = 1
+position = Vector2(23754, -157)
+texture = ExtResource("41_fcg8e")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Bush20"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 0.73
+
+[node name="Bush21" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -2
+position = Vector2(24081, -328)
+texture = ExtResource("41_fcg8e")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Bush21"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+texture_scale = 0.73
+
+[node name="Bush23" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -3
+position = Vector2(24478, -340)
+texture = ExtResource("42_n0u5b")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Bush23"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush15" type="Sprite2D" parent="Outside/Objects/Forest"]
+position = Vector2(21112, -222)
+texture = ExtResource("39_ckbi7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Bush15"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush16" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -2
+position = Vector2(22251, -207)
+texture = ExtResource("39_ckbi7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Bush16"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush17" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = 2
+position = Vector2(23561, -173)
+texture = ExtResource("39_ckbi7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Bush17"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush18" type="Sprite2D" parent="Outside/Objects/Forest"]
+position = Vector2(24650, -286)
+texture = ExtResource("39_ckbi7")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Bush18"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+
+[node name="Bush22" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -1
+position = Vector2(25021, -258)
+texture = ExtResource("48_ga23o")
+
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/Bush22"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0t146")
+offset = Vector2(0, -19.485)
+
+[node name="Bush24" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -3
+position = Vector2(21531, -255)
+texture = ExtResource("48_ga23o")
+
+[node name="Bush25" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -2
+position = Vector2(20592, -327)
+texture = ExtResource("48_ga23o")
+
+[node name="FallenCarriage" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = -2
 position = Vector2(21887, -96)
 texture = ExtResource("77_enhjr")
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/FallenCarriage"]
+[node name="PointLight2D2" type="PointLight2D" parent="Outside/Objects/Forest/FallenCarriage"]
 show_behind_parent = true
 z_index = -10
-position = Vector2(-69.0004, 94)
-scale = Vector2(14.0014, 2.28167)
+position = Vector2(-40.4987, 83.8915)
+scale = Vector2(13.2344, 3.33867)
 energy = 0.77
 blend_mode = 1
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_0t146")
 offset = Vector2(0, -19.485)
 
-[node name="AfterBridgeArea" type="Area2D" parent="Outside"]
-position = Vector2(7084, 0)
-script = ExtResource("73_wryby")
+[node name="NoEntry" type="Sprite2D" parent="Outside/Objects/Forest"]
+z_index = 30
+position = Vector2(24889, -14)
+rotation = 3.14159
+scale = Vector2(1.5, -1.5)
+texture = ExtResource("91_7augy")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Outside/AfterBridgeArea"]
-position = Vector2(6928, -586)
-shape = SubResource("RectangleShape2D_c1ngr")
+[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/NoEntry"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(0, 120.667)
+scale = Vector2(0.824374, 0.228094)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_13qjx")
+
+[node name="EndBarrier" type="StaticBody2D" parent="Outside"]
+position = Vector2(18371, 0)
+
+[node name="Collision" type="CollisionShape2D" parent="Outside/EndBarrier"]
+position = Vector2(6980, -586)
+shape = SubResource("RectangleShape2D_kt8cb")
 
 [node name="Player" parent="." instance=ExtResource("13_52hs2")]
 z_index = 10
 position = Vector2(-426, -143)
 VAR_SPEED = 15.0
 RESPAWN_POINT = Vector2(-270, -270)
-hasWand = true
-editableVars = ["VAR_SPEED"]
 CAMERA_LIMIT_LEFT = -812
 metadata/objectName = "Jogador"
 metadata/Interactable = true
 
-[node name="DevTools" parent="." instance=ExtResource("76_ol03g")]
+[node name="Label" type="Label" parent="."]
+z_index = 200
+offset_left = 23941.0
+offset_top = -343.0
+offset_right = 24761.0
+offset_bottom = -189.0
+theme_override_font_sizes/font_size = 51
+text = "Esse é o fim do nosso protótipo, obrigado por ter jogado até aqui!"
+autowrap_mode = 2

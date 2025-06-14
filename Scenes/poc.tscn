@@ -54,12 +54,12 @@ shader_parameter/NOISE_magnitude = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pddq8"]
 size = Vector2(999999, 20)
 
-[sub_resource type="Gradient" id="Gradient_36yee"]
+[sub_resource type="Gradient" id="Gradient_2js3y"]
 offsets = PackedFloat32Array(0.209459, 0.625)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t30v0"]
-gradient = SubResource("Gradient_36yee")
+gradient = SubResource("Gradient_2js3y")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
