@@ -30,11 +30,11 @@ jobs:
       # - name: Build
       #   run: godot -v --export-release --headless "Web"
 
-      - name: Add coi-service-worker
-        run: |
-          git clone https://github.com/gzuidhof/coi-serviceworker.git
-          mv coi-serviceworker/coi-serviceworker.js build/web/coi-serviceworker.js
-          sed -i '3 i <script src="coi-serviceworker.js"></script>' build/web/index.html
+      # - name: Add coi-service-worker
+      #   run: |
+      #     git clone https://github.com/gzuidhof/coi-serviceworker.git
+      #     mv coi-serviceworker/coi-serviceworker.js build/web/coi-serviceworker.js
+      #     sed -i '3 i <script src="coi-serviceworker.js"></script>' build/web/index.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
