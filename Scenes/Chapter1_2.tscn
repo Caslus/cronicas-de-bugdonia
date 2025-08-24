@@ -1,0 +1,522 @@
+[gd_scene load_steps=8 format=3 uid="uid://brux173rmi3od"]
+
+[ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_2o7ur"]
+[ext_resource type="Texture2D" uid="uid://dx261cbtbwnkl" path="res://Assets/Objects/PrisonInnerDoor.png" id="2_v8im4"]
+[ext_resource type="Texture2D" uid="uid://d4j8ya07nd6bd" path="res://Assets/Objects/JailCell.png" id="3_gwm1x"]
+[ext_resource type="Texture2D" uid="uid://dh0yxmw1d163u" path="res://Assets/Objects/JailColumn.png" id="4_wjlat"]
+[ext_resource type="PackedScene" uid="uid://dsg27of52d3no" path="res://Scenes/Objects/Torch.tscn" id="5_v8im4"]
+[ext_resource type="PackedScene" uid="uid://cwcjpyq0u6iep" path="res://Scenes/Objects/Fireholder.tscn" id="6_gwm1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2o7ur"]
+size = Vector2(18961, 165)
+
+[node name="Chapter12" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_2o7ur")]
+z_index = 10
+position = Vector2(0, -301)
+VAR_SPEED = 15.0
+RESPAWN_POINT = Vector2(-270, -270)
+hasWand = true
+CAMERA_LIMIT_LEFT = -812
+metadata/objectName = "Jogador"
+metadata/Interactable = true
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="PrisonInnerDoor" type="Sprite2D" parent="Map"]
+position = Vector2(0, -709)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_v8im4")
+
+[node name="JailCell5" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(377, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn3" type="Sprite2D" parent="Map"]
+position = Vector2(1169, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell6" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(1984, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn4" type="Sprite2D" parent="Map"]
+position = Vector2(2776, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell7" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(3594, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn5" type="Sprite2D" parent="Map"]
+position = Vector2(4386, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell8" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(5201, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn6" type="Sprite2D" parent="Map"]
+position = Vector2(5993, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell9" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(6808, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn7" type="Sprite2D" parent="Map"]
+position = Vector2(7600, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell10" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(8415, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn8" type="Sprite2D" parent="Map"]
+position = Vector2(9207, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell11" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(10025, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn9" type="Sprite2D" parent="Map"]
+position = Vector2(10817, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell12" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(11632, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn10" type="Sprite2D" parent="Map"]
+position = Vector2(12424, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell13" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(13226, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn11" type="Sprite2D" parent="Map"]
+position = Vector2(14018, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell14" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(14836, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn12" type="Sprite2D" parent="Map"]
+position = Vector2(15628, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell15" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(16443, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn13" type="Sprite2D" parent="Map"]
+position = Vector2(17235, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8111.5, -6)
+shape = SubResource("RectangleShape2D_2o7ur")
+
+[node name="ChallengeAnd" type="Node2D" parent="."]
+position = Vector2(150, 0)
+
+[node name="Fireholder" parent="ChallengeAnd" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1837, -596)
+torches = [NodePath("../Torch1_A"), NodePath("../Torch1_B")]
+type = 0
+
+[node name="Torch1_A" parent="ChallengeAnd" instance=ExtResource("5_v8im4")]
+position = Vector2(1573, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B" parent="ChallengeAnd" instance=ExtResource("5_v8im4")]
+position = Vector2(2050, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Label" type="Label" parent="ChallengeAnd"]
+z_index = 200
+offset_left = 1808.0
+offset_top = -483.0
+offset_right = 1850.0
+offset_bottom = -413.0
+theme_override_font_sizes/font_size = 51
+text = "^"
+autowrap_mode = 2
+
+[node name="ChallengeOr" type="Node2D" parent="."]
+position = Vector2(1800, 0)
+
+[node name="Fireholder" parent="ChallengeOr" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1837, -596)
+torches = [NodePath("../Torch1_A"), NodePath("../Torch1_B")]
+
+[node name="Torch1_A" parent="ChallengeOr" instance=ExtResource("5_v8im4")]
+position = Vector2(1573, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B" parent="ChallengeOr" instance=ExtResource("5_v8im4")]
+position = Vector2(2050, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Label" type="Label" parent="ChallengeOr"]
+z_index = 200
+offset_left = 1808.0
+offset_top = -483.0
+offset_right = 1850.0
+offset_bottom = -413.0
+theme_override_font_sizes/font_size = 51
+text = "v"
+autowrap_mode = 2
+
+[node name="ChallengeXor" type="Node2D" parent="."]
+position = Vector2(3424, 0)
+
+[node name="Fireholder" parent="ChallengeXor" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1837, -596)
+torches = [NodePath("../Torch1_A"), NodePath("../Torch1_B")]
+type = 2
+
+[node name="Torch1_A" parent="ChallengeXor" instance=ExtResource("5_v8im4")]
+position = Vector2(1573, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B" parent="ChallengeXor" instance=ExtResource("5_v8im4")]
+position = Vector2(2050, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Label" type="Label" parent="ChallengeXor"]
+z_index = 200
+offset_left = 1808.0
+offset_top = -483.0
+offset_right = 1850.0
+offset_bottom = -413.0
+theme_override_font_sizes/font_size = 51
+text = "XOR"
+autowrap_mode = 2
+
+[node name="ChallengeNand" type="Node2D" parent="."]
+position = Vector2(4987, 0)
+
+[node name="Fireholder" parent="ChallengeNand" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1837, -596)
+torches = [NodePath("../Torch1_A"), NodePath("../Torch1_B")]
+type = 3
+
+[node name="Torch1_A" parent="ChallengeNand" instance=ExtResource("5_v8im4")]
+position = Vector2(1573, -484)
+input_pickable = true
+
+[node name="Torch1_B" parent="ChallengeNand" instance=ExtResource("5_v8im4")]
+position = Vector2(2050, -484)
+input_pickable = true
+
+[node name="Label" type="Label" parent="ChallengeNand"]
+z_index = 200
+offset_left = 1759.0
+offset_top = -483.0
+offset_right = 1801.0
+offset_bottom = -413.0
+theme_override_font_sizes/font_size = 51
+text = "NAND"
+autowrap_mode = 2
+
+[node name="ChallengeNor" type="Node2D" parent="."]
+position = Vector2(6534, 0)
+
+[node name="Fireholder" parent="ChallengeNor" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1837, -596)
+torches = [NodePath("../Torch1_A"), NodePath("../Torch1_B")]
+type = 4
+
+[node name="Torch1_A" parent="ChallengeNor" instance=ExtResource("5_v8im4")]
+position = Vector2(1573, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B" parent="ChallengeNor" instance=ExtResource("5_v8im4")]
+position = Vector2(2050, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Label" type="Label" parent="ChallengeNor"]
+z_index = 200
+offset_left = 1759.0
+offset_top = -483.0
+offset_right = 1801.0
+offset_bottom = -413.0
+theme_override_font_sizes/font_size = 51
+text = "NOR"
+autowrap_mode = 2
+
+[node name="ChallengeXnor" type="Node2D" parent="."]
+position = Vector2(8236, 0)
+
+[node name="Fireholder" parent="ChallengeXnor" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1837, -596)
+torches = [NodePath("../Torch1_A"), NodePath("../Torch1_B")]
+type = 4
+
+[node name="Torch1_A" parent="ChallengeXnor" instance=ExtResource("5_v8im4")]
+position = Vector2(1573, -484)
+input_pickable = true
+
+[node name="Torch1_B" parent="ChallengeXnor" instance=ExtResource("5_v8im4")]
+position = Vector2(2050, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Label" type="Label" parent="ChallengeXnor"]
+z_index = 200
+offset_left = 1759.0
+offset_top = -483.0
+offset_right = 1801.0
+offset_bottom = -413.0
+theme_override_font_sizes/font_size = 51
+text = "XNOR"
+autowrap_mode = 2
+
+[node name="ChallengeAndOr" type="Node2D" parent="."]
+position = Vector2(9733, 0)
+
+[node name="Fireholder" parent="ChallengeAndOr" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1696, -647)
+torches = [NodePath("../Torch1_A"), NodePath("../Torch1_B")]
+type = 0
+
+[node name="Torch1_A" parent="ChallengeAndOr" instance=ExtResource("5_v8im4")]
+position = Vector2(1573, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B" parent="ChallengeAndOr" instance=ExtResource("5_v8im4")]
+position = Vector2(1797, -495)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Label" type="Label" parent="ChallengeAndOr"]
+z_index = 200
+offset_left = 1690.0
+offset_top = -489.0
+offset_right = 1732.0
+offset_bottom = -419.0
+theme_override_font_sizes/font_size = 51
+text = "^"
+autowrap_mode = 2
+
+[node name="Fireholder2" parent="ChallengeAndOr" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2108, -647)
+torches = [NodePath("../Torch1_A2"), NodePath("../Torch1_B2")]
+
+[node name="Torch1_A2" parent="ChallengeAndOr" instance=ExtResource("5_v8im4")]
+position = Vector2(1985, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B2" parent="ChallengeAndOr" instance=ExtResource("5_v8im4")]
+position = Vector2(2209, -495)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Label2" type="Label" parent="ChallengeAndOr"]
+z_index = 200
+offset_left = 2102.0
+offset_top = -489.0
+offset_right = 2144.0
+offset_bottom = -419.0
+theme_override_font_sizes/font_size = 51
+text = "v"
+autowrap_mode = 2
+
+[node name="Fireholder3" parent="ChallengeAndOr" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1909, -830)
+torches = [NodePath("../Fireholder"), NodePath("../Fireholder2")]
+type = 0
+
+[node name="Label3" type="Label" parent="ChallengeAndOr"]
+z_index = 200
+offset_left = 1888.0
+offset_top = -699.0
+offset_right = 1930.0
+offset_bottom = -629.0
+theme_override_font_sizes/font_size = 51
+text = "^"
+autowrap_mode = 2
+
+[node name="Challenge1" type="Node2D" parent="."]
+position = Vector2(10943, 131)
+
+[node name="Fireholder" parent="Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1696, -647)
+torches = [NodePath("../Torch1_A"), NodePath("../Torch1_B")]
+type = 0
+
+[node name="Torch1_A" parent="Challenge1" instance=ExtResource("5_v8im4")]
+position = Vector2(1573, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B" parent="Challenge1" instance=ExtResource("5_v8im4")]
+position = Vector2(1797, -495)
+input_pickable = true
+
+[node name="Label" type="Label" parent="Challenge1"]
+z_index = 200
+offset_left = 1690.0
+offset_top = -489.0
+offset_right = 1732.0
+offset_bottom = -419.0
+theme_override_font_sizes/font_size = 51
+text = "^"
+autowrap_mode = 2
+
+[node name="Fireholder2" parent="Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2108, -647)
+torches = [NodePath("../Torch1_A2"), NodePath("../Torch1_B2")]
+type = 5
+
+[node name="Torch1_A2" parent="Challenge1" instance=ExtResource("5_v8im4")]
+position = Vector2(1985, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B2" parent="Challenge1" instance=ExtResource("5_v8im4")]
+position = Vector2(2209, -495)
+input_pickable = true
+
+[node name="Label2" type="Label" parent="Challenge1"]
+z_index = 200
+offset_left = 2031.0
+offset_top = -494.0
+offset_right = 2073.0
+offset_bottom = -424.0
+theme_override_font_sizes/font_size = 51
+text = "XNOR"
+autowrap_mode = 2
+
+[node name="Fireholder3" parent="Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1909, -830)
+torches = [NodePath("../Fireholder"), NodePath("../Fireholder2")]
+type = 5
+
+[node name="Label3" type="Label" parent="Challenge1"]
+z_index = 200
+offset_left = 1832.0
+offset_top = -700.0
+offset_right = 1874.0
+offset_bottom = -630.0
+theme_override_font_sizes/font_size = 51
+text = "XNOR"
+autowrap_mode = 2
+
+[node name="Fireholder4" parent="Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2453, -647)
+torches = [NodePath("../Torch1_A3"), NodePath("../Torch1_B3")]
+type = 0
+
+[node name="Torch1_A3" parent="Challenge1" instance=ExtResource("5_v8im4")]
+position = Vector2(2330, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B3" parent="Challenge1" instance=ExtResource("5_v8im4")]
+position = Vector2(2554, -495)
+input_pickable = true
+
+[node name="Label4" type="Label" parent="Challenge1"]
+z_index = 200
+offset_left = 2447.0
+offset_top = -489.0
+offset_right = 2489.0
+offset_bottom = -419.0
+theme_override_font_sizes/font_size = 51
+text = "^"
+autowrap_mode = 2
+
+[node name="Fireholder5" parent="Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2865, -647)
+torches = [NodePath("../Torch1_A4"), NodePath("../Torch1_B4")]
+type = 3
+
+[node name="Torch1_A4" parent="Challenge1" instance=ExtResource("5_v8im4")]
+position = Vector2(2742, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B4" parent="Challenge1" instance=ExtResource("5_v8im4")]
+position = Vector2(2966, -495)
+input_pickable = true
+
+[node name="Label5" type="Label" parent="Challenge1"]
+z_index = 200
+offset_left = 2787.0
+offset_top = -488.0
+offset_right = 2829.0
+offset_bottom = -418.0
+theme_override_font_sizes/font_size = 51
+text = "NAND"
+autowrap_mode = 2
+
+[node name="Fireholder6" parent="Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2666, -830)
+torches = [NodePath("../Fireholder4"), NodePath("../Fireholder5")]
+type = 0
+
+[node name="Label6" type="Label" parent="Challenge1"]
+z_index = 200
+offset_left = 2645.0
+offset_top = -699.0
+offset_right = 2687.0
+offset_bottom = -629.0
+theme_override_font_sizes/font_size = 51
+text = "^"
+autowrap_mode = 2
+
+[node name="Fireholder7" parent="Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2283, -1019)
+torches = [NodePath("../Fireholder3"), NodePath("../Fireholder6")]
+type = 2
+
+[node name="Label7" type="Label" parent="Challenge1"]
+z_index = 200
+offset_left = 2232.0
+offset_top = -909.0
+offset_right = 2274.0
+offset_bottom = -839.0
+theme_override_font_sizes/font_size = 51
+text = "XOR"
+autowrap_mode = 2
