@@ -21,5 +21,10 @@ func setCurrentQuest(newQuest: Node) -> void:
 	currentQuest = newQuest
 	emit_signal("questChanged")
 
+func moveNpcTo(npcName: String, pos: Vector2) -> void:
+	emit_signal("moveNpc", npcName, pos)
+
 func _ready():
 	pass
+
+signal moveNpc(npcName: String, pos: Vector2)

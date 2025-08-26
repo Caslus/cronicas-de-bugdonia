@@ -9,7 +9,6 @@ var moving: bool = false
 @onready var originalPosition: Vector2 = position
 
 func open_door(signalDoor):
-	print(signalDoor, doorNumber)
 	if signalDoor != doorNumber: return
 	moving = true
 	var doorTween = create_tween()
@@ -18,7 +17,7 @@ func open_door(signalDoor):
 
 	var fogTween = fog.create_tween()
 	fogTween.set_ease(Tween.EaseType.EASE_IN_OUT)
-	fogTween.tween_property(fog, "modulate", Color(1, 1, 1, 0), 1)
+	fogTween.tween_property(fog, "modulate", Color(1, 1, 1, 0), 2)
 
 	await doorTween.finished
 	moving = false

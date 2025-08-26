@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://brux173rmi3od"]
+[gd_scene load_steps=21 format=3 uid="uid://brux173rmi3od"]
 
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_2o7ur"]
 [ext_resource type="Script" uid="uid://d2h63bq33tdcp" path="res://Scripts/Quest/BooleanQuest.gd" id="1_c7sn1"]
@@ -8,15 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://dsg27of52d3no" path="res://Scenes/Objects/Torch.tscn" id="5_v8im4"]
 [ext_resource type="PackedScene" uid="uid://cwcjpyq0u6iep" path="res://Scenes/Objects/Fireholder.tscn" id="6_gwm1x"]
 [ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="8_wxbtf"]
-[ext_resource type="Texture2D" uid="uid://cnxqx2c7bmvxp" path="res://Assets/Entity/Prisoner/head.png" id="9_kr1wk"]
-[ext_resource type="Texture2D" uid="uid://c1xf0slgfy84w" path="res://Assets/Entity/Prisoner/torso.png" id="10_045mq"]
-[ext_resource type="Texture2D" uid="uid://ovftsgqm78g3" path="res://Assets/Entity/Prisoner/arm.png" id="11_0ic1f"]
-[ext_resource type="Texture2D" uid="uid://boexy32plg3c1" path="res://Assets/Entity/Prisoner/leg.png" id="12_a88w8"]
+[ext_resource type="Texture2D" uid="uid://cxyewq77ukudv" path="res://Assets/Entity/Monk/head.png" id="9_a88w8"]
+[ext_resource type="Texture2D" uid="uid://bcotmnrqotjw6" path="res://Assets/Entity/Monk/torso.png" id="10_er7ss"]
+[ext_resource type="Texture2D" uid="uid://tu3bvoxcfo6c" path="res://Assets/Entity/Monk/arm.png" id="11_ob62n"]
+[ext_resource type="Texture2D" uid="uid://cdnwo6mstbddb" path="res://Assets/Entity/Monk/leg.png" id="12_1lq60"]
 [ext_resource type="Texture2D" uid="uid://cipkrf20dhy2w" path="res://Assets/Objects/JailCellWall.png" id="13_0ic1f"]
 [ext_resource type="Script" uid="uid://81sw4i4e0e27" path="res://Scripts/Object/HollowObject.gd" id="14_a88w8"]
 [ext_resource type="Script" uid="uid://bnh4mv0nt8tlm" path="res://Scripts/Object/TempleDoor.gd" id="15_0ic1f"]
 [ext_resource type="Texture2D" uid="uid://cu8oxkgp5cydw" path="res://Assets/Objects/JailCellDoor.png" id="17_a88w8"]
 [ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="17_er7ss"]
+[ext_resource type="Texture2D" uid="uid://bm6haoisagh1j" path="res://Assets/Objects/JailCellWallFront.png" id="17_ob62n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o7ur"]
 size = Vector2(18961, 165)
@@ -26,8 +27,9 @@ size = Vector2(106, 502)
 
 [node name="Chapter12" type="Node2D"]
 
-[node name="BooleanQuest" type="Node" parent="."]
+[node name="BooleanQuest" type="Node" parent="." node_paths=PackedStringArray("npc")]
 script = ExtResource("1_c7sn1")
+npc = NodePath("../NPC")
 
 [node name="Player" parent="." instance=ExtResource("1_2o7ur")]
 z_index = 10
@@ -541,14 +543,15 @@ text = "XOR"
 autowrap_mode = 2
 
 [node name="NPC" parent="." node_paths=PackedStringArray("quest") instance=ExtResource("8_wxbtf")]
-position = Vector2(669, -342)
+z_index = 2
+position = Vector2(561, -342)
 dialogFile = "res://Dialog/Boolean.json"
 quest = NodePath("../BooleanQuest")
-head = ExtResource("9_kr1wk")
-torso = ExtResource("10_045mq")
-arm = ExtResource("11_0ic1f")
-leg = ExtResource("12_a88w8")
-metadata/objectName = "Prisio, o Prisioneiro"
+head = ExtResource("9_a88w8")
+torso = ExtResource("10_er7ss")
+arm = ExtResource("11_ob62n")
+leg = ExtResource("12_1lq60")
+metadata/objectName = "Funcionário do Templo"
 
 [node name="Door1" type="Sprite2D" parent="."]
 z_index = 1
@@ -578,7 +581,7 @@ debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
 
 [node name="Fog" type="ColorRect" parent="Door1"]
 visible = false
-z_index = 1
+z_index = 7
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -590,6 +593,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door1"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
 
 [node name="DevTools" parent="." instance=ExtResource("17_er7ss")]
 offset_left = 1874.0

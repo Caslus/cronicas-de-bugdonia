@@ -13,6 +13,7 @@ func onUpdateQuestVariables():
 		# npc.set("startingDialog", "5")
 		emit_signal("openDoor", 1)
 		print("Opening door:", 1)
+		QuestManager.moveNpcTo(npc.get_meta("objectName"), Vector2(2432, -342))
 	# if questVariables.get("pickedWand"):
 	# 	npc.set("startingDialog", "7")
 	# if questVariables.get("talked2"):
