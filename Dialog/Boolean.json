@@ -1,0 +1,30 @@
+[
+	{
+		"id": "1",
+		"text": "Saudações, viajante. Este é o Templo da Verdade.",
+		"options": [
+			{ "text": "Hein?", "next": "2" }
+		]
+	},
+	{
+		"id": "2",
+		"text": "Aqui, apenas quem domina os operadores lógicos pode abrir os portões sagrados.",
+		"options": [
+			{ "text": "O que são operadores lógicos?", "next": "3" }
+		]
+	},
+	{
+		"id": "3",
+		"text": "Eles são regras que decidem se algo é verdadeiro ou falso.",
+		"options": [
+			{ "text": "Como assim?", "next": "4" }
+		]
+	},
+	{
+		"id": "4",
+		"text": "Siga-me, eu irei lhe mostrar cada um deles, passo a passo, tocha a tocha.",
+		"options": [
+			{ "text": "...", "next": null, "toggle": "initialTalk" }
+		]
+	}
+]
