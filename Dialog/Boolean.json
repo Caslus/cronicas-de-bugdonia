@@ -26,5 +26,26 @@
 		"options": [
 			{ "text": "...", "next": null, "toggle": "initialTalk" }
 		]
+	},
+	{
+		"id": "5",
+		"text": "O operador AND é simples, as duas condições precisam ser verdadeiras.",
+		"options": [
+			{ "text": "...", "next": "6" }
+		]
+	},
+	{
+		"id": "6",
+		"text": "Nesse caso, as duas tochas precisam estar acesas através da variável ACESA.",
+		"options": [
+			{ "text": "Entendi!", "next": "7" }
+		]
+	},
+	{
+		"id": "7",
+		"text": "Vamos para a prática, tente editar as variáveis ACESA das tochas.",
+		"options": [
+			{ "text": "Ok!", "next": null }
+		]
 	}
 ]

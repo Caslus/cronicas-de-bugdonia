@@ -7,8 +7,9 @@ var VAR_ACESA: bool
 @export var torches: Array[Node2D] = []
 @export var type: TYPE
 
-
 @onready var sprite = get_node("Sprite")
+
+@onready var solver = get_parent().get_node_or_null("SolutionChecker")
 
 func checkAnd() -> bool:
 	var A = torches[0]
@@ -64,20 +65,27 @@ func checkXnor() -> bool:
 		return true
 	return false
 
-func shouldLightUp() -> bool:
-	if type == TYPE.AND: return checkAnd()
-	if type == TYPE.OR: return checkOr()
-	if type == TYPE.XOR: return checkXor()
-	if type == TYPE.NAND: return checkNand()
-	if type == TYPE.NOR: return checkNor()
-	if type == TYPE.XNOR: return checkXnor()
-	return false
+func shouldLightUp() -> void:
+	var should: bool = false
+	if type == TYPE.AND: should = checkAnd()
+	if type == TYPE.OR: should = checkOr()
+	if type == TYPE.XOR: should = checkXor()
+	if type == TYPE.NAND: should = checkNand()
+	if type == TYPE.NOR: should = checkNor()
+	if type == TYPE.XNOR: should = checkXnor()
+
+	VAR_ACESA = should
+	emit_signal("fireholderChanged")
 
 func _process(_delta: float) -> void:
-	VAR_ACESA = shouldLightUp()
 	if VAR_ACESA:
 		sprite.texture = ImageOn
 		sprite.offset = Vector2(0, -153)
 	else:
 		sprite.texture = ImageOff
 		sprite.offset = Vector2(0, 0)
+
+func _ready() -> void:
+	SelectedManager.connect("selected_edited", Callable(self, "shouldLightUp"))
+
+signal fireholderChanged()

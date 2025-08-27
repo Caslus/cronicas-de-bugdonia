@@ -45,12 +45,12 @@ func move_to(npcName: String, pos: Vector2):
 	if get_meta("objectName") != npcName: return
 	moving = true
 	turnsToPlayer = false
+	disable_interaction()
 	var torsoNode = get_node("Sprite")
 	if (pos.x > position.x):
 		torsoNode.scale = Vector2(-1, 1)
 	else:
 		torsoNode.scale = Vector2(1, 1)
-
 	var moveTween1 = create_tween()
 	moveTween1.set_ease(Tween.EaseType.EASE_IN_OUT)
 	moveTween1.tween_property(self, "position", position + Vector2(0, 100), 0.5)
@@ -65,6 +65,17 @@ func move_to(npcName: String, pos: Vector2):
 	await moveTween3.finished
 	moving = false
 	turnsToPlayer = true
+	enable_interaction()
+
+func disable_interaction():
+	var interactable = get_node("Interactable")
+	interactable.enableExclamation = false
+	interactable.enableInteraction = false
+
+func enable_interaction():
+	var interactable = get_node("Interactable")
+	interactable.enableExclamation = true
+	interactable.enableInteraction = true
 
 func _ready():
 	load_dialog()

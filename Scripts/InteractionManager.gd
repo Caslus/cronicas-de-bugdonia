@@ -59,9 +59,10 @@ func cameraZoomOut():
 
 func start_interaction():
 	if (player == null or interactable == null):
-		push_error("Player or interactable is null.")
-		push_error("Player: " + str(player))
-		push_error("Interactable: " + str(interactable))
+		# silencing these, too spammy
+		# push_error("Player or interactable is null.")
+		# push_error("Player: " + str(player))
+		# push_error("Interactable: " + str(interactable))
 		return
 
 	interacting = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brux173rmi3od"]
+[gd_scene load_steps=23 format=3 uid="uid://brux173rmi3od"]
 
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_2o7ur"]
 [ext_resource type="Script" uid="uid://d2h63bq33tdcp" path="res://Scripts/Quest/BooleanQuest.gd" id="1_c7sn1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dh0yxmw1d163u" path="res://Assets/Objects/JailColumn.png" id="4_wjlat"]
 [ext_resource type="PackedScene" uid="uid://dsg27of52d3no" path="res://Scenes/Objects/Torch.tscn" id="5_v8im4"]
 [ext_resource type="PackedScene" uid="uid://cwcjpyq0u6iep" path="res://Scenes/Objects/Fireholder.tscn" id="6_gwm1x"]
+[ext_resource type="Script" uid="uid://dln10j1ecoaqr" path="res://Scripts/Object/SolutionChecker.gd" id="8_1lq60"]
 [ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="8_wxbtf"]
 [ext_resource type="Texture2D" uid="uid://cxyewq77ukudv" path="res://Assets/Entity/Monk/head.png" id="9_a88w8"]
 [ext_resource type="Texture2D" uid="uid://bcotmnrqotjw6" path="res://Assets/Entity/Monk/torso.png" id="10_er7ss"]
@@ -18,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cu8oxkgp5cydw" path="res://Assets/Objects/JailCellDoor.png" id="17_a88w8"]
 [ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="17_er7ss"]
 [ext_resource type="Texture2D" uid="uid://bm6haoisagh1j" path="res://Assets/Objects/JailCellWallFront.png" id="17_ob62n"]
+[ext_resource type="Texture2D" uid="uid://bio5vkwacq0c1" path="res://Assets/Objects/FlameHintOn.png" id="18_ob62n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o7ur"]
 size = Vector2(18961, 165)
@@ -194,6 +196,13 @@ offset_bottom = -406.0
 theme_override_font_sizes/font_size = 51
 text = "AND"
 autowrap_mode = 2
+
+[node name="SolutionChecker" type="Node" parent="Challenges/ChallengeAnd"]
+script = ExtResource("8_1lq60")
+solution = {
+NodePath("../Fireholder"): true
+}
+doorNumber = 2
 
 [node name="ChallengeOr" type="Node2D" parent="Challenges"]
 position = Vector2(1800, 0)
@@ -600,6 +609,69 @@ position = Vector2(40, 315)
 texture = ExtResource("17_ob62n")
 script = ExtResource("14_a88w8")
 xOffset = -36.49
+
+[node name="Door2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(2718, -602)
+texture = ExtResource("13_0ic1f")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="JailDoor" type="Node2D" parent="Door2" node_paths=PackedStringArray("quest")]
+z_index = -1
+position = Vector2(-651, 482)
+script = ExtResource("15_0ic1f")
+quest = NodePath("../../BooleanQuest")
+doorNumber = 2
+
+[node name="Door" type="StaticBody2D" parent="Door2/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Door2/JailDoor/Door"]
+texture = ExtResource("17_a88w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_er7ss")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Fog" type="ColorRect" parent="Door2"]
+visible = false
+z_index = 7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = -770.0
+offset_right = 1687.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door2"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="FlameHintOn" type="Sprite2D" parent="Door2"]
+z_index = 20
+position = Vector2(1, 20)
+texture = ExtResource("18_ob62n")
+
+[node name="Label" type="Label" parent="Door2"]
+z_index = 20
+offset_left = -8.0
+offset_top = 43.0
+offset_right = 3.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
+text = "2"
 
 [node name="DevTools" parent="." instance=ExtResource("17_er7ss")]
 offset_left = 1874.0
