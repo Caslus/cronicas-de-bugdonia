@@ -45,7 +45,133 @@
 		"id": "7",
 		"text": "Vamos para a prática, tente editar as variáveis ACESA das tochas.",
 		"options": [
-			{ "text": "Ok!", "next": null }
+			{ "text": "Ok!", "next": null, "toggle": "taughtAnd" }
+		]
+	},
+	{
+		"id": "8",
+		"text": "Muito bem, você conseguiu! Agora vamos para o próximo operador.",
+		"options": [
+			{ "text": "...", "next": "9" }
+		]
+	},
+	{
+		"id": "9",
+		"text": "O operador OR é um pouco diferente, basta que uma das condições seja verdadeira.",
+		"options": [
+			{ "text": "...", "next": "10" }
+		]
+	},
+	{
+		"id": "10",
+		"text": "Nesse caso, apenas uma tocha precisa estar acesa.",
+		"options": [
+			{ "text": "Entendi!", "next": null, "toggle": "taughtOr" }
+		]
+	},
+	{
+		"id": "11",
+		"text": "Agora vamos para o operador XOR!",
+		"options": [
+			{ "text": "XOR?", "next": "12" }
+		]
+	},
+	{
+		"id": "12",
+		"text": "O operador XOR é tipo o OR, mas ele retorna verdadeiro se *apenas uma* das condições for verdadeira.",
+		"options": [
+			{ "text": "...", "next": "13" }
+		]
+	},
+	{
+		"id": "13",
+		"text": "Então apenas uma das tochas deve estar acesa para abrir o portão.",
+		"options": [
+			{ "text": "Beleza!", "next": null, "toggle": "taughtXor" }
+		]
+	},
+	{
+		"id": "14",
+		"text": "Você está indo bem, vamos para o próximo operador.",
+		"options": [
+			{ "text": "...", "next": "15"}
+		]
+	},
+	{
+		"id": "15",
+		"text": "O NAND é semelhante ao AND, mas ao contrário.",
+		"options": [
+			{ "text": "Ao contrário?", "next": "16"}
+		]
+	},
+	{
+		"id": "16",
+		"text": "Ou seja, o portão abre se *não* estiverem ambas as tochas acesas.",
+		"options": [
+			{ "text": "Ah...", "next": null, "toggle": "taughtNand" }
+		]
+	},
+	{
+		"id": "17",
+		"text": "Eu juro que está quase acabando. Esse é o NOR.",
+		"options": [
+			{ "text": "Como assim?", "next": "18" }
+		]
+	},
+	{
+		"id": "18",
+		"text": "O NOR quer dizer que nenhuma das tochas pode estar acesa.",
+		"options": [
+			{ "text": "Ok!", "next": null, "toggle": "taughtNor" }
+		]
+	},
+	{
+		"id": "19",
+		"text": "O XNOR funciona assim: o portão abre se *ambas* ou *nenhuma* das tochas estiverem acesas.",
+		"options": [
+			{ "text": "Saquei!", "next": null, "toggle": "taughtXnor" }
+		]
+	},
+	{
+		"id": "20",
+		"text": "Parabéns, você aprendeu todos os operadores lógicos usados aqui no templo!",
+		"options": [
+			{ "text": "Ufa...", "next": "21"}
+		]
+	},
+	{
+		"id": "21",
+		"text": "Agora você precisa aplicar o que aprendeu.",
+		"options": [
+			{ "text": "Como?!", "next": "22" }
+		]
+	},
+	{
+		"id": "22",
+		"text": "Acima da porta, você verá um padrão e um número.",
+		"options": [
+			{ "text": "O que isso significa?", "next": "23" }
+		]
+	},
+	{
+		"id": "23",
+		"text": "O padrão mostra quais lareiras devem estar acesas e quais devem estar apagadas.",
+		"options": [
+			{ "text": "E o número?", "next": "24" }
+		]
+	},
+	{
+		"id": "24",
+		"text": "O número indica a quantidade exata de tochas que devem estar acesas.",
+		"options": [
+			{ "text": "Entendi!", "next": null, "toggle": "taughtAndOr" }
+		]
+	},
+	{
+		"id": "25",
+		"text": "Agora é com você, eu já te ensinei tudo o que sei. Boa sorte!",
+		"options": [
+			{ "text": "...", "next": null }
 		]
 	}
 ]

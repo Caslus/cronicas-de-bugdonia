@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://brux173rmi3od"]
+[gd_scene load_steps=25 format=3 uid="uid://brux173rmi3od"]
 
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_2o7ur"]
 [ext_resource type="Script" uid="uid://d2h63bq33tdcp" path="res://Scripts/Quest/BooleanQuest.gd" id="1_c7sn1"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dln10j1ecoaqr" path="res://Scripts/Object/SolutionChecker.gd" id="8_1lq60"]
 [ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="8_wxbtf"]
 [ext_resource type="Texture2D" uid="uid://cxyewq77ukudv" path="res://Assets/Entity/Monk/head.png" id="9_a88w8"]
+[ext_resource type="Script" uid="uid://vk60uuiqh1hi" path="res://Scripts/Object/TorchManager.gd" id="9_gypu4"]
 [ext_resource type="Texture2D" uid="uid://bcotmnrqotjw6" path="res://Assets/Entity/Monk/torso.png" id="10_er7ss"]
 [ext_resource type="Texture2D" uid="uid://tu3bvoxcfo6c" path="res://Assets/Entity/Monk/arm.png" id="11_ob62n"]
 [ext_resource type="Texture2D" uid="uid://cdnwo6mstbddb" path="res://Assets/Entity/Monk/leg.png" id="12_1lq60"]
@@ -20,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="17_er7ss"]
 [ext_resource type="Texture2D" uid="uid://bm6haoisagh1j" path="res://Assets/Objects/JailCellWallFront.png" id="17_ob62n"]
 [ext_resource type="Texture2D" uid="uid://bio5vkwacq0c1" path="res://Assets/Objects/FlameHintOn.png" id="18_ob62n"]
+[ext_resource type="Texture2D" uid="uid://ils77pfm10c" path="res://Assets/Objects/FlameHintOff.png" id="21_nj6ya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o7ur"]
 size = Vector2(18961, 165)
@@ -203,6 +205,11 @@ solution = {
 NodePath("../Fireholder"): true
 }
 doorNumber = 2
+challengeVariableName = "okAnd"
+
+[node name="TorchManager" type="Node" parent="Challenges/ChallengeAnd" node_paths=PackedStringArray("quest")]
+script = ExtResource("9_gypu4")
+quest = NodePath("../../../BooleanQuest")
 
 [node name="ChallengeOr" type="Node2D" parent="Challenges"]
 position = Vector2(1800, 0)
@@ -237,6 +244,11 @@ solution = {
 NodePath("../Fireholder"): true
 }
 doorNumber = 3
+challengeVariableName = "okOr"
+
+[node name="TorchManager" type="Node" parent="Challenges/ChallengeOr" node_paths=PackedStringArray("quest")]
+script = ExtResource("9_gypu4")
+quest = NodePath("../../../BooleanQuest")
 
 [node name="ChallengeXor" type="Node2D" parent="Challenges"]
 position = Vector2(3424, 0)
@@ -272,6 +284,11 @@ solution = {
 NodePath("../Fireholder"): true
 }
 doorNumber = 4
+challengeVariableName = "okXor"
+
+[node name="TorchManager" type="Node" parent="Challenges/ChallengeXor" node_paths=PackedStringArray("quest")]
+script = ExtResource("9_gypu4")
+quest = NodePath("../../../BooleanQuest")
 
 [node name="ChallengeNand" type="Node2D" parent="Challenges"]
 position = Vector2(4987, 0)
@@ -305,6 +322,11 @@ solution = {
 NodePath("../Fireholder"): true
 }
 doorNumber = 5
+challengeVariableName = "okNand"
+
+[node name="TorchManager" type="Node" parent="Challenges/ChallengeNand" node_paths=PackedStringArray("quest")]
+script = ExtResource("9_gypu4")
+quest = NodePath("../../../BooleanQuest")
 
 [node name="ChallengeNor" type="Node2D" parent="Challenges"]
 position = Vector2(6534, 0)
@@ -338,6 +360,11 @@ solution = {
 NodePath("../Fireholder"): true
 }
 doorNumber = 6
+challengeVariableName = "okNor"
+
+[node name="TorchManager" type="Node" parent="Challenges/ChallengeNor" node_paths=PackedStringArray("quest")]
+script = ExtResource("9_gypu4")
+quest = NodePath("../../../BooleanQuest")
 
 [node name="ChallengeXnor" type="Node2D" parent="Challenges"]
 position = Vector2(8236, 0)
@@ -372,6 +399,11 @@ solution = {
 NodePath("../Fireholder"): true
 }
 doorNumber = 7
+challengeVariableName = "okXnor"
+
+[node name="TorchManager" type="Node" parent="Challenges/ChallengeXnor" node_paths=PackedStringArray("quest")]
+script = ExtResource("9_gypu4")
+quest = NodePath("../../../BooleanQuest")
 
 [node name="ChallengeAndOr" type="Node2D" parent="Challenges"]
 position = Vector2(9733, 0)
@@ -449,6 +481,11 @@ NodePath("../Fireholder3"): true
 }
 doorNumber = 8
 requireExactTorchCount = 3
+challengeVariableName = "okAndOr"
+
+[node name="TorchManager" type="Node" parent="Challenges/ChallengeAndOr" node_paths=PackedStringArray("quest")]
+script = ExtResource("9_gypu4")
+quest = NodePath("../../../BooleanQuest")
 
 [node name="Challenge1" type="Node2D" parent="Challenges"]
 position = Vector2(10943, 131)
@@ -597,6 +634,21 @@ offset_bottom = -839.0
 theme_override_font_sizes/font_size = 51
 text = "XOR"
 autowrap_mode = 2
+
+[node name="SolutionChecker" type="Node" parent="Challenges/Challenge1"]
+script = ExtResource("8_1lq60")
+solution = {
+NodePath("../Fireholder"): true,
+NodePath("../Fireholder2"): false,
+NodePath("../Fireholder3"): false,
+NodePath("../Fireholder4"): true,
+NodePath("../Fireholder5"): true,
+NodePath("../Fireholder6"): true,
+NodePath("../Fireholder7"): true
+}
+doorNumber = 9
+requireExactTorchCount = 5
+challengeVariableName = "okChallenge1"
 
 [node name="NPC" parent="." node_paths=PackedStringArray("quest") instance=ExtResource("8_wxbtf")]
 z_index = 2
@@ -776,12 +828,12 @@ texture = ExtResource("18_ob62n")
 
 [node name="Label" type="Label" parent="Door3"]
 z_index = 20
-offset_left = -8.0
+offset_left = -15.0
 offset_top = 43.0
-offset_right = 3.0
+offset_right = 12.0
 offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
-text = "1"
+text = "1, 2"
 
 [node name="Door4" type="Sprite2D" parent="."]
 z_index = 1
@@ -1107,6 +1159,99 @@ offset_right = 21.0
 offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
 text = "3"
+
+[node name="Door9" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(14285, -602)
+texture = ExtResource("13_0ic1f")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="JailDoor" type="Node2D" parent="Door9" node_paths=PackedStringArray("quest")]
+z_index = -1
+position = Vector2(-651, 482)
+script = ExtResource("15_0ic1f")
+quest = NodePath("../../BooleanQuest")
+doorNumber = 9
+
+[node name="Door" type="StaticBody2D" parent="Door9/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Door9/JailDoor/Door"]
+texture = ExtResource("17_a88w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door9/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_er7ss")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Fog" type="ColorRect" parent="Door9"]
+visible = false
+z_index = 7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = -770.0
+offset_right = 1687.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door9"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="FlameHintOn" type="Sprite2D" parent="Door9"]
+z_index = 20
+position = Vector2(23.5, 29)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOff" type="Sprite2D" parent="Door9"]
+z_index = 20
+position = Vector2(-21, 17)
+texture = ExtResource("21_nj6ya")
+
+[node name="FlameHintOff2" type="Sprite2D" parent="Door9"]
+z_index = 20
+position = Vector2(-25, -30)
+texture = ExtResource("21_nj6ya")
+
+[node name="FlameHintOn4" type="Sprite2D" parent="Door9"]
+z_index = 20
+position = Vector2(-62, -10)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOn5" type="Sprite2D" parent="Door9"]
+z_index = 20
+position = Vector2(18, -59)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOn2" type="Sprite2D" parent="Door9"]
+z_index = 20
+position = Vector2(71.5, 45)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOn3" type="Sprite2D" parent="Door9"]
+z_index = 20
+position = Vector2(51.5, -8)
+texture = ExtResource("18_ob62n")
+
+[node name="Label" type="Label" parent="Door9"]
+z_index = 20
+offset_left = -6.0
+offset_top = 43.0
+offset_right = 21.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
+text = "5"
 
 [node name="DevTools" parent="." instance=ExtResource("17_er7ss")]
 offset_left = 1874.0

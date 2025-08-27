@@ -41,7 +41,7 @@ func load_textures():
 	r_arm.texture = arm
 	r_leg.texture = leg
 
-func move_to(npcName: String, pos: Vector2):
+func move_to(npcName: String, pos: Vector2, speed: float):
 	if get_meta("objectName") != npcName: return
 	moving = true
 	turnsToPlayer = false
@@ -57,7 +57,7 @@ func move_to(npcName: String, pos: Vector2):
 	await moveTween1.finished
 	var moveTween2 = create_tween()
 	moveTween2.set_ease(Tween.EaseType.EASE_IN_OUT)
-	moveTween2.tween_property(self, "position", Vector2(pos.x, position.y), 4.0)
+	moveTween2.tween_property(self, "position", Vector2(pos.x, position.y), speed)
 	await moveTween2.finished
 	var moveTween3 = create_tween()
 	moveTween3.set_ease(Tween.EaseType.EASE_IN_OUT)

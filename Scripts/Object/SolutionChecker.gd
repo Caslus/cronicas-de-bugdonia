@@ -8,6 +8,7 @@ extends Node
 }
 @export var doorNumber: int = 0
 @export var requireExactTorchCount: int = -1
+@export var challengeVariableName: String = ""
 
 func connect_signals() -> void:
 	for node: NodePath in solution.keys():
@@ -38,6 +39,7 @@ func check_torches() -> bool:
 func check_all() -> void:
 	if check_solution() and check_torches():
 		QuestManager.currentQuest.emit_signal("openDoor", doorNumber)
+		QuestManager.setQuestVar(challengeVariableName, true)
 	else:
 		QuestManager.currentQuest.emit_signal("closeDoor", doorNumber)
 

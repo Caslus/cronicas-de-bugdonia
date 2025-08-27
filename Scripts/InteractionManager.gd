@@ -76,6 +76,10 @@ func start_interaction():
 	pass
 
 func end_interaction():
+	if interactable == null:
+		# push_error("Interactable is null.")
+		return
+	
 	if interactable.get_meta("InteractionType") == "Item":
 		itemInteractionPanel.visible = false
 		emit_signal("pickup_item", interactable)
