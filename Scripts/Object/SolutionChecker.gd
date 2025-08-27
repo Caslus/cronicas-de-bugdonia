@@ -7,6 +7,7 @@ extends Node
 	# Fireholder2, true
 }
 @export var doorNumber: int = 0
+@export var requireExactTorchCount: int = -1
 
 func connect_signals() -> void:
 	for node: NodePath in solution.keys():
@@ -27,8 +28,15 @@ func check_solution() -> bool:
 			okCount += 1
 	return okCount == solution.size()
 
+func check_torches() -> bool:
+	if requireExactTorchCount == -1: return true
+	var torches: Array[Node] = get_parent().get_children().filter(func(c):
+		return c is Node and c.name.begins_with("Torch") and c.get("VAR_ACESA") == true
+	)
+	return torches.size() == requireExactTorchCount
+
 func check_all() -> void:
-	if check_solution():
+	if check_solution() and check_torches():
 		QuestManager.currentQuest.emit_signal("openDoor", doorNumber)
 	else:
 		QuestManager.currentQuest.emit_signal("closeDoor", doorNumber)

@@ -231,6 +231,13 @@ theme_override_font_sizes/font_size = 51
 text = "OR"
 autowrap_mode = 2
 
+[node name="SolutionChecker" type="Node" parent="Challenges/ChallengeOr"]
+script = ExtResource("8_1lq60")
+solution = {
+NodePath("../Fireholder"): true
+}
+doorNumber = 3
+
 [node name="ChallengeXor" type="Node2D" parent="Challenges"]
 position = Vector2(3424, 0)
 
@@ -259,6 +266,13 @@ theme_override_font_sizes/font_size = 51
 text = "XOR"
 autowrap_mode = 2
 
+[node name="SolutionChecker" type="Node" parent="Challenges/ChallengeXor"]
+script = ExtResource("8_1lq60")
+solution = {
+NodePath("../Fireholder"): true
+}
+doorNumber = 4
+
 [node name="ChallengeNand" type="Node2D" parent="Challenges"]
 position = Vector2(4987, 0)
 
@@ -285,6 +299,13 @@ theme_override_font_sizes/font_size = 51
 text = "NAND"
 autowrap_mode = 2
 
+[node name="SolutionChecker" type="Node" parent="Challenges/ChallengeNand"]
+script = ExtResource("8_1lq60")
+solution = {
+NodePath("../Fireholder"): true
+}
+doorNumber = 5
+
 [node name="ChallengeNor" type="Node2D" parent="Challenges"]
 position = Vector2(6534, 0)
 
@@ -296,12 +317,10 @@ type = 4
 [node name="Torch1_A" parent="Challenges/ChallengeNor" instance=ExtResource("5_v8im4")]
 position = Vector2(1573, -484)
 input_pickable = true
-VAR_ACESA = false
 
 [node name="Torch1_B" parent="Challenges/ChallengeNor" instance=ExtResource("5_v8im4")]
 position = Vector2(2050, -484)
 input_pickable = true
-VAR_ACESA = false
 
 [node name="Label" type="Label" parent="Challenges/ChallengeNor"]
 z_index = 200
@@ -312,6 +331,13 @@ offset_bottom = -413.0
 theme_override_font_sizes/font_size = 51
 text = "NOR"
 autowrap_mode = 2
+
+[node name="SolutionChecker" type="Node" parent="Challenges/ChallengeNor"]
+script = ExtResource("8_1lq60")
+solution = {
+NodePath("../Fireholder"): true
+}
+doorNumber = 6
 
 [node name="ChallengeXnor" type="Node2D" parent="Challenges"]
 position = Vector2(8236, 0)
@@ -339,6 +365,13 @@ offset_bottom = -413.0
 theme_override_font_sizes/font_size = 51
 text = "XNOR"
 autowrap_mode = 2
+
+[node name="SolutionChecker" type="Node" parent="Challenges/ChallengeXnor"]
+script = ExtResource("8_1lq60")
+solution = {
+NodePath("../Fireholder"): true
+}
+doorNumber = 7
 
 [node name="ChallengeAndOr" type="Node2D" parent="Challenges"]
 position = Vector2(9733, 0)
@@ -407,6 +440,16 @@ theme_override_font_sizes/font_size = 51
 text = "AND"
 autowrap_mode = 2
 
+[node name="SolutionChecker" type="Node" parent="Challenges/ChallengeAndOr"]
+script = ExtResource("8_1lq60")
+solution = {
+NodePath("../Fireholder"): true,
+NodePath("../Fireholder2"): true,
+NodePath("../Fireholder3"): true
+}
+doorNumber = 8
+requireExactTorchCount = 3
+
 [node name="Challenge1" type="Node2D" parent="Challenges"]
 position = Vector2(10943, 131)
 
@@ -423,6 +466,7 @@ VAR_ACESA = false
 [node name="Torch1_B" parent="Challenges/Challenge1" instance=ExtResource("5_v8im4")]
 position = Vector2(1797, -495)
 input_pickable = true
+VAR_ACESA = false
 
 [node name="Label" type="Label" parent="Challenges/Challenge1"]
 z_index = 200
@@ -447,6 +491,7 @@ VAR_ACESA = false
 [node name="Torch1_B2" parent="Challenges/Challenge1" instance=ExtResource("5_v8im4")]
 position = Vector2(2209, -495)
 input_pickable = true
+VAR_ACESA = false
 
 [node name="Label2" type="Label" parent="Challenges/Challenge1"]
 z_index = 200
@@ -486,6 +531,7 @@ VAR_ACESA = false
 [node name="Torch1_B3" parent="Challenges/Challenge1" instance=ExtResource("5_v8im4")]
 position = Vector2(2554, -495)
 input_pickable = true
+VAR_ACESA = false
 
 [node name="Label4" type="Label" parent="Challenges/Challenge1"]
 z_index = 200
@@ -510,6 +556,7 @@ VAR_ACESA = false
 [node name="Torch1_B4" parent="Challenges/Challenge1" instance=ExtResource("5_v8im4")]
 position = Vector2(2966, -495)
 input_pickable = true
+VAR_ACESA = false
 
 [node name="Label5" type="Label" parent="Challenges/Challenge1"]
 z_index = 200
@@ -672,6 +719,394 @@ offset_right = 3.0
 offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
 text = "2"
+
+[node name="Door3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(4436, -602)
+texture = ExtResource("13_0ic1f")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="JailDoor" type="Node2D" parent="Door3" node_paths=PackedStringArray("quest")]
+z_index = -1
+position = Vector2(-651, 482)
+script = ExtResource("15_0ic1f")
+quest = NodePath("../../BooleanQuest")
+doorNumber = 3
+
+[node name="Door" type="StaticBody2D" parent="Door3/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Door3/JailDoor/Door"]
+texture = ExtResource("17_a88w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_er7ss")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Fog" type="ColorRect" parent="Door3"]
+visible = false
+z_index = 7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = -770.0
+offset_right = 1687.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door3"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="FlameHintOn" type="Sprite2D" parent="Door3"]
+z_index = 20
+position = Vector2(1, 20)
+texture = ExtResource("18_ob62n")
+
+[node name="Label" type="Label" parent="Door3"]
+z_index = 20
+offset_left = -8.0
+offset_top = 43.0
+offset_right = 3.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
+text = "1"
+
+[node name="Door4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(6045, -602)
+texture = ExtResource("13_0ic1f")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="JailDoor" type="Node2D" parent="Door4" node_paths=PackedStringArray("quest")]
+z_index = -1
+position = Vector2(-651, 482)
+script = ExtResource("15_0ic1f")
+quest = NodePath("../../BooleanQuest")
+doorNumber = 4
+
+[node name="Door" type="StaticBody2D" parent="Door4/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Door4/JailDoor/Door"]
+texture = ExtResource("17_a88w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_er7ss")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Fog" type="ColorRect" parent="Door4"]
+visible = false
+z_index = 7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = -770.0
+offset_right = 1687.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door4"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="FlameHintOn" type="Sprite2D" parent="Door4"]
+z_index = 20
+position = Vector2(1, 20)
+texture = ExtResource("18_ob62n")
+
+[node name="Label" type="Label" parent="Door4"]
+z_index = 20
+offset_left = -8.0
+offset_top = 43.0
+offset_right = 3.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
+text = "1"
+
+[node name="Door5" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(7634, -602)
+texture = ExtResource("13_0ic1f")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="JailDoor" type="Node2D" parent="Door5" node_paths=PackedStringArray("quest")]
+z_index = -1
+position = Vector2(-651, 482)
+script = ExtResource("15_0ic1f")
+quest = NodePath("../../BooleanQuest")
+doorNumber = 5
+
+[node name="Door" type="StaticBody2D" parent="Door5/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Door5/JailDoor/Door"]
+texture = ExtResource("17_a88w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door5/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_er7ss")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Fog" type="ColorRect" parent="Door5"]
+visible = false
+z_index = 7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = -770.0
+offset_right = 1687.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door5"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="FlameHintOn" type="Sprite2D" parent="Door5"]
+z_index = 20
+position = Vector2(1, 20)
+texture = ExtResource("18_ob62n")
+
+[node name="Label" type="Label" parent="Door5"]
+z_index = 20
+offset_left = -14.0
+offset_top = 41.0
+offset_right = 13.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
+text = "0, 1"
+
+[node name="Door6" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(9154, -602)
+texture = ExtResource("13_0ic1f")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="JailDoor" type="Node2D" parent="Door6" node_paths=PackedStringArray("quest")]
+z_index = -1
+position = Vector2(-651, 482)
+script = ExtResource("15_0ic1f")
+quest = NodePath("../../BooleanQuest")
+doorNumber = 6
+
+[node name="Door" type="StaticBody2D" parent="Door6/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Door6/JailDoor/Door"]
+texture = ExtResource("17_a88w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door6/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_er7ss")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Fog" type="ColorRect" parent="Door6"]
+visible = false
+z_index = 7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = -770.0
+offset_right = 1687.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door6"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="FlameHintOn" type="Sprite2D" parent="Door6"]
+z_index = 20
+position = Vector2(1, 20)
+texture = ExtResource("18_ob62n")
+
+[node name="Label" type="Label" parent="Door6"]
+z_index = 20
+offset_left = -7.0
+offset_top = 42.0
+offset_right = 20.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
+text = "0"
+
+[node name="Door7" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(10820, -602)
+texture = ExtResource("13_0ic1f")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="JailDoor" type="Node2D" parent="Door7" node_paths=PackedStringArray("quest")]
+z_index = -1
+position = Vector2(-651, 482)
+script = ExtResource("15_0ic1f")
+quest = NodePath("../../BooleanQuest")
+doorNumber = 7
+
+[node name="Door" type="StaticBody2D" parent="Door7/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Door7/JailDoor/Door"]
+texture = ExtResource("17_a88w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door7/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_er7ss")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Fog" type="ColorRect" parent="Door7"]
+visible = false
+z_index = 7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = -770.0
+offset_right = 1687.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door7"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="FlameHintOn" type="Sprite2D" parent="Door7"]
+z_index = 20
+position = Vector2(1, 20)
+texture = ExtResource("18_ob62n")
+
+[node name="Label" type="Label" parent="Door7"]
+z_index = 20
+offset_left = -14.0
+offset_top = 41.0
+offset_right = 13.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
+text = "0, 2"
+
+[node name="Door8" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(12300, -602)
+texture = ExtResource("13_0ic1f")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="JailDoor" type="Node2D" parent="Door8" node_paths=PackedStringArray("quest")]
+z_index = -1
+position = Vector2(-651, 482)
+script = ExtResource("15_0ic1f")
+quest = NodePath("../../BooleanQuest")
+doorNumber = 8
+
+[node name="Door" type="StaticBody2D" parent="Door8/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Door8/JailDoor/Door"]
+texture = ExtResource("17_a88w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door8/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_er7ss")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Fog" type="ColorRect" parent="Door8"]
+visible = false
+z_index = 7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = -770.0
+offset_right = 1687.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door8"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="FlameHintOn" type="Sprite2D" parent="Door8"]
+z_index = 20
+position = Vector2(-19, 12)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOn2" type="Sprite2D" parent="Door8"]
+z_index = 20
+position = Vector2(29, 28)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOn3" type="Sprite2D" parent="Door8"]
+z_index = 20
+position = Vector2(9, -25)
+texture = ExtResource("18_ob62n")
+
+[node name="Label" type="Label" parent="Door8"]
+z_index = 20
+offset_left = -6.0
+offset_top = 43.0
+offset_right = 21.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
+text = "3"
 
 [node name="DevTools" parent="." instance=ExtResource("17_er7ss")]
 offset_left = 1874.0
