@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://brux173rmi3od"]
+[gd_scene load_steps=31 format=3 uid="uid://brux173rmi3od"]
 
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_2o7ur"]
 [ext_resource type="Script" uid="uid://d2h63bq33tdcp" path="res://Scripts/Quest/BooleanQuest.gd" id="1_c7sn1"]
@@ -11,12 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="8_wxbtf"]
 [ext_resource type="Texture2D" uid="uid://cxyewq77ukudv" path="res://Assets/Entity/Monk/head.png" id="9_a88w8"]
 [ext_resource type="Script" uid="uid://vk60uuiqh1hi" path="res://Scripts/Object/TorchManager.gd" id="9_gypu4"]
+[ext_resource type="Texture2D" uid="uid://brvaylcih3j2t" path="res://Assets/UI/Booleans/and.png" id="10_18vdf"]
 [ext_resource type="Texture2D" uid="uid://bcotmnrqotjw6" path="res://Assets/Entity/Monk/torso.png" id="10_er7ss"]
+[ext_resource type="Texture2D" uid="uid://cmiai7kfr5qmd" path="res://Assets/UI/Booleans/or.png" id="11_cwqbe"]
 [ext_resource type="Texture2D" uid="uid://tu3bvoxcfo6c" path="res://Assets/Entity/Monk/arm.png" id="11_ob62n"]
 [ext_resource type="Texture2D" uid="uid://cdnwo6mstbddb" path="res://Assets/Entity/Monk/leg.png" id="12_1lq60"]
+[ext_resource type="Texture2D" uid="uid://bqo2j4rqn52gx" path="res://Assets/UI/Booleans/xor.png" id="12_5seof"]
 [ext_resource type="Texture2D" uid="uid://cipkrf20dhy2w" path="res://Assets/Objects/JailCellWall.png" id="13_0ic1f"]
+[ext_resource type="Texture2D" uid="uid://ysd042lkfdw8" path="res://Assets/UI/Booleans/nand.png" id="13_x3gqw"]
+[ext_resource type="Texture2D" uid="uid://1xocusxrjobb" path="res://Assets/UI/Booleans/nor.png" id="14_5rho5"]
 [ext_resource type="Script" uid="uid://81sw4i4e0e27" path="res://Scripts/Object/HollowObject.gd" id="14_a88w8"]
 [ext_resource type="Script" uid="uid://bnh4mv0nt8tlm" path="res://Scripts/Object/TempleDoor.gd" id="15_0ic1f"]
+[ext_resource type="Texture2D" uid="uid://coh6alfc8oprl" path="res://Assets/UI/Booleans/xnor.png" id="15_qyer7"]
 [ext_resource type="Texture2D" uid="uid://cu8oxkgp5cydw" path="res://Assets/Objects/JailCellDoor.png" id="17_a88w8"]
 [ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="17_er7ss"]
 [ext_resource type="Texture2D" uid="uid://bm6haoisagh1j" path="res://Assets/Objects/JailCellWallFront.png" id="17_ob62n"]
@@ -189,16 +195,6 @@ position = Vector2(2050, -484)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label" type="Label" parent="Challenges/ChallengeAnd"]
-z_index = 200
-offset_left = 1780.0
-offset_top = -476.0
-offset_right = 1822.0
-offset_bottom = -406.0
-theme_override_font_sizes/font_size = 51
-text = "AND"
-autowrap_mode = 2
-
 [node name="SolutionChecker" type="Node" parent="Challenges/ChallengeAnd"]
 script = ExtResource("8_1lq60")
 solution = {
@@ -210,6 +206,10 @@ challengeVariableName = "okAnd"
 [node name="TorchManager" type="Node" parent="Challenges/ChallengeAnd" node_paths=PackedStringArray("quest")]
 script = ExtResource("9_gypu4")
 quest = NodePath("../../../BooleanQuest")
+
+[node name="And" type="Sprite2D" parent="Challenges/ChallengeAnd"]
+position = Vector2(1835, -438)
+texture = ExtResource("10_18vdf")
 
 [node name="ChallengeOr" type="Node2D" parent="Challenges"]
 position = Vector2(1800, 0)
@@ -228,16 +228,6 @@ position = Vector2(2050, -484)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label" type="Label" parent="Challenges/ChallengeOr"]
-z_index = 200
-offset_left = 1774.0
-offset_top = -478.0
-offset_right = 1816.0
-offset_bottom = -408.0
-theme_override_font_sizes/font_size = 51
-text = "OR"
-autowrap_mode = 2
-
 [node name="SolutionChecker" type="Node" parent="Challenges/ChallengeOr"]
 script = ExtResource("8_1lq60")
 solution = {
@@ -249,6 +239,10 @@ challengeVariableName = "okOr"
 [node name="TorchManager" type="Node" parent="Challenges/ChallengeOr" node_paths=PackedStringArray("quest")]
 script = ExtResource("9_gypu4")
 quest = NodePath("../../../BooleanQuest")
+
+[node name="Or" type="Sprite2D" parent="Challenges/ChallengeOr"]
+position = Vector2(1813, -438)
+texture = ExtResource("11_cwqbe")
 
 [node name="ChallengeXor" type="Node2D" parent="Challenges"]
 position = Vector2(3424, 0)
@@ -268,16 +262,6 @@ position = Vector2(2050, -484)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label" type="Label" parent="Challenges/ChallengeXor"]
-z_index = 200
-offset_left = 1772.0
-offset_top = -475.0
-offset_right = 1814.0
-offset_bottom = -405.0
-theme_override_font_sizes/font_size = 51
-text = "XOR"
-autowrap_mode = 2
-
 [node name="SolutionChecker" type="Node" parent="Challenges/ChallengeXor"]
 script = ExtResource("8_1lq60")
 solution = {
@@ -289,6 +273,10 @@ challengeVariableName = "okXor"
 [node name="TorchManager" type="Node" parent="Challenges/ChallengeXor" node_paths=PackedStringArray("quest")]
 script = ExtResource("9_gypu4")
 quest = NodePath("../../../BooleanQuest")
+
+[node name="Xor" type="Sprite2D" parent="Challenges/ChallengeXor"]
+position = Vector2(1822, -438)
+texture = ExtResource("12_5seof")
 
 [node name="ChallengeNand" type="Node2D" parent="Challenges"]
 position = Vector2(4987, 0)
@@ -306,16 +294,6 @@ input_pickable = true
 position = Vector2(2050, -484)
 input_pickable = true
 
-[node name="Label" type="Label" parent="Challenges/ChallengeNand"]
-z_index = 200
-offset_left = 1759.0
-offset_top = -483.0
-offset_right = 1801.0
-offset_bottom = -413.0
-theme_override_font_sizes/font_size = 51
-text = "NAND"
-autowrap_mode = 2
-
 [node name="SolutionChecker" type="Node" parent="Challenges/ChallengeNand"]
 script = ExtResource("8_1lq60")
 solution = {
@@ -327,6 +305,10 @@ challengeVariableName = "okNand"
 [node name="TorchManager" type="Node" parent="Challenges/ChallengeNand" node_paths=PackedStringArray("quest")]
 script = ExtResource("9_gypu4")
 quest = NodePath("../../../BooleanQuest")
+
+[node name="Nand" type="Sprite2D" parent="Challenges/ChallengeNand"]
+position = Vector2(1822, -448)
+texture = ExtResource("13_x3gqw")
 
 [node name="ChallengeNor" type="Node2D" parent="Challenges"]
 position = Vector2(6534, 0)
@@ -344,16 +326,6 @@ input_pickable = true
 position = Vector2(2050, -484)
 input_pickable = true
 
-[node name="Label" type="Label" parent="Challenges/ChallengeNor"]
-z_index = 200
-offset_left = 1759.0
-offset_top = -483.0
-offset_right = 1801.0
-offset_bottom = -413.0
-theme_override_font_sizes/font_size = 51
-text = "NOR"
-autowrap_mode = 2
-
 [node name="SolutionChecker" type="Node" parent="Challenges/ChallengeNor"]
 script = ExtResource("8_1lq60")
 solution = {
@@ -365,6 +337,10 @@ challengeVariableName = "okNor"
 [node name="TorchManager" type="Node" parent="Challenges/ChallengeNor" node_paths=PackedStringArray("quest")]
 script = ExtResource("9_gypu4")
 quest = NodePath("../../../BooleanQuest")
+
+[node name="Nor" type="Sprite2D" parent="Challenges/ChallengeNor"]
+position = Vector2(1831, -442)
+texture = ExtResource("14_5rho5")
 
 [node name="ChallengeXnor" type="Node2D" parent="Challenges"]
 position = Vector2(8236, 0)
@@ -383,16 +359,6 @@ position = Vector2(2050, -484)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label" type="Label" parent="Challenges/ChallengeXnor"]
-z_index = 200
-offset_left = 1759.0
-offset_top = -483.0
-offset_right = 1801.0
-offset_bottom = -413.0
-theme_override_font_sizes/font_size = 51
-text = "XNOR"
-autowrap_mode = 2
-
 [node name="SolutionChecker" type="Node" parent="Challenges/ChallengeXnor"]
 script = ExtResource("8_1lq60")
 solution = {
@@ -404,6 +370,10 @@ challengeVariableName = "okXnor"
 [node name="TorchManager" type="Node" parent="Challenges/ChallengeXnor" node_paths=PackedStringArray("quest")]
 script = ExtResource("9_gypu4")
 quest = NodePath("../../../BooleanQuest")
+
+[node name="Xnor" type="Sprite2D" parent="Challenges/ChallengeXnor"]
+position = Vector2(1833, -445)
+texture = ExtResource("15_qyer7")
 
 [node name="ChallengeAndOr" type="Node2D" parent="Challenges"]
 position = Vector2(9733, 0)
@@ -423,16 +393,6 @@ position = Vector2(1797, -495)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label" type="Label" parent="Challenges/ChallengeAndOr"]
-z_index = 200
-offset_left = 1638.0
-offset_top = -486.0
-offset_right = 1680.0
-offset_bottom = -416.0
-theme_override_font_sizes/font_size = 51
-text = "AND"
-autowrap_mode = 2
-
 [node name="Fireholder2" parent="Challenges/ChallengeAndOr" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
 position = Vector2(2108, -647)
 torches = [NodePath("../Torch1_A2"), NodePath("../Torch1_B2")]
@@ -447,30 +407,10 @@ position = Vector2(2209, -495)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label2" type="Label" parent="Challenges/ChallengeAndOr"]
-z_index = 200
-offset_left = 2058.0
-offset_top = -481.0
-offset_right = 2100.0
-offset_bottom = -411.0
-theme_override_font_sizes/font_size = 51
-text = "OR"
-autowrap_mode = 2
-
 [node name="Fireholder3" parent="Challenges/ChallengeAndOr" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
 position = Vector2(1909, -830)
 torches = [NodePath("../Fireholder"), NodePath("../Fireholder2")]
 type = 0
-
-[node name="Label3" type="Label" parent="Challenges/ChallengeAndOr"]
-z_index = 200
-offset_left = 1859.0
-offset_top = -696.0
-offset_right = 1901.0
-offset_bottom = -626.0
-theme_override_font_sizes/font_size = 51
-text = "AND"
-autowrap_mode = 2
 
 [node name="SolutionChecker" type="Node" parent="Challenges/ChallengeAndOr"]
 script = ExtResource("8_1lq60")
@@ -486,6 +426,18 @@ challengeVariableName = "okAndOr"
 [node name="TorchManager" type="Node" parent="Challenges/ChallengeAndOr" node_paths=PackedStringArray("quest")]
 script = ExtResource("9_gypu4")
 quest = NodePath("../../../BooleanQuest")
+
+[node name="And" type="Sprite2D" parent="Challenges/ChallengeAndOr"]
+position = Vector2(1695, -446)
+texture = ExtResource("10_18vdf")
+
+[node name="Or" type="Sprite2D" parent="Challenges/ChallengeAndOr"]
+position = Vector2(2092, -441)
+texture = ExtResource("11_cwqbe")
+
+[node name="And2" type="Sprite2D" parent="Challenges/ChallengeAndOr"]
+position = Vector2(1910, -658)
+texture = ExtResource("10_18vdf")
 
 [node name="Challenge1" type="Node2D" parent="Challenges"]
 position = Vector2(10943, 131)
@@ -505,16 +457,6 @@ position = Vector2(1797, -495)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label" type="Label" parent="Challenges/Challenge1"]
-z_index = 200
-offset_left = 1636.0
-offset_top = -497.0
-offset_right = 1678.0
-offset_bottom = -427.0
-theme_override_font_sizes/font_size = 51
-text = "AND"
-autowrap_mode = 2
-
 [node name="Fireholder2" parent="Challenges/Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
 position = Vector2(2108, -647)
 torches = [NodePath("../Torch1_A2"), NodePath("../Torch1_B2")]
@@ -530,30 +472,10 @@ position = Vector2(2209, -495)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label2" type="Label" parent="Challenges/Challenge1"]
-z_index = 200
-offset_left = 2031.0
-offset_top = -494.0
-offset_right = 2073.0
-offset_bottom = -424.0
-theme_override_font_sizes/font_size = 51
-text = "XNOR"
-autowrap_mode = 2
-
 [node name="Fireholder3" parent="Challenges/Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
 position = Vector2(1909, -830)
 torches = [NodePath("../Fireholder"), NodePath("../Fireholder2")]
 type = 5
-
-[node name="Label3" type="Label" parent="Challenges/Challenge1"]
-z_index = 200
-offset_left = 1832.0
-offset_top = -700.0
-offset_right = 1874.0
-offset_bottom = -630.0
-theme_override_font_sizes/font_size = 51
-text = "XNOR"
-autowrap_mode = 2
 
 [node name="Fireholder4" parent="Challenges/Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
 position = Vector2(2453, -647)
@@ -570,16 +492,6 @@ position = Vector2(2554, -495)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label4" type="Label" parent="Challenges/Challenge1"]
-z_index = 200
-offset_left = 2393.0
-offset_top = -497.0
-offset_right = 2435.0
-offset_bottom = -427.0
-theme_override_font_sizes/font_size = 51
-text = "AND"
-autowrap_mode = 2
-
 [node name="Fireholder5" parent="Challenges/Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
 position = Vector2(2865, -647)
 torches = [NodePath("../Torch1_A4"), NodePath("../Torch1_B4")]
@@ -595,45 +507,15 @@ position = Vector2(2966, -495)
 input_pickable = true
 VAR_ACESA = false
 
-[node name="Label5" type="Label" parent="Challenges/Challenge1"]
-z_index = 200
-offset_left = 2787.0
-offset_top = -488.0
-offset_right = 2829.0
-offset_bottom = -418.0
-theme_override_font_sizes/font_size = 51
-text = "NAND"
-autowrap_mode = 2
-
 [node name="Fireholder6" parent="Challenges/Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
 position = Vector2(2666, -830)
 torches = [NodePath("../Fireholder4"), NodePath("../Fireholder5")]
 type = 0
 
-[node name="Label6" type="Label" parent="Challenges/Challenge1"]
-z_index = 200
-offset_left = 2611.0
-offset_top = -702.0
-offset_right = 2653.0
-offset_bottom = -632.0
-theme_override_font_sizes/font_size = 51
-text = "AND"
-autowrap_mode = 2
-
 [node name="Fireholder7" parent="Challenges/Challenge1" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
 position = Vector2(2283, -1019)
 torches = [NodePath("../Fireholder3"), NodePath("../Fireholder6")]
 type = 2
-
-[node name="Label7" type="Label" parent="Challenges/Challenge1"]
-z_index = 200
-offset_left = 2232.0
-offset_top = -909.0
-offset_right = 2274.0
-offset_bottom = -839.0
-theme_override_font_sizes/font_size = 51
-text = "XOR"
-autowrap_mode = 2
 
 [node name="SolutionChecker" type="Node" parent="Challenges/Challenge1"]
 script = ExtResource("8_1lq60")
@@ -649,6 +531,34 @@ NodePath("../Fireholder7"): true
 doorNumber = 9
 requireExactTorchCount = 5
 challengeVariableName = "okChallenge1"
+
+[node name="And" type="Sprite2D" parent="Challenges/Challenge1"]
+position = Vector2(1688, -459)
+texture = ExtResource("10_18vdf")
+
+[node name="Xnor" type="Sprite2D" parent="Challenges/Challenge1"]
+position = Vector2(2103, -459)
+texture = ExtResource("15_qyer7")
+
+[node name="And2" type="Sprite2D" parent="Challenges/Challenge1"]
+position = Vector2(2447, -460)
+texture = ExtResource("10_18vdf")
+
+[node name="Nand" type="Sprite2D" parent="Challenges/Challenge1"]
+position = Vector2(2861, -452)
+texture = ExtResource("13_x3gqw")
+
+[node name="And3" type="Sprite2D" parent="Challenges/Challenge1"]
+position = Vector2(2663, -665)
+texture = ExtResource("10_18vdf")
+
+[node name="Xnor2" type="Sprite2D" parent="Challenges/Challenge1"]
+position = Vector2(1904, -667)
+texture = ExtResource("15_qyer7")
+
+[node name="Xor" type="Sprite2D" parent="Challenges/Challenge1"]
+position = Vector2(2281, -873)
+texture = ExtResource("12_5seof")
 
 [node name="NPC" parent="." node_paths=PackedStringArray("quest") instance=ExtResource("8_wxbtf")]
 z_index = 2

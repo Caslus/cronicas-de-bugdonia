@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://cjix7pwd21t2a"]
+[gd_scene load_steps=138 format=3 uid="uid://cjix7pwd21t2a"]
 
 [ext_resource type="Script" uid="uid://ben1rh6orqham" path="res://Scripts/Quest/FallenBridgeQuest.gd" id="4_8r1tc"]
 [ext_resource type="Texture2D" uid="uid://bmrjglbbcotuw" path="res://Assets/Objects/JailCellInstructions.png" id="4_k78fl"]
@@ -92,7 +92,8 @@
 [ext_resource type="Texture2D" uid="uid://bfdunrrh3vbom" path="res://Assets/Objects/CratePineapple.png" id="77_13qjx"]
 [ext_resource type="Texture2D" uid="uid://kwu88cybs5ye" path="res://Assets/Objects/FallenCarriage.png" id="77_enhjr"]
 [ext_resource type="Texture2D" uid="uid://d0fhbnj6qjffn" path="res://Assets/Objects/CrateWatermelon.png" id="78_kgtk1"]
-[ext_resource type="Texture2D" uid="uid://brac0nym6yjvh" path="res://Assets/Objects/NoEntry.png" id="91_7augy"]
+[ext_resource type="Script" uid="uid://cvwcji0rt6ubb" path="res://Scripts/Object/AreaChangeScene.gd" id="92_7augy"]
+[ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="94_we512"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52hs2"]
 size = Vector2(199, 363)
@@ -848,15 +849,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c1s1p"]
 gradient = SubResource("Gradient_gbewc")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Gradient" id="Gradient_we512"]
-offsets = PackedFloat32Array(0.209459, 0.625)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_13qjx"]
-gradient = SubResource("Gradient_we512")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -2111,20 +2103,9 @@ position = Vector2(24693.5, -650.341)
 scale = Vector2(1.18, 1.18)
 texture = ExtResource("38_c1s1p")
 
-[node name="Tree19" type="Sprite2D" parent="Outside/Objects/Forest"]
-z_index = 1
-position = Vector2(24901.3, -482.001)
-scale = Vector2(0.845, 0.845)
-texture = ExtResource("38_c1s1p")
-
 [node name="Tree20" type="Sprite2D" parent="Outside/Objects/Forest"]
 z_index = -2
 position = Vector2(24328.3, -622.001)
-texture = ExtResource("38_c1s1p")
-
-[node name="Tree21" type="Sprite2D" parent="Outside/Objects/Forest"]
-z_index = -1
-position = Vector2(25092.5, -543.341)
 texture = ExtResource("38_c1s1p")
 
 [node name="Tree9" type="Sprite2D" parent="Outside/Objects/Forest"]
@@ -2255,29 +2236,40 @@ range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_0t146")
 offset = Vector2(0, -19.485)
 
-[node name="NoEntry" type="Sprite2D" parent="Outside/Objects/Forest"]
-z_index = 30
-position = Vector2(24889, -14)
-rotation = 3.14159
-scale = Vector2(1.5, -1.5)
-texture = ExtResource("91_7augy")
+[node name="NextLevel" type="Area2D" parent="Outside"]
+position = Vector2(17238, 0)
+script = ExtResource("92_7augy")
+next_scene = "res://Scenes/Chapter1_2.tscn"
 
-[node name="PointLight2D" type="PointLight2D" parent="Outside/Objects/Forest/NoEntry"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(0, 120.667)
-scale = Vector2(0.824374, 0.228094)
-energy = 0.5
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_13qjx")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Outside/NextLevel"]
+position = Vector2(6928, -586)
+shape = SubResource("RectangleShape2D_c1ngr")
 
-[node name="EndBarrier" type="StaticBody2D" parent="Outside"]
-position = Vector2(18371, 0)
+[node name="StaticBody2D" type="StaticBody2D" parent="Outside/NextLevel"]
 
-[node name="Collision" type="CollisionShape2D" parent="Outside/EndBarrier"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Outside/NextLevel/StaticBody2D"]
 position = Vector2(6980, -586)
 shape = SubResource("RectangleShape2D_kt8cb")
+
+[node name="PrisonOuterDoor2" type="Sprite2D" parent="Outside/NextLevel"]
+z_index = 1
+position = Vector2(6842, -528)
+scale = Vector2(-1, 1)
+texture = ExtResource("40_wpwjm")
+
+[node name="PrisonInnerDoor4" type="Sprite2D" parent="Outside/NextLevel/PrisonOuterDoor2"]
+z_index = -1
+position = Vector2(13, -77)
+rotation = -0.105367
+scale = Vector2(-1, 1)
+texture = ExtResource("36_52hs2")
+
+[node name="PrisonInnerDoor5" type="Sprite2D" parent="Outside/NextLevel/PrisonOuterDoor2"]
+z_index = -1
+position = Vector2(156, -82)
+rotation = 0.0946126
+scale = Vector2(-1, 1)
+texture = ExtResource("36_52hs2")
 
 [node name="Player" parent="." instance=ExtResource("13_52hs2")]
 z_index = 10
@@ -2288,12 +2280,10 @@ CAMERA_LIMIT_LEFT = -812
 metadata/objectName = "Jogador"
 metadata/Interactable = true
 
-[node name="Label" type="Label" parent="."]
-z_index = 200
-offset_left = 23924.0
-offset_top = -213.0
-offset_right = 24744.0
-offset_bottom = -59.0
-theme_override_font_sizes/font_size = 51
-text = "Esse é o fim do nosso protótipo, obrigado por ter jogado até aqui!"
-autowrap_mode = 2
+[node name="DevTools" parent="." instance=ExtResource("94_we512")]
+offset_left = 1874.0
+offset_top = 197.0
+offset_right = 1874.0
+offset_bottom = 197.0
+
+[connection signal="body_entered" from="Outside/NextLevel" to="Outside/NextLevel" method="_on_body_entered"]
