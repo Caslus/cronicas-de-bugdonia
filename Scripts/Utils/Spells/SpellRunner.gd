@@ -44,6 +44,9 @@ func _run() -> void:
 func run_block_range(range_start: int, end: int) -> void:
 	var j = range_start
 	while j < end:
+		if blocks.size() <= j:
+			print("Spell modified during runtime, stopping execution.")
+			return
 		var b = blocks[j]
 
 		if b is ForStartBlock:
