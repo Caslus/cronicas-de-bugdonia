@@ -60,3 +60,8 @@ z_index = -2
 amount = 50
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_ntw04")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(2.36, 2.16)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="despawn"]

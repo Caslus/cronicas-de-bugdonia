@@ -14,9 +14,12 @@ func spawn_explosion() -> void:
 		await get_tree().create_timer(particles.lifetime).timeout
 		particles.queue_free()
 
+func despawn() -> void:
+		queue_free()
+
 func _process(delta):
 		position += velocity * delta
 		time_alive += delta
 		if time_alive > lifetime:
 			spawn_explosion()
-			queue_free()
+			despawn()
