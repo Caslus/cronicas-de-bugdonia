@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://mrcfpwyv8tj1"]
+
+[ext_resource type="PackedScene" uid="uid://btt1d8i51v35v" path="res://Scenes/Utils/SpellBlockConfigOption.tscn" id="1_22ye2"]
+[ext_resource type="Script" uid="uid://l6ynvmt4o3mo" path="res://Scripts/Utils/SpellBlockConfig.gd" id="1_i3w26"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xapra"]
+bg_color = Color(0.194349, 0.194349, 0.194349, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="SpellBlockConfig" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_i3w26")
+spellBlockConfigOption = ExtResource("1_22ye2")
+
+[node name="Editor" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -50.5
+offset_right = 111.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_xapra")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Editor"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Editor/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Editor/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Runa de Exemplo"
+
+[node name="Buttons" type="VBoxContainer" parent="Editor/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="CloseEditorButton" type="Button" parent="Editor/VBoxContainer/HBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[node name="ConfigOptions" type="VBoxContainer" parent="Editor/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpellBlockConfigOption" parent="Editor/VBoxContainer/ConfigOptions" instance=ExtResource("1_22ye2")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Editor/VBoxContainer"]
+layout_mode = 2
+text = "Salvar"
+
+[connection signal="pressed" from="Editor/VBoxContainer/Button" to="." method="on_save_pressed"]

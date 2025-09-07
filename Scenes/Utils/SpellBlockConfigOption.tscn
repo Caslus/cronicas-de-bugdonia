@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://btt1d8i51v35v"]
+
+[node name="SpellBlockConfigOption" type="HBoxContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Opção 1:"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+placeholder_text = "Número"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://x2jsqwd73ysg"]
+
+[ext_resource type="Script" uid="uid://wth7al1i08la" path="res://Scripts/Object/Fireball.gd" id="1_si8x6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rgbj1"]
+
+[node name="Fireball" type="Node2D"]
+script = ExtResource("1_si8x6")
+speed = 800.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = SubResource("NoiseTexture2D_rgbj1")

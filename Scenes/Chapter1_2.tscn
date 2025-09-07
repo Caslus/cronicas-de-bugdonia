@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://brux173rmi3od"]
+[gd_scene load_steps=33 format=3 uid="uid://brux173rmi3od"]
 
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_2o7ur"]
 [ext_resource type="Script" uid="uid://d2h63bq33tdcp" path="res://Scripts/Quest/BooleanQuest.gd" id="1_c7sn1"]
@@ -24,16 +24,22 @@
 [ext_resource type="Script" uid="uid://bnh4mv0nt8tlm" path="res://Scripts/Object/TempleDoor.gd" id="15_0ic1f"]
 [ext_resource type="Texture2D" uid="uid://coh6alfc8oprl" path="res://Assets/UI/Booleans/xnor.png" id="15_qyer7"]
 [ext_resource type="Texture2D" uid="uid://cu8oxkgp5cydw" path="res://Assets/Objects/JailCellDoor.png" id="17_a88w8"]
-[ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="17_er7ss"]
 [ext_resource type="Texture2D" uid="uid://bm6haoisagh1j" path="res://Assets/Objects/JailCellWallFront.png" id="17_ob62n"]
 [ext_resource type="Texture2D" uid="uid://bio5vkwacq0c1" path="res://Assets/Objects/FlameHintOn.png" id="18_ob62n"]
 [ext_resource type="Texture2D" uid="uid://ils77pfm10c" path="res://Assets/Objects/FlameHintOff.png" id="21_nj6ya"]
+[ext_resource type="Script" uid="uid://cvwcji0rt6ubb" path="res://Scripts/Object/AreaChangeScene.gd" id="28_5seof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o7ur"]
-size = Vector2(18961, 165)
+size = Vector2(23761, 165)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_er7ss"]
 size = Vector2(106, 502)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwqbe"]
+size = Vector2(963, 1451)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rho5"]
+size = Vector2(749, 1399)
 
 [node name="Chapter12" type="Node2D"]
 
@@ -56,7 +62,7 @@ metadata/Interactable = true
 [node name="StaticBody2D" type="StaticBody2D" parent="Map"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
-position = Vector2(8111.5, -6)
+position = Vector2(10511.5, -6)
 shape = SubResource("RectangleShape2D_2o7ur")
 
 [node name="PrisonInnerDoor" type="Sprite2D" parent="Map"]
@@ -173,6 +179,26 @@ texture = ExtResource("3_gwm1x")
 
 [node name="JailColumn13" type="Sprite2D" parent="Map"]
 position = Vector2(17235, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell16" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(18043, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn14" type="Sprite2D" parent="Map"]
+position = Vector2(18835, -775)
+texture = ExtResource("4_wjlat")
+
+[node name="JailCell17" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(19638, -634)
+texture = ExtResource("3_gwm1x")
+
+[node name="JailColumn15" type="Sprite2D" parent="Map"]
+position = Vector2(20430, -775)
 texture = ExtResource("4_wjlat")
 
 [node name="Challenges" type="Node2D" parent="."]
@@ -559,6 +585,125 @@ texture = ExtResource("15_qyer7")
 [node name="Xor" type="Sprite2D" parent="Challenges/Challenge1"]
 position = Vector2(2281, -873)
 texture = ExtResource("12_5seof")
+
+[node name="Challenge2" type="Node2D" parent="Challenges"]
+position = Vector2(14144, 131)
+
+[node name="Fireholder" parent="Challenges/Challenge2" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1696, -647)
+torches = [NodePath("../Torch1_A"), NodePath("../Torch1_B")]
+
+[node name="Torch1_A" parent="Challenges/Challenge2" instance=ExtResource("5_v8im4")]
+position = Vector2(1573, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B" parent="Challenges/Challenge2" instance=ExtResource("5_v8im4")]
+position = Vector2(1797, -495)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Fireholder2" parent="Challenges/Challenge2" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2108, -647)
+torches = [NodePath("../Torch1_A2"), NodePath("../Torch1_B2")]
+type = 2
+
+[node name="Torch1_A2" parent="Challenges/Challenge2" instance=ExtResource("5_v8im4")]
+position = Vector2(1985, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B2" parent="Challenges/Challenge2" instance=ExtResource("5_v8im4")]
+position = Vector2(2209, -495)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Fireholder3" parent="Challenges/Challenge2" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(1909, -830)
+torches = [NodePath("../Fireholder"), NodePath("../Fireholder2")]
+type = 0
+
+[node name="Fireholder4" parent="Challenges/Challenge2" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2453, -647)
+torches = [NodePath("../Torch1_A3"), NodePath("../Torch1_B3")]
+type = 3
+
+[node name="Torch1_A3" parent="Challenges/Challenge2" instance=ExtResource("5_v8im4")]
+position = Vector2(2330, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B3" parent="Challenges/Challenge2" instance=ExtResource("5_v8im4")]
+position = Vector2(2554, -495)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Fireholder5" parent="Challenges/Challenge2" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2865, -647)
+torches = [NodePath("../Torch1_A4"), NodePath("../Torch1_B4")]
+type = 0
+
+[node name="Torch1_A4" parent="Challenges/Challenge2" instance=ExtResource("5_v8im4")]
+position = Vector2(2742, -484)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Torch1_B4" parent="Challenges/Challenge2" instance=ExtResource("5_v8im4")]
+position = Vector2(2966, -495)
+input_pickable = true
+VAR_ACESA = false
+
+[node name="Fireholder6" parent="Challenges/Challenge2" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2666, -830)
+torches = [NodePath("../Fireholder4"), NodePath("../Fireholder5")]
+
+[node name="Fireholder7" parent="Challenges/Challenge2" node_paths=PackedStringArray("torches") instance=ExtResource("6_gwm1x")]
+position = Vector2(2283, -1019)
+torches = [NodePath("../Fireholder3"), NodePath("../Fireholder6")]
+type = 0
+
+[node name="SolutionChecker" type="Node" parent="Challenges/Challenge2"]
+script = ExtResource("8_1lq60")
+solution = {
+NodePath("../Fireholder"): true,
+NodePath("../Fireholder2"): true,
+NodePath("../Fireholder3"): true,
+NodePath("../Fireholder4"): false,
+NodePath("../Fireholder5"): true,
+NodePath("../Fireholder6"): true,
+NodePath("../Fireholder7"): true
+}
+doorNumber = 10
+requireExactTorchCount = 6
+challengeVariableName = "okChallenge2"
+
+[node name="And" type="Sprite2D" parent="Challenges/Challenge2"]
+position = Vector2(1688, -459)
+texture = ExtResource("11_cwqbe")
+
+[node name="Xnor" type="Sprite2D" parent="Challenges/Challenge2"]
+position = Vector2(2103, -459)
+texture = ExtResource("12_5seof")
+
+[node name="And2" type="Sprite2D" parent="Challenges/Challenge2"]
+position = Vector2(2447, -460)
+texture = ExtResource("13_x3gqw")
+
+[node name="Nand" type="Sprite2D" parent="Challenges/Challenge2"]
+position = Vector2(2861, -452)
+texture = ExtResource("10_18vdf")
+
+[node name="And3" type="Sprite2D" parent="Challenges/Challenge2"]
+position = Vector2(2663, -665)
+texture = ExtResource("11_cwqbe")
+
+[node name="Xnor2" type="Sprite2D" parent="Challenges/Challenge2"]
+position = Vector2(1904, -667)
+texture = ExtResource("10_18vdf")
+
+[node name="Xor" type="Sprite2D" parent="Challenges/Challenge2"]
+position = Vector2(2281, -873)
+texture = ExtResource("10_18vdf")
 
 [node name="NPC" parent="." node_paths=PackedStringArray("quest") instance=ExtResource("8_wxbtf")]
 z_index = 2
@@ -1163,8 +1308,127 @@ offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
 text = "5"
 
-[node name="DevTools" parent="." instance=ExtResource("17_er7ss")]
-offset_left = 1874.0
-offset_top = 197.0
-offset_right = 1874.0
-offset_bottom = 197.0
+[node name="Door10" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(17511, -602)
+texture = ExtResource("13_0ic1f")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="JailDoor" type="Node2D" parent="Door10" node_paths=PackedStringArray("quest")]
+z_index = -1
+position = Vector2(-651, 482)
+script = ExtResource("15_0ic1f")
+quest = NodePath("../../BooleanQuest")
+doorNumber = 10
+
+[node name="Door" type="StaticBody2D" parent="Door10/JailDoor"]
+position = Vector2(620, -107)
+
+[node name="Sprite" type="Sprite2D" parent="Door10/JailDoor/Door"]
+texture = ExtResource("17_a88w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door10/JailDoor/Door"]
+z_index = 999
+z_as_relative = false
+position = Vector2(-2, -113)
+shape = SubResource("RectangleShape2D_er7ss")
+debug_color = Color(0.457382, 0.561173, 0.54511, 0.42)
+
+[node name="Fog" type="ColorRect" parent="Door10"]
+visible = false
+z_index = 7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = -770.0
+offset_right = 1687.0
+offset_bottom = -770.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.25098, 1)
+
+[node name="Front" type="Sprite2D" parent="Door10"]
+z_index = 6
+position = Vector2(40, 315)
+texture = ExtResource("17_ob62n")
+script = ExtResource("14_a88w8")
+xOffset = -36.49
+
+[node name="FlameHintOn" type="Sprite2D" parent="Door10"]
+z_index = 20
+position = Vector2(-31, -45)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOff2" type="Sprite2D" parent="Door10"]
+z_index = 20
+position = Vector2(26, 32)
+texture = ExtResource("21_nj6ya")
+
+[node name="FlameHintOn4" type="Sprite2D" parent="Door10"]
+z_index = 20
+position = Vector2(-62, -10)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOn6" type="Sprite2D" parent="Door10"]
+z_index = 20
+position = Vector2(-22, 10)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOn5" type="Sprite2D" parent="Door10"]
+z_index = 20
+position = Vector2(18, -59)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOn2" type="Sprite2D" parent="Door10"]
+z_index = 20
+position = Vector2(71.5, 45)
+texture = ExtResource("18_ob62n")
+
+[node name="FlameHintOn3" type="Sprite2D" parent="Door10"]
+z_index = 20
+position = Vector2(51.5, -8)
+texture = ExtResource("18_ob62n")
+
+[node name="Label" type="Label" parent="Door10"]
+z_index = 20
+offset_left = -6.0
+offset_top = 43.0
+offset_right = 21.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.890196, 0.576471, 0.278431, 1)
+text = "6"
+
+[node name="Exit" type="Node2D" parent="."]
+position = Vector2(3980, 0)
+
+[node name="Area2D" type="Area2D" parent="Exit"]
+position = Vector2(9564, -144.5)
+script = ExtResource("28_5seof")
+next_scene = "res://Scenes/Chapter1_3.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Area2D"]
+position = Vector2(7078.5, -586)
+shape = SubResource("RectangleShape2D_cwqbe")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Exit"]
+position = Vector2(9564, -144.5)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Exit/StaticBody2D"]
+z_index = 1
+position = Vector2(7129.5, -586)
+shape = SubResource("RectangleShape2D_5rho5")
+
+[node name="PrisonInnerDoor" type="Sprite2D" parent="Exit"]
+position = Vector2(16052, -710.5)
+texture = ExtResource("2_v8im4")
+
+[node name="PrisonInnerDoor2" type="Sprite2D" parent="Exit"]
+position = Vector2(18113, -710.5)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_v8im4")
+
+[connection signal="body_entered" from="Exit/Area2D" to="Exit/Area2D" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://cjix7pwd21t2a"]
+[gd_scene load_steps=137 format=3 uid="uid://cjix7pwd21t2a"]
 
 [ext_resource type="Script" uid="uid://ben1rh6orqham" path="res://Scripts/Quest/FallenBridgeQuest.gd" id="4_8r1tc"]
 [ext_resource type="Texture2D" uid="uid://bmrjglbbcotuw" path="res://Assets/Objects/JailCellInstructions.png" id="4_k78fl"]
@@ -93,7 +93,6 @@
 [ext_resource type="Texture2D" uid="uid://kwu88cybs5ye" path="res://Assets/Objects/FallenCarriage.png" id="77_enhjr"]
 [ext_resource type="Texture2D" uid="uid://d0fhbnj6qjffn" path="res://Assets/Objects/CrateWatermelon.png" id="78_kgtk1"]
 [ext_resource type="Script" uid="uid://cvwcji0rt6ubb" path="res://Scripts/Object/AreaChangeScene.gd" id="92_7augy"]
-[ext_resource type="PackedScene" uid="uid://cfv7fpnqjbtc4" path="res://Scenes/Utils/DevTools.tscn" id="94_we512"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52hs2"]
 size = Vector2(199, 363)
@@ -2039,8 +2038,8 @@ texture = SubResource("GradientTexture2D_0t146")
 [node name="PointLight2D3" type="PointLight2D" parent="Outside/Objects/Forest"]
 show_behind_parent = true
 z_index = -10
-position = Vector2(24344, -293)
-scale = Vector2(45.5625, 7.89062)
+position = Vector2(23635, -265.75)
+scale = Vector2(23.4063, 8.74218)
 energy = 0.5
 blend_mode = 1
 range_item_cull_mask = 2
@@ -2279,11 +2278,5 @@ RESPAWN_POINT = Vector2(-270, -270)
 CAMERA_LIMIT_LEFT = -812
 metadata/objectName = "Jogador"
 metadata/Interactable = true
-
-[node name="DevTools" parent="." instance=ExtResource("94_we512")]
-offset_left = 1874.0
-offset_top = 197.0
-offset_right = 1874.0
-offset_bottom = 197.0
 
 [connection signal="body_entered" from="Outside/NextLevel" to="Outside/NextLevel" method="_on_body_entered"]

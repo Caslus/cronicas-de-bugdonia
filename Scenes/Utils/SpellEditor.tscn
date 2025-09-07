@@ -1,0 +1,116 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq3s72w5aye62"]
+
+[ext_resource type="PackedScene" uid="uid://n7d8qkso66yw" path="res://Scenes/Utils/SpellBlock.tscn" id="1_kgewf"]
+[ext_resource type="Script" uid="uid://caynqgt4eru5y" path="res://Scripts/Utils/SpellEditor.gd" id="1_tucfx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tucfx"]
+bg_color = Color(0.176419, 0.176419, 0.176419, 0.8)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.176419, 0.176419, 0.176419, 0.8)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="SpellEditor" type="Control" node_paths=PackedStringArray("editor", "openEditorButton", "closeEditorButton", "spellBlockList", "availableSpellBlockList")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tucfx")
+editor = NodePath("CanvasLayer/Editor")
+openEditorButton = NodePath("CanvasLayer/OpenEditorButton")
+closeEditorButton = NodePath("CanvasLayer/Editor/VBoxContainer/HBoxContainer/Buttons/CloseEditorButton")
+spellBlockContainer = ExtResource("1_kgewf")
+spellBlockList = NodePath("CanvasLayer/Editor/VBoxContainer/HBoxContainer/CurrentSpellBlocks/SpellBlockList")
+availableSpellBlockList = NodePath("CanvasLayer/Editor/VBoxContainer/AvailableRunes/AvailableSpellBlocks/AvailableSpellBlockList")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(16, 16)
+transform = Transform2D(1, 0, 0, 1, 16, 16)
+
+[node name="Editor" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 222.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tucfx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Editor"]
+layout_mode = 2
+theme_override_constants/separation = 110
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentSpellBlocks" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SpellBlockList" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/CurrentSpellBlocks"]
+layout_mode = 2
+
+[node name="SpellBlock" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/CurrentSpellBlocks/SpellBlockList" instance=ExtResource("1_kgewf")]
+layout_mode = 2
+
+[node name="SpellBlock2" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/CurrentSpellBlocks/SpellBlockList" instance=ExtResource("1_kgewf")]
+layout_mode = 2
+
+[node name="SpellBlock3" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/CurrentSpellBlocks/SpellBlockList" instance=ExtResource("1_kgewf")]
+layout_mode = 2
+
+[node name="SpellBlock4" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/CurrentSpellBlocks/SpellBlockList" instance=ExtResource("1_kgewf")]
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="CloseEditorButton" type="Button" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[node name="Button" type="Button" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Executar"
+
+[node name="AvailableRunes" type="VBoxContainer" parent="CanvasLayer/Editor/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Editor/VBoxContainer/AvailableRunes"]
+layout_mode = 2
+text = "Runas disponíveis"
+
+[node name="AvailableSpellBlocks" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer/AvailableRunes"]
+layout_mode = 2
+
+[node name="AvailableSpellBlockList" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer/AvailableRunes/AvailableSpellBlocks"]
+layout_mode = 2
+
+[node name="SpellBlock" parent="CanvasLayer/Editor/VBoxContainer/AvailableRunes/AvailableSpellBlocks/AvailableSpellBlockList" instance=ExtResource("1_kgewf")]
+layout_mode = 2
+
+[node name="SpellBlock2" parent="CanvasLayer/Editor/VBoxContainer/AvailableRunes/AvailableSpellBlocks/AvailableSpellBlockList" instance=ExtResource("1_kgewf")]
+layout_mode = 2
+
+[node name="SpellBlock3" parent="CanvasLayer/Editor/VBoxContainer/AvailableRunes/AvailableSpellBlocks/AvailableSpellBlockList" instance=ExtResource("1_kgewf")]
+layout_mode = 2
+
+[node name="OpenEditorButton" type="Button" parent="CanvasLayer"]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Abrir editor"
+
+[connection signal="pressed" from="CanvasLayer/Editor/VBoxContainer/HBoxContainer/Buttons/CloseEditorButton" to="." method="_closeEditor"]
+[connection signal="pressed" from="CanvasLayer/Editor/VBoxContainer/HBoxContainer/Buttons/Button" to="." method="_runSpell"]
+[connection signal="pressed" from="CanvasLayer/OpenEditorButton" to="." method="_openEditor"]

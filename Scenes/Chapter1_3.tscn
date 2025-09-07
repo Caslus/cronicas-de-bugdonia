@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpxejyxaowfj6"]
+
+[ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_dlh0u"]
+[ext_resource type="Script" uid="uid://b71nfyjmm0mqa" path="res://Scripts/SpellManager.gd" id="2_457wa"]
+[ext_resource type="Texture2D" uid="uid://c1icpnkjpwirg" path="res://Assets/Objects/Cliff.png" id="3_457wa"]
+[ext_resource type="PackedScene" uid="uid://dq3s72w5aye62" path="res://Scenes/Utils/SpellEditor.tscn" id="4_1qkkm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufcq2"]
+size = Vector2(18961, 165)
+
+[node name="Chapter13" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_dlh0u")]
+z_index = 10
+position = Vector2(0, -301)
+VAR_SPEED = 15.0
+RESPAWN_POINT = Vector2(-270, -270)
+hasWand = true
+CAMERA_LIMIT_LEFT = -812
+metadata/objectName = "Jogador"
+metadata/Interactable = true
+
+[node name="SpellManager" type="Node" parent="Player"]
+script = ExtResource("2_457wa")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
+position = Vector2(0, 217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
+position = Vector2(8111.5, -6)
+shape = SubResource("RectangleShape2D_ufcq2")
+
+[node name="Cliff" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(384.502, 73)
+texture = ExtResource("3_457wa")
+
+[node name="Cliff2" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(2215, 73)
+texture = ExtResource("3_457wa")
+
+[node name="SpellEditor" parent="." node_paths=PackedStringArray("spellManager") instance=ExtResource("4_1qkkm")]
+spellManager = NodePath("../Player/SpellManager")
