@@ -1,6 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4waaclx2re3q"]
+[gd_scene load_steps=7 format=3 uid="uid://c4waaclx2re3q"]
 
-[ext_resource type="Texture2D" uid="uid://bd280o0ehm3wu" path="res://Assets/Objects/CauldronBubble.png" id="1_cxkc1"]
+[ext_resource type="Texture2D" uid="uid://rneu2nn1mopi" path="res://Assets/Objects/Smoke.png" id="1_cxkc1"]
+
+[sub_resource type="Curve" id="Curve_gim4j"]
+_data = [Vector2(0, 0.833048), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_av5rp"]
+curve = SubResource("Curve_gim4j")
 
 [sub_resource type="Curve" id="Curve_ig520"]
 _data = [Vector2(0, 0.471319), 0.0, 2.40445, 0, 0, Vector2(0.909706, 0), 0.111075, 0.0, 0, 0]
@@ -13,16 +20,19 @@ curve = SubResource("Curve_ig520")
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 88.07
+angle_min = -180.0
+angle_max = 180.0
 spread = 180.0
 initial_velocity_min = 150.0
 initial_velocity_max = 150.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, 60, 0)
+scale_min = 0.5
+scale_max = 1.5
 scale_curve = SubResource("CurveTexture_qqcup")
-color = Color(0.432037, 0.442695, 0.432338, 0.372549)
+alpha_curve = SubResource("CurveTexture_av5rp")
 
 [node name="CPUParticles2D" type="GPUParticles2D"]
 z_index = 15
-emitting = false
 amount = 100
 texture = ExtResource("1_cxkc1")
 lifetime = 2.0

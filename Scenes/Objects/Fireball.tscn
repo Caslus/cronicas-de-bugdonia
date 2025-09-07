@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://x2jsqwd73ysg"]
+[gd_scene load_steps=8 format=3 uid="uid://x2jsqwd73ysg"]
 
 [ext_resource type="Script" uid="uid://wth7al1i08la" path="res://Scripts/Object/Fireball.gd" id="1_si8x6"]
+[ext_resource type="PackedScene" uid="uid://c4waaclx2re3q" path="res://Scenes/Objects/FailParticles.tscn" id="2_480x7"]
 [ext_resource type="Texture2D" uid="uid://c6fxg4bko6q8f" path="res://Assets/Objects/Fireball.png" id="2_ntw04"]
 
 [sub_resource type="Curve" id="Curve_ntw04"]
@@ -43,6 +44,7 @@ turbulence_enabled = true
 [node name="Fireball" type="Node2D"]
 script = ExtResource("1_si8x6")
 speed = 800.0
+explodeParticles = ExtResource("2_480x7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ntw04")
