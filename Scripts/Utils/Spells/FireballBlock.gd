@@ -2,13 +2,13 @@ extends SpellBlock
 class_name FireballBlock
 
 var fireballScene = preload("res://Scenes/Objects/Fireball.tscn")
-
 var config = {}
 
 func _init():
 		shortName = "Fogo"
 		name = "Runa de Bola de Fogo"
 		description = "Esta runa lança uma bola de fogo."
+		icon = preload("res://Assets/UI/Spells/Fireball.png")
 
 func execute(context: Node) -> void:
 		var fireball = fireballScene.instantiate()

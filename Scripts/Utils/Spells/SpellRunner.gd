@@ -1,8 +1,6 @@
 extends Node
 class_name SpellRunner
 
-signal spell_failed
-
 var blocks: Array
 var context: Node
 
@@ -10,12 +8,12 @@ func _init(_blocks: Array, _context: Node) -> void:
 	blocks = _blocks
 	context = _context
 
-func start() -> void:
-	# validate syntax before running
-	if not validate_syntax(blocks):
-		emit_signal("spell_failed")
-		return
+func start() -> Array:
+	var result = validate_syntax(blocks)
+	if not result[0]:
+		return result
 	call_deferred("_run")
+	return [true,""]
 
 func _run() -> void:
 	var i = 0
@@ -79,7 +77,7 @@ func find_matching_end(start_index: int) -> int:
 	return -1
 
 
-func validate_syntax(block_list: Array) -> bool:
+func validate_syntax(block_list: Array) -> Array:
 	var depth = 0
 	var stack: Array[int] = []  # track positions of ForStart
 
@@ -92,19 +90,16 @@ func validate_syntax(block_list: Array) -> bool:
 
 		elif b is ForEndBlock:
 			if depth <= 0:
-				print("Syntax error: ForEnd without ForStart at index %d" % i)
-				return false
+				return [false, "Erro de sintaxe: Tentativa de fechar um loop que não foi aberto no índice %d" % i]
 
 			var start_index = stack.pop_back()
 			depth -= 1
 
 			# check if this loop is empty
 			if i == start_index + 1:
-				print("Syntax error: Empty loop between %d and %d" % [start_index, i])
-				return false
+				return [false, "Erro de sintaxe: Loop vazio entre %d e %d" % [start_index, i]]
 
 	if depth != 0:
-		print("Syntax error: Unmatched ForStart")
-		return false
+		return [false, "Erro de sintaxe: Loop não foi fechado."]
 
-	return true
+	return [true,""]

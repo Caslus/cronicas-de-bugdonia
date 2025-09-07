@@ -48,12 +48,14 @@ theme_override_constants/separation = 110
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="CurrentSpellBlocks" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="SpellBlockList" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/CurrentSpellBlocks"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="SpellBlock" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/CurrentSpellBlocks/SpellBlockList" instance=ExtResource("1_kgewf")]
 layout_mode = 2
@@ -95,6 +97,7 @@ layout_mode = 2
 
 [node name="AvailableSpellBlockList" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer/AvailableRunes/AvailableSpellBlocks"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="SpellBlock" parent="CanvasLayer/Editor/VBoxContainer/AvailableRunes/AvailableSpellBlocks/AvailableSpellBlockList" instance=ExtResource("1_kgewf")]
 layout_mode = 2

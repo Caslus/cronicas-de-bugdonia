@@ -8,9 +8,21 @@ var spellBlock = ""
 var config = {}
 
 func set_config(block: SpellBlock, index: int) -> void:
-	get_node("PanelContainer").get_node("Button").text = block.shortName
+	if block.icon != null:
+		get_node("PanelContainer").get_node("Button").icon = block.icon
+		get_node("PanelContainer").get_node("Button").text = ""
+	else:
+		get_node("PanelContainer").get_node("Button").text = block.shortName
 	get_node("PanelContainer").get_node("Button").tooltip_text = block.name + "\n" + block.description
 	set_meta("index", index)
+
+	if block.shortName == "For":
+		get_node("Label").text = str(block.config["contagem"])
+	elif block.shortName == "Tempo":
+		get_node("Label").text = str(block.config["tempo"])
+	else:
+		get_node("Label").text = ""
+
 	spellBlock = block.name
 	config = block.config
 
@@ -22,7 +34,7 @@ func set_action(action: Callable) -> void:
 func add_config_ui() -> void:
 	var configUI: Control = spellBlockConfig.instantiate()
 	# configUI will float below the button
-	configUI.position = Vector2(116, 120)
+	configUI.position = Vector2(116, 130)
 	configUI.z_index = 1
 
 	configUI.get_node("Editor").get_node("VBoxContainer").get_node("HBoxContainer").get_node("Buttons").get_node("CloseEditorButton").pressed.connect(func():

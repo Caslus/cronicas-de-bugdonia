@@ -2,6 +2,7 @@ extends Node
 class_name SpellManager
 
 @export var spellBlockLimit: int = 10
+@export var failParticles: PackedScene
 
 var availableSpellBlocks = [
 	WaitBlock.new(1.0),
@@ -25,7 +26,18 @@ func set_spell_blocks(blocks: Array[SpellBlock]) -> void:
 
 func append_spell_block(block: SpellBlock) -> void:
 	if currentSpell.blocks.size() < spellBlockLimit:
-		currentSpell.blocks.append(block)
+		var shortName = block.shortName.to_lower()
+		match shortName:
+			"for":
+				currentSpell.blocks.append(ForStartBlock.new(block.config.contagem))
+			"forend":
+				currentSpell.blocks.append(ForEndBlock.new())
+			"fogo":
+				currentSpell.blocks.append(FireballBlock.new())
+			"tempo":
+				currentSpell.blocks.append(WaitBlock.new(block.config.tempo))
+			_:
+				pass # unknown block, do nothing
 
 func pop_spell_block() -> void:
 	if currentSpell.blocks.size() > 0:
@@ -39,6 +51,21 @@ func set_spell_block_config(index: int, config: Dictionary) -> void:
 	if index >= 0 and index < currentSpell.blocks.size():
 		currentSpell.blocks[index].config = config
 
-func run_current_spell() -> void:
+func run_current_spell() -> Array:
 	if currentSpell.blocks.size() > 0:
-		currentSpell.run(self)
+		var result = currentSpell.run(self)
+		if not result[0]:
+			print("Erro ao executar feitiço: %s" % result[1])
+			fail_spell()
+		return result
+	else:
+		fail_spell()
+		return [false, "Erro de sintaxe: Nenhum bloco de feitiço para executar."]
+
+func fail_spell() -> void:
+	var particles = failParticles.instantiate()
+	get_parent().add_child(particles)
+	particles.global_position = get_parent().global_position
+	particles.emitting = true
+	await get_tree().create_timer(particles.lifetime).timeout
+	particles.queue_free()
