@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 			player.velocity.y = player.get("JUMP_VELOCITY") * -60
 			coyoteTimer = 0
 	
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("move_left", "move_right")
 	if direction and canMove:
 		if Input.is_key_pressed((KEY_SHIFT)):
 			player.velocity.x = direction * player.get("VAR_SPEED") * 30 * player.get("RUN_MULTIPLIER")

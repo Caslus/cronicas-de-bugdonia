@@ -16,7 +16,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="SpellEditor" type="Control" node_paths=PackedStringArray("editor", "openEditorButton", "closeEditorButton", "spellBlockList", "availableSpellBlockList")]
+[node name="SpellEditor" type="Control" node_paths=PackedStringArray("editor", "openEditorButton", "closeEditorButton", "spellBlockList", "availableSpellBlockList", "cooldownTimeBar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +30,7 @@ closeEditorButton = NodePath("CanvasLayer/Editor/VBoxContainer/HBoxContainer/But
 spellBlockContainer = ExtResource("1_kgewf")
 spellBlockList = NodePath("CanvasLayer/Editor/VBoxContainer/HBoxContainer/CurrentSpellBlocks/SpellBlockList")
 availableSpellBlockList = NodePath("CanvasLayer/Editor/VBoxContainer/AvailableRunes/AvailableSpellBlocks/AvailableSpellBlockList")
+cooldownTimeBar = NodePath("CanvasLayer/Editor/VBoxContainer/HBoxContainer/Buttons/Button/ProgressBar")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(16, 16)
@@ -83,7 +84,20 @@ text = "X"
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-text = "Executar"
+text = "Executar (F)"
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Editor/VBoxContainer/HBoxContainer/Buttons/Button"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+rounded = true
+show_percentage = false
 
 [node name="AvailableRunes" type="VBoxContainer" parent="CanvasLayer/Editor/VBoxContainer"]
 layout_mode = 2

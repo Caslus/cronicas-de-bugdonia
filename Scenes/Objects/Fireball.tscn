@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://x2jsqwd73ysg"]
+[gd_scene load_steps=9 format=3 uid="uid://x2jsqwd73ysg"]
 
 [ext_resource type="Script" uid="uid://wth7al1i08la" path="res://Scripts/Object/Fireball.gd" id="1_si8x6"]
 [ext_resource type="PackedScene" uid="uid://c4waaclx2re3q" path="res://Scenes/Objects/FailParticles.tscn" id="2_480x7"]
@@ -41,6 +41,9 @@ scale_curve = SubResource("CurveTexture_480x7")
 color = Color(0.999999, 0.805517, 0.186029, 1)
 turbulence_enabled = true
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_480x7"]
+radius = 21.82
+
 [node name="Fireball" type="Node2D"]
 script = ExtResource("1_si8x6")
 speed = 800.0
@@ -64,4 +67,10 @@ process_material = SubResource("ParticleProcessMaterial_ntw04")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(2.36, 2.16)
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_480x7")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="despawn"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

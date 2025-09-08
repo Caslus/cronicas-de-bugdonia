@@ -23,3 +23,11 @@ func _process(delta):
 		if time_alive > lifetime:
 			spawn_explosion()
 			despawn()
+
+func _on_body_entered(body: Node) -> void:
+		if body.is_in_group("player"): return
+		if body.is_in_group("destructible"):
+			if body.get_parent().has_method("take_damage"):
+				body.get_parent().take_damage(10)
+		spawn_explosion()
+		despawn()

@@ -1,0 +1,150 @@
+[
+	{
+		"id": "1",
+		"text": "Ei! você!",
+		"options": [
+			{ "text": "Eu?", "next": "2"}
+		]
+	},
+	{
+		"id": "2",
+		"text": "Você é um mago, não é? Eu posso te ensinar um feitiço simples, se você quiser.",
+		"options": [
+			{ "text": "Eu quero aprender!", "next": "3" }
+		]
+	},
+	{
+		"id": "3",
+		"text": "Antes de tudo, você precisa entender o que é uma função.",
+		"options": [
+		{ "text": "...", "next": "4" }
+		]
+	},
+	{
+		"id": "4",
+		"text": "Uma função é um bloco de código que realiza uma tarefa específica. Todos os magos usam funções para lançar feitiços.",
+		"options": [
+			{ "text": "Entendi...", "next": "5" }
+		]
+	},
+	{
+		"id": "5",
+		"text": "Aqui em nosso mundo, temos algumas runas que representam diferentes funções.",
+		"options": [
+			{ "text": "An?", "next": "6" }
+		]
+	},
+	{
+		"id": "6",
+		"text": "Juntando as runas, você pode criar feitiços, que são uma função maior que contém outras funções.",
+		"options": [
+			{ "text": "Interessante...", "next": "7" }
+		]
+	},
+	{
+		"id": "7",
+		"text": "Vou te ensinar um feitiço simples que cria uma bola de fogo.",
+		"options": [
+			{ "text": "Ótimo!", "next": "8", "toggle": "initialTalk" }
+		]
+	},
+	{
+		"id": "8",
+		"text": "Primeiro, abra o editor de feitiços no canto superior esquerdo da tela.",
+		"options": [
+			{ "text": "Certo...", "next": "9" }
+		]
+	},
+	{
+		"id": "9",
+		"text": "Agora, clique na bola de fogo na lista de runas disponíveis para adicioná-la ao seu feitiço.",
+		"options": [
+			{ "text": "Ok!", "next": "10" }
+		]
+	},
+	{
+		"id": "10",
+		"text": "Depois disso, clique no botão 'Executar' ou aperte a tecla 'R' para lançar o feitiço.",
+		"options": [
+			{ "text": "Vou tentar!", "next": "11" }
+		]
+	},
+	{
+		"id": "11",
+		"text": "Tente lançar a bola de fogo nessa pedra para liberar o caminho.",
+		"options": [
+			{ "text": "Vamos lá!", "next": null	}
+		]
+	},
+	{
+		"id": "12",
+		"text": "Boa! Você aprende rápido. Mas temos um problema maior agora...",
+		"options": [
+			{ "text": "Qual?", "next": "13" }
+		]
+	},
+	{
+		"id": "13",
+		"text": "A pedra na nossa frente é mais resistente, então vou ter que te ensinar sobre loops.",
+		"options": [
+			{ "text": "Loops?", "next": "14" }
+		]
+	},
+	{
+		"id": "14",
+		"text": "Um loop é uma estrutura que repete um bloco de código várias vezes. Isso pode ser útil para lançar feitiços repetidamente.",
+		"options": [
+			{ "text": "Como assim?", "next": "15" }
+		]
+	},
+	{
+		"id": "15",
+		"text": "Irei te ensinar sobre o loop 'For' hoje. O loop 'For' repete um bloco de código um número específico de vezes.",
+		"options": [
+			{ "text": "Entendi...", "next": "16" }
+		]
+	},
+	{
+		"id": "16",
+		"text": "Vamos adicionar um loop 'For' ao seu feitiço. Clique no ícone do loop 'For' na lista de runas disponíveis.",
+		"options": [
+			{ "text": "Ok!", "next": "17" }
+		]
+	},
+	{
+		"id": "17",
+		"text": "Depois, adicione uma bola de fogo e então feche o loop com a runa de fim de loop.",
+		"options": [
+			{ "text": "Certo!", "next": "18" }
+		]
+	},
+	{
+		"id": "18",
+		"text": "Agora, com o botão direito do mouse, clique no bloco do loop 'For' para configurar quantas vezes ele deve repetir e aperte em 'Salvar'.",
+		"options": [
+			{ "text": "Feito!", "next": "19" }
+		]
+	},
+	{
+		"id": "19",
+		"text": "Essa pedra tem 100 de vida, cada bola de fogo causa 10 de dano, então o seu 'For' deve se repetir 10 vezes.",
+		"options": [
+			{ "text": "Vou tentar!", "next": null, "toggle": "learned_loop" }
+		]
+	},
+
+	{
+		"id": "20",
+		"text": "Incrível! Mas ainda temos uma pedra maior pela frente...",
+		"options": [
+			{ "text": "Mais uma?!", "next": "21" }
+		]
+	},
+	{
+		"id": "21",
+		"text": "Essa pedra é absurdamente resistente. Eu nem sei quantas bolas de fogo serão necessárias para destruí-la.",
+		"options": [
+			{ "text": "Deixa comigo!", "next": null }
+		]
+	}
+]

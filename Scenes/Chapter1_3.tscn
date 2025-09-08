@@ -1,15 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpxejyxaowfj6"]
+[gd_scene load_steps=13 format=3 uid="uid://bpxejyxaowfj6"]
 
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_dlh0u"]
+[ext_resource type="Script" uid="uid://c7im13l7h234q" path="res://Scripts/Quest/SpellcasterQuest.gd" id="1_vlnd7"]
 [ext_resource type="Script" uid="uid://b71nfyjmm0mqa" path="res://Scripts/SpellManager.gd" id="2_457wa"]
 [ext_resource type="Texture2D" uid="uid://c1icpnkjpwirg" path="res://Assets/Objects/Cliff.png" id="3_457wa"]
 [ext_resource type="PackedScene" uid="uid://c4waaclx2re3q" path="res://Scenes/Objects/FailParticles.tscn" id="3_ufcq2"]
 [ext_resource type="PackedScene" uid="uid://dq3s72w5aye62" path="res://Scenes/Utils/SpellEditor.tscn" id="4_1qkkm"]
+[ext_resource type="Texture2D" uid="uid://dx261cbtbwnkl" path="res://Assets/Objects/PrisonInnerDoor.png" id="4_ig520"]
+[ext_resource type="Texture2D" uid="uid://bl8cr6fnwoqlw" path="res://Assets/Objects/PrisonOuterDoor.png" id="5_qqcup"]
+[ext_resource type="PackedScene" uid="uid://bu6gga7dsc3nn" path="res://Scenes/Objects/RockObstacle.tscn" id="8_qqcup"]
+[ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="9_x5iv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufcq2"]
 size = Vector2(18961, 165)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5iv8"]
+size = Vector2(130, 1541)
+
 [node name="Chapter13" type="Node2D"]
+
+[node name="BooleanQuest" type="Node" parent="." node_paths=PackedStringArray("npc")]
+script = ExtResource("1_vlnd7")
+npc = NodePath("../NPC")
+
+[node name="SpellEditor" parent="." node_paths=PackedStringArray("spellManager") instance=ExtResource("4_1qkkm")]
+spellManager = NodePath("../Player/SpellManager")
 
 [node name="Player" parent="." instance=ExtResource("1_dlh0u")]
 z_index = 10
@@ -23,6 +38,7 @@ metadata/Interactable = true
 
 [node name="SpellManager" type="Node" parent="Player"]
 script = ExtResource("2_457wa")
+spellBlockLimit = 3
 failParticles = ExtResource("3_ufcq2")
 
 [node name="Map" type="Node2D" parent="."]
@@ -33,6 +49,30 @@ position = Vector2(0, 217)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
 position = Vector2(8111.5, -6)
 shape = SubResource("RectangleShape2D_ufcq2")
+
+[node name="Door" type="Node2D" parent="Map"]
+
+[node name="PrisonInnerDoor2" type="Sprite2D" parent="Map/Door"]
+position = Vector2(-482.498, -566)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("4_ig520")
+
+[node name="PrisonInnerDoor3" type="Sprite2D" parent="Map/Door"]
+position = Vector2(-376.498, -598)
+rotation = -3.03623
+scale = Vector2(1, -1)
+texture = ExtResource("4_ig520")
+
+[node name="PrisonOuterDoor" type="Sprite2D" parent="Map/Door"]
+position = Vector2(-579.498, -528)
+texture = ExtResource("5_qqcup")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Map/Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Door/StaticBody2D"]
+position = Vector2(-506, -641.5)
+shape = SubResource("RectangleShape2D_x5iv8")
 
 [node name="Cliff" type="Sprite2D" parent="Map"]
 light_mask = 3
@@ -46,5 +86,56 @@ z_index = -11
 position = Vector2(2215, 73)
 texture = ExtResource("3_457wa")
 
-[node name="SpellEditor" parent="." node_paths=PackedStringArray("spellManager") instance=ExtResource("4_1qkkm")]
-spellManager = NodePath("../Player/SpellManager")
+[node name="Cliff3" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(4064, 73)
+texture = ExtResource("3_457wa")
+
+[node name="Cliff4" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(5894.5, 73)
+texture = ExtResource("3_457wa")
+
+[node name="Cliff5" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(7708, 73)
+texture = ExtResource("3_457wa")
+
+[node name="Cliff6" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(9538.5, 73)
+texture = ExtResource("3_457wa")
+
+[node name="Cliff7" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(11353, 73)
+texture = ExtResource("3_457wa")
+
+[node name="Cliff8" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(13183.5, 73)
+texture = ExtResource("3_457wa")
+
+[node name="RockObstacle" parent="." instance=ExtResource("8_qqcup")]
+position = Vector2(1859, -30)
+maxHealth = 10.0
+
+[node name="RockObstacle2" parent="." instance=ExtResource("8_qqcup")]
+position = Vector2(3692, -30)
+objectName = "Pedra Resistente"
+
+[node name="RockObstacle3" parent="." instance=ExtResource("8_qqcup")]
+position = Vector2(5706, -30)
+maxHealth = 500.0
+objectName = "Pedra Muito Resistente"
+
+[node name="NPC" parent="." node_paths=PackedStringArray("quest") instance=ExtResource("9_x5iv8")]
+position = Vector2(1030, -141)
+dialogFile = "res://Dialog/SpellCaster.json"
+quest = NodePath("../BooleanQuest")

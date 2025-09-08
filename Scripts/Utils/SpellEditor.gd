@@ -10,6 +10,10 @@ extends Control
 @export var spellBlockList: HBoxContainer
 @export var availableSpellBlockList: HBoxContainer
 
+@export var cooldownTime: float = 3.0
+var can_cast: bool = true
+@export var cooldownTimeBar: ProgressBar
+
 func _openEditor() -> void:
 	editor.visible = true
 	openEditorButton.visible = false
@@ -55,8 +59,25 @@ func updateBlockConfig(new_config: Dictionary, index: int) -> void:
 	_updateSpellBlocks()
 
 func _runSpell() -> void:
+	if not can_cast:
+		return
+	can_cast = false
 	spellManager.run_current_spell()
+	get_tree().create_timer(cooldownTime).timeout.connect(func(): can_cast = true)
+	cooldownTimeBar.value = 100
+	cooldownTimeBar.visible = true
+	var tween = create_tween()
+	tween.tween_property(cooldownTimeBar, "value", 0, cooldownTime)
 
 func _ready() -> void:
 	_updateAvailableSpellBlocks()
 	_updateSpellBlocks()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("run_spell"):
+		_runSpell()
+	if Input.is_action_just_pressed("toggle_spell_editor"):
+		if editor.visible:
+			_closeEditor()
+		else:
+			_openEditor()
