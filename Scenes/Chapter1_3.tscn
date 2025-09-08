@@ -19,9 +19,12 @@ size = Vector2(130, 1541)
 
 [node name="Chapter13" type="Node2D"]
 
-[node name="BooleanQuest" type="Node" parent="." node_paths=PackedStringArray("npc")]
+[node name="BooleanQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "rock1", "rock2", "rock3")]
 script = ExtResource("1_vlnd7")
 npc = NodePath("../NPC")
+rock1 = NodePath("../RockObstacle")
+rock2 = NodePath("../RockObstacle2")
+rock3 = NodePath("../RockObstacle3")
 
 [node name="SpellEditor" parent="." node_paths=PackedStringArray("spellManager") instance=ExtResource("4_1qkkm")]
 spellManager = NodePath("../Player/SpellManager")

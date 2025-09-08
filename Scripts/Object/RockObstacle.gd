@@ -1,5 +1,7 @@
 extends Node2D
 
+signal destroyed(obstacle)
+
 @export var maxHealth: float = 100.0
 @export var objectName: String = "Pedra"
 var health: float
@@ -23,6 +25,7 @@ func break_particle() -> void:
 		particles.queue_free()
 
 func break_obstacle() -> void:
+		emit_signal("destroyed", self)
 		break_particle()
 		queue_free()
 

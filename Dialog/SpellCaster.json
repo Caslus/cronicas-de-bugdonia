@@ -135,7 +135,7 @@
 
 	{
 		"id": "20",
-		"text": "Incrível! Mas ainda temos uma pedra maior pela frente...",
+		"text": "Incrível! Mas temos uma pedra maior ainda pela frente...",
 		"options": [
 			{ "text": "Mais uma?!", "next": "21" }
 		]
@@ -145,6 +145,13 @@
 		"text": "Essa pedra é absurdamente resistente. Eu nem sei quantas bolas de fogo serão necessárias para destruí-la.",
 		"options": [
 			{ "text": "Deixa comigo!", "next": null }
+		]
+	},
+	{
+		"id": "22",
+		"text": "Uau! Você realmente é um mago talentoso. Estou impressionado!",
+		"options": [
+			{ "text": "Obrigado!", "next": null }
 		]
 	}
 ]
