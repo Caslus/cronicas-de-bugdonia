@@ -1,8 +1,12 @@
 extends Node
 class_name SpellManager
 
+signal rune_learned(rune_name: String)
+
 @export var spellBlockLimit: int = 10
 @export var failParticles: PackedScene
+@export var allowedToCast: bool = true
+@export var learnedRunes: Array[String] = []
 
 var availableSpellBlocks = [
 	WaitBlock.new(1.0),
@@ -52,6 +56,9 @@ func set_spell_block_config(index: int, config: Dictionary) -> void:
 		currentSpell.blocks[index].config = config
 
 func run_current_spell() -> Array:
+	if not allowedToCast:
+		return [false, "Você não pode lançar feitiços agora."]
+
 	if currentSpell.blocks.size() > 0:
 		var result = currentSpell.run(self)
 		if not result[0]:
@@ -69,3 +76,9 @@ func fail_spell() -> void:
 	particles.emitting = true
 	await get_tree().create_timer(particles.lifetime).timeout
 	particles.queue_free()
+
+func learn_rune(rune_name: String) -> void:
+	var lower_name = rune_name.to_lower()
+	if not learnedRunes.has(lower_name):
+		learnedRunes.append(lower_name)
+		emit_signal("rune_learned", lower_name)

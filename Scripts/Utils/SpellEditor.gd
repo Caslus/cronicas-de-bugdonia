@@ -1,5 +1,7 @@
 extends Control
 
+@export var allowedToUseEditor: bool = true
+
 @export var editor: PanelContainer
 @export var openEditorButton: Button
 @export var closeEditorButton: Button
@@ -44,8 +46,15 @@ func _updateSpellBlocks() -> void:
 
 func _updateAvailableSpellBlocks() -> void:
 	_clearChildren(availableSpellBlockList)
-	for i in range(len(spellManager.availableSpellBlocks)):
-		var block = spellManager.availableSpellBlocks[i]
+	for i in range(len(spellManager.learnedRunes)):
+		var block;
+		for b in spellManager.availableSpellBlocks:
+			if b.shortName.to_lower() == spellManager.learnedRunes[i]:
+				block = b
+				break
+		if block == null:
+			continue
+
 		var blockInstance = spellBlockContainer.instantiate()
 		blockInstance.set_config(block, i)
 		blockInstance.set_action(func():
@@ -69,11 +78,22 @@ func _runSpell() -> void:
 	var tween = create_tween()
 	tween.tween_property(cooldownTimeBar, "value", 0, cooldownTime)
 
+func _runeLearned(_rune_name: String) -> void:
+	_updateAvailableSpellBlocks()
+
 func _ready() -> void:
 	_updateAvailableSpellBlocks()
 	_updateSpellBlocks()
 
+	spellManager.connect("rune_learned", Callable(self, "_runeLearned"))
+
 func _process(_delta: float) -> void:
+	if not allowedToUseEditor:
+		get_node("CanvasLayer").visible = false
+		return
+	else:
+		get_node("CanvasLayer").visible = true
+
 	if Input.is_action_just_pressed("run_spell"):
 		_runSpell()
 	if Input.is_action_just_pressed("toggle_spell_editor"):

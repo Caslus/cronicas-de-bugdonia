@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo52kj8ehcn2g"]
+
+[ext_resource type="Texture2D" uid="uid://b3r3iqfyl71tp" path="res://Assets/Background/Hills.png" id="1_8ag6r"]
+[ext_resource type="Script" uid="uid://dyprl6i7cqri1" path="res://Scripts/Object/Cloud.gd" id="2_vpv67"]
+[ext_resource type="Texture2D" uid="uid://bd4oj4a0ttgxf" path="res://Assets/Background/Clouds.png" id="3_nakdb"]
+[ext_resource type="Texture2D" uid="uid://bcdpgqnn3ymdo" path="res://Assets/Background/Mountains.png" id="4_y8wlv"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_base_offset = Vector2(-960, -540)
+scroll_ignore_camera_zoom = true
+
+[node name="Hills" type="ParallaxLayer" parent="."]
+z_index = -2
+position = Vector2(0, -250)
+motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(0, 500)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Layer05Hills" type="Sprite2D" parent="Hills"]
+texture = ExtResource("1_8ag6r")
+centered = false
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+z_index = -3
+position = Vector2(0, -250)
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(0, 200)
+motion_mirroring = Vector2(1920, 0)
+script = ExtResource("2_vpv67")
+speed = -10.0
+
+[node name="Layer04Clouds" type="Sprite2D" parent="Clouds"]
+texture = ExtResource("3_nakdb")
+centered = false
+
+[node name="Mountains" type="ParallaxLayer" parent="."]
+z_index = -4
+position = Vector2(0, -250)
+motion_scale = Vector2(0.1, 0.1)
+motion_offset = Vector2(0, 250)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Layer06Rocks" type="Sprite2D" parent="Mountains"]
+texture = ExtResource("4_y8wlv")
+centered = false

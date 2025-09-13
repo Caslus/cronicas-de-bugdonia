@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpxejyxaowfj6"]
+[gd_scene load_steps=56 format=3 uid="uid://bpxejyxaowfj6"]
 
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_dlh0u"]
 [ext_resource type="Script" uid="uid://c7im13l7h234q" path="res://Scripts/Quest/SpellcasterQuest.gd" id="1_vlnd7"]
@@ -9,7 +9,26 @@
 [ext_resource type="Texture2D" uid="uid://dx261cbtbwnkl" path="res://Assets/Objects/PrisonInnerDoor.png" id="4_ig520"]
 [ext_resource type="Texture2D" uid="uid://bl8cr6fnwoqlw" path="res://Assets/Objects/PrisonOuterDoor.png" id="5_qqcup"]
 [ext_resource type="PackedScene" uid="uid://bu6gga7dsc3nn" path="res://Scenes/Objects/RockObstacle.tscn" id="8_qqcup"]
-[ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="9_x5iv8"]
+[ext_resource type="PackedScene" uid="uid://bo52kj8ehcn2g" path="res://Scenes/Utils/Background.tscn" id="9_52fa6"]
+[ext_resource type="Texture2D" uid="uid://cu4em8ni76ad6" path="res://Assets/Objects/Tree.png" id="10_6akk8"]
+[ext_resource type="Texture2D" uid="uid://c5k1uluvqvrsf" path="res://Assets/Objects/Bush.png" id="11_gg2h1"]
+[ext_resource type="Texture2D" uid="uid://brac0nym6yjvh" path="res://Assets/Objects/NoEntry.png" id="12_5ul34"]
+[ext_resource type="Texture2D" uid="uid://bx2pfohmjgnb8" path="res://Assets/Objects/Rock1.png" id="12_jlpy8"]
+[ext_resource type="Texture2D" uid="uid://tdfvvirhjwc" path="res://Assets/Objects/Bush4.png" id="13_cf1s2"]
+[ext_resource type="Texture2D" uid="uid://dshx46r1y370c" path="res://Assets/Objects/Bush2.png" id="14_e8xra"]
+[ext_resource type="Texture2D" uid="uid://dvk4loc44c5pm" path="res://Assets/Objects/Bush3.png" id="15_jc2mc"]
+[ext_resource type="Texture2D" uid="uid://b1s0bppa8l8x0" path="res://Assets/Objects/Rock2.png" id="16_87tp0"]
+[ext_resource type="Texture2D" uid="uid://8jurw8glnp2i" path="res://Assets/Objects/Rock3.png" id="17_7sa1h"]
+[ext_resource type="Script" uid="uid://cpngnlg3fyohq" path="res://Scripts/Entity/NPC.gd" id="19_bxge7"]
+[ext_resource type="Texture2D" uid="uid://dph252xm4sbvd" path="res://Assets/Entity/Mage/head.png" id="20_e8xra"]
+[ext_resource type="Texture2D" uid="uid://cyrylvor0kh88" path="res://Assets/Entity/Mage/torso.png" id="21_jc2mc"]
+[ext_resource type="Texture2D" uid="uid://dix2cd7m5wptg" path="res://Assets/Entity/Mage/arm.png" id="22_87tp0"]
+[ext_resource type="Texture2D" uid="uid://shxdrfrc1dbw" path="res://Assets/Entity/Mage/leg.png" id="23_7sa1h"]
+[ext_resource type="Texture2D" uid="uid://d1ltr6mqyxnrp" path="res://Assets/Entity/Character/torso.png" id="24_bv8bc"]
+[ext_resource type="Texture2D" uid="uid://dag3rxipo2up4" path="res://Assets/Entity/Character/head.png" id="25_ewc04"]
+[ext_resource type="Texture2D" uid="uid://cl7ubhquj5hbe" path="res://Assets/Entity/Character/r_arm.png" id="26_wrxb3"]
+[ext_resource type="Texture2D" uid="uid://dvdoyaljimoto" path="res://Assets/Entity/Character/l_leg.png" id="27_m0ea0"]
+[ext_resource type="PackedScene" uid="uid://cakt5wbo6p32p" path="res://Scenes/Utils/interactable.tscn" id="28_8wg1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufcq2"]
 size = Vector2(18961, 165)
@@ -17,16 +36,705 @@ size = Vector2(18961, 165)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5iv8"]
 size = Vector2(130, 1541)
 
+[sub_resource type="Gradient" id="Gradient_yod24"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4d1tx"]
+gradient = SubResource("Gradient_yod24")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anliv"]
+radius = 5.88868
+height = 21.5147
+
+[sub_resource type="Animation" id="Animation_anliv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 33)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/l_arm:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, 54)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/l_arm:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/l_leg:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, 103)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite/l_leg:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite/r_arm:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-34, 54)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite/r_arm:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite/r_leg:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-23, 104)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sprite/r_leg:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_e33jt"]
+resource_name = "fall"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 33), Vector2(0, 33), Vector2(0, 33)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.261799, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/l_arm:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(31, 54), Vector2(31, 54), Vector2(31, 54)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/l_arm:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, -1.309, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/l_leg:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(18, 103), Vector2(18, 103), Vector2(18, 103)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite/l_leg:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, -0.785397, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite/r_arm:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(-34, 54), Vector2(-34, 54), Vector2(-34, 54)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite/r_arm:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 1.57079, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite/r_leg:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(-23, 104), Vector2(-23, 104), Vector2(-23, 104)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sprite/r_leg:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 1.0472, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a62tn"]
+resource_name = "idle"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 33), Vector2(0, 29), Vector2(0, 33)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/l_arm:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(31, 54), Vector2(31, 48), Vector2(31, 54)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/l_arm:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, -0.261799, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/l_leg:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(18, 103), Vector2(18, 103), Vector2(18, 103)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite/l_leg:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite/r_arm:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(-34, 54), Vector2(-34, 49), Vector2(-34, 54)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite/r_arm:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.261799, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite/r_leg:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(-23, 104), Vector2(-23, 104), Vector2(-23, 104)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sprite/r_leg:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ybp4q"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 33), Vector2(0, 30), Vector2(0, 33), Vector2(0, 30), Vector2(0, 33)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/l_arm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(31, 54), Vector2(31, 54), Vector2(31, 54), Vector2(31, 54), Vector2(31, 54)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/l_arm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, -1.0472, 0.0, 1.309, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/l_leg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(18, 103), Vector2(-18, 100), Vector2(18, 103), Vector2(18, 103), Vector2(18, 103)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/l_leg:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.785397, 0.0, -1.309, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/r_arm:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(-34, 54), Vector2(-34, 54), Vector2(-34, 54), Vector2(-34, 54), Vector2(-34, 54)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite/r_arm:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 1.309, 0.0, -1.0472, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite/r_leg:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(-23, 104), Vector2(8, 105), Vector2(-23, 104), Vector2(-23, 104), Vector2(-23, 104)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite/r_leg:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, -1.309, 0.0, 1.0472, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sprite:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybp4q"]
+_data = {
+&"RESET": SubResource("Animation_anliv"),
+&"fall": SubResource("Animation_e33jt"),
+&"idle": SubResource("Animation_a62tn"),
+&"walk": SubResource("Animation_ybp4q")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kt8cb"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m1u6v"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7wpht"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_t30v0"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qieib"]
+graph_offset = Vector2(-351.321, -19.6244)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_7wpht")
+nodes/Animation/position = Vector2(-167.553, 139.013)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_t30v0")
+nodes/TimeScale/position = Vector2(60, 120)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kt8cb"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7wpht"]
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t30v0"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l7uws"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2js3y"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_36yee"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ly1ph"]
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bna5y"]
+states/Start/position = Vector2(190, 82)
+states/fall/node = SubResource("AnimationNodeAnimation_kt8cb")
+states/fall/position = Vector2(559, 141)
+states/idle/node = SubResource("AnimationNodeAnimation_m1u6v")
+states/idle/position = Vector2(376, 82)
+states/walk/node = SubResource("AnimationNodeBlendTree_qieib")
+states/walk/position = Vector2(376, 212)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kt8cb"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_7wpht"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_t30v0"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_l7uws"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2js3y"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_36yee"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_ly1ph")]
+graph_offset = Vector2(-110, -40)
+
+[sub_resource type="Gradient" id="Gradient_n0dth"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n0dth"]
+gradient = SubResource("Gradient_n0dth")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ul34"]
+size = Vector2(266.718, 1180.94)
+
 [node name="Chapter13" type="Node2D"]
 
-[node name="BooleanQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "rock1", "rock2", "rock3")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("9_52fa6")]
+
+[node name="BooleanQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "spellManager", "spellEditor", "rock1", "rock2", "rock3")]
 script = ExtResource("1_vlnd7")
 npc = NodePath("../NPC")
+spellManager = NodePath("../Player/SpellManager")
+spellEditor = NodePath("../SpellEditor")
 rock1 = NodePath("../RockObstacle")
 rock2 = NodePath("../RockObstacle2")
 rock3 = NodePath("../RockObstacle3")
 
 [node name="SpellEditor" parent="." node_paths=PackedStringArray("spellManager") instance=ExtResource("4_1qkkm")]
+allowedToUseEditor = false
 spellManager = NodePath("../Player/SpellManager")
 
 [node name="Player" parent="." instance=ExtResource("1_dlh0u")]
@@ -43,6 +751,7 @@ metadata/Interactable = true
 script = ExtResource("2_457wa")
 spellBlockLimit = 3
 failParticles = ExtResource("3_ufcq2")
+allowedToCast = false
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -125,6 +834,615 @@ z_index = -11
 position = Vector2(13183.5, 73)
 texture = ExtResource("3_457wa")
 
+[node name="Decoration" type="Node2D" parent="Map"]
+
+[node name="Tree2" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(626.5, -453)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree2"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree3" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(876.5, -297)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree11" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(2023, -339)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree5" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(2811.5, -377)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree5"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree4" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(1239.5, -359)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Bush3" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(94.5, -140)
+texture = ExtResource("11_gg2h1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush10" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(-39.5, -56)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush10"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush11" type="Sprite2D" parent="Map/Decoration"]
+z_index = 1
+position = Vector2(1372.5, -13)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush12" type="Sprite2D" parent="Map/Decoration"]
+z_index = 1
+position = Vector2(2203, -63)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush12"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush13" type="Sprite2D" parent="Map/Decoration"]
+z_index = 1
+position = Vector2(3010.5, -72)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush13"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush7" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(695.5, -25)
+texture = ExtResource("13_cf1s2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush7"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush9" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(2697.5, -59)
+texture = ExtResource("13_cf1s2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush9"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush4" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(1522.5, -85)
+texture = ExtResource("11_gg2h1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush26" type="Sprite2D" parent="Map/Decoration"]
+z_index = 20
+position = Vector2(889.5, 149)
+texture = ExtResource("11_gg2h1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush26"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush5" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(366.501, -96)
+scale = Vector2(0.640039, 0.640039)
+texture = ExtResource("14_e8xra")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush5"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush6" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(1140.5, -27)
+texture = ExtResource("15_jc2mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush6"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+offset = Vector2(0, -19.485)
+
+[node name="Bush14" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(3705.5, -123)
+texture = ExtResource("15_jc2mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush14"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+offset = Vector2(0, -19.485)
+
+[node name="Bush8" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(2341, -96)
+texture = ExtResource("15_jc2mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush8"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+offset = Vector2(0, -19.485)
+
+[node name="Rock2" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(473.5, -18)
+texture = ExtResource("16_87tp0")
+
+[node name="Rock3" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(915, 14)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock4" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(2805.5, 6)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock6" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(1795.5, 220)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock7" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(3624.5, 211)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock5" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(3891.5, -78)
+texture = ExtResource("16_87tp0")
+
+[node name="Decoration2" type="Node2D" parent="Map"]
+position = Vector2(3357, 0)
+
+[node name="Tree2" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(626.5, -453)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Tree2"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree3" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(876.5, -297)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Tree3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree11" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(2023, -339)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Tree11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree5" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(2811.5, -377)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Tree5"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree4" type="Sprite2D" parent="Map/Decoration2"]
+z_index = -1
+position = Vector2(1239.5, -359)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Tree4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Bush3" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(94.5, -140)
+texture = ExtResource("11_gg2h1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush10" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(-39.5, -56)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush10"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush11" type="Sprite2D" parent="Map/Decoration2"]
+z_index = 1
+position = Vector2(1372.5, -13)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush12" type="Sprite2D" parent="Map/Decoration2"]
+z_index = 1
+position = Vector2(2716, 204)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush12"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush13" type="Sprite2D" parent="Map/Decoration2"]
+z_index = 1
+position = Vector2(3010.5, -72)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush13"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush7" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(695.5, -25)
+texture = ExtResource("13_cf1s2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush7"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush9" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(2697.5, -59)
+texture = ExtResource("13_cf1s2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush9"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush4" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(1522.5, -85)
+texture = ExtResource("11_gg2h1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush26" type="Sprite2D" parent="Map/Decoration2"]
+z_index = 20
+position = Vector2(889.5, 149)
+texture = ExtResource("11_gg2h1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush26"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush5" type="Sprite2D" parent="Map/Decoration2"]
+z_index = -1
+position = Vector2(366.501, -96)
+scale = Vector2(0.640039, 0.640039)
+texture = ExtResource("14_e8xra")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush5"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush6" type="Sprite2D" parent="Map/Decoration2"]
+z_index = -1
+position = Vector2(1140.5, -27)
+texture = ExtResource("15_jc2mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush6"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+offset = Vector2(0, -19.485)
+
+[node name="Bush14" type="Sprite2D" parent="Map/Decoration2"]
+z_index = -1
+position = Vector2(3705.5, -123)
+texture = ExtResource("15_jc2mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush14"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+offset = Vector2(0, -19.485)
+
+[node name="Bush8" type="Sprite2D" parent="Map/Decoration2"]
+z_index = -1
+position = Vector2(2341, -96)
+texture = ExtResource("15_jc2mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush8"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+offset = Vector2(0, -19.485)
+
+[node name="Rock2" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(473.5, -18)
+texture = ExtResource("16_87tp0")
+
+[node name="Rock3" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(963.5, 16)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock4" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(2805.5, 6)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock6" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(1795.5, 220)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock7" type="Sprite2D" parent="Map/Decoration2"]
+position = Vector2(3624.5, 211)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock5" type="Sprite2D" parent="Map/Decoration2"]
+z_index = -1
+position = Vector2(3891.5, -78)
+texture = ExtResource("16_87tp0")
+
 [node name="RockObstacle" parent="." instance=ExtResource("8_qqcup")]
 position = Vector2(1859, -30)
 maxHealth = 10.0
@@ -138,7 +1456,112 @@ position = Vector2(5706, -30)
 maxHealth = 500.0
 objectName = "Pedra Muito Resistente"
 
-[node name="NPC" parent="." node_paths=PackedStringArray("quest") instance=ExtResource("9_x5iv8")]
-position = Vector2(1030, -141)
+[node name="NPC" type="CharacterBody2D" parent="." node_paths=PackedStringArray("quest")]
+position = Vector2(1030, -109)
+script = ExtResource("19_bxge7")
 dialogFile = "res://Dialog/SpellCaster.json"
 quest = NodePath("../BooleanQuest")
+head = ExtResource("20_e8xra")
+torso = ExtResource("21_jc2mc")
+arm = ExtResource("22_87tp0")
+leg = ExtResource("23_7sa1h")
+metadata/objectName = "NPC"
+metadata/InteractionType = "Dialog"
+
+[node name="Sprite" type="Sprite2D" parent="NPC"]
+z_index = 1
+texture = ExtResource("24_bv8bc")
+offset = Vector2(0, 75)
+
+[node name="head" type="Sprite2D" parent="NPC/Sprite"]
+z_index = 3
+position = Vector2(0, 33)
+texture = ExtResource("25_ewc04")
+offset = Vector2(0, -56.165)
+
+[node name="l_arm" type="Sprite2D" parent="NPC/Sprite"]
+z_index = 2
+position = Vector2(31, 54)
+texture = ExtResource("26_wrxb3")
+offset = Vector2(5.785, 29.985)
+
+[node name="l_leg" type="Sprite2D" parent="NPC/Sprite"]
+z_index = 1
+position = Vector2(18, 103)
+texture = ExtResource("27_m0ea0")
+offset = Vector2(-5.63, 27.83)
+
+[node name="r_arm" type="Sprite2D" parent="NPC/Sprite"]
+z_index = -2
+position = Vector2(-34, 54)
+texture = ExtResource("26_wrxb3")
+offset = Vector2(-5.47, 28.8)
+
+[node name="r_leg" type="Sprite2D" parent="NPC/Sprite"]
+z_index = -1
+position = Vector2(-23, 104)
+texture = ExtResource("27_m0ea0")
+offset = Vector2(-5.975, 26.48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+visible = false
+z_index = 5
+position = Vector2(0.113159, 57.4265)
+scale = Vector2(10, 10)
+shape = SubResource("CapsuleShape2D_anliv")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC"]
+libraries = {
+&"": SubResource("AnimationLibrary_ybp4q")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="NPC"]
+tree_root = SubResource("AnimationNodeStateMachine_bna5y")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/fall = false
+parameters/conditions/idle = false
+parameters/conditions/walk = false
+parameters/walk/TimeScale/scale = 1.0
+
+[node name="CharacterAnimation" type="Node2D" parent="NPC"]
+
+[node name="Interactable" parent="NPC" instance=ExtResource("28_8wg1p")]
+position = Vector2(0, -20)
+
+[node name="Dialog" type="VBoxContainer" parent="NPC"]
+z_index = 100
+clip_contents = true
+offset_left = 80.0
+offset_top = -35.0
+offset_right = 330.0
+offset_bottom = 5.0
+
+[node name="PointLight2D" type="PointLight2D" parent="NPC"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(0, 162.7)
+scale = Vector2(2.61, 0.653)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_n0dth")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 7037.0
+offset_top = -208.0
+offset_right = 7165.0
+offset_bottom = -185.0
+text = "Em construção..."
+
+[node name="NoEntry" type="Sprite2D" parent="."]
+position = Vector2(7097, -21)
+scale = Vector2(-1.21852, 1.21852)
+texture = ExtResource("12_5ul34")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NoEntry"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoEntry/StaticBody2D"]
+position = Vector2(-75.9121, -441.931)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5ul34")

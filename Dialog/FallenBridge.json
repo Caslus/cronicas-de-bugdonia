@@ -34,7 +34,7 @@
 	{
 		"id": "3",
 		"text": "Ah, veja bem, talvez um mago consiga fazer algo e ir para o outro lado, mas faz anos que um mago não aparece por essas terras.",
-		"options": [{ "text": "...", "next": null, "toggle": "talked" }]
+		"options": [{ "text": "...", "next": "4", "toggle": "talked" }]
 	},
 	{
 		"id": "4",
@@ -44,6 +44,11 @@
 	{
 		"id": "5",
 		"text": "Deixa eu te dar uma dica: editando inteiros, se você segurar SHIFT ao clicar nos botões, é como se você clicasse 10 vezes.",
+		"options": [{ "text": "...", "next": "5a" }]
+	},
+	{
+		"id": "5a",
+		"text": "E se você segurar CTRL... É como se clicasse divido por 10, quem sabe isso te ajude mais tarde.",
 		"options": [{ "text": "...", "next": "6" }]
 	},
 	{

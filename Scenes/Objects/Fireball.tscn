@@ -45,6 +45,7 @@ turbulence_enabled = true
 radius = 21.82
 
 [node name="Fireball" type="Node2D"]
+z_index = 5
 script = ExtResource("1_si8x6")
 speed = 800.0
 explodeParticles = ExtResource("2_480x7")

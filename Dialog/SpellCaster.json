@@ -14,6 +14,13 @@
 		]
 	},
 	{
+		"id": "2a",
+		"text": "Na nossa frente tem uma pedra com um condicional, se a vida dela for igual ou menor que 0, ela some.",
+		"options": [
+			{ "text": "E o feitiço?", "next": null }
+		]
+	},
+	{
 		"id": "3",
 		"text": "Antes de tudo, você precisa entender o que é uma função.",
 		"options": [
@@ -22,49 +29,49 @@
 	},
 	{
 		"id": "4",
-		"text": "Uma função é um bloco de código que realiza uma tarefa específica. Todos os magos usam funções para lançar feitiços.",
+		"text": "Uma função é um bloco de código que realiza uma tarefa específica. Todo feitiço é uma função!",
 		"options": [
 			{ "text": "Entendi...", "next": "5" }
 		]
 	},
 	{
 		"id": "5",
-		"text": "Aqui em nosso mundo, temos algumas runas que representam diferentes funções.",
+		"text": "Aqui em Bugdônia, usamos 'runas' para representar funções. Cada runa faz uma ação diferente.",
 		"options": [
 			{ "text": "An?", "next": "6" }
 		]
 	},
 	{
 		"id": "6",
-		"text": "Juntando as runas, você pode criar feitiços, que são uma função maior que contém outras funções.",
+		"text": "Juntando as runas, você pode criar feitiços mais complexos, como se fosse uma receita!",
 		"options": [
 			{ "text": "Interessante...", "next": "7" }
 		]
 	},
 	{
 		"id": "7",
-		"text": "Vou te ensinar um feitiço simples que cria uma bola de fogo.",
+		"text": "Vou te ensinar a criar um feitiço simples que cria uma bola de fogo.",
 		"options": [
 			{ "text": "Ótimo!", "next": "8", "toggle": "initialTalk" }
 		]
 	},
 	{
 		"id": "8",
-		"text": "Primeiro, abra o editor de feitiços no canto superior esquerdo da tela.",
+		"text": "O editor de feitiços está localizado no canto superior esquerdo da tela.",
 		"options": [
 			{ "text": "Certo...", "next": "9" }
 		]
 	},
 	{
 		"id": "9",
-		"text": "Agora, clique na bola de fogo na lista de runas disponíveis para adicioná-la ao seu feitiço.",
+		"text": "Primeiro, clique na bola de fogo na lista de runas disponíveis para adicioná-la ao seu feitiço.",
 		"options": [
 			{ "text": "Ok!", "next": "10" }
 		]
 	},
 	{
 		"id": "10",
-		"text": "Depois disso, clique no botão 'Executar' ou aperte a tecla 'R' para lançar o feitiço.",
+		"text": "Depois disso, clique no botão 'Executar' ou aperte a tecla 'F' para lançar o feitiço.",
 		"options": [
 			{ "text": "Vou tentar!", "next": "11" }
 		]
@@ -92,16 +99,16 @@
 	},
 	{
 		"id": "14",
-		"text": "Um loop é uma estrutura que repete um bloco de código várias vezes. Isso pode ser útil para lançar feitiços repetidamente.",
+		"text": "Um loop repete uma ou mais ações várias vezes. Então você não precisa escrever o mesmo feitiço várias vezes, ele se repete sozinho.",
 		"options": [
-			{ "text": "Como assim?", "next": "15" }
+			{ "text": "Parece útil!", "next": "15" }
 		]
 	},
 	{
 		"id": "15",
-		"text": "Irei te ensinar sobre o loop 'For' hoje. O loop 'For' repete um bloco de código um número específico de vezes.",
+		"text": "Hoje vou te ensinar o loop 'For'. Ele é usado quando sabemos exatamente quantas vezes queremos repetir algo.",
 		"options": [
-			{ "text": "Entendi...", "next": "16" }
+			{ "text": "Entendi...", "next": "16", "toggle": "initialLoop" }
 		]
 	},
 	{
@@ -120,7 +127,7 @@
 	},
 	{
 		"id": "18",
-		"text": "Agora, com o botão direito do mouse, clique no bloco do loop 'For' para configurar quantas vezes ele deve repetir e aperte em 'Salvar'.",
+		"text": "Agora, com o botão direito do mouse, clique na runa do loop 'For' para configurar quantas vezes ele vai repetir e então aperte em 'Salvar'.",
 		"options": [
 			{ "text": "Feito!", "next": "19" }
 		]
@@ -135,7 +142,7 @@
 
 	{
 		"id": "20",
-		"text": "Incrível! Mas temos uma pedra maior ainda pela frente...",
+		"text": "Incrível! Mas temos uma pedra ainda maior pela frente...",
 		"options": [
 			{ "text": "Mais uma?!", "next": "21" }
 		]

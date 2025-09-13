@@ -24,12 +24,19 @@
 		"id": "4",
 		"text": "É CLARO QUE EU QUERO! Vai lá e põe as quantidades certas! Tem que ser exato ou essa sopa vai virar uma poça radioativa!",
 		"options": [
-			{ "text": "Ok, vou ajustar os ingredientes.", "next": "5" }
+			{ "text": "Ok, vou ajustar os ingredientes.", "next": "4a" }
+		]
+	},
+	{
+		"id": "4a",
+		"text": "Tem que ser exato mesmo! Essa verificação é uma condicional de igualdade! Se você errar eu vou saber!",
+		"options": [
+			{ "text": "...", "next": "5" }
 		]
 	},
 	{
 		"id": "5",
-		"text": "E anda logo! Se eu ficar mais tempo sem comer, vou comer a primeira coisa que ver pela frente!",
+		"text": "Anda logo! Se eu ficar mais tempo sem comer, vou comer a primeira coisa que ver pela frente!",
 		"options": [
 			{ "text": "Já tô resolvendo!", "next": null, "toggle": "talked" }
 		]

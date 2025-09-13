@@ -25,6 +25,11 @@
 	{
 		"id": "5",
 		"text": "‘Se meus passos estiverem com volume 10, faço muito barulho. Mas se eu me editar e alterar o volume para 2 ou menos, ninguém ouve nada. Mesmo se eu tropeçar...’",
+		"options": [{ "text": "[Próxima página]", "next": "5a" }]
+	},
+	{
+		"id": "5a",
+		"text": "‘É uma condicional de comparação! Se o volume for maior que 2, eu faço barulho! Eureka!’",
 		"options": [{ "text": "[Próxima página]", "next": "6" }]
 	},
 	{
