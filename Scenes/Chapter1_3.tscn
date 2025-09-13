@@ -1465,7 +1465,7 @@ head = ExtResource("20_e8xra")
 torso = ExtResource("21_jc2mc")
 arm = ExtResource("22_87tp0")
 leg = ExtResource("23_7sa1h")
-metadata/objectName = "NPC"
+metadata/objectName = "Mago Roxo"
 metadata/InteractionType = "Dialog"
 
 [node name="Sprite" type="Sprite2D" parent="NPC"]
@@ -1563,5 +1563,4 @@ texture = ExtResource("12_5ul34")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoEntry/StaticBody2D"]
 position = Vector2(-75.9121, -441.931)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5ul34")

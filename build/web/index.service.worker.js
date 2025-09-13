@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1750117456|2053855173';
+const CACHE_VERSION = '1757791531|1211993384';
 /** @type {string} */
 const CACHE_PREFIX = 'Crônicas de Bugd-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
