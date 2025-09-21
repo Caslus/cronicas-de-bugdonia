@@ -13,10 +13,31 @@ extends Node
 
 @export var nextQuest: Node
 
+@export var tipUI: PackedScene
+@export_multiline var tipText: String
+
+var challengeTimer: Timer = null
+@export var tipWaitTime: float = 90.0
+
+func startChallenges():
+	if challengeTimer != null: return
+	challengeTimer = Timer.new()
+	challengeTimer.wait_time = tipWaitTime
+	challengeTimer.one_shot = true
+	challengeTimer.connect("timeout", Callable(self, "onChallengeTimeout"))
+	add_child(challengeTimer)
+	challengeTimer.start()
+
+func onChallengeTimeout():
+	var tipInstance = tipUI.instantiate()
+	tipInstance.setTipText(tipText)
+	add_child(tipInstance)
+
 func onUpdateQuestVariables():
 	if questVariables.get("talked") and !questVariables.get("cooked"):
 		ogre.set("startingDialog", "6")
 		cauldron.set_meta("Interactable", true)
+		startChallenges()
 	if questVariables.get("cooked"):
 		ogre.set("startingDialog", "8")
 	if questVariables.get("finished"):

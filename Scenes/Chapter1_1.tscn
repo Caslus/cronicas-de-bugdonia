@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=3 uid="uid://cjix7pwd21t2a"]
+[gd_scene load_steps=135 format=3 uid="uid://cjix7pwd21t2a"]
 
 [ext_resource type="Script" uid="uid://ben1rh6orqham" path="res://Scripts/Quest/FallenBridgeQuest.gd" id="4_8r1tc"]
 [ext_resource type="Texture2D" uid="uid://bmrjglbbcotuw" path="res://Assets/Objects/JailCellInstructions.png" id="4_k78fl"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://81sw4i4e0e27" path="res://Scripts/Object/HollowObject.gd" id="7_bs8ln"]
 [ext_resource type="Texture2D" uid="uid://btc2s0yl58uaf" path="res://Assets/Objects/CauldronBubbleGreen.png" id="7_enhjr"]
 [ext_resource type="Script" uid="uid://cg2dbkftqw81f" path="res://Scripts/Quest/MerchantQuest.gd" id="8_o1wc2"]
+[ext_resource type="PackedScene" uid="uid://bf7cf5tumxpkx" path="res://Scenes/Utils/TipUI.tscn" id="8_tfglp"]
 [ext_resource type="Script" uid="uid://fijg8l1ggma8" path="res://Scripts/Object/Lock.gd" id="9_bs8ln"]
 [ext_resource type="PackedScene" uid="uid://g6kx2to330s4" path="res://Scenes/Utils/Selectable.tscn" id="9_nfwj3"]
 [ext_resource type="PackedScene" uid="uid://c33s207brjvog" path="res://Scenes/Utils/Godray.tscn" id="11_fcg8e"]
@@ -905,6 +906,17 @@ ogreBarrier = NodePath("../Outside/OgreBarrier")
 cauldronGreen = ExtResource("6_jcfh3")
 cauldronBubbleGreen = ExtResource("7_enhjr")
 nextQuest = NodePath("../MerchantQuest")
+tipUI = ExtResource("8_tfglp")
+tipText = "Você precisa misturar os ingredientes com os [b]valores exatos[/b] da receita, ou o caldeirão não ficará verde.  
+Lembre-se da diferença entre números:
+
+• [b]Inteiros[/b] → não têm parte decimal (ex.: [color=yellow]1[/color], [color=yellow]2[/color], [color=yellow]10[/color]).  
+• [b]Decimais (float)[/b] → têm parte decimal separada por ponto (ex.: [color=yellow]0.5[/color], [color=yellow]1.2[/color], [color=yellow]3.0[/color]).
+
+A verificação do jogo usa [b]igualdade exata[/b]. Se você colocar, por exemplo, [color=red]1.4[/color] em vez de [color=green]1.5[/color], o resultado será [b]falso[/b] e a sopa continuará errada.
+
+Cuidado! Se demorar muito, o ogro pode ficar irritado...  
+Ajuste cada variável até que [color=green]todas coincidam exatamente com a receita[/color] para abrir caminho e acalmar o ogro."
 
 [node name="MerchantQuest" type="Node" parent="." node_paths=PackedStringArray("merchant", "merchantBarrier", "cratesList")]
 script = ExtResource("8_o1wc2")
