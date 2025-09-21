@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf7cf5tumxpkx"]
+
+[ext_resource type="Script" uid="uid://kuj5rf085tum" path="res://Scripts/Utils/CloseButton.gd" id="1_cl8fv"]
+[ext_resource type="Script" uid="uid://dqmdkjvcn3upa" path="res://Scripts/Utils/TipUI.gd" id="1_kaped"]
+
+[node name="TipUi" type="Control" node_paths=PackedStringArray("tipLabel", "tipText")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_kaped")
+tipLabel = NodePath("CanvasLayer/PanelContainer/VBoxContainer/Label")
+tipText = NodePath("CanvasLayer/PanelContainer/VBoxContainer/RichTextLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Dica"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[b]Lorem ipsum[/b] dolor sit amet, consectetur adipiscing elit. Sed dignissim at est eget facilisis. Sed elementum bibendum maximus. Aliquam porta orci nec gravida consectetur. Aenean rhoncus, turpis quis condimentum tempus, libero quam hendrerit leo, vel finibus ipsum eros vitae mi. Ut tellus nulla, maximus a faucibus id, tincidunt ac felis. Sed sagittis, tortor nec dignissim elementum, mauris metus tempor tortor, a ornare eros orci sit amet mi. Aenean maximus quam mattis leo accumsan, eu facilisis justo mollis. Aenean imperdiet, purus a ullamcorper varius, ligula odio faucibus mauris, eu vestibulum velit ipsum eget nunc. Duis ullamcorper lobortis consectetur. Pellentesque in fermentum sem, at consequat leo. Cras varius, tortor quis lacinia rhoncus, diam justo tempus mi, in vulputate est lectus et mi.
+
+Nulla tortor tellus, lacinia et cursus a, consequat ac mi. Aliquam erat volutpat. Nulla hendrerit, ante vel sagittis malesuada, libero dolor molestie mauris, eget ullamcorper quam erat vel dolor. In tincidunt egestas porta. Nunc vel tellus tempor, viverra dui ac, semper mi. Etiam laoreet, ligula sit amet aliquam venenatis, turpis ipsum tincidunt dui, in dignissim urna justo nec est. Fusce imperdiet eu sapien semper imperdiet. Nulla facilisi. Etiam ultrices augue nec ipsum tempus, id lobortis nisl auctor. Maecenas hendrerit justo velit. In ultrices sem a velit blandit mattis. Vestibulum massa arcu, volutpat ac nunc nec, finibus porta ex. Quisque mauris sapien, consectetur in lacinia ut, rhoncus et turpis. Pellentesque egestas nisl in velit gravida molestie. Aliquam semper, sem a lobortis congue, magna nisl iaculis neque, eu tempus odio lacus vitae massa.
+
+Morbi non lacinia augue. Vivamus pellentesque maximus lacus id laoreet. Integer et neque ante. Integer mauris leo, dictum et consectetur vitae, posuere ac nibh. Phasellus dignissim magna ut nibh luctus tristique. In hac habitasse platea dictumst. Etiam tempor leo ut nunc condimentum, id semper lacus interdum. Praesent lacinia risus non tellus dapibus laoreet. Donec nunc leo, tempus in dui id, efficitur efficitur est. Vestibulum in ex posuere, hendrerit lectus et, dignissim quam. Donec ultrices leo tellus, non tempus ante condimentum eu. "
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" node_paths=PackedStringArray("toBeClosed")]
+layout_mode = 2
+text = "Fechar"
+script = ExtResource("1_cl8fv")
+toBeClosed = NodePath("../../../..")
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/Button" to="CanvasLayer/PanelContainer/VBoxContainer/Button" method="onCloseButtonPressed"]

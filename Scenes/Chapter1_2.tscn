@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://brux173rmi3od"]
+[gd_scene load_steps=35 format=3 uid="uid://brux173rmi3od"]
 
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_2o7ur"]
 [ext_resource type="Script" uid="uid://d2h63bq33tdcp" path="res://Scripts/Quest/BooleanQuest.gd" id="1_c7sn1"]
+[ext_resource type="PackedScene" uid="uid://bf7cf5tumxpkx" path="res://Scenes/Utils/TipUI.tscn" id="2_5seof"]
 [ext_resource type="Texture2D" uid="uid://dx261cbtbwnkl" path="res://Assets/Objects/PrisonInnerDoor.png" id="2_v8im4"]
 [ext_resource type="Texture2D" uid="uid://d4j8ya07nd6bd" path="res://Assets/Objects/JailCell.png" id="3_gwm1x"]
 [ext_resource type="Texture2D" uid="uid://dh0yxmw1d163u" path="res://Assets/Objects/JailColumn.png" id="4_wjlat"]
@@ -32,6 +33,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o7ur"]
 size = Vector2(23761, 165)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5seof"]
+size = Vector2(306.495, 1654)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_er7ss"]
 size = Vector2(106, 502)
 
@@ -46,6 +50,16 @@ size = Vector2(749, 1399)
 [node name="BooleanQuest" type="Node" parent="." node_paths=PackedStringArray("npc")]
 script = ExtResource("1_c7sn1")
 npc = NodePath("../NPC")
+tipUI = ExtResource("2_5seof")
+tipText = "Lembre-se do que aprendeu sobre os [b]operadores lógicos[/b]:
+
+• [b]AND[/b] → só abre o portão se [color=green]todas[/color] as tochas certas estiverem acesas.  
+• [b]OR[/b] → basta [color=green]uma[/color] acesa para dar certo.  
+• [b]XOR[/b] → [color=orange]apenas uma[/color] pode estar acesa, nunca as duas.  
+• [b]XNOR[/b] → funciona se as duas tochas estiverem [color=green]iguais[/color] (acesas ou apagadas).  
+• [b]NAND[/b] → abre se [color=red]nem todas[/color] estiverem acesas.
+
+Observe o [b]padrão acima da porta[/b] e ajuste as lareiras até que o resultado final [color=yellow]combine exatamente com ele[/color]."
 
 [node name="Player" parent="." instance=ExtResource("1_2o7ur")]
 z_index = 10
@@ -64,6 +78,12 @@ metadata/Interactable = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
 position = Vector2(10511.5, -6)
 shape = SubResource("RectangleShape2D_2o7ur")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Map"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D2"]
+position = Vector2(-340.247, -823)
+shape = SubResource("RectangleShape2D_5seof")
 
 [node name="PrisonInnerDoor" type="Sprite2D" parent="Map"]
 position = Vector2(0, -709)
