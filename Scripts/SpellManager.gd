@@ -12,7 +12,9 @@ var availableSpellBlocks = [
 	WaitBlock.new(1.0),
 	FireballBlock.new(),
 	ForStartBlock.new(2),
-	ForEndBlock.new()
+	ForEndBlock.new(),
+	EditIndexBlock.new(0, 0),
+	LightningBlock.new()
 ]
 
 var currentSpell := Spell.new()
@@ -40,6 +42,10 @@ func append_spell_block(block: SpellBlock) -> void:
 				currentSpell.blocks.append(FireballBlock.new())
 			"tempo":
 				currentSpell.blocks.append(WaitBlock.new(block.config.tempo))
+			"editarindice":
+				currentSpell.blocks.append(EditIndexBlock.new(block.config.indice, block.config.valor))
+			"raio":
+				currentSpell.blocks.append(LightningBlock.new())
 			_:
 				pass # unknown block, do nothing
 

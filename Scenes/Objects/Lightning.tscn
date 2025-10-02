@@ -1,0 +1,308 @@
+[gd_scene load_steps=20 format=3 uid="uid://cg780hcjkeki0"]
+
+[ext_resource type="Shader" uid="uid://b5jgg3ramqy16" path="res://Shaders/Lightning.tres" id="1_effvk"]
+[ext_resource type="Script" uid="uid://cotrbl31upirr" path="res://Scripts/Object/Lightning.gd" id="1_qi50k"]
+[ext_resource type="Texture2D" uid="uid://bysfd7lpm77e8" path="res://Assets/Objects/Lightning.png" id="2_qi50k"]
+[ext_resource type="Texture2D" uid="uid://b4p4e4b6dbqpn" path="res://Assets/Textures/1.png" id="3_hyrwe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvkb5"]
+shader = ExtResource("1_effvk")
+shader_parameter/vanishing = 1.0
+shader_parameter/speed = Vector2(-1.5, 0)
+shader_parameter/basic_texture = ExtResource("2_qi50k")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5ti8b"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_nufem"]
+_data = [Vector2(0, 0.499144), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_hckhr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_cec5b"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_uktd1"]
+curve_x = SubResource("Curve_nufem")
+curve_y = SubResource("Curve_hckhr")
+curve_z = SubResource("Curve_cec5b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vvkb5"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 8.47
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(1, 7, 0)
+initial_velocity_min = -500.0
+initial_velocity_max = -400.0
+radial_velocity_min = 500.0
+radial_velocity_max = 700.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveXYZTexture_uktd1")
+color = Color(0, 1, 1, 1)
+hue_variation_min = -0.21
+hue_variation_max = 0.13
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nufem"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_uktd1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.155756, 0.98887), 0.623415, 0.623415, 0, 0, Vector2(1, 0.393408), 0.256216, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0iihv"]
+curve = SubResource("Curve_uktd1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tf0wa"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_0iihv")
+
+[sub_resource type="Animation" id="Animation_qi50k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lightning:material:shader_parameter/vanishing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lightning:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lightning/PointLight2D:texture_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+
+[sub_resource type="Animation" id="Animation_effvk"]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lightning:material:shader_parameter/vanishing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lightning:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.37),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sparks:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Lightning/PointLight2D:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Lightning/PointLight2D:texture_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1.86607),
+"update": 0,
+"values": [15.58, 0.01]
+}
+
+[sub_resource type="Animation" id="Animation_hyrwe"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sparks:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lightning/PointLight2D:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Lightning:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Lightning:material:shader_parameter/vanishing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Lightning/PointLight2D:texture_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [15.58]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hyrwe"]
+_data = {
+&"RESET": SubResource("Animation_qi50k"),
+&"end": SubResource("Animation_effvk"),
+&"start": SubResource("Animation_hyrwe")
+}
+
+[node name="Lightning" type="Node2D"]
+z_index = 10
+script = ExtResource("1_qi50k")
+
+[node name="Lightning" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_vvkb5")
+position = Vector2(-527.3, -294.3)
+points = PackedVector2Array(526, -1164, 526, 295)
+width = 136.7
+default_color = Color(0.503696, 0.830725, 1, 1)
+texture_mode = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="Lightning"]
+position = Vector2(530, 290)
+color = Color(0.407843, 1, 1, 1)
+texture = ExtResource("3_hyrwe")
+texture_scale = 0.01
+
+[node name="Sparks" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_5ti8b")
+position = Vector2(0.700012, -2.30005)
+amount = 15
+texture = ExtResource("3_hyrwe")
+lifetime = 0.15
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_vvkb5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_nufem")
+position = Vector2(-0.299988, -4.30005)
+amount = 1
+texture = ExtResource("3_hyrwe")
+lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_tf0wa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hyrwe")
+}

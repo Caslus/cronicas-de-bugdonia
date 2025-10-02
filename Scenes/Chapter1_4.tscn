@@ -1,0 +1,672 @@
+[gd_scene load_steps=40 format=3 uid="uid://duka6t5arw7un"]
+
+[ext_resource type="Texture2D" uid="uid://c1icpnkjpwirg" path="res://Assets/Objects/Cliff.png" id="1_nfrml"]
+[ext_resource type="PackedScene" uid="uid://bo52kj8ehcn2g" path="res://Scenes/Utils/Background.tscn" id="1_vvkb5"]
+[ext_resource type="Texture2D" uid="uid://cu4em8ni76ad6" path="res://Assets/Objects/Tree.png" id="2_4w4yy"]
+[ext_resource type="Script" uid="uid://dsvtlhictrsr4" path="res://Scripts/Quest/CastleGate.gd" id="2_tf0wa"]
+[ext_resource type="Texture2D" uid="uid://c5k1uluvqvrsf" path="res://Assets/Objects/Bush.png" id="3_7eltm"]
+[ext_resource type="PackedScene" uid="uid://bf7cf5tumxpkx" path="res://Scenes/Utils/TipUI.tscn" id="3_dxdr0"]
+[ext_resource type="Texture2D" uid="uid://bx2pfohmjgnb8" path="res://Assets/Objects/Rock1.png" id="4_fiy4g"]
+[ext_resource type="Texture2D" uid="uid://tdfvvirhjwc" path="res://Assets/Objects/Bush4.png" id="5_mr3nd"]
+[ext_resource type="Texture2D" uid="uid://dshx46r1y370c" path="res://Assets/Objects/Bush2.png" id="6_g1an2"]
+[ext_resource type="Texture2D" uid="uid://dvk4loc44c5pm" path="res://Assets/Objects/Bush3.png" id="7_6lf5i"]
+[ext_resource type="Texture2D" uid="uid://b1s0bppa8l8x0" path="res://Assets/Objects/Rock2.png" id="8_h5f5t"]
+[ext_resource type="Texture2D" uid="uid://8jurw8glnp2i" path="res://Assets/Objects/Rock3.png" id="9_grauy"]
+[ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="10_fiy4g"]
+[ext_resource type="Script" uid="uid://b71nfyjmm0mqa" path="res://Scripts/SpellManager.gd" id="11_mr3nd"]
+[ext_resource type="PackedScene" uid="uid://c4waaclx2re3q" path="res://Scenes/Objects/FailParticles.tscn" id="12_g1an2"]
+[ext_resource type="Texture2D" uid="uid://bl8cr6fnwoqlw" path="res://Assets/Objects/PrisonOuterDoor.png" id="13_mr3nd"]
+[ext_resource type="Script" uid="uid://ec4t262ley4j" path="res://Scripts/Object/Decoder.gd" id="15_6lf5i"]
+[ext_resource type="Texture2D" uid="uid://3ftxo4l3rff6" path="res://Assets/Objects/Encodificador.png" id="15_grauy"]
+[ext_resource type="PackedScene" uid="uid://g6kx2to330s4" path="res://Scenes/Utils/Selectable.tscn" id="16_h5f5t"]
+[ext_resource type="PackedScene" uid="uid://dq3s72w5aye62" path="res://Scenes/Utils/SpellEditor.tscn" id="17_grauy"]
+[ext_resource type="Texture2D" uid="uid://mkrcgqtlq4pr" path="res://Assets/Objects/PrisonOuterDoorOpen.png" id="18_5ti8b"]
+[ext_resource type="Texture2D" uid="uid://dc1ion6hdse6q" path="res://Assets/Objects/Cog.png" id="18_20e2o"]
+[ext_resource type="Script" uid="uid://dlh8sc3yjqa30" path="res://Scripts/Object/Cog.gd" id="19_2074i"]
+[ext_resource type="Texture2D" uid="uid://d3moup7wno4t4" path="res://Assets/Objects/RobotArm.png" id="20_vq0mu"]
+[ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="23_0iihv"]
+[ext_resource type="Texture2D" uid="uid://b8jpbwh0ejr8" path="res://Assets/Entity/CastleGate/cabeça.png" id="25_tf0wa"]
+[ext_resource type="Texture2D" uid="uid://dpsdua330nr70" path="res://Assets/Entity/CastleGate/torso.png" id="26_dxdr0"]
+[ext_resource type="Texture2D" uid="uid://bs5mvgqerp06i" path="res://Assets/Entity/CastleGate/braço.png" id="27_ql1ah"]
+[ext_resource type="Texture2D" uid="uid://yk11d7ftmvm6" path="res://Assets/Entity/CastleGate/perna.png" id="28_dffc0"]
+[ext_resource type="Script" uid="uid://cvwcji0rt6ubb" path="res://Scripts/Object/AreaChangeScene.gd" id="30_ql1ah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq0mu"]
+size = Vector2(1523, 2027)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20e2o"]
+size = Vector2(18961, 165)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2074i"]
+size = Vector2(904, 1510)
+
+[sub_resource type="Gradient" id="Gradient_yod24"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vq0mu"]
+gradient = SubResource("Gradient_yod24")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_4d1tx"]
+offsets = PackedFloat32Array(0.209459, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_grauy"]
+gradient = SubResource("Gradient_4d1tx")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grauy"]
+size = Vector2(235, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dffc0"]
+size = Vector2(608, 1436)
+
+[node name="Chapter14" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_vvkb5")]
+
+[node name="Quest" type="Node" parent="." node_paths=PackedStringArray("npc", "spellManager", "spellEditor")]
+script = ExtResource("2_tf0wa")
+questName = "[\"V\", \"e\", \"t\", \"o\", r, e, s]"
+questDescription = "Aprenda a usar funções e loops destruindo pedras."
+questVariables = {
+"destroyedRock1": false,
+"destroyedRock2": false,
+"destroyedRock3": false,
+"initialLoop": false,
+"initialTalk": false,
+"learned_loop": false
+}
+npc = NodePath("../NPC")
+spellManager = NodePath("../Player/SpellManager")
+spellEditor = NodePath("../SpellEditor")
+tipUI = ExtResource("3_dxdr0")
+tipText = "Um vetor é apenas uma lista de valores organizados em posições chamadas [b]índices[/b].  
+Na maioria das linguagens de programação, o primeiro índice é [b]0[/b].  
+
+Use a [b]Runa de Edição de Índice[/b] para colocar os números corretos em cada posição do vetor.  
+Quando o vetor estiver idêntico ao solicitado pelo encodificador, lance um feitiço com a [b]Runa de Raio[/b] para ativar as engrenagens e abrir o portão.  
+
+E lembre-se: se errar os valores, nada acontece... mas talvez o Dragão Elseifor não tenha tanta paciência assim."
+
+[node name="SpellEditor" parent="." node_paths=PackedStringArray("spellManager") instance=ExtResource("17_grauy")]
+visible = false
+allowedToUseEditor = false
+spellManager = NodePath("../Player/SpellManager")
+
+[node name="Player" parent="." instance=ExtResource("10_fiy4g")]
+z_index = 10
+position = Vector2(1207, -155)
+VAR_SPEED = 15.0
+RESPAWN_POINT = Vector2(-270, -270)
+hasWand = true
+CAMERA_LIMIT_LEFT = -812
+metadata/objectName = "Jogador"
+metadata/Interactable = true
+
+[node name="SpellManager" type="Node" parent="Player"]
+script = ExtResource("11_mr3nd")
+spellBlockLimit = 6
+failParticles = ExtResource("12_g1an2")
+allowedToCast = false
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Map"]
+position = Vector2(5106, -538)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D2"]
+position = Vector2(-438.5, -174.5)
+shape = SubResource("RectangleShape2D_vq0mu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
+position = Vector2(0, 217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
+position = Vector2(8111.5, -6)
+shape = SubResource("RectangleShape2D_20e2o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/StaticBody2D"]
+z_index = 30
+position = Vector2(494, -737)
+shape = SubResource("RectangleShape2D_2074i")
+
+[node name="Cliff" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(384.502, 73)
+texture = ExtResource("1_nfrml")
+
+[node name="Cliff2" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(2215, 73)
+texture = ExtResource("1_nfrml")
+
+[node name="Cliff3" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -11
+position = Vector2(4064, 73)
+texture = ExtResource("1_nfrml")
+
+[node name="Decoration" type="Node2D" parent="Map"]
+
+[node name="Tree2" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(626.5, -453)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("2_4w4yy")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree2"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 1.55
+
+[node name="Tree3" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(876.5, -297)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("2_4w4yy")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 1.55
+
+[node name="Tree11" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(2023, -339)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("2_4w4yy")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 1.55
+
+[node name="Tree5" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(2811.5, -377)
+texture = ExtResource("2_4w4yy")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree5"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 1.55
+
+[node name="Tree4" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(1239.5, -359)
+texture = ExtResource("2_4w4yy")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Tree4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 1.55
+
+[node name="Bush3" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(94.5, -140)
+texture = ExtResource("3_7eltm")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+
+[node name="Bush10" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(-39.5, -56)
+texture = ExtResource("4_fiy4g")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush10"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 0.73
+
+[node name="Bush16" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(4838, 222)
+texture = ExtResource("4_fiy4g")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush16"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 0.73
+
+[node name="Bush11" type="Sprite2D" parent="Map/Decoration"]
+z_index = 1
+position = Vector2(1372.5, -13)
+texture = ExtResource("4_fiy4g")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 0.73
+
+[node name="Bush12" type="Sprite2D" parent="Map/Decoration"]
+z_index = 1
+position = Vector2(2203, -63)
+texture = ExtResource("4_fiy4g")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush12"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 0.73
+
+[node name="Bush13" type="Sprite2D" parent="Map/Decoration"]
+z_index = 1
+position = Vector2(3010.5, -72)
+texture = ExtResource("4_fiy4g")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush13"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 0.73
+
+[node name="Bush7" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(695.5, -25)
+texture = ExtResource("5_mr3nd")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush7"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+
+[node name="Bush9" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(2697.5, -59)
+texture = ExtResource("5_mr3nd")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush9"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+
+[node name="Bush14" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(3910, -107)
+texture = ExtResource("5_mr3nd")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush14"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+
+[node name="Bush4" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(1522.5, -85)
+texture = ExtResource("3_7eltm")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+
+[node name="Bush15" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(4416, -112)
+texture = ExtResource("3_7eltm")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush15"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+
+[node name="Bush26" type="Sprite2D" parent="Map/Decoration"]
+z_index = 20
+position = Vector2(889.5, 149)
+texture = ExtResource("3_7eltm")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush26"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+
+[node name="Bush27" type="Sprite2D" parent="Map/Decoration"]
+z_index = 20
+position = Vector2(3825, 149)
+texture = ExtResource("3_7eltm")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush27"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+
+[node name="Bush5" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(366.501, -96)
+scale = Vector2(0.640039, 0.640039)
+texture = ExtResource("6_g1an2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush5"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+
+[node name="Bush6" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(1140.5, -27)
+texture = ExtResource("7_6lf5i")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush6"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+offset = Vector2(0, -19.485)
+
+[node name="Bush8" type="Sprite2D" parent="Map/Decoration"]
+z_index = -1
+position = Vector2(2341, -96)
+texture = ExtResource("7_6lf5i")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration/Bush8"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+offset = Vector2(0, -19.485)
+
+[node name="Rock2" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(473.5, -18)
+texture = ExtResource("8_h5f5t")
+
+[node name="Rock3" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(915, 14)
+texture = ExtResource("9_grauy")
+
+[node name="Rock4" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(2805.5, 6)
+texture = ExtResource("9_grauy")
+
+[node name="Rock5" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(4292, -3)
+texture = ExtResource("9_grauy")
+
+[node name="Rock6" type="Sprite2D" parent="Map/Decoration"]
+position = Vector2(1795.5, 220)
+texture = ExtResource("9_grauy")
+
+[node name="RobotArm" type="Sprite2D" parent="Map"]
+z_index = -1
+position = Vector2(4247.5, -234)
+texture = ExtResource("20_vq0mu")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/RobotArm"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(296.5, 182)
+scale = Vector2(3.93563, 1.35624)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_vq0mu")
+texture_scale = 0.6
+
+[node name="PrisonOuterDoor" type="Sprite2D" parent="Map"]
+z_index = -2
+position = Vector2(4790, -538)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("13_mr3nd")
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/PrisonOuterDoor"]
+position = Vector2(7, -42)
+color = Color(0.207843, 0.207843, 0.25098, 1)
+polygon = PackedVector2Array(-277, -819, -275, 898, -3362, 930, -3362, -987)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Map/PrisonOuterDoor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/PrisonOuterDoor/StaticBody2D"]
+position = Vector2(-438.5, -174.5)
+shape = SubResource("RectangleShape2D_vq0mu")
+
+[node name="Encodificador" type="StaticBody2D" parent="." node_paths=PackedStringArray("cogs", "door")]
+position = Vector2(4107.5, -122)
+input_pickable = true
+script = ExtResource("15_6lf5i")
+cogs = [NodePath("../Cog1"), NodePath("../Cog2"), NodePath("../Cog3"), NodePath("../Cog4")]
+door = NodePath("../Map/PrisonOuterDoor")
+doorOpenTexture = ExtResource("18_5ti8b")
+metadata/Interactable = true
+metadata/objectName = "Encodificador"
+
+[node name="Sprite" type="Sprite2D" parent="Encodificador"]
+z_index = 1
+position = Vector2(19, -41)
+texture = ExtResource("15_grauy")
+
+[node name="PointLight2D" type="PointLight2D" parent="Encodificador/Sprite"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 141)
+scale = Vector2(6.2375, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_grauy")
+
+[node name="Selectable" parent="Encodificador" instance=ExtResource("16_h5f5t")]
+z_index = 0
+position = Vector2(40.9999, 29)
+scale = Vector2(374.737, 374.737)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Encodificador"]
+position = Vector2(16.5, 42.5)
+shape = SubResource("RectangleShape2D_grauy")
+one_way_collision = true
+debug_color = Color(0.680763, 0.525293, 0, 0.42)
+
+[node name="Cog1" type="Sprite2D" parent="."]
+position = Vector2(3931.5, -403)
+texture = ExtResource("18_20e2o")
+script = ExtResource("19_2074i")
+
+[node name="Label" type="Label" parent="Cog1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -67.5
+offset_right = -32.5
+offset_bottom = -44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cog2" type="Sprite2D" parent="."]
+position = Vector2(4050.5, -403)
+texture = ExtResource("18_20e2o")
+script = ExtResource("19_2074i")
+
+[node name="Label" type="Label" parent="Cog2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -67.5
+offset_right = -32.5
+offset_bottom = -44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cog3" type="Sprite2D" parent="."]
+position = Vector2(4169.5, -403)
+texture = ExtResource("18_20e2o")
+script = ExtResource("19_2074i")
+
+[node name="Label" type="Label" parent="Cog3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -67.5
+offset_right = -32.5
+offset_bottom = -44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cog4" type="Sprite2D" parent="."]
+position = Vector2(4288.5, -403)
+texture = ExtResource("18_20e2o")
+script = ExtResource("19_2074i")
+
+[node name="Label" type="Label" parent="Cog4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -67.5
+offset_right = -32.5
+offset_bottom = -44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NPC" parent="." instance=ExtResource("23_0iihv")]
+z_index = 2
+position = Vector2(3619, -156)
+dialogFile = "res://Dialog/CastleGate.json"
+startingDialog = "0"
+head = ExtResource("25_tf0wa")
+torso = ExtResource("26_dxdr0")
+arm = ExtResource("27_ql1ah")
+leg = ExtResource("28_dffc0")
+metadata/objectName = "Transeunte"
+
+[node name="NextLevel" type="Area2D" parent="."]
+position = Vector2(-2028, 0)
+script = ExtResource("30_ql1ah")
+next_scene = "res://Scenes/Chapter1_5.tscn"
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(6928, -586)
+shape = SubResource("RectangleShape2D_dffc0")
+
+[connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]

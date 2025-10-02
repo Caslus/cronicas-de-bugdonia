@@ -1,9 +1,10 @@
-[gd_scene load_steps=56 format=3 uid="uid://bpxejyxaowfj6"]
+[gd_scene load_steps=57 format=3 uid="uid://bpxejyxaowfj6"]
 
 [ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_dlh0u"]
 [ext_resource type="Script" uid="uid://c7im13l7h234q" path="res://Scripts/Quest/SpellcasterQuest.gd" id="1_vlnd7"]
 [ext_resource type="Script" uid="uid://b71nfyjmm0mqa" path="res://Scripts/SpellManager.gd" id="2_457wa"]
 [ext_resource type="Texture2D" uid="uid://c1icpnkjpwirg" path="res://Assets/Objects/Cliff.png" id="3_457wa"]
+[ext_resource type="PackedScene" uid="uid://bf7cf5tumxpkx" path="res://Scenes/Utils/TipUI.tscn" id="3_bxge7"]
 [ext_resource type="PackedScene" uid="uid://c4waaclx2re3q" path="res://Scenes/Objects/FailParticles.tscn" id="3_ufcq2"]
 [ext_resource type="PackedScene" uid="uid://dq3s72w5aye62" path="res://Scenes/Utils/SpellEditor.tscn" id="4_1qkkm"]
 [ext_resource type="Texture2D" uid="uid://dx261cbtbwnkl" path="res://Assets/Objects/PrisonInnerDoor.png" id="4_ig520"]
@@ -12,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bo52kj8ehcn2g" path="res://Scenes/Utils/Background.tscn" id="9_52fa6"]
 [ext_resource type="Texture2D" uid="uid://cu4em8ni76ad6" path="res://Assets/Objects/Tree.png" id="10_6akk8"]
 [ext_resource type="Texture2D" uid="uid://c5k1uluvqvrsf" path="res://Assets/Objects/Bush.png" id="11_gg2h1"]
-[ext_resource type="Texture2D" uid="uid://brac0nym6yjvh" path="res://Assets/Objects/NoEntry.png" id="12_5ul34"]
 [ext_resource type="Texture2D" uid="uid://bx2pfohmjgnb8" path="res://Assets/Objects/Rock1.png" id="12_jlpy8"]
 [ext_resource type="Texture2D" uid="uid://tdfvvirhjwc" path="res://Assets/Objects/Bush4.png" id="13_cf1s2"]
 [ext_resource type="Texture2D" uid="uid://dshx46r1y370c" path="res://Assets/Objects/Bush2.png" id="14_e8xra"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cl7ubhquj5hbe" path="res://Assets/Entity/Character/r_arm.png" id="26_wrxb3"]
 [ext_resource type="Texture2D" uid="uid://dvdoyaljimoto" path="res://Assets/Entity/Character/l_leg.png" id="27_m0ea0"]
 [ext_resource type="PackedScene" uid="uid://cakt5wbo6p32p" path="res://Scenes/Utils/interactable.tscn" id="28_8wg1p"]
+[ext_resource type="Script" uid="uid://cvwcji0rt6ubb" path="res://Scripts/Object/AreaChangeScene.gd" id="30_bv8bc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufcq2"]
 size = Vector2(18961, 165)
@@ -36,12 +37,12 @@ size = Vector2(18961, 165)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5iv8"]
 size = Vector2(130, 1541)
 
-[sub_resource type="Gradient" id="Gradient_yod24"]
+[sub_resource type="Gradient" id="Gradient_4d1tx"]
 offsets = PackedFloat32Array(0.209459, 0.625)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4d1tx"]
-gradient = SubResource("Gradient_yod24")
+gradient = SubResource("Gradient_4d1tx")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -708,23 +709,23 @@ states/walk/position = Vector2(376, 212)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kt8cb"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_7wpht"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_t30v0"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_l7uws"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2js3y"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_36yee"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_ly1ph")]
 graph_offset = Vector2(-110, -40)
 
-[sub_resource type="Gradient" id="Gradient_n0dth"]
+[sub_resource type="Gradient" id="Gradient_bv8bc"]
 offsets = PackedFloat32Array(0.209459, 0.625)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_n0dth"]
-gradient = SubResource("Gradient_n0dth")
+gradient = SubResource("Gradient_bv8bc")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ul34"]
-size = Vector2(266.718, 1180.94)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewc04"]
+size = Vector2(608, 1436)
 
 [node name="Chapter13" type="Node2D"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("9_52fa6")]
 
-[node name="BooleanQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "spellManager", "spellEditor", "rock1", "rock2", "rock3")]
+[node name="SpellcasterQuest" type="Node" parent="." node_paths=PackedStringArray("npc", "spellManager", "spellEditor", "rock1", "rock2", "rock3")]
 script = ExtResource("1_vlnd7")
 npc = NodePath("../NPC")
 spellManager = NodePath("../Player/SpellManager")
@@ -732,8 +733,48 @@ spellEditor = NodePath("../SpellEditor")
 rock1 = NodePath("../RockObstacle")
 rock2 = NodePath("../RockObstacle2")
 rock3 = NodePath("../RockObstacle3")
+tipUI = ExtResource("3_bxge7")
+tipText = "Um [b]feitiço[/b] em Bugdônia funciona como uma [b]função[/b]: um bloco de instruções que você pode usar sempre que precisar.  
+Cada runa no editor representa uma ação dentro dessa função.  
+
+Por exemplo, em programação seria algo assim:  
+
+[code]function feitiço() {
+    atirarBolaDeFogo();  -- essa é uma função já fornecida pelo jogo
+}[/code]
+
+No editor de feitiços, basta:  
+• [b]Selecionar a runa de Bola de Fogo[/b] para adicioná-la ao feitiço.  
+• Depois clicar em [color=yellow]Executar[/color] ou aperte a tecla [color=yellow]F[/color] para lançar.  
+
+Use sua magia contra a pedra: quando a vida dela chegar a [b]0 ou menos[/b], ela desaparece e o caminho se abre.  
+
+Se demorar, o mago pode pensar que você ainda não entendeu como [i]funções/feitiços[/i] funcionam. Experimente e veja a magia acontecer! ✨🔥"
+tipText2 = "Algumas pedras em Bugdônia têm [b]muita vida[/b], e lançar uma única bola de fogo não basta.  
+É aqui que entram os [b]loops[/b]: eles repetem uma ação várias vezes sem que você precise escrever tudo de novo.  
+
+O mago ensinou o [b]loop For[/b], usado quando já sabemos quantas repetições são necessárias.  
+Por exemplo, em programação ficaria assim:  
+
+[code]function feitiço() {
+    for(i = 1; i <= 10; i = i + 1) {
+        atirarBolaDeFogo();
+    }
+}[/code]
+
+Nesse caso, o loop repete o feitiço [b]10 vezes[/b].  
+Como cada [b]Bola de Fogo causa 10 de dano[/b] e a pedra tem [b]100 de vida[/b], isso é suficiente para destruí-la.  
+
+No editor de feitiços, basta:  
+• Adicionar a runa do [b]For[/b].  
+• Colocar a runa de [b]Bola de Fogo[/b] dentro dele.  
+• Fechar com a runa de [b]fim de loop[/b].  
+• E configurar o número de repetições.  
+
+Assim, seu feitiço fica muito mais [i]poderoso e eficiente[/i]! ✨🔥"
 
 [node name="SpellEditor" parent="." node_paths=PackedStringArray("spellManager") instance=ExtResource("4_1qkkm")]
+visible = false
 allowedToUseEditor = false
 spellManager = NodePath("../Player/SpellManager")
 
@@ -1386,22 +1427,6 @@ range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_4d1tx")
 offset = Vector2(0, -19.485)
 
-[node name="Bush14" type="Sprite2D" parent="Map/Decoration2"]
-z_index = -1
-position = Vector2(3705.5, -123)
-texture = ExtResource("15_jc2mc")
-
-[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration2/Bush14"]
-show_behind_parent = true
-z_index = -10
-position = Vector2(-15.6259, 71.8706)
-scale = Vector2(5.1175, 1.20619)
-energy = 0.24
-blend_mode = 1
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_4d1tx")
-offset = Vector2(0, -19.485)
-
 [node name="Bush8" type="Sprite2D" parent="Map/Decoration2"]
 z_index = -1
 position = Vector2(2341, -96)
@@ -1443,6 +1468,311 @@ z_index = -1
 position = Vector2(3891.5, -78)
 texture = ExtResource("16_87tp0")
 
+[node name="Decoration3" type="Node2D" parent="Map"]
+position = Vector2(6797, 0)
+
+[node name="Tree2" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(626.5, -453)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Tree2"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree3" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(876.5, -297)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Tree3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree11" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(2023, -339)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Tree11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree5" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(2811.5, -377)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Tree5"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Tree4" type="Sprite2D" parent="Map/Decoration3"]
+z_index = -1
+position = Vector2(1239.5, -359)
+texture = ExtResource("10_6akk8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Tree4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 329)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.41
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 1.55
+
+[node name="Bush3" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(94.5, -140)
+texture = ExtResource("11_gg2h1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush3"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush10" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(-39.5, -56)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush10"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush11" type="Sprite2D" parent="Map/Decoration3"]
+z_index = 1
+position = Vector2(1372.5, -13)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush11"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush12" type="Sprite2D" parent="Map/Decoration3"]
+z_index = 1
+position = Vector2(2716, 204)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush12"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush13" type="Sprite2D" parent="Map/Decoration3"]
+z_index = 1
+position = Vector2(3010.5, -72)
+texture = ExtResource("12_jlpy8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush13"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 56)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+texture_scale = 0.73
+
+[node name="Bush7" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(695.5, -25)
+texture = ExtResource("13_cf1s2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush7"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush9" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(2697.5, -59)
+texture = ExtResource("13_cf1s2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush9"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 48)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush4" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(1522.5, -85)
+texture = ExtResource("11_gg2h1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush4"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush26" type="Sprite2D" parent="Map/Decoration3"]
+z_index = 20
+position = Vector2(889.5, 149)
+texture = ExtResource("11_gg2h1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush26"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(2, 78)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.5
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush5" type="Sprite2D" parent="Map/Decoration3"]
+z_index = -1
+position = Vector2(366.501, -96)
+scale = Vector2(0.640039, 0.640039)
+texture = ExtResource("14_e8xra")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush5"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+
+[node name="Bush6" type="Sprite2D" parent="Map/Decoration3"]
+z_index = -1
+position = Vector2(1140.5, -27)
+texture = ExtResource("15_jc2mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush6"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+offset = Vector2(0, -19.485)
+
+[node name="Bush14" type="Sprite2D" parent="Map/Decoration3"]
+z_index = -1
+position = Vector2(3705.5, -123)
+texture = ExtResource("15_jc2mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush14"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+offset = Vector2(0, -19.485)
+
+[node name="Bush8" type="Sprite2D" parent="Map/Decoration3"]
+z_index = -1
+position = Vector2(2341, -96)
+texture = ExtResource("15_jc2mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Decoration3/Bush8"]
+show_behind_parent = true
+z_index = -10
+position = Vector2(-15.6259, 71.8706)
+scale = Vector2(5.1175, 1.20619)
+energy = 0.24
+blend_mode = 1
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_4d1tx")
+offset = Vector2(0, -19.485)
+
+[node name="Rock2" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(473.5, -18)
+texture = ExtResource("16_87tp0")
+
+[node name="Rock3" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(963.5, 16)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock4" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(2805.5, 6)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock6" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(1795.5, 220)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock7" type="Sprite2D" parent="Map/Decoration3"]
+position = Vector2(3624.5, 211)
+texture = ExtResource("17_7sa1h")
+
+[node name="Rock5" type="Sprite2D" parent="Map/Decoration3"]
+z_index = -1
+position = Vector2(3891.5, -78)
+texture = ExtResource("16_87tp0")
+
 [node name="RockObstacle" parent="." instance=ExtResource("8_qqcup")]
 position = Vector2(1859, -30)
 maxHealth = 10.0
@@ -1460,7 +1790,7 @@ objectName = "Pedra Muito Resistente"
 position = Vector2(1030, -109)
 script = ExtResource("19_bxge7")
 dialogFile = "res://Dialog/SpellCaster.json"
-quest = NodePath("../BooleanQuest")
+quest = NodePath("../SpellcasterQuest")
 head = ExtResource("20_e8xra")
 torso = ExtResource("21_jc2mc")
 arm = ExtResource("22_87tp0")
@@ -1547,20 +1877,13 @@ blend_mode = 1
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_n0dth")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 7037.0
-offset_top = -208.0
-offset_right = 7165.0
-offset_bottom = -185.0
-text = "Em construção..."
+[node name="NextLevel" type="Area2D" parent="."]
+position = Vector2(836, 0)
+script = ExtResource("30_bv8bc")
+next_scene = "res://Scenes/Chapter1_4.tscn"
 
-[node name="NoEntry" type="Sprite2D" parent="."]
-position = Vector2(7097, -21)
-scale = Vector2(-1.21852, 1.21852)
-texture = ExtResource("12_5ul34")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(6928, -586)
+shape = SubResource("RectangleShape2D_ewc04")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="NoEntry"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NoEntry/StaticBody2D"]
-position = Vector2(-75.9121, -441.931)
-shape = SubResource("RectangleShape2D_5ul34")
+[connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]

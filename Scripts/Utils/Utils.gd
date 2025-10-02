@@ -3,6 +3,12 @@ extends Node
 func round_to_dec(num, digit):
 		return round(num * pow(10.0, digit)) / pow(10.0, digit)
 
+func randomNumbers(_size: int, _min: int, _max: int) -> Array:
+	var numbers = []
+	for i in range(_size):
+		numbers.append(randi() % (_max - _min) + _min)
+	return numbers
+
 func set_shader_recursive(node: Node, newShader: Shader):
 	if node is Sprite2D:
 		if newShader == null:

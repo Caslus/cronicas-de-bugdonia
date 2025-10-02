@@ -931,6 +931,14 @@ merchant = NodePath("../Outside/FruitMerchant")
 merchantBarrier = NodePath("../Outside/MerchantBarrier")
 cratesList = NodePath("../Outside/Crates")
 happyFace = ExtResource("69_qbte1")
+tipUI = ExtResource("8_tfglp")
+tipText = "O comerciante precisa que os [b]nomes das frutas[/b] estejam corretos para poder vender de novo.  
+Lembre-se: [b]strings[/b] são [b]textos[/b] que o jogo compara [b]letra por letra[/b]!
+
+• Escreva [color=green]\"banana\"[/color], [color=green]\"laranja\"[/color], [color=green]\"abacaxi\"[/color] e [color=green]\"melancia\"[/color] corretamente.  
+• Erros como [color=red]\"bananna\"[/color] ou [color=red]\"laranjas\"[/color] não vão funcionar.
+O comerciante está começando a ficar [b]ainda mais nervoso[/b]... e ainda existe a possibilidade do ogro aparecer de novo!  
+Arrume os rótulos para [b]deixar tudo como o comerciante pediu[/b] e siga para a próxima parte da aventura!"
 
 [node name="Prison" type="Node" parent="."]
 

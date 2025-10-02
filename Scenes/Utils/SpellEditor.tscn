@@ -45,7 +45,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tucfx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Editor"]
 layout_mode = 2
-theme_override_constants/separation = 110
+theme_override_constants/separation = 190
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Editor/VBoxContainer"]
 layout_mode = 2

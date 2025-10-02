@@ -1,0 +1,93 @@
+[
+	{
+		"id": "0",
+		"text": "Ei, viajante... está tentando passar pelo portão do Dragão Elseifor?",
+		"options": [
+			{ "text": "Aparentemente sim!", "next": "1" }
+		]
+	},
+	{
+		"id": "1",
+		"text": "Então você vai precisar usar o encodificador. Essa máquina estranha funciona a partir de um vetor de 4 números.",
+		"options": [
+			{ "text": "Vetor?", "next": "2" }
+		]
+	},
+	{
+		"id": "2",
+		"text": "Um vetor é como se fosse uma lista. Ela pode conter inteiros, strings, ou qualquer outro tipo de dado.",
+		"options": [
+			{ "text": "...", "next": "3" }
+		]
+	},
+	{
+		"id": "3",
+		"text": "Cada item da lista tem uma posição chamada índice. O primeiro índice costuma ser 0, dependendo da linguagem.",
+		"options": [
+			{ "text": "Como assim?", "next": "4" }
+		]
+	},
+	{
+		"id": "4",
+		"text": "Vamos usar como exemplo o vetor a seguir: [10, 20, 30, 40], o 10 está no índice 0, o 20 no índice 1, e assim por diante.",
+		"options": [
+			{ "text": "Entendi, e como eu mudo os valores?", "next": "5", "toggle": "teachEditIndex" }
+		]
+	},
+	{
+		"id": "5",
+		"text": "O vetor é uma variável, aqui em Bugdônia ele pode ser modificado através da 'Runa de Edição de Índice'.",
+		"options": [
+			{ "text": "...", "next": "6" }
+		]
+	},
+	{
+		"id": "6",
+		"text": "Com ela você escolhe qual índice quer mudar e define o novo valor.",
+		"options": [
+			{ "text": "E depois?", "next": "7", "toggle": "teachLightning" }
+		]
+	},
+	{
+		"id": "7",
+		"text": "Quando o vetor estiver com todos os valores certos, lance uma 'Runa de Raio' no encodificador para ativá-lo.",
+		"options": [
+			{ "text": "...", "next": "8" }
+		]
+	},
+	{
+		"id": "8",
+		"text": "Isso vai fazer as engrenagens girarem e o portão se abrir!",
+		"options": [
+			{ "text": "E quais valores eu devo usar?", "next": "9" }
+		]
+	},
+	{
+		"id": "9",
+		"text": "Hehe... eu vi um pesquisador digitando a senha ontem.",
+		"options": [
+			{ "text": "Qual é?", "next": "10", "toggle": "talked" }
+		]
+	},
+	{
+		"id": "10",
+		"text": "A senha é [5, 2, 3, 4]. Se você errar, as engrenagens vão girar mas nada vai acontecer.",
+		"options": [
+			{ "text": "Obrigado pela ajuda!", "next": "11" }
+		]
+	},
+	{
+		"id": "11",
+		"text": "Boa sorte, jovem mago. E que o dragão não acorde...",
+		"options": [
+			{ "text": "Pode deixar!", "next": null }
+		]
+	},
+	{
+		"id": "12",
+		"text": "Boa! Você conseguiu abrir o portão!",
+		"options": [
+			{ "text": "Obrigado pela ajuda!", "next": null }
+		]
+	}
+]

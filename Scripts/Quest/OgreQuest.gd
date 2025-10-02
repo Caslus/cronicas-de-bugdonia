@@ -44,6 +44,9 @@ func onUpdateQuestVariables():
 		ogre.set("startingDialog", "11")
 		var barrier: CollisionShape2D = ogreBarrier.get_node("Collision")
 		barrier.disabled = true
+		if challengeTimer != null:
+			challengeTimer.queue_free()
+			challengeTimer = null
 		QuestManager.setCurrentQuest(nextQuest)
 	pass
 

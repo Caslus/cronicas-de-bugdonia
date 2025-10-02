@@ -34,7 +34,7 @@ func set_action(action: Callable) -> void:
 func add_config_ui() -> void:
 	var configUI: Control = spellBlockConfig.instantiate()
 	# configUI will float below the button
-	configUI.position = Vector2(116, 130)
+	configUI.position = Vector2(116, 150)
 	configUI.z_index = 1
 
 	configUI.get_node("Editor").get_node("VBoxContainer").get_node("HBoxContainer").get_node("Buttons").get_node("CloseEditorButton").pressed.connect(func():

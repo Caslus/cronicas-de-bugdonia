@@ -9,6 +9,7 @@ var booleanEditorScene: PackedScene = preload("res://Scenes/Utils/BooleanEdit.ts
 var intEditorScene: PackedScene = preload("res://Scenes/Utils/IntEdit.tscn")
 var floatEditorScene: PackedScene = preload("res://Scenes/Utils/FloatEdit.tscn")
 var stringEditorScene: PackedScene = preload("res://Scenes/Utils/StringEdit.tscn")
+var arrayViewerScene: PackedScene = preload("res://Scenes/Utils/ArrayViewer.tscn")
 
 func formatPropertyName(selected, propName) -> String:
 	var value = str(selected.get(propName))
@@ -81,6 +82,27 @@ func create_boolean_editor(selected, prop):
 	buttonToggle.connect("pressed", Callable(self, "_on_toggle_button_pressed").bind(prop.name, nameLabel))
 	attributeList.add_child(booleanEdit)
 
+func create_array_editor(selected, prop):
+	# create Visualizar button
+	var hContainer = HBoxContainer.new()
+	hContainer.alignment = BoxContainer.ALIGNMENT_END
+	attributeList.add_child(hContainer)
+	var nameLabel = Label.new()
+	nameLabel.text = prop.name.replace("VAR_", "") + ":"
+	hContainer.add_child(nameLabel)
+	var arrayViewerButton = Button.new()
+	arrayViewerButton.text = "Visualizar"
+	arrayViewerButton.connect("pressed", Callable(self, "open_array_viewer").bind(selected, prop))
+	hContainer.add_child(arrayViewerButton)
+
+func open_array_viewer(selected, prop):
+	var arrayViewer = arrayViewerScene.instantiate()
+	if get_tree().current_scene.has_node("ArrayViewer"):
+		get_tree().current_scene.get_node("ArrayViewer").setup(selected, prop)
+		return
+	arrayViewer.setup(selected, prop)
+	get_tree().current_scene.add_child(arrayViewer)
+
 func create_ui():
 	if SelectedManager.selected == null:
 		ui.visible = false
@@ -107,6 +129,8 @@ func create_ui():
 			create_string_editor(selected, prop)
 		elif prop.type == TYPE_BOOL:
 			create_boolean_editor(selected, prop)
+		elif prop.type == TYPE_ARRAY:
+			create_array_editor(selected, prop)
 			
 func _on_close_button_pressed():
 		SelectedManager.set_selected(null)
