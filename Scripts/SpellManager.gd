@@ -14,7 +14,8 @@ var availableSpellBlocks = [
 	ForStartBlock.new(2),
 	ForEndBlock.new(),
 	EditIndexBlock.new(0, 0),
-	LightningBlock.new()
+	LightningBlock.new(),
+	ExplosionBlock.new(0, 0)
 ]
 
 var currentSpell := Spell.new()
@@ -46,6 +47,8 @@ func append_spell_block(block: SpellBlock) -> void:
 				currentSpell.blocks.append(EditIndexBlock.new(block.config.indice, block.config.valor))
 			"raio":
 				currentSpell.blocks.append(LightningBlock.new())
+			"explosao":
+				currentSpell.blocks.append(ExplosionBlock.new(block.config.coluna, block.config.linha))
 			_:
 				pass # unknown block, do nothing
 

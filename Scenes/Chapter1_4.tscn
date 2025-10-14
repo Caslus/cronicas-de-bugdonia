@@ -116,7 +116,7 @@ allowedToCast = false
 [node name="Map" type="Node2D" parent="."]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Map"]
-position = Vector2(5106, -538)
+position = Vector2(5181, -538)
 rotation = 3.14159
 scale = Vector2(1, -1)
 

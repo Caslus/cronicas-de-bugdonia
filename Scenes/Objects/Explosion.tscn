@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://d27cqg7dortob"]
+
+[ext_resource type="Texture2D" uid="uid://38atmmtppuhc" path="res://Assets/Textures/Explosion.png" id="1_sn57i"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o3667"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_sn57i"]
+offsets = PackedFloat32Array(0, 0.438849, 0.800959, 0.896882)
+colors = PackedColorArray(1, 0.866667, 0, 1, 1, 0.652, 0.13, 1, 1, 0.13, 0.13, 1, 0.051971, 0.051971, 0.051971, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o3667"]
+gradient = SubResource("Gradient_sn57i")
+
+[sub_resource type="Curve" id="Curve_sn57i"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o3667"]
+curve = SubResource("Curve_sn57i")
+
+[sub_resource type="Curve" id="Curve_o3667"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.573363, 1), -2.24521, -2.24521, 0, 0, Vector2(1, 0.254983), -3.27561, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ivfhq"]
+curve = SubResource("Curve_o3667")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ivfhq"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 200.0
+radial_accel_max = 200.0
+damping_curve = SubResource("CurveTexture_o3667")
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_ivfhq")
+color_ramp = SubResource("GradientTexture1D_o3667")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 3
+material = SubResource("CanvasItemMaterial_o3667")
+emitting = false
+amount = 100
+texture = ExtResource("1_sn57i")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.72
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ivfhq")

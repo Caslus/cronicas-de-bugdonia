@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://civbm2nvsk30x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s7dc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 300)
+theme_override_styles/panel = SubResource("StyleBoxFlat_1s7dc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "[0][0]"
+horizontal_alignment = 2
+vertical_alignment = 2

@@ -1,0 +1,100 @@
+[
+	{
+		"id": "0",
+		"text": "Finalmente... estamos dentro do castelo do Dragão Elseifor!",
+		"options": [
+			{ "text": "Sim... e agora?", "next": "0b" }
+		]
+	},
+	{
+		"id": "0b",
+		"text": "Precisamos salvar a Princesa Arraya, ela está sendo mantida prisioneira pelo dragão.",
+		"options": [
+			{ "text": "Onde ele está?", "next": "1" }
+		]
+	},
+	{
+		"id": "1",
+		"text": "Ele está logo à frente. Mas antes de enfrentá-lo, você precisa entender algo novo: as matrizes.",
+		"options": [
+			{ "text": "Matrizes?", "next": "2" }
+		]
+	},
+	{
+		"id": "2",
+		"text": "Isso mesmo. Uma matriz é como um vetor, mas em vez de uma linha só, ela tem linhas e colunas, formando uma grade.",
+		"options": [
+			{ "text": "Tipo uma tabela?", "next": "3" }
+		]
+	},
+	{
+		"id": "3",
+		"text": "Tipo isso! Podemos imaginar uma matriz como uma tabela onde cada posição tem dois índices: um para a linha e outro para a coluna.",
+		"options": [
+			{ "text": "Pode dar um exemplo?", "next": "4" }
+		]
+	},
+	{
+		"id": "4",
+		"text": "Veja uma matriz 5x5, por exemplo. A posição [0][0] é o canto superior esquerdo, e [4][4] é o canto inferior direito.",
+		"options": [
+			{ "text": "Entendi!", "next": "5" }
+		]
+	},
+	{
+		"id": "5",
+		"text": "Lembre-se: assim como nos vetores, a contagem começa do 0. Então as linhas e colunas vão de 0 até 4.",
+		"options": [
+			{ "text": "Certo...", "next": "6"}
+		]
+	},
+	{
+		"id": "6",
+		"text": "O Dragão Elseifor está voando dentro da matriz logo à frente, se movendo entre as posições em um padrão determinado.",
+		"options": [
+			{ "text": "Ele voa dentro da matriz?!", "next": "7" }
+		]
+	},
+	{
+		"id": "7",
+		"text": "Sim! Cada posição que ele passa corresponde a um índice da matriz. Observe bem onde ele para de voar e ataque!",
+		"options": [
+			{ "text": "E como eu ataco?", "next": "8", "toggle": "teachExplosion" }
+		]
+	},
+	{
+		"id": "8",
+		"text": "Use a 'Runa de Explosão' nos índices [linha][coluna] onde o dragão parar. Mire certo e você o acertará em cheio!",
+		"options": [
+			{ "text": "E se eu errar?", "next": "9" }
+		]
+	},
+	{
+		"id": "9",
+		"text": "Se errar, ele vai se esquivar e continuar voando. Você precisa prestar atenção nos índices!",
+		"options": [
+			{ "text": "Entendi. Vamos derrotá-lo!", "next": "9b", "toggle": "fightStarted" }
+		]
+	},
+	{
+		"id": "9b",
+		"text": "Só mais ma coisa, aperta a tecla Z para afastar a câmera e ter uma visão melhor da matriz.",
+		"options": [
+			{ "text": "Boa ideia!", "next": null, "toggle": "allowedToZoomOut" }
+		]
+	},
+	{
+		"id": "9c",
+		"text": "Você consegue! Lembre-se de usar a 'Runa de Explosão' nos índices corretos para derrotar o dragão.",
+		"options": [
+			{ "text": "Vamos lá!", "next": null }
+		]
+	},
+	{
+		"id": "10",
+		"text": "Você conseguiu! O Dragão Elseifor foi derrotado!",
+		"options": [
+			{ "text": "Conseguimos!", "next": null }
+		]
+	}
+]

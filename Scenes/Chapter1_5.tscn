@@ -1,3 +1,460 @@
-[gd_scene format=3 uid="uid://hu4oqb6ceu0w"]
+[gd_scene load_steps=37 format=3 uid="uid://hu4oqb6ceu0w"]
+
+[ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_1s7dc"]
+[ext_resource type="Script" uid="uid://l3hctyt1mlkj" path="res://Scripts/Quest/DragonQuest.gd" id="1_qtqwm"]
+[ext_resource type="Texture2D" uid="uid://dx261cbtbwnkl" path="res://Assets/Objects/PrisonInnerDoor.png" id="2_5ba64"]
+[ext_resource type="PackedScene" uid="uid://bf7cf5tumxpkx" path="res://Scenes/Utils/TipUI.tscn" id="2_dcd2y"]
+[ext_resource type="PackedScene" uid="uid://dq3s72w5aye62" path="res://Scenes/Utils/SpellEditor.tscn" id="3_g2uqq"]
+[ext_resource type="Script" uid="uid://b71nfyjmm0mqa" path="res://Scripts/SpellManager.gd" id="4_dcd2y"]
+[ext_resource type="PackedScene" uid="uid://c4waaclx2re3q" path="res://Scenes/Objects/FailParticles.tscn" id="5_g2uqq"]
+[ext_resource type="Script" uid="uid://dpxayjcialoeb" path="res://Scripts/Utils/Grid.gd" id="5_ji88g"]
+[ext_resource type="PackedScene" uid="uid://civbm2nvsk30x" path="res://Scenes/Utils/GridCell.tscn" id="6_qwqvr"]
+[ext_resource type="Script" uid="uid://r4syl66emtrt" path="res://Scripts/Utils/SpellHelper.gd" id="7_krn5r"]
+[ext_resource type="Script" uid="uid://dwy4pws0w7vhn" path="res://Scripts/Entity/Dragon.gd" id="8_rybvx"]
+[ext_resource type="PackedScene" uid="uid://dcbc26gk3t6db" path="res://Scenes/Entity/NPC.tscn" id="9_21hwd"]
+[ext_resource type="Texture2D" uid="uid://b8jpbwh0ejr8" path="res://Assets/Entity/CastleGate/cabeça.png" id="10_au8ml"]
+[ext_resource type="Texture2D" uid="uid://ih7pny0v47th" path="res://Assets/Objects/JailCell2.png" id="10_x0srf"]
+[ext_resource type="Texture2D" uid="uid://dpsdua330nr70" path="res://Assets/Entity/CastleGate/torso.png" id="11_qtqwm"]
+[ext_resource type="Texture2D" uid="uid://df466nc6qpwkf" path="res://Assets/Objects/JailColumn2.png" id="11_yt65v"]
+[ext_resource type="Texture2D" uid="uid://bs5mvgqerp06i" path="res://Assets/Entity/CastleGate/braço.png" id="12_as35q"]
+[ext_resource type="Texture2D" uid="uid://yk11d7ftmvm6" path="res://Assets/Entity/CastleGate/perna.png" id="13_dcd2y"]
+[ext_resource type="Texture2D" uid="uid://cvyb7db62w4g4" path="res://Assets/Entity/Dragon/Body.png" id="14_x0srf"]
+[ext_resource type="PackedScene" uid="uid://dcc2gt0si76ap" path="res://Scenes/Objects/DragonParticles.tscn" id="16_4wk4g"]
+[ext_resource type="Texture2D" uid="uid://drqsllu8b82yf" path="res://Assets/Entity/Dragon/wing.png" id="17_yt65v"]
+[ext_resource type="PackedScene" uid="uid://d27cqg7dortob" path="res://Scenes/Objects/Explosion.tscn" id="20_7jm31"]
+[ext_resource type="PackedScene" uid="uid://utyba3up68qc" path="res://Scenes/Utils/DragonHealthBar.tscn" id="21_x0srf"]
+[ext_resource type="PackedScene" uid="uid://c58ii66c5lfe" path="res://Scenes/Utils/EndMessage.tscn" id="24_hoebb"]
+[ext_resource type="Texture2D" uid="uid://dlvw3e6uj46t4" path="res://Assets/Entity/Princess/HEAD.png" id="25_iaade"]
+[ext_resource type="Texture2D" uid="uid://day7x4mmdhf06" path="res://Assets/Entity/Princess/TORSO.png" id="26_15pce"]
+[ext_resource type="Texture2D" uid="uid://qabbm2pouamv" path="res://Assets/Entity/Princess/ARM.png" id="27_5cx4q"]
+[ext_resource type="Texture2D" uid="uid://cm3nboc6s01n0" path="res://Assets/Entity/Princess/LEG.png" id="28_tnoir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rybvx"]
+size = Vector2(23761, 165)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p8s3"]
+size = Vector2(306.495, 1654)
+
+[sub_resource type="Animation" id="Animation_yt65v"]
+resource_name = "Fly"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wing1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [0.785398, -0.523599, 0.785398]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wing2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.56, 1),
+"transitions": PackedFloat32Array(0.707107, 0.707107, 0.707107),
+"update": 0,
+"values": [0.770579, -0.190475, 0.770579]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, -10), Vector2(0, 10)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wing2:offset")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-45.849, -13.986), Vector2(-45.849, -33.986), Vector2(-45.849, -13.986)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Wing1:offset")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-46, -5), Vector2(-46, -33.5), Vector2(-46, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_4wk4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wing1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wing2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.770579]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wing2:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-45.8489, -23.9855)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Wing1:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-46, -23.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hoebb"]
+_data = {
+&"Fly": SubResource("Animation_yt65v"),
+&"RESET": SubResource("Animation_4wk4g")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yt65v"]
+animation = &"Fly"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4wk4g"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hoebb"]
+states/Fly/node = SubResource("AnimationNodeAnimation_yt65v")
+states/Fly/position = Vector2(386, 85)
+states/Start/position = Vector2(130, 92)
+transitions = ["Start", "Fly", SubResource("AnimationNodeStateMachineTransition_4wk4g")]
+graph_offset = Vector2(-119, -19)
 
 [node name="Chapter15" type="Node2D"]
+
+[node name="Quest" type="Node" parent="." node_paths=PackedStringArray("npc", "spellManager", "spellEditor", "player")]
+script = ExtResource("1_qtqwm")
+npc = NodePath("../NPC")
+spellManager = NodePath("../Player/SpellManager")
+spellEditor = NodePath("../SpellEditor")
+tipUI = ExtResource("2_dcd2y")
+tipText = "O dragão está voando dentro de uma [b]matriz[/b], uma [b]tabela com linhas e colunas[/b]!
+Cada posição é identificada por [b]dois números[/b]: o [b]índice da linha[/b] e o [b]índice da coluna[/b].
+
+Lembre-se: na maioria das linguagens de programação, os [b]índices começam do 0[/b]!
+Então, a primeira posição é [color=green][0][0][/color], e o centro de uma matriz 5x5 é [color=green][2][2][/color].
+
+• Observe o [b]padrão de voo[/b] do dragão.
+• Espere ele [b]parar em um índice[/b] e use o feitiço de [b]explosão[/b] no lugar certo 💥
+
+Se errar o alvo, o dragão vai rir de você e mudar de posição!
+Use seus conhecimentos para [b]acertar o índice exato[/b] e salvar a princesa [b]Arraya[/b]! 👑"
+player = NodePath("../Player")
+
+[node name="SpellEditor" parent="." node_paths=PackedStringArray("spellManager") instance=ExtResource("3_g2uqq")]
+visible = false
+allowedToUseEditor = false
+spellManager = NodePath("../Player/SpellManager")
+
+[node name="Player" parent="." instance=ExtResource("1_1s7dc")]
+z_index = 10
+position = Vector2(0, -301)
+VAR_SPEED = 15.0
+RESPAWN_POINT = Vector2(-270, -270)
+hasWand = true
+CAMERA_LIMIT_LEFT = -812
+metadata/objectName = "Jogador"
+metadata/Interactable = true
+
+[node name="SpellManager" type="Node" parent="Player"]
+script = ExtResource("4_dcd2y")
+spellBlockLimit = 6
+failParticles = ExtResource("5_g2uqq")
+allowedToCast = false
+
+[node name="SpellHelper" type="Node" parent="Player/SpellManager" node_paths=PackedStringArray("grid", "dragon")]
+script = ExtResource("7_krn5r")
+grid = NodePath("../../../Grid")
+dragon = NodePath("../../../Dragon")
+explosionScene = ExtResource("20_7jm31")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
+position = Vector2(10511.5, -6)
+shape = SubResource("RectangleShape2D_rybvx")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Map"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D2"]
+position = Vector2(-340.247, -823)
+shape = SubResource("RectangleShape2D_6p8s3")
+
+[node name="PrisonInnerDoor" type="Sprite2D" parent="Map"]
+position = Vector2(0, -1024)
+rotation = 3.14159
+scale = Vector2(0.988252, -1.35851)
+texture = ExtResource("2_5ba64")
+
+[node name="JailCell5" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(405, -1136.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("10_x0srf")
+
+[node name="JailColumn3" type="Sprite2D" parent="Map"]
+position = Vector2(1206, -1283.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("11_yt65v")
+
+[node name="JailCell6" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(2011.5, -1136.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("10_x0srf")
+
+[node name="JailColumn4" type="Sprite2D" parent="Map"]
+position = Vector2(2812.5, -1283.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("11_yt65v")
+
+[node name="JailCell7" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(3614.5, -1136.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("10_x0srf")
+
+[node name="JailColumn5" type="Sprite2D" parent="Map"]
+position = Vector2(4415.5, -1283.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("11_yt65v")
+
+[node name="JailCell8" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(5223.5, -1136.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("10_x0srf")
+
+[node name="JailColumn6" type="Sprite2D" parent="Map"]
+position = Vector2(6024.5, -1283.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("11_yt65v")
+
+[node name="JailCell9" type="Sprite2D" parent="Map"]
+light_mask = 3
+z_index = -1
+position = Vector2(6826.5, -1136.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("10_x0srf")
+
+[node name="JailColumn7" type="Sprite2D" parent="Map"]
+position = Vector2(7627.5, -1283.54)
+scale = Vector2(0.999407, 1.26314)
+texture = ExtResource("11_yt65v")
+
+[node name="Grid" type="GridContainer" parent="."]
+offset_left = 2872.0
+offset_top = -1922.0
+offset_right = 4356.0
+offset_bottom = -438.0
+theme_override_constants/h_separation = -4
+theme_override_constants/v_separation = -4
+columns = 5
+script = ExtResource("5_ji88g")
+cellSize = 300
+labelFontSize = 36
+cellScene = ExtResource("6_qwqvr")
+
+[node name="PanelContainer" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer10" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer11" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer12" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer13" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer14" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer15" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer16" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer17" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer18" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer19" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer20" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer21" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer22" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer23" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer24" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="PanelContainer25" parent="Grid" instance=ExtResource("6_qwqvr")]
+layout_mode = 2
+
+[node name="Dragon" type="Sprite2D" parent="." node_paths=PackedStringArray("grid", "quest")]
+z_index = 2
+position = Vector2(2969, -1818)
+scale = Vector2(-2, 2)
+texture = ExtResource("14_x0srf")
+script = ExtResource("8_rybvx")
+grid = NodePath("../Grid")
+dragonParticles = ExtResource("16_4wk4g")
+endMessage = ExtResource("24_hoebb")
+quest = NodePath("../Quest")
+
+[node name="HealthBar" parent="Dragon" instance=ExtResource("21_x0srf")]
+offset_left = -111.0
+offset_top = 2152.0
+offset_right = -111.0
+offset_bottom = 2152.0
+
+[node name="Wing1" type="Sprite2D" parent="Dragon"]
+position = Vector2(-2.60884, -5.64085)
+rotation = 0.785398
+texture = ExtResource("17_yt65v")
+offset = Vector2(-46, -23.5)
+
+[node name="Wing2" type="Sprite2D" parent="Dragon"]
+z_index = -1
+position = Vector2(7.07774, -6.42844)
+rotation = 0.770579
+texture = ExtResource("17_yt65v")
+offset = Vector2(-45.8489, -23.9855)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dragon"]
+libraries = {
+&"": SubResource("AnimationLibrary_hoebb")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Dragon"]
+tree_root = SubResource("AnimationNodeStateMachine_hoebb")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="NPC" parent="." node_paths=PackedStringArray("quest") instance=ExtResource("9_21hwd")]
+z_index = 2
+position = Vector2(578, -336)
+dialogFile = "res://Dialog/DragonCastle.json"
+startingDialog = "0"
+quest = NodePath("../Quest")
+head = ExtResource("10_au8ml")
+torso = ExtResource("11_qtqwm")
+arm = ExtResource("12_as35q")
+leg = ExtResource("13_dcd2y")
+metadata/objectName = "Transeunte"
+
+[node name="Arraya" parent="." instance=ExtResource("9_21hwd")]
+z_index = 2
+position = Vector2(5239, -336)
+dialogFile = "res://Dialog/DragonCastle.json"
+startingDialog = "0"
+head = ExtResource("25_iaade")
+torso = ExtResource("26_15pce")
+arm = ExtResource("27_5cx4q")
+leg = ExtResource("28_tnoir")
+metadata/objectName = "Transeunte"
