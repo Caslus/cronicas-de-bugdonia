@@ -1,0 +1,30 @@
+[
+	{
+		"id": "1",
+		"text": "Você... me salvou! O Dragão Elseifor finalmente foi derrotado!",
+		"options": [
+			{ "text": "Está tudo bem agora, princesa.", "next": "2" }
+		]
+	},
+	{
+		"id": "2",
+		"text": "Eu vi tudo! Você usou os feitiços com sabedoria. Entendeu os vetores, as matrizes... e salvou Bugdônia!",
+		"options": [
+			{ "text": "Fiz o que era preciso.", "next": "3" }
+		]
+	},
+	{
+		"id": "3",
+		"text": "Obrigada, herói. O reino jamais esquecerá o que você fez.",
+		"options": [
+			{ "text": "...", "next": "4" }
+		]
+	},
+	{
+		"id": "4",
+		"text": "Que suas linhas de código sejam cheias de magia para todo sempre!",
+		"options": [
+			{ "text": "[FIM]", "next": null, "toggle": "gameCompleted" }
+		]
+	}
+]

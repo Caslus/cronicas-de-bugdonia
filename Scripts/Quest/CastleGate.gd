@@ -47,6 +47,9 @@ func onUpdateQuestVariables():
 		startChallenges()
 	if questVariables.get("opened"):
 		npc.set("startingDialog", "12")
+		if challengeTimer != null:
+			challengeTimer.queue_free()
+			challengeTimer = null
 
 func _ready():
 	QuestManager.currentQuest = self

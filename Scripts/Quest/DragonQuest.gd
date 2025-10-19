@@ -6,7 +6,8 @@ extends Node
 	"teachExplosion": false,
 	"fightStarted": false,
 	"allowedToZoomOut": false,
-	"finished": false
+	"finished": false,
+	"gameCompleted": false
 }
 @export var npc: CharacterBody2D = null
 @export var nextQuest: Node
@@ -26,6 +27,9 @@ var challengeTimer: Timer = null
 @onready var originalLimitBottom: int = camera.limit_bottom
 var zoomedOut: bool = false
 
+@export var fog: ColorRect
+@export var lock: Node2D
+
 func zoomOut():
 	var tweenZoom = create_tween()
 	tweenZoom.set_ease(Tween.EASE_IN_OUT)
@@ -43,6 +47,13 @@ func zoomIn():
 	tweenLimit.set_ease(Tween.EASE_IN_OUT)
 	tweenLimit.tween_property(camera, "limit_bottom", originalLimitBottom, 1.0)
 	pass
+
+func removeFog():
+	var fogTween = fog.create_tween()
+	fogTween.set_ease(Tween.EaseType.EASE_IN_OUT)
+	fogTween.tween_property(fog, "modulate", Color(1, 1, 1, 0), 2)
+	await fogTween.finished
+	fog.visible = false
 
 func startChallenges():
 	if challengeTimer != null: return
@@ -77,15 +88,25 @@ func onUpdateQuestVariables():
 	if questVariables.get("finished"):
 		npc.set("startingDialog", "10")
 		questVariables["allowedToZoomOut"] = false
+		removeFog()
 		if zoomedOut:
 			zoomIn()
 			zoomedOut = false
+		if challengeTimer != null:
+			challengeTimer.queue_free()
+			challengeTimer = null
+		lock.set_meta("Interactable", true)
+	if questVariables.get("gameCompleted"):
+		TransitionCanvas.transition()
+		await TransitionCanvas.on_transition_finished
+		get_tree().change_scene_to_file("res://Scenes/End.tscn")
 		
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color(0.208, 0.208, 0.251))
 	QuestManager.currentQuest = self
 	QuestManager.connect("questVariablesChanged", Callable(self, "onUpdateQuestVariables"))
+	fog.visible = true
 
 # if Z key is pressed, zoom out the camera
 func _process(_delta: float) -> void:

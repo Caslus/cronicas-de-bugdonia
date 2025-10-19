@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbd2byeedj6wj"]
+
+[ext_resource type="PackedScene" uid="uid://cherfw86xm8pm" path="res://Scenes/Entity/Player.tscn" id="1_d1g0i"]
+[ext_resource type="Texture2D" uid="uid://cuof3sslg4ee0" path="res://Assets/UI/MenuBackground.png" id="3_x0iu1"]
+[ext_resource type="Script" uid="uid://btq40y0a14c6d" path="res://Scripts/play_button.gd" id="4_fwq7q"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_d1g0i")]
+z_index = 10
+position = Vector2(405, 1314)
+VAR_SPEED = 15.0
+CAN_MOVE = false
+RESPAWN_POINT = Vector2(-270, -270)
+CAMERA_LIMIT_LEFT = 0
+CAMERA_LIMIT_RIGHT = 0
+CAMERA_LIMIT_TOP = 0
+CAMERA_LIMIT_BOTTOM = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2075, 0.2075, 0.25, 0.921569)
+
+[node name="MenuBackground" type="Sprite2D" parent="CanvasLayer"]
+z_index = -5
+texture = ExtResource("3_x0iu1")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+offset = Vector2(960, 540)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.5
+offset_top = -73.0
+offset_right = 148.5
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 106
+text = "O FIM"
+
+[node name="CanvasGroup" type="CanvasGroup" parent="CanvasLayer"]
+position = Vector2(960, 881)
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/CanvasGroup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -249.0
+offset_right = 96.0
+offset_bottom = -218.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jogar novamente"
+script = ExtResource("4_fwq7q")
+
+[connection signal="pressed" from="CanvasLayer/CanvasGroup/PlayButton" to="CanvasLayer/CanvasGroup/PlayButton" method="_on_pressed"]
